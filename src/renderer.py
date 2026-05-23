@@ -34,6 +34,18 @@ URGENCY_COLOURS = {
     "stay_informed": "#5F5E5A",
 }
 
+STANCE_LABELS = {
+    "bullish": "Bullish",
+    "bearish": "Bearish",
+    "neutral": "Neutral",
+}
+
+STANCE_COLOURS = {
+    "bullish": "#0F6E56",
+    "bearish": "#993C1D",
+    "neutral": "#5F5E5A",
+}
+
 TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
 
 
@@ -118,6 +130,8 @@ def render_html(briefing: dict) -> str:
         "category_colours": _category_colour_map(),
         "urgency_labels": URGENCY_LABELS,
         "urgency_colours": URGENCY_COLOURS,
+        "stance_labels": STANCE_LABELS,
+        "stance_colours": STANCE_COLOURS,
         "signal_dots": signal_dots_html,
         "source_badge_style": source_badge_style,
         "horizon_labels": HORIZON_LABELS,
@@ -160,6 +174,25 @@ def render_markdown(briefing: dict) -> str:
             lines.append("")
             lines.append("---")
             lines.append("")
+
+    lines.append("## Leader Voices")
+    lines.append("")
+    for lv in briefing.get("leader_voices", []):
+        stance = lv.get("stance", "neutral")
+        label = STANCE_LABELS.get(stance, stance)
+        lines.append(f"### {lv.get('name', '')} — {lv.get('org', '')}")
+        lines.append(f"**Stance:** {label}")
+        lines.append("")
+        lines.append(lv.get("quote_or_paragraph", ""))
+        lines.append("")
+        lines.append(lv.get("strategic_implication", ""))
+        lines.append("")
+        url = lv.get("url", "")
+        if url:
+            lines.append(f"[Source →]({url})")
+        lines.append("")
+        lines.append("---")
+        lines.append("")
 
     lines.append("## Top Signals")
     lines.append("")

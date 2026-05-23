@@ -18,7 +18,14 @@ log = logging.getLogger(__name__)
 DEFAULT_MODEL = "claude-opus-4-7"
 MAX_ARTICLES_IN_PROMPT = 12
 
-REQUIRED_TOP_KEYS = ("weekly_theme", "theme_context", "categories", "top_signals")
+REQUIRED_TOP_KEYS = (
+    "weekly_theme",
+    "theme_context",
+    "categories",
+    "leader_voices",
+    "top_signals",
+)
+VALID_STANCES = {"bullish", "bearish", "neutral"}
 REQUIRED_CATEGORY_IDS = (
     "capital_theses",
     "building",
@@ -90,6 +97,31 @@ _BRIEFING_TOOL = {
                     "required": ["id", "name", "items"],
                 },
             },
+            "leader_voices": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {"type": "string"},
+                        "org": {"type": "string"},
+                        "quote_or_paragraph": {"type": "string"},
+                        "url": {"type": "string"},
+                        "stance": {
+                            "type": "string",
+                            "enum": list(VALID_STANCES),
+                        },
+                        "strategic_implication": {"type": "string"},
+                    },
+                    "required": [
+                        "name",
+                        "org",
+                        "quote_or_paragraph",
+                        "url",
+                        "stance",
+                        "strategic_implication",
+                    ],
+                },
+            },
             "top_signals": {
                 "type": "array",
                 "items": {
@@ -112,6 +144,7 @@ _BRIEFING_TOOL = {
             "generated_at",
             "week_of",
             "categories",
+            "leader_voices",
             "top_signals",
         ],
     },
@@ -139,15 +172,17 @@ def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
         f"- {cid}: {CATEGORY_NAMES[cid]}" for cid in REQUIRED_CATEGORY_IDS
     )
 
-    return f"""You are a senior AI strategy analyst producing a weekly AI STRATEGY BRIEFING —
-not a news digest. The reader is an operator or investor who needs to see where the AI
-market is heading, how capital is positioning, what companies are shipping, and which
-opportunities are opening across time horizons.
+    return f"""You are a senior AI strategy analyst producing a comprehensive weekly AI STRATEGY REPORT —
+not a news digest. The reader is an operator or investor who needs a multi-angle view of where the AI
+market is heading: how capital is positioning, what top leaders are saying, what companies are shipping,
+which Product Hunt launches validate investor theses, and which opportunities are opening across horizons.
 
 ## Your task
 1. Use the supplied raw articles as the PRIMARY data source ({total} articles from {len(sources_present)} sources).
-2. Use web_search only to verify facts, fill missing URLs, or add brief strategic context.
-3. When finished, call submit_weekly_briefing with the complete briefing.
+2. Use web_search to find recent (last 7-14 days) public statements from top AI leaders AND to verify facts/URLs.
+3. After building capital_theses and opp_* sections, cross-reference Product Hunt items from the raw list:
+   select 2-4 launches that DIRECTLY validate this week's investor theses or opportunity themes.
+4. When finished, call submit_weekly_briefing with the complete report.
 
 ## Time context
 - Today (UTC): {now.isoformat()}
@@ -163,23 +198,38 @@ opportunities are opening across time horizons.
 
 ### Per-category guidance
 - **capital_theses**: How investors see and believe — rounds, fund theses, partner essays, valuation narratives, where smart money is moving in AI.
-- **building**: How companies tackle and solve — frontier model releases, agent platforms, enterprise rollouts, infra/tooling that actually ships.
-- **opp_now** (0-6 months): Immediate plays — gaps to move on this quarter, acute wedges, near-term arbitrage. Each item MUST set horizon="now".
+- **building**: How companies tackle and solve — frontier model releases, agent platforms, enterprise rollouts, infra/tooling that actually ships. Include aligned Product Hunt picks here when they validate a thesis.
+- **opp_now** (0-6 months): Immediate plays — gaps to move on this quarter, acute wedges, near-term arbitrage. Each item MUST set horizon="now". Include PH launches here when they validate a near-term thesis.
 - **opp_mid** (6-18 months): Forming categories, positioning windows, second-order effects. Each item MUST set horizon="mid".
 - **opp_long** (18+ months): Paradigm shifts, directional bets, weak signals that could compound. Each item MUST set horizon="long".
+
+## Leader voices (required — use web_search)
+Add 4-8 entries in leader_voices from recent public statements by top leaders such as:
+Elon Musk, Jensen Huang, Satya Nadella, Sundar Pichai, Sam Altman, Demis Hassabis, Ben Horowitz,
+Pat Grady, Andy Jassy, or comparable AI/tech executives.
+- Find interviews, earnings calls, keynotes, or verified posts from the last 7-14 days.
+- Paraphrase is OK if the source URL is real and recent.
+- Each entry needs: name, org, quote_or_paragraph, https url, stance (bullish|bearish|neutral on AI direction),
+  and strategic_implication (1-2 sentences for operators/investors).
+
+## Product Hunt investor alignment
+- From scraped Product Hunt items, pick ONLY 2-4 that directly align with capital_theses or opp_* themes THIS week.
+- In each PH item summary, explicitly tie it to which thesis or opportunity it validates.
+- Drop non-AI PH items unless they clearly validate a thesis from this week's briefing.
+- Do NOT include random indie SaaS that doesn't connect to investor narratives.
 
 ## AI-only filter (hard rule)
 Include ONLY items with a direct, material AI angle. DROP without exception:
 - Generic space/hardware launches (e.g. SpaceX) unless explicitly about AI compute
 - Non-AI consumer apps, CMS releases, climate/energy unless AI is the core story
-- Indie SaaS unless it materially reshapes an AI category
+- Indie SaaS unless it materially reshapes an AI category or validates a stated thesis
 
 Inclusion test: "Would a serious AI investor or AI-company operator regret missing this?"
-If no, drop it. Better 15 sharp items than 30 noisy ones.
+If no, drop it. Target ~15-20 category items plus 4-8 leader voices (~30 total entries max).
 
 ## Item quality rules
 - Every item MUST have a non-empty, real https URL in the `url` field.
-- 3-5 items per category; total briefing ~15-20 items. Skip weak categories rather than pad.
+- 3-5 items per category; skip weak categories rather than pad.
 - Each `summary` must answer: what changed AND what it implies for capital allocation,
   company strategy, or which doors opened/closed. No descriptive news recaps.
 - Opportunity items (opp_now, opp_mid, opp_long) must name: who could capture the play,
@@ -288,7 +338,32 @@ def _validate_briefing(data: dict) -> dict:
                     )
 
     if total_items > 25:
-        raise ValueError(f"Too many items ({total_items}); target 15-20 for a strategy doc")
+        raise ValueError(f"Too many category items ({total_items}); target 15-20")
+
+    leader_voices = data.get("leader_voices", [])
+    if not isinstance(leader_voices, list):
+        raise ValueError("leader_voices must be a list")
+    if not (3 <= len(leader_voices) <= 8):
+        raise ValueError(
+            f"Expected 3-8 leader_voices, got {len(leader_voices)}"
+        )
+    for lv in leader_voices:
+        for field in (
+            "name",
+            "org",
+            "quote_or_paragraph",
+            "url",
+            "stance",
+            "strategic_implication",
+        ):
+            if field not in lv or not str(lv.get(field, "")).strip():
+                raise ValueError(f"Leader voice missing required field: {field}")
+        if not str(lv["url"]).strip().startswith("https"):
+            raise ValueError(
+                f"Leader voice url must start with https: {lv.get('url')}"
+            )
+        if lv["stance"] not in VALID_STANCES:
+            raise ValueError(f"Invalid leader stance: {lv['stance']}")
 
     for sig in data["top_signals"]:
         for field in ("headline", "why_it_matters", "urgency"):
@@ -327,13 +402,18 @@ def _call_claude(client: anthropic.Anthropic, prompt: str) -> dict:
     return _parse_json_from_text(text)
 
 
-def analyse(raw_articles: dict[str, list[dict]]) -> dict:
+def analyse(
+    raw_articles: dict[str, list[dict]],
+    audit_feedback: str | None = None,
+) -> dict:
     """
     Calls Claude API with web_search tool enabled.
     Returns a validated AI strategy BriefingDict.
     """
     client = anthropic.Anthropic()
     prompt = build_prompt(raw_articles)
+    if audit_feedback:
+        prompt += f"\n\n## Audit remediation (fix these issues)\n{audit_feedback}"
     last_error: Exception | None = None
 
     for attempt in range(2):
@@ -349,6 +429,7 @@ def analyse(raw_articles: dict[str, list[dict]]) -> dict:
                     f"\n\nIMPORTANT: Validation failed: {exc}. "
                     "Call submit_weekly_briefing again. Every item needs a real https URL. "
                     "AI-only content. opp_* items need horizon now/mid/long matching their category. "
+                    "Include 4-8 leader_voices with name, org, url, stance, strategic_implication. "
                     f"Sources must be one of {list(ALLOWED_SOURCES)}."
                 )
                 continue

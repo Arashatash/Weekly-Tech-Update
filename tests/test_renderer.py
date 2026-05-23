@@ -35,6 +35,19 @@ def test_render_markdown_contains_headings(sample_briefing):
     assert sample_briefing["weekly_theme"] in md
 
 
+def test_render_html_contains_leader_voices(sample_briefing):
+    html = render_html(sample_briefing)
+    assert "Leader Voices" in html
+    assert sample_briefing["leader_voices"][0]["name"] in html
+    assert "Bullish" in html
+
+
+def test_render_markdown_contains_leader_voices(sample_briefing):
+    md = render_markdown(sample_briefing)
+    assert "## Leader Voices" in md
+    assert sample_briefing["leader_voices"][0]["name"] in md
+
+
 def test_render_json_is_valid(sample_briefing):
     raw = render_json(sample_briefing)
     parsed = json.loads(raw)

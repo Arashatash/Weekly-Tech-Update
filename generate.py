@@ -19,6 +19,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from src.analyser import analyse
+from src.audit import audit_briefing
 from src.publisher import publish_to_github, write_local
 from src.renderer import render_html, render_json, render_markdown
 from src.scraper import fetch_all_sources
@@ -59,6 +60,37 @@ def main() -> None:
     # Step 2: Analyse
     log.info("Calling Claude API...")
     briefing = analyse(raw)
+
+    audit_result = audit_briefing(briefing)
+    log.info(
+        "Audit: passed=%s scores=%s issues=%d",
+        audit_result["passed"],
+        audit_result["scores"],
+        len(audit_result["issues"]),
+    )
+    for issue in audit_result["issues"]:
+        log.log(
+            logging.WARNING if issue["level"] == "warning" else logging.ERROR,
+            "Audit [%s] %s: %s",
+            issue["level"],
+            issue["check"],
+            issue["message"],
+        )
+
+    if not audit_result["passed"]:
+        critical = [i for i in audit_result["issues"] if i["level"] == "critical"]
+        feedback = "\n".join(
+            f"- [{i['check']}] {i['message']}" for i in critical
+        )
+        log.warning("Audit failed with %d critical issues; retrying analyse once", len(critical))
+        briefing = analyse(raw, audit_feedback=feedback)
+        audit_result = audit_briefing(briefing)
+        log.info(
+            "Re-audit: passed=%s scores=%s",
+            audit_result["passed"],
+            audit_result["scores"],
+        )
+
     log.info("Analysis complete")
 
     # Step 3: Render

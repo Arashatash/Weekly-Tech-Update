@@ -31,6 +31,8 @@ def test_build_prompt_includes_articles(sample_raw_articles):
     assert "AI-only" in prompt or "AI-only filter" in prompt
     assert "capital_theses" in prompt
     assert "opp_now" in prompt
+    assert "leader_voices" in prompt
+    assert "Product Hunt" in prompt
 
 
 def test_validate_briefing(sample_briefing):
@@ -44,8 +46,10 @@ def test_analyse_returns_valid_schema(sample_raw_articles, sample_briefing, vali
 
     assert "weekly_theme" in result
     assert "categories" in result
+    assert "leader_voices" in result
     assert "top_signals" in result
     assert len(result["categories"]) == 5
+    assert len(result["leader_voices"]) >= 3
 
     for cat in result["categories"]:
         assert "id" in cat

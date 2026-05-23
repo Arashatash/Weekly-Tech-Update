@@ -24,12 +24,24 @@ This is a **strategy document**, not a general tech news digest. Each week it:
 
 Plus a **Top Signals** panel with 3–5 must-not-miss items for the week.
 
+## Leader Voices
+
+A dedicated section surfaces what top AI/tech leaders said publicly in the last 7–14 days (via Claude web search): Jensen Huang, Satya Nadella, Sam Altman, and peers. Each entry includes stance (bullish/bearish/neutral), a sourced quote or paraphrase, and strategic implication for operators and investors.
+
+## Product Hunt alignment
+
+Product Hunt launches are not listed at random. The analyser selects 2–4 PH products that **directly validate** the week's capital theses or opportunity themes, with summaries that tie each pick to the thesis it supports.
+
+## Multi-angle audit
+
+After generation, `src/audit.py` runs automated checks: URL integrity, AI relevance blocklist, schema completeness, horizon consistency, source whitelist, and strategic depth. Critical failures trigger one re-analysis pass with audit feedback appended to the prompt.
+
 ## Quality bar — what gets in
 
 - **AI-only:** Would a serious AI investor or operator regret missing this? If not, it is dropped.
 - **Every item has a real URL** — linked title on the published page.
 - **Strategic summaries** — what changed *and* what it implies for capital, company strategy, or open doors.
-- **~15–20 items total** — no filler. SpaceX launches, generic CMS releases, and non-AI indie SaaS are excluded.
+- **~15–20 category items + 4–8 leader voices** — no filler. SpaceX launches, generic CMS releases, and non-AI indie SaaS are excluded.
 
 ## Prerequisites
 
@@ -95,6 +107,7 @@ pytest tests/
 ├── src/
 │   ├── scraper.py        # Source fetching
 │   ├── analyser.py       # Claude API + AI strategy JSON
+│   ├── audit.py          # Multi-angle briefing quality checks
 │   ├── renderer.py       # HTML / MD / JSON output
 │   └── publisher.py      # Write files + gh-pages
 ├── templates/page.html   # Jinja2 HTML template

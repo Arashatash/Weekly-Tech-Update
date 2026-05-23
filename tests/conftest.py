@@ -90,6 +90,47 @@ def sample_briefing() -> dict:
                 "urgency": "stay_informed",
             },
         ],
+        "leader_voices": [
+            {
+                "name": "Jensen Huang",
+                "org": "NVIDIA",
+                "quote_or_paragraph": (
+                    "Physical AI and agentic systems will define the next platform shift."
+                ),
+                "url": "https://example.com/jensen-keynote",
+                "stance": "bullish",
+                "strategic_implication": (
+                    "Operators should prioritize robotics and inference-at-scale plays "
+                    "that NVIDIA's stack enables."
+                ),
+            },
+            {
+                "name": "Satya Nadella",
+                "org": "Microsoft",
+                "quote_or_paragraph": (
+                    "Copilot is evolving from chat to autonomous workflow agents."
+                ),
+                "url": "https://example.com/nadella-interview",
+                "stance": "bullish",
+                "strategic_implication": (
+                    "Enterprise distribution favors incumbents embedding agents in "
+                    "existing suites; wedge startups need vertical depth."
+                ),
+            },
+            {
+                "name": "Sam Altman",
+                "org": "OpenAI",
+                "quote_or_paragraph": (
+                    "Reasoning models unlock new categories of software automation."
+                ),
+                "url": "https://example.com/altman-statement",
+                "stance": "bullish",
+                "strategic_implication": (
+                    "Capital should track agent reliability and eval infra as the "
+                    "bottleneck to enterprise adoption."
+                ),
+            },
+        ],
     }
 
 

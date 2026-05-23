@@ -197,6 +197,54 @@
       display: inline-block;
     }
 
+    .leader-voices { margin-bottom: 2.5rem; }
+    .leader-voices h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
+    .leader-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .leader-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .leader-name { font-weight: 600; font-size: 1rem; }
+    .leader-org { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .stance-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .leader-quote {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .leader-implication {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .leader-link {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .leader-link:hover { text-decoration: underline; }
+
     footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -278,6 +326,30 @@
       </div>
     </section>
     {% endfor %}
+
+    <section class="leader-voices">
+      <h2>Leader Voices</h2>
+      <div class="leaders-grid">
+        {% for lv in briefing.leader_voices %}
+        {% set stance_colour = stance_colours.get(lv.stance, '#5F5E5A') %}
+        {% set stance_label = stance_labels.get(lv.stance, lv.stance) %}
+        <article class="leader-card">
+          <div class="leader-header">
+            <div>
+              <div class="leader-name">{{ lv.name }}</div>
+            </div>
+            <span class="stance-badge" style="background:{{ stance_colour }}22; color:{{ stance_colour }}">{{ stance_label }}</span>
+          </div>
+          <div class="leader-org">{{ lv.org }}</div>
+          <p class="leader-quote">"{{ lv.quote_or_paragraph }}"</p>
+          <p class="leader-implication">{{ lv.strategic_implication }}</p>
+          {% if lv.url %}
+          <a href="{{ lv.url }}" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </section>
 
     <section class="top-signals">
       <h2>Top Signals This Week</h2>

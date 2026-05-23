@@ -9,11 +9,17 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 CATEGORY_COLOURS = {
-    "products": "#185FA5",
-    "ai_research": "#534AB7",
-    "business": "#0F6E56",
-    "trends": "#993C1D",
-    "signals": "#854F0B",
+    "capital_theses": "#0F6E56",
+    "building": "#185FA5",
+    "opp_now": "#993C1D",
+    "opp_mid": "#854F0B",
+    "opp_long": "#534AB7",
+}
+
+HORIZON_LABELS = {
+    "now": "0-6 mo",
+    "mid": "6-18 mo",
+    "long": "18+ mo",
 }
 
 URGENCY_LABELS = {
@@ -114,6 +120,7 @@ def render_html(briefing: dict) -> str:
         "urgency_colours": URGENCY_COLOURS,
         "signal_dots": signal_dots_html,
         "source_badge_style": source_badge_style,
+        "horizon_labels": HORIZON_LABELS,
     }
     return template.render(**context)
 
@@ -124,7 +131,7 @@ def render_markdown(briefing: dict) -> str:
     week_num = _week_number(week_of)
     date_range = _date_range(week_of)
     lines = [
-        f"# Weekly Signal Briefing — Week {week_num}, {date_range}",
+        f"# Weekly AI Strategy Briefing — Week {week_num}, {date_range}",
         "",
         f"> {briefing.get('weekly_theme', '')}",
         "",
@@ -139,8 +146,10 @@ def render_markdown(briefing: dict) -> str:
         lines.append("")
         for item in cat.get("items", []):
             lines.append(f"### {item.get('title', '')}")
+            horizon = item.get("horizon", "")
+            horizon_part = f" | **Horizon:** {HORIZON_LABELS.get(horizon, horizon)}" if horizon else ""
             lines.append(
-                f"**Source:** {item.get('source', '')} | **Signal:** {item.get('signal', '')}"
+                f"**Source:** {item.get('source', '')} | **Signal:** {item.get('signal', '')}{horizon_part}"
             )
             lines.append("")
             lines.append(item.get("summary", ""))

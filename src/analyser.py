@@ -1,4 +1,4 @@
-"""Send scraped content to Claude API and return structured briefing JSON."""
+"""Send scraped content to Claude API and return structured AI strategy briefing JSON."""
 
 from __future__ import annotations
 
@@ -19,16 +19,24 @@ DEFAULT_MODEL = "claude-opus-4-7"
 MAX_ARTICLES_IN_PROMPT = 12
 
 REQUIRED_TOP_KEYS = ("weekly_theme", "theme_context", "categories", "top_signals")
-REQUIRED_CATEGORY_IDS = ("products", "ai_research", "business", "trends", "signals")
+REQUIRED_CATEGORY_IDS = (
+    "capital_theses",
+    "building",
+    "opp_now",
+    "opp_mid",
+    "opp_long",
+)
 CATEGORY_NAMES = {
-    "products": "New Products & Launches",
-    "ai_research": "AI & Research",
-    "business": "Funding & Business Moves",
-    "trends": "Trends & Shifts",
-    "signals": "Signals Worth Watching",
+    "capital_theses": "Capital & Theses",
+    "building": "What's Being Built",
+    "opp_now": "Opportunities Now",
+    "opp_mid": "Opportunities Mid-term",
+    "opp_long": "Opportunities Long-term",
 }
+OPPORTUNITY_CATEGORY_IDS = ("opp_now", "opp_mid", "opp_long")
 VALID_SIGNALS = {"high", "medium", "low"}
 VALID_URGENCY = {"act_now", "watch_closely", "stay_informed"}
+VALID_HORIZONS = {"now", "mid", "long"}
 
 ALLOWED_SOURCES = (
     "TechCrunch",
@@ -49,13 +57,17 @@ _ITEM_SCHEMA = {
         "summary": {"type": "string"},
         "signal": {"type": "string", "enum": ["high", "medium", "low"]},
         "tags": {"type": "array", "items": {"type": "string"}},
+        "horizon": {"type": "string", "enum": ["now", "mid", "long"]},
     },
     "required": ["title", "source", "url", "summary", "signal", "tags"],
 }
 
 _BRIEFING_TOOL = {
     "name": "submit_weekly_briefing",
-    "description": "Submit the completed weekly briefing after analysing articles and optional web search",
+    "description": (
+        "Submit the completed weekly AI strategy briefing after analysing "
+        "articles and optional web search"
+    ),
     "input_schema": {
         "type": "object",
         "properties": {
@@ -111,7 +123,7 @@ def _trim_articles(raw_articles: dict[str, list[dict]]) -> dict[str, list[dict]]
 
 
 def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
-    """Build the analysis prompt for Claude."""
+    """Build the AI strategy briefing prompt for Claude."""
     now = datetime.now(timezone.utc)
     week_monday = now.date()
     week_monday = week_monday.fromordinal(
@@ -123,12 +135,19 @@ def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
     total = sum(len(v) for v in trimmed.values())
 
     sources_present = sorted({k for k, v in trimmed.items() if v})
-    return f"""You are an expert tech intelligence analyst producing a weekly signal briefing.
+    category_lines = "\n".join(
+        f"- {cid}: {CATEGORY_NAMES[cid]}" for cid in REQUIRED_CATEGORY_IDS
+    )
+
+    return f"""You are a senior AI strategy analyst producing a weekly AI STRATEGY BRIEFING —
+not a news digest. The reader is an operator or investor who needs to see where the AI
+market is heading, how capital is positioning, what companies are shipping, and which
+opportunities are opening across time horizons.
 
 ## Your task
 1. Use the supplied raw articles as the PRIMARY data source ({total} articles from {len(sources_present)} sources).
-2. Use the web_search tool to verify facts, add brief context, and find URLs that were missing.
-3. When finished, call the submit_weekly_briefing tool with the complete briefing.
+2. Use web_search only to verify facts, fill missing URLs, or add brief strategic context.
+3. When finished, call submit_weekly_briefing with the complete briefing.
 
 ## Time context
 - Today (UTC): {now.isoformat()}
@@ -139,39 +158,46 @@ def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
 ## Raw articles by source
 {articles_blob}
 
-## Category requirements
-Include exactly 5 categories with these ids and names:
-- products: {CATEGORY_NAMES["products"]}
-- ai_research: {CATEGORY_NAMES["ai_research"]}
-- business: {CATEGORY_NAMES["business"]}
-- trends: {CATEGORY_NAMES["trends"]}
-- signals: {CATEGORY_NAMES["signals"]}
+## Category structure (exactly 5 categories)
+{category_lines}
 
-## STRICT source rules (read carefully)
-- The `source` field MUST be EXACTLY one of these seven literal strings:
-  {", ".join(repr(s) for s in ALLOWED_SOURCES)}
-- Do NOT invent new source names. Do NOT combine sources with "/" or "+".
-- Do NOT cite blogs, docs, or sites discovered via web_search as the source.
-  If you used web_search to enrich a story, the source is still the one of the
-  seven sources that originally surfaced it.
-- Every item MUST have its `source` set to the ORIGINAL source from the raw
-  articles list above (e.g. an item from raw_articles["producthunt"] must have
-  source="Product Hunt"; an item from raw_articles["ycombinator"] must have
-  source="Y Combinator").
+### Per-category guidance
+- **capital_theses**: How investors see and believe — rounds, fund theses, partner essays, valuation narratives, where smart money is moving in AI.
+- **building**: How companies tackle and solve — frontier model releases, agent platforms, enterprise rollouts, infra/tooling that actually ships.
+- **opp_now** (0-6 months): Immediate plays — gaps to move on this quarter, acute wedges, near-term arbitrage. Each item MUST set horizon="now".
+- **opp_mid** (6-18 months): Forming categories, positioning windows, second-order effects. Each item MUST set horizon="mid".
+- **opp_long** (18+ months): Paradigm shifts, directional bets, weak signals that could compound. Each item MUST set horizon="long".
 
-## Coverage requirement
-- Each of the 7 sources present in the input MUST contribute AT LEAST ONE item
-  somewhere in the briefing. Treat this as a hard constraint.
-- Do NOT merge multiple items from the same source into a single "round-up"
-  item. Pick the strongest 1-3 items per source and keep them separate.
+## AI-only filter (hard rule)
+Include ONLY items with a direct, material AI angle. DROP without exception:
+- Generic space/hardware launches (e.g. SpaceX) unless explicitly about AI compute
+- Non-AI consumer apps, CMS releases, climate/energy unless AI is the core story
+- Indie SaaS unless it materially reshapes an AI category
 
-## Quality rules
-- Prioritise items from the last 7 days
-- 4-7 items per category; skip weak items rather than pad
-- top_signals: exactly 3-5 items, ordered by urgency (act_now first)
-- signal: high = actionable this week; medium = track monthly; low = background
+Inclusion test: "Would a serious AI investor or AI-company operator regret missing this?"
+If no, drop it. Better 15 sharp items than 30 noisy ones.
+
+## Item quality rules
+- Every item MUST have a non-empty, real https URL in the `url` field.
+- 3-5 items per category; total briefing ~15-20 items. Skip weak categories rather than pad.
+- Each `summary` must answer: what changed AND what it implies for capital allocation,
+  company strategy, or which doors opened/closed. No descriptive news recaps.
+- Opportunity items (opp_now, opp_mid, opp_long) must name: who could capture the play,
+  what would have to be true, and roughly when. Set `horizon` to now/mid/long respectively.
+
+## Source rules
+- `source` MUST be EXACTLY one of: {", ".join(repr(s) for s in ALLOWED_SOURCES)}
+- Do NOT invent source names or combine with "/" or "+".
+- If web_search enriched a story, `source` stays the original feed source from the raw list.
+- Sources are best-effort: omit a source if nothing AI-relevant surfaced this week.
+
+## Top signals
+- Exactly 3-5 items, ordered by urgency (act_now first).
+- Each must be AI-strategic and actionable for an operator/investor this week.
+
+## signal levels
+- high = actionable this week; medium = track monthly; low = background awareness
 - tags: max 3 short strings per item
-- Escape quotes properly in all string fields
 
 You MUST call submit_weekly_briefing when done. Do not reply with free-form JSON in text."""
 
@@ -209,7 +235,7 @@ def _parse_json_from_text(text: str) -> dict:
     return json.loads(cleaned[start:end])
 
 
-def _validate_briefing(data: dict, expected_sources: set[str] | None = None) -> dict:
+def _validate_briefing(data: dict) -> dict:
     for key in REQUIRED_TOP_KEYS:
         if key not in data:
             raise ValueError(f"Missing required key: {key}")
@@ -226,14 +252,22 @@ def _validate_briefing(data: dict, expected_sources: set[str] | None = None) -> 
     if missing:
         raise ValueError(f"Missing category ids: {missing}")
 
-    cited_sources: set[str] = set()
+    total_items = 0
     for cat in categories:
+        cat_id = cat.get("id")
         if "id" not in cat or "name" not in cat or "items" not in cat:
-            raise ValueError(f"Category missing required fields: {cat.get('id')}")
+            raise ValueError(f"Category missing required fields: {cat_id}")
         for item in cat.get("items", []):
+            total_items += 1
             for field in ("title", "source", "url", "summary", "signal", "tags"):
                 if field not in item:
-                    raise ValueError(f"Item missing '{field}' in category {cat['id']}")
+                    raise ValueError(f"Item missing '{field}' in category {cat_id}")
+            if not str(item.get("url", "")).strip():
+                raise ValueError(f"Item in {cat_id} has empty url: {item.get('title')}")
+            if not str(item["url"]).strip().startswith("http"):
+                raise ValueError(
+                    f"Item in {cat_id} url must start with http: {item.get('url')}"
+                )
             if item["signal"] not in VALID_SIGNALS:
                 raise ValueError(f"Invalid signal: {item['signal']}")
             if item["source"] not in ALLOWED_SOURCES:
@@ -241,14 +275,20 @@ def _validate_briefing(data: dict, expected_sources: set[str] | None = None) -> 
                     f"Invalid source {item['source']!r}; must be one of "
                     f"{ALLOWED_SOURCES}"
                 )
-            cited_sources.add(item["source"])
+            if cat_id in OPPORTUNITY_CATEGORY_IDS:
+                horizon = item.get("horizon")
+                if horizon not in VALID_HORIZONS:
+                    raise ValueError(
+                        f"Item in {cat_id} must have horizon now|mid|long, got {horizon!r}"
+                    )
+                expected = cat_id.replace("opp_", "")
+                if horizon != expected:
+                    raise ValueError(
+                        f"Item in {cat_id} should have horizon={expected}, got {horizon}"
+                    )
 
-    if expected_sources:
-        missing_sources = expected_sources - cited_sources
-        if missing_sources:
-            raise ValueError(
-                f"Missing coverage for sources: {sorted(missing_sources)}"
-            )
+    if total_items > 25:
+        raise ValueError(f"Too many items ({total_items}); target 15-20 for a strategy doc")
 
     for sig in data["top_signals"]:
         for field in ("headline", "why_it_matters", "urgency"):
@@ -287,46 +327,29 @@ def _call_claude(client: anthropic.Anthropic, prompt: str) -> dict:
     return _parse_json_from_text(text)
 
 
-SOURCE_ID_TO_DISPLAY = {
-    "techcrunch": "TechCrunch",
-    "a16z": "a16z",
-    "sequoia": "Sequoia Capital",
-    "ycombinator": "Y Combinator",
-    "mit_review": "MIT Technology Review",
-    "producthunt": "Product Hunt",
-    "hf_papers": "Hugging Face Papers",
-}
-
-
 def analyse(raw_articles: dict[str, list[dict]]) -> dict:
     """
     Calls Claude API with web_search tool enabled.
-    Returns a validated BriefingDict matching the schema in Section 3.3.
+    Returns a validated AI strategy BriefingDict.
     """
     client = anthropic.Anthropic()
     prompt = build_prompt(raw_articles)
-    expected = {
-        SOURCE_ID_TO_DISPLAY[sid]
-        for sid, items in raw_articles.items()
-        if items and sid in SOURCE_ID_TO_DISPLAY
-    }
     last_error: Exception | None = None
 
     for attempt in range(2):
         try:
             data = _call_claude(client, prompt)
-            return _validate_briefing(data, expected_sources=expected)
+            return _validate_briefing(data)
         except (json.JSONDecodeError, ValueError) as exc:
             last_error = exc
             log.warning("Parse/validation failed (attempt %d): %s", attempt + 1, exc)
             if attempt == 0:
                 log.info("Retrying Claude API call...")
                 prompt += (
-                    f"\n\nIMPORTANT: Your previous attempt failed validation: {exc}. "
-                    "Call submit_weekly_briefing again with strictly valid fields. "
-                    "Remember: source MUST be exactly one of "
-                    f"{list(ALLOWED_SOURCES)}, and every source present in the input "
-                    "must contribute at least one item."
+                    f"\n\nIMPORTANT: Validation failed: {exc}. "
+                    "Call submit_weekly_briefing again. Every item needs a real https URL. "
+                    "AI-only content. opp_* items need horizon now/mid/long matching their category. "
+                    f"Sources must be one of {list(ALLOWED_SOURCES)}."
                 )
                 continue
             raise ValueError(

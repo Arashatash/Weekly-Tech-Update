@@ -5,72 +5,88 @@ import pytest
 
 @pytest.fixture
 def sample_briefing() -> dict:
-    def _item(source: str, title: str = "Test item") -> dict:
-        return {
+    def _item(
+        source: str,
+        title: str = "Test item",
+        horizon: str | None = None,
+    ) -> dict:
+        item = {
             "title": title,
             "source": source,
             "url": "https://example.com/article",
-            "summary": "A new item. It does X. It matters because Y.",
+            "summary": (
+                "Capability shifted this week. Implies reallocating toward agent infra "
+                "and away from thin wrappers."
+            ),
             "signal": "high",
-            "tags": ["AI", "SaaS"],
+            "tags": ["agents", "infra"],
         }
+        if horizon:
+            item["horizon"] = horizon
+        return item
 
     categories = [
         {
-            "id": "products",
-            "name": "New Products & Launches",
+            "id": "capital_theses",
+            "name": "Capital & Theses",
             "items": [
-                _item("TechCrunch", "TC product"),
-                _item("Product Hunt", "PH launch"),
+                _item("a16z", "a16z backs agent search"),
+                _item("Sequoia Capital", "Sequoia AGI thesis"),
             ],
         },
         {
-            "id": "ai_research",
-            "name": "AI & Research",
+            "id": "building",
+            "name": "What's Being Built",
             "items": [
-                _item("Hugging Face Papers", "Paper"),
-                _item("MIT Technology Review", "Article"),
+                _item("TechCrunch", "Anthropic ships agents"),
+                _item("Hugging Face Papers", "Sparse attention paper"),
             ],
         },
         {
-            "id": "business",
-            "name": "Funding & Business Moves",
+            "id": "opp_now",
+            "name": "Opportunities Now",
             "items": [
-                _item("a16z", "VC piece"),
-                _item("Sequoia Capital", "Sequoia thesis"),
+                _item("Product Hunt", "AI QA wedge", horizon="now"),
             ],
         },
         {
-            "id": "trends",
-            "name": "Trends & Shifts",
-            "items": [_item("Y Combinator", "HN trend")],
+            "id": "opp_mid",
+            "name": "Opportunities Mid-term",
+            "items": [
+                _item("MIT Technology Review", "World models category", horizon="mid"),
+            ],
         },
         {
-            "id": "signals",
-            "name": "Signals Worth Watching",
-            "items": [_item("TechCrunch", "Signal")],
+            "id": "opp_long",
+            "name": "Opportunities Long-term",
+            "items": [
+                _item("Y Combinator", "Autonomous science stack", horizon="long"),
+            ],
         },
     ]
     return {
-        "weekly_theme": "AI agents reshape the stack",
-        "theme_context": "This week saw major agent launches and funding rounds.",
+        "weekly_theme": "Agents compress the software stack",
+        "theme_context": (
+            "Capital is concentrating on agent infrastructure while enterprises "
+            "shift from copilots to outcome-priced workflows."
+        ),
         "generated_at": "2026-05-18T20:00:00+00:00",
         "week_of": "2026-05-18",
         "categories": categories,
         "top_signals": [
             {
-                "headline": "Agent platforms go mainstream",
-                "why_it_matters": "Developers are shifting to agent-first workflows.",
+                "headline": "Frontier labs race on agent reliability",
+                "why_it_matters": "Winners will own enterprise workflow budgets this year.",
                 "urgency": "act_now",
             },
             {
-                "headline": "New model efficiency gains",
-                "why_it_matters": "Inference costs dropping 40%.",
+                "headline": "Inference cost floor keeps falling",
+                "why_it_matters": "Changes unit economics for AI-native products.",
                 "urgency": "watch_closely",
             },
             {
-                "headline": "Regulatory clarity emerging",
-                "why_it_matters": "EU guidelines reduce uncertainty.",
+                "headline": "Regulatory clarity on training data",
+                "why_it_matters": "Reduces tail risk for model providers.",
                 "urgency": "stay_informed",
             },
         ],
@@ -80,9 +96,9 @@ def sample_briefing() -> dict:
 @pytest.fixture
 def sample_raw_articles() -> dict:
     article = {
-        "title": "Sample Article",
+        "title": "Sample AI Article",
         "url": "https://example.com",
-        "description": "A sample description.",
+        "description": "A sample AI description.",
         "published_at": "2026-05-20T12:00:00+00:00",
         "source": "TechCrunch",
     }

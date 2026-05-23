@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekly Signal Briefing — Week {{ week_number }}</title>
+  <title>Weekly AI Strategy Briefing — Week {{ week_number }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -155,6 +155,14 @@
       background: var(--card-border);
       color: var(--text-secondary);
     }
+    .horizon-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
 
     .top-signals { margin-bottom: 2.5rem; }
     .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
@@ -258,6 +266,9 @@
           <p class="item-summary">{{ item.summary }}</p>
           <div class="item-meta">
             <span class="source-badge" style="{{ source_badge_style(cat.id) }}">{{ item.source }}</span>
+            {% if item.horizon %}
+            <span class="horizon-badge">{{ horizon_labels.get(item.horizon, item.horizon) }}</span>
+            {% endif %}
             {% for tag in item.tags %}
             <span class="tag">{{ tag }}</span>
             {% endfor %}

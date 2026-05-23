@@ -1,15 +1,35 @@
 # Weekly Tech Update
 
-Automated weekly intelligence briefing that monitors 7 frontier tech sources, categorises signals with Claude, and publishes a styled HTML page to GitHub Pages.
+**Weekly AI Strategy Briefing** — an automated intelligence document that shows where the AI market is heading, how investors are positioning, what companies are shipping, and which opportunities are opening across short, mid, and long horizons.
 
-**Live URL (after setup):** https://arashatash.github.io/Weekly-Tech-Update/
+**Live URL:** https://arashatash.github.io/Weekly-Tech-Update/
 
-## What it does
+## What it is
 
-1. Scrapes TechCrunch, a16z, Sequoia, Hacker News, MIT Tech Review, Product Hunt, and Hugging Face Papers
-2. Sends content to Claude (Opus 4.7 + web search) for categorisation and insight extraction
-3. Generates `index.html`, `briefing.json`, and `briefing.md`
-4. Publishes to GitHub Pages every Sunday 20:00 UTC (Monday 7am AEST)
+This is a **strategy document**, not a general tech news digest. Each week it:
+
+1. Scrapes 7 frontier sources (TechCrunch, a16z, Sequoia, Hacker News, MIT Tech Review, Product Hunt, Hugging Face Papers)
+2. Sends content to Claude (Opus 4.7 + web search) with a strict AI-only filter
+3. Publishes a styled HTML briefing to GitHub Pages every Sunday 20:00 UTC (Monday 7am AEST)
+
+## Three lenses (5 categories)
+
+| Category | Lens |
+|----------|------|
+| **Capital & Theses** | How investors see and believe — rounds, theses, where smart money moves |
+| **What's Being Built** | How companies tackle problems — models, agents, enterprise rollouts, infra |
+| **Opportunities Now** | 0–6 month plays you can move on this quarter |
+| **Opportunities Mid-term** | 6–18 month positioning windows and forming categories |
+| **Opportunities Long-term** | 18+ month directional bets and compounding weak signals |
+
+Plus a **Top Signals** panel with 3–5 must-not-miss items for the week.
+
+## Quality bar — what gets in
+
+- **AI-only:** Would a serious AI investor or operator regret missing this? If not, it is dropped.
+- **Every item has a real URL** — linked title on the published page.
+- **Strategic summaries** — what changed *and* what it implies for capital, company strategy, or open doors.
+- **~15–20 items total** — no filler. SpaceX launches, generic CMS releases, and non-AI indie SaaS are excluded.
 
 ## Prerequisites
 
@@ -38,10 +58,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env and set ANTHROPIC_API_KEY=sk-ant-...
 python generate.py --dry-run
-open output/index.html   # macOS
-xdg-open output/index.html  # Linux
+open output/index.html
 ```
 
 ## CLI usage
@@ -55,7 +73,7 @@ python generate.py --skip-scrape  # reuse output/raw_articles.json
 
 ## GitHub Actions
 
-1. Push this repo to `main`
+1. Push to `main`
 2. **Settings → Secrets → Actions** → add `ANTHROPIC_API_KEY`
 3. **Settings → Pages** → Source: **Deploy from branch** → `gh-pages` / `/ (root)`
 4. **Actions → Weekly Signal Briefing → Run workflow** to test
@@ -76,7 +94,7 @@ pytest tests/
 ├── generate.py           # Main entrypoint
 ├── src/
 │   ├── scraper.py        # Source fetching
-│   ├── analyser.py       # Claude API + JSON parsing
+│   ├── analyser.py       # Claude API + AI strategy JSON
 │   ├── renderer.py       # HTML / MD / JSON output
 │   └── publisher.py      # Write files + gh-pages
 ├── templates/page.html   # Jinja2 HTML template

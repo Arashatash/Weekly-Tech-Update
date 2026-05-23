@@ -4,7 +4,13 @@ import json
 
 from src.renderer import render_html, render_json, render_markdown
 
-CATEGORY_IDS = ("products", "ai_research", "business", "trends", "signals")
+CATEGORY_IDS = (
+    "capital_theses",
+    "building",
+    "opp_now",
+    "opp_mid",
+    "opp_long",
+)
 
 
 def test_render_html_starts_with_doctype(sample_briefing):

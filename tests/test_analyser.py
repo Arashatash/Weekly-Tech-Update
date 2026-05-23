@@ -28,6 +28,9 @@ def test_build_prompt_includes_articles(sample_raw_articles):
     prompt = build_prompt(sample_raw_articles)
     assert "techcrunch" in prompt
     assert "submit_weekly_briefing" in prompt
+    assert "AI-only" in prompt or "AI-only filter" in prompt
+    assert "capital_theses" in prompt
+    assert "opp_now" in prompt
 
 
 def test_validate_briefing(sample_briefing):

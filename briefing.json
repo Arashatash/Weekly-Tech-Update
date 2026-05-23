@@ -1,0 +1,389 @@
+{
+  "categories": [
+    {
+      "id": "products",
+      "name": "New Products & Launches",
+      "items": [
+        {
+          "title": "SpaceX launches Starship V3 for the first time, loses booster on return",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/",
+          "summary": "SpaceX's upgraded 407-foot Starship V3 flew for the first time from Starbase, deploying 20 Starlink simulators and 2 modified satellites before a simulated landing in the Indian Ocean. The Super Heavy booster failed to relight engines for its return burn and tumbled into the Gulf. V3 is critical for Starlink expansion, NASA lunar missions, and SpaceX's June IPO targeting ~$75B.",
+          "signal": "high",
+          "tags": [
+            "spacex",
+            "starship",
+            "space"
+          ]
+        },
+        {
+          "title": "DeepSeek makes V4-Pro 75% price discount permanent",
+          "source": "Y Combinator / DeepSeek",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing",
+          "summary": "DeepSeek locked in permanent pricing of $0.435/M cache-miss input and $0.87/M output tokens for V4-Pro, plus a 90% cut on input cache hits across its API line. The move targets developers frustrated by Western chatbot rate caps and undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro on per-token basis.",
+          "signal": "high",
+          "tags": [
+            "deepseek",
+            "pricing",
+            "llm-apis"
+          ]
+        },
+        {
+          "title": "Anthropic's Code with Claude showcases the future of AI coding",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/",
+          "summary": "At Anthropic's London developer event, the company demonstrated how nearly all production code is increasingly machine-written, with developers shifting toward orchestration and review. The event coincided with Google I/O, underscoring an industry-wide reorientation around AI-native software engineering workflows.",
+          "signal": "high",
+          "tags": [
+            "anthropic",
+            "claude",
+            "dev-tools"
+          ]
+        },
+        {
+          "title": "Blue Origin cleared to fly New Glenn after April mishap",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/blue-origin-cleared-to-fly-new-glenn-mega-rocket-after-april-mishap/",
+          "summary": "Regulators have cleared Blue Origin to return New Glenn to flight after confirming an engine failure caused the loss of an AST SpaceMobile satellite in April. Limited details were disclosed, but a return-to-flight keeps Bezos's company competing with SpaceX in heavy-lift.",
+          "signal": "medium",
+          "tags": [
+            "blue-origin",
+            "space",
+            "launch"
+          ]
+        },
+        {
+          "title": "WordPress 7.0 launches",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/wordpress-7-0",
+          "summary": "A major version bump for the web's dominant CMS lands on Product Hunt. Worth tracking for shifts in editor, performance, and AI authoring integrations that ripple across publishing, agencies, and SMB websites.",
+          "signal": "medium",
+          "tags": [
+            "wordpress",
+            "cms",
+            "open-source"
+          ]
+        },
+        {
+          "title": "TestSprite 3.0 ships next-gen AI test automation",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/testsprite",
+          "summary": "TestSprite 3.0 advances AI-driven QA and test generation, part of a growing category of agents that author, run, and triage tests against shipping codebases—an area drawing heavy enterprise interest as more code is AI-generated.",
+          "signal": "medium",
+          "tags": [
+            "dev-tools",
+            "qa",
+            "agents"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai_research",
+      "name": "AI & Research",
+      "items": [
+        {
+          "title": "Google I/O signals a shift in the path to AI-driven science",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/",
+          "summary": "At I/O, DeepMind CEO Demis Hassabis described the industry as 'standing in the foothills of the singularity,' framing Google's bet on AI for scientific discovery. The keynote signaled a move from chatbots to research-grade systems aimed at biology, materials, and math.",
+          "signal": "high",
+          "tags": [
+            "google",
+            "deepmind",
+            "ai-science"
+          ]
+        },
+        {
+          "title": "Sequoia: 2026 is AGI",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/2026-this-is-agi/",
+          "summary": "Sequoia's AI Ascent thesis argues that 2026 marks the arrival of practical AGI-level capability across reasoning, coding, and agents. The piece frames investment priorities around agent-native services, vertical AI, and the displacement of software by services.",
+          "signal": "high",
+          "tags": [
+            "agi",
+            "sequoia",
+            "thesis"
+          ]
+        },
+        {
+          "title": "Can AI learn to understand the world? — Roundtable on world models",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/",
+          "summary": "Editors discuss the rise of 'world models' as the next frontier beyond LLMs, with AI labs racing to build systems that can simulate physics, causality, and embodied reasoning. Likely to shape robotics, gaming, and autonomous systems roadmaps.",
+          "signal": "medium",
+          "tags": [
+            "world-models",
+            "research",
+            "llm-limits"
+          ]
+        },
+        {
+          "title": "PhysX-Omni: unified simulation-ready 3D generation",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2605.21572",
+          "summary": "New work proposes a unified pipeline that generates rigid, deformable, and articulated 3D objects ready for physics simulation. A meaningful step toward world models and robotics datasets that don't require hand-authored assets.",
+          "signal": "medium",
+          "tags": [
+            "3d-generation",
+            "simulation",
+            "robotics"
+          ]
+        },
+        {
+          "title": "Full Attention Strikes Back: porting full attention to sparse in ~100 steps",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2605.16928",
+          "summary": "Paper demonstrates that full-attention models can be cheaply converted to sparse-attention variants in roughly a hundred training steps with negligible quality loss—relevant for serving long-context LLMs at lower cost.",
+          "signal": "medium",
+          "tags": [
+            "efficiency",
+            "attention",
+            "inference"
+          ]
+        },
+        {
+          "title": "π-Bench: evaluating proactive personal-assistant agents",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2605.14678",
+          "summary": "New benchmark stress-tests agents on long-horizon, proactive workflows—anticipating user needs across multi-day tasks. Adds to a growing set of agent evaluations that go beyond single-turn tool use.",
+          "signal": "low",
+          "tags": [
+            "agents",
+            "benchmarks",
+            "evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Funding & Business Moves",
+      "items": [
+        {
+          "title": "SpaceX IPO filing made public, expected to raise ~$75B",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/",
+          "summary": "SpaceX's IPO prospectus is now public, with a Nasdaq listing expected mid-June targeting roughly $75B in proceeds. Funds are earmarked for Starship development, AI ambitions, and paying down debt linked to xAI and X. Starlink generated $11B in 2025 revenue per the filing.",
+          "signal": "high",
+          "tags": [
+            "spacex",
+            "ipo",
+            "starlink"
+          ]
+        },
+        {
+          "title": "How VCs and founders inflate 'ARR' to crown AI startups",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/",
+          "summary": "Reporting details how AI startups annualize a single strong month, count pilots, or include one-off contracts as 'ARR'—with investors complicit. A growing credibility risk as the market scrutinizes durability of AI revenue.",
+          "signal": "high",
+          "tags": [
+            "venture",
+            "ai-startups",
+            "metrics"
+          ]
+        },
+        {
+          "title": "a16z backs Exa, Stitch, Ethos, Tessera Labs, Glif, Petual, Ulysses, Hilbert",
+          "source": "a16z",
+          "url": "https://a16z.com/announcement/investing-in-exa/",
+          "summary": "Andreessen Horowitz announced a wave of eight new investments this week spanning AI search (Exa), creative AI (Glif), defense/dual-use (Hilbert, Ulysses), and consumer/services. The pace signals continued aggressive deployment despite ARR-quality concerns elsewhere in the market.",
+          "signal": "medium",
+          "tags": [
+            "a16z",
+            "funding",
+            "ai-startups"
+          ]
+        },
+        {
+          "title": "Sequoia spotlights Nevis, bringing AI to wealth management",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/",
+          "summary": "Sequoia profiles Nevis as a vertical AI play targeting wealth management workflows. Part of its broader 'Services: The New Software' thesis where AI replaces seat-licensed SaaS with outcome-priced services.",
+          "signal": "medium",
+          "tags": [
+            "fintech",
+            "vertical-ai",
+            "sequoia"
+          ]
+        },
+        {
+          "title": "Apple asks SCOTUS to narrow Epic App Store ruling",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/apple-says-epic-lawsuit-shouldnt-reshape-app-store-rules-for-all-developers/",
+          "summary": "Apple petitioned the Supreme Court to narrow the injunction Epic Games won and overturn the contempt ruling on external payment fees. The outcome could redefine App Store economics for all developers in the U.S.",
+          "signal": "medium",
+          "tags": [
+            "apple",
+            "antitrust",
+            "app-store"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trends",
+      "name": "Trends & Shifts",
+      "items": [
+        {
+          "title": "AI memory demand is repricing consumer electronics",
+          "source": "Y Combinator (davidoks.blog)",
+          "url": "https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone",
+          "summary": "Analysis argues the AI-driven memory shortage is pushing DRAM/NAND prices high enough to kill the cheap smartphone segment and raise BOM costs across PCs, consoles, and SSDs. A consumer-facing macro effect of the AI capex cycle.",
+          "signal": "high",
+          "tags": [
+            "memory",
+            "supply-chain",
+            "consumer-electronics"
+          ]
+        },
+        {
+          "title": "Climate tech is pivoting to critical minerals",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/21/1137622/climate-tech-pivot-critical-minerals/",
+          "summary": "Under a hostile second Trump administration, climate-tech companies are rebranding around critical minerals, energy security, and industrial competitiveness rather than decarbonization. Repositioning is reshaping go-to-market for the entire sector.",
+          "signal": "high",
+          "tags": [
+            "climate-tech",
+            "minerals",
+            "policy"
+          ]
+        },
+        {
+          "title": "Services: the new software",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/services-the-new-software/",
+          "summary": "Sequoia argues AI is collapsing the boundary between software and services, with AI-native firms billing on outcomes rather than seats. The thesis predicts a new generation of multi-hundred-billion-dollar 'services-as-software' companies.",
+          "signal": "medium",
+          "tags": [
+            "thesis",
+            "ai-business-models",
+            "saas"
+          ]
+        },
+        {
+          "title": "Spotify floods users with AI tools they didn't ask for",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/",
+          "summary": "Spotify keeps shipping AI features nudging users to create rather than listen—DJs, remix tools, generative playlists. Reflects a broader consumer-app pattern of bolting generative features onto apps users primarily want for curation.",
+          "signal": "medium",
+          "tags": [
+            "spotify",
+            "consumer-ai",
+            "ux"
+          ]
+        },
+        {
+          "title": "Why Japanese companies do so many different things",
+          "source": "Y Combinator (davidoks.blog)",
+          "url": "https://davidoks.blog/p/why-japanese-companies-do-so-many",
+          "summary": "Widely-read essay on why Japanese conglomerates remain horizontally diversified, tying it to lifetime employment, capital allocation norms, and risk culture. A useful lens as Western AI giants increasingly look conglomerate-like.",
+          "signal": "low",
+          "tags": [
+            "business-history",
+            "japan",
+            "strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals",
+      "name": "Signals Worth Watching",
+      "items": [
+        {
+          "title": "AI used to reconstruct dead pilots' voices from cockpit recordings",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/",
+          "summary": "Researchers and hobbyists are using AI to reconstruct cockpit audio from spectrogram images of NTSB recordings, prompting the agency to temporarily block public docket access. A new chapter in synthetic-media ethics and FOIA-era privacy.",
+          "signal": "high",
+          "tags": [
+            "synthetic-media",
+            "ethics",
+            "privacy"
+          ]
+        },
+        {
+          "title": "U.S. researchers face new restrictions on foreign co-authorship",
+          "source": "Science (via HN)",
+          "url": "https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators",
+          "summary": "New federal rules limit U.S. researchers' ability to publish with collaborators in adversarial countries, with implications for AI labs, biotech, and quantum. Expect chilled cross-border science and compliance overhead at universities.",
+          "signal": "high",
+          "tags": [
+            "research-policy",
+            "geopolitics",
+            "compliance"
+          ]
+        },
+        {
+          "title": "'If you're an LLM, please read this' — Anna's Archive prompt-injection appeal",
+          "source": "Y Combinator (annas-archive.gl)",
+          "url": "https://annas-archive.gl/blog/llms-txt.html",
+          "summary": "The shadow library publishes an llms.txt-style appeal addressed directly to crawling models, asking them to mirror and preserve content. An early example of sites trying to influence model behavior through embedded instructions—watch for governance and prompt-injection implications.",
+          "signal": "medium",
+          "tags": [
+            "llms-txt",
+            "prompt-injection",
+            "open-web"
+          ]
+        },
+        {
+          "title": "Antigravity 2.0 tops OpenSCAD architectural 3D LLM benchmark",
+          "source": "ModelRift (via HN)",
+          "url": "https://modelrift.com/blog/openscad-llm-benchmark/",
+          "summary": "A new benchmark measures how well LLMs can produce parametric 3D architectural models in OpenSCAD. Antigravity 2.0 leads—early signal of LLMs moving into CAD and computational design workflows.",
+          "signal": "medium",
+          "tags": [
+            "llm-benchmarks",
+            "cad",
+            "3d"
+          ]
+        },
+        {
+          "title": "Enhanced Games kick off — performance-enhancing drugs go mainstream",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/22/1137753/the-enhanced-games-fit-right-in-with-the-rest-of-2026s-longevity-vibes/",
+          "summary": "The inaugural Enhanced Games, where athletes openly use approved performance-enhancing drugs, take place this weekend in Las Vegas. Slots into the broader 2026 longevity/biohacking culture and likely accelerates conversations on regulated enhancement.",
+          "signal": "low",
+          "tags": [
+            "biotech",
+            "longevity",
+            "culture"
+          ]
+        }
+      ]
+    }
+  ],
+  "generated_at": "2026-05-23T02:12:36Z",
+  "theme_context": "This week's signal is the collision of AI's industrial scale-up with hard physical and financial constraints. SpaceX flew Starship V3 (with a booster loss) just as its $75B IPO filing went public; DeepSeek made aggressive V4-Pro pricing permanent, escalating a US–China price war that's already pressuring Western API economics. Google I/O and Anthropic's Code with Claude reframed coding and science around AI agents, while Sequoia formally declared 2026 'AGI.' On the trend side, AI's appetite for memory is repricing consumer electronics, climate tech is pivoting to critical minerals to survive Trump-era policy, and VCs are quietly tolerating inflated ARR metrics—signaling froth even as fundamentals tighten.",
+  "week_of": "2026-05-18",
+  "weekly_theme": "AI's industrial reality check: scale, pricing, and the limits of hype",
+  "top_signals": [
+    {
+      "headline": "Starship V3 flies as SpaceX heads to a $75B IPO — but booster recovery still elusive",
+      "why_it_matters": "Starship V3 is the linchpin for Starlink V3, Artemis lunar missions, and SpaceX's mid-June Nasdaq listing. A successful upper-stage flight de-risks the IPO narrative; the booster loss keeps reusability—and full unit economics—an open question heading into public markets.",
+      "urgency": "act_now"
+    },
+    {
+      "headline": "DeepSeek makes 75% V4-Pro discount permanent, escalating LLM price war",
+      "why_it_matters": "Permanent pricing at $0.435/M input and $0.87/M output tokens, plus 90% off cache hits, structurally undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro. Any AI product with material inference spend should re-run pricing models and evaluate dual-vendor strategies this week.",
+      "urgency": "act_now"
+    },
+    {
+      "headline": "AI memory demand is killing the cheap smartphone and lifting consumer-electronics prices",
+      "why_it_matters": "The AI capex cycle has tightened DRAM/NAND so much that consumer device BOM costs are climbing. Expect price increases across phones, PCs, SSDs, and consoles—affecting hardware roadmaps, retail pricing, and any startup with bill-of-materials exposure.",
+      "urgency": "watch_closely"
+    },
+    {
+      "headline": "VCs tolerate inflated 'ARR' as the AI startup crown is handed out",
+      "why_it_matters": "TechCrunch documents how single-month annualizations, pilots, and one-time deals are being marketed as ARR—with investors complicit. Diligence teams, acquirers, and competitors should pressure-test revenue quality before the next correction prices it in.",
+      "urgency": "watch_closely"
+    },
+    {
+      "headline": "U.S. tightens rules on publishing with foreign research collaborators",
+      "why_it_matters": "New restrictions affect AI, biotech, and quantum labs, with chilling effects on cross-border collaboration that has historically powered open research. Universities, AI labs, and journals need compliance posture; expect downstream impact on talent flows and open-source publication.",
+      "urgency": "stay_informed"
+    }
+  ]
+}

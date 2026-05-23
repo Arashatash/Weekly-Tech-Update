@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Signal Briefing — Week 21</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F7F2;
+      --card-bg: #FFFFFF;
+      --card-border: #E8E6DF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B6860;
+      --max-width: 960px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F0F0F;
+        --card-bg: #1A1A1A;
+        --card-border: #2A2A2A;
+        --text-primary: #F0EEE8;
+        --text-secondary: #888680;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .container { max-width: var(--max-width); margin: 0 auto; }
+
+    header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .week-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) { header h1 { font-size: 2.25rem; } }
+    .context { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 768px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .metric-value { font-size: 1.75rem; font-weight: 700; }
+    .metric-label { font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+    .category { margin-bottom: 2.5rem; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .category-stripe {
+      width: 3px;
+      height: 1.5rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .category-header h2 { font-size: 1.25rem; font-weight: 600; flex: 1; }
+    .item-count { font-size: 0.875rem; color: var(--text-secondary); }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1280px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      border-left: 3px solid var(--cat-colour, #5F5E5A);
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      flex: 1;
+    }
+    .item-title:hover { text-decoration: underline; }
+    .signal-dots { display: flex; gap: 3px; flex-shrink: 0; }
+    .signal-dots .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--card-border);
+    }
+    .signal-dots .dot.filled { background: #E24B4A; }
+    .item-card[data-signal="medium"] .signal-dots .dot.filled { background: #EF9F27; }
+    .item-card[data-signal="low"] .signal-dots .dot.filled { background: #888680; }
+    .item-summary {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .item-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .source-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
+
+    .top-signals { margin-bottom: 2.5rem; }
+    .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .signals-list { display: flex; flex-direction: column; gap: 1rem; }
+    .signal-row {
+      display: flex;
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .signal-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .signal-headline { font-weight: 600; margin-bottom: 0.35rem; }
+    .signal-detail { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .urgency-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    footer div { margin-bottom: 0.35rem; }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .metrics { break-inside: avoid; }
+      .item-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="week-label">WEEK 21 · May 18 – May 24, 2026</div>
+      <h1>AI&#39;s industrial reality check: scale, pricing, and the limits of hype</h1>
+      <p class="context">This week&#39;s signal is the collision of AI&#39;s industrial scale-up with hard physical and financial constraints. SpaceX flew Starship V3 (with a booster loss) just as its $75B IPO filing went public; DeepSeek made aggressive V4-Pro pricing permanent, escalating a US–China price war that&#39;s already pressuring Western API economics. Google I/O and Anthropic&#39;s Code with Claude reframed coding and science around AI agents, while Sequoia formally declared 2026 &#39;AGI.&#39; On the trend side, AI&#39;s appetite for memory is repricing consumer electronics, climate tech is pivoting to critical minerals to survive Trump-era policy, and VCs are quietly tolerating inflated ARR metrics—signaling froth even as fundamentals tighten.</p>
+      <div class="meta-row">
+        <span>27 items</span>
+        <span>11 high signal</span>
+        <span>Generated May 23, 2026 02:12 UTC</span>
+      </div>
+    </header>
+
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-value">27</div>
+        <div class="metric-label">Items scanned</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">11</div>
+        <div class="metric-label">High signal items</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">7</div>
+        <div class="metric-label">Sources monitored</div>
+      </div>
+    </div>
+
+    
+    
+    <section class="category" data-category="products">
+      <div class="category-header">
+        <div class="category-stripe" style="background:#185FA5"></div>
+        <h2>New Products &amp; Launches</h2>
+        <span class="item-count">6 items</span>
+      </div>
+      <div class="items-grid">
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/" class="item-title" target="_blank" rel="noopener">SpaceX launches Starship V3 for the first time, loses booster on return</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">SpaceX&#39;s upgraded 407-foot Starship V3 flew for the first time from Starbase, deploying 20 Starlink simulators and 2 modified satellites before a simulated landing in the Indian Ocean. The Super Heavy booster failed to relight engines for its return burn and tumbled into the Gulf. V3 is critical for Starlink expansion, NASA lunar missions, and SpaceX&#39;s June IPO targeting ~$75B.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+            
+            <span class="tag">spacex</span>
+            
+            <span class="tag">starship</span>
+            
+            <span class="tag">space</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://api-docs.deepseek.com/quick_start/pricing" class="item-title" target="_blank" rel="noopener">DeepSeek makes V4-Pro 75% price discount permanent</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">DeepSeek locked in permanent pricing of $0.435/M cache-miss input and $0.87/M output tokens for V4-Pro, plus a 90% cut on input cache hits across its API line. The move targets developers frustrated by Western chatbot rate caps and undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro on per-token basis.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator / DeepSeek</span>
+            
+            <span class="tag">deepseek</span>
+            
+            <span class="tag">pricing</span>
+            
+            <span class="tag">llm-apis</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Anthropic&#39;s Code with Claude showcases the future of AI coding</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">At Anthropic&#39;s London developer event, the company demonstrated how nearly all production code is increasingly machine-written, with developers shifting toward orchestration and review. The event coincided with Google I/O, underscoring an industry-wide reorientation around AI-native software engineering workflows.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
+            
+            <span class="tag">anthropic</span>
+            
+            <span class="tag">claude</span>
+            
+            <span class="tag">dev-tools</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/blue-origin-cleared-to-fly-new-glenn-mega-rocket-after-april-mishap/" class="item-title" target="_blank" rel="noopener">Blue Origin cleared to fly New Glenn after April mishap</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Regulators have cleared Blue Origin to return New Glenn to flight after confirming an engine failure caused the loss of an AST SpaceMobile satellite in April. Limited details were disclosed, but a return-to-flight keeps Bezos&#39;s company competing with SpaceX in heavy-lift.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+            
+            <span class="tag">blue-origin</span>
+            
+            <span class="tag">space</span>
+            
+            <span class="tag">launch</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://www.producthunt.com/products/wordpress-7-0" class="item-title" target="_blank" rel="noopener">WordPress 7.0 launches</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">A major version bump for the web&#39;s dominant CMS lands on Product Hunt. Worth tracking for shifts in editor, performance, and AI authoring integrations that ripple across publishing, agencies, and SMB websites.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+            
+            <span class="tag">wordpress</span>
+            
+            <span class="tag">cms</span>
+            
+            <span class="tag">open-source</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://www.producthunt.com/products/testsprite" class="item-title" target="_blank" rel="noopener">TestSprite 3.0 ships next-gen AI test automation</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">TestSprite 3.0 advances AI-driven QA and test generation, part of a growing category of agents that author, run, and triage tests against shipping codebases—an area drawing heavy enterprise interest as more code is AI-generated.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+            
+            <span class="tag">dev-tools</span>
+            
+            <span class="tag">qa</span>
+            
+            <span class="tag">agents</span>
+            
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    
+    <section class="category" data-category="ai_research">
+      <div class="category-header">
+        <div class="category-stripe" style="background:#534AB7"></div>
+        <h2>AI &amp; Research</h2>
+        <span class="item-count">6 items</span>
+      </div>
+      <div class="items-grid">
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">Google I/O signals a shift in the path to AI-driven science</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">At I/O, DeepMind CEO Demis Hassabis described the industry as &#39;standing in the foothills of the singularity,&#39; framing Google&#39;s bet on AI for scientific discovery. The keynote signaled a move from chatbots to research-grade systems aimed at biology, materials, and math.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+            
+            <span class="tag">google</span>
+            
+            <span class="tag">deepmind</span>
+            
+            <span class="tag">ai-science</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://sequoiacap.com/article/2026-this-is-agi/" class="item-title" target="_blank" rel="noopener">Sequoia: 2026 is AGI</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Sequoia&#39;s AI Ascent thesis argues that 2026 marks the arrival of practical AGI-level capability across reasoning, coding, and agents. The piece frames investment priorities around agent-native services, vertical AI, and the displacement of software by services.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Sequoia Capital</span>
+            
+            <span class="tag">agi</span>
+            
+            <span class="tag">sequoia</span>
+            
+            <span class="tag">thesis</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-title" target="_blank" rel="noopener">Can AI learn to understand the world? — Roundtable on world models</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Editors discuss the rise of &#39;world models&#39; as the next frontier beyond LLMs, with AI labs racing to build systems that can simulate physics, causality, and embodied reasoning. Likely to shape robotics, gaming, and autonomous systems roadmaps.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+            
+            <span class="tag">world-models</span>
+            
+            <span class="tag">research</span>
+            
+            <span class="tag">llm-limits</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://huggingface.co/papers/2605.21572" class="item-title" target="_blank" rel="noopener">PhysX-Omni: unified simulation-ready 3D generation</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">New work proposes a unified pipeline that generates rigid, deformable, and articulated 3D objects ready for physics simulation. A meaningful step toward world models and robotics datasets that don&#39;t require hand-authored assets.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Hugging Face Papers</span>
+            
+            <span class="tag">3d-generation</span>
+            
+            <span class="tag">simulation</span>
+            
+            <span class="tag">robotics</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://huggingface.co/papers/2605.16928" class="item-title" target="_blank" rel="noopener">Full Attention Strikes Back: porting full attention to sparse in ~100 steps</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Paper demonstrates that full-attention models can be cheaply converted to sparse-attention variants in roughly a hundred training steps with negligible quality loss—relevant for serving long-context LLMs at lower cost.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Hugging Face Papers</span>
+            
+            <span class="tag">efficiency</span>
+            
+            <span class="tag">attention</span>
+            
+            <span class="tag">inference</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="low" style="--cat-colour: #534AB7">
+          <div class="item-header">
+            
+            <a href="https://huggingface.co/papers/2605.14678" class="item-title" target="_blank" rel="noopener">π-Bench: evaluating proactive personal-assistant agents</a>
+            
+            <div class="signal-dots" data-level="low">
+              <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">New benchmark stress-tests agents on long-horizon, proactive workflows—anticipating user needs across multi-day tasks. Adds to a growing set of agent evaluations that go beyond single-turn tool use.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Hugging Face Papers</span>
+            
+            <span class="tag">agents</span>
+            
+            <span class="tag">benchmarks</span>
+            
+            <span class="tag">evaluation</span>
+            
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    
+    <section class="category" data-category="business">
+      <div class="category-header">
+        <div class="category-stripe" style="background:#0F6E56"></div>
+        <h2>Funding &amp; Business Moves</h2>
+        <span class="item-count">5 items</span>
+      </div>
+      <div class="items-grid">
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/" class="item-title" target="_blank" rel="noopener">SpaceX IPO filing made public, expected to raise ~$75B</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">SpaceX&#39;s IPO prospectus is now public, with a Nasdaq listing expected mid-June targeting roughly $75B in proceeds. Funds are earmarked for Starship development, AI ambitions, and paying down debt linked to xAI and X. Starlink generated $11B in 2025 revenue per the filing.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            
+            <span class="tag">spacex</span>
+            
+            <span class="tag">ipo</span>
+            
+            <span class="tag">starlink</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/" class="item-title" target="_blank" rel="noopener">How VCs and founders inflate &#39;ARR&#39; to crown AI startups</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Reporting details how AI startups annualize a single strong month, count pilots, or include one-off contracts as &#39;ARR&#39;—with investors complicit. A growing credibility risk as the market scrutinizes durability of AI revenue.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            
+            <span class="tag">venture</span>
+            
+            <span class="tag">ai-startups</span>
+            
+            <span class="tag">metrics</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://a16z.com/announcement/investing-in-exa/" class="item-title" target="_blank" rel="noopener">a16z backs Exa, Stitch, Ethos, Tessera Labs, Glif, Petual, Ulysses, Hilbert</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Andreessen Horowitz announced a wave of eight new investments this week spanning AI search (Exa), creative AI (Glif), defense/dual-use (Hilbert, Ulysses), and consumer/services. The pace signals continued aggressive deployment despite ARR-quality concerns elsewhere in the market.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+            
+            <span class="tag">a16z</span>
+            
+            <span class="tag">funding</span>
+            
+            <span class="tag">ai-startups</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-title" target="_blank" rel="noopener">Sequoia spotlights Nevis, bringing AI to wealth management</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Sequoia profiles Nevis as a vertical AI play targeting wealth management workflows. Part of its broader &#39;Services: The New Software&#39; thesis where AI replaces seat-licensed SaaS with outcome-priced services.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
+            
+            <span class="tag">fintech</span>
+            
+            <span class="tag">vertical-ai</span>
+            
+            <span class="tag">sequoia</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/apple-says-epic-lawsuit-shouldnt-reshape-app-store-rules-for-all-developers/" class="item-title" target="_blank" rel="noopener">Apple asks SCOTUS to narrow Epic App Store ruling</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Apple petitioned the Supreme Court to narrow the injunction Epic Games won and overturn the contempt ruling on external payment fees. The outcome could redefine App Store economics for all developers in the U.S.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            
+            <span class="tag">apple</span>
+            
+            <span class="tag">antitrust</span>
+            
+            <span class="tag">app-store</span>
+            
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    
+    <section class="category" data-category="trends">
+      <div class="category-header">
+        <div class="category-stripe" style="background:#993C1D"></div>
+        <h2>Trends &amp; Shifts</h2>
+        <span class="item-count">5 items</span>
+      </div>
+      <div class="items-grid">
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone" class="item-title" target="_blank" rel="noopener">AI memory demand is repricing consumer electronics</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Analysis argues the AI-driven memory shortage is pushing DRAM/NAND prices high enough to kill the cheap smartphone segment and raise BOM costs across PCs, consoles, and SSDs. A consumer-facing macro effect of the AI capex cycle.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Y Combinator (davidoks.blog)</span>
+            
+            <span class="tag">memory</span>
+            
+            <span class="tag">supply-chain</span>
+            
+            <span class="tag">consumer-electronics</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/21/1137622/climate-tech-pivot-critical-minerals/" class="item-title" target="_blank" rel="noopener">Climate tech is pivoting to critical minerals</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Under a hostile second Trump administration, climate-tech companies are rebranding around critical minerals, energy security, and industrial competitiveness rather than decarbonization. Repositioning is reshaping go-to-market for the entire sector.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">MIT Technology Review</span>
+            
+            <span class="tag">climate-tech</span>
+            
+            <span class="tag">minerals</span>
+            
+            <span class="tag">policy</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Services: the new software</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Sequoia argues AI is collapsing the boundary between software and services, with AI-native firms billing on outcomes rather than seats. The thesis predicts a new generation of multi-hundred-billion-dollar &#39;services-as-software&#39; companies.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Sequoia Capital</span>
+            
+            <span class="tag">thesis</span>
+            
+            <span class="tag">ai-business-models</span>
+            
+            <span class="tag">saas</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/" class="item-title" target="_blank" rel="noopener">Spotify floods users with AI tools they didn&#39;t ask for</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Spotify keeps shipping AI features nudging users to create rather than listen—DJs, remix tools, generative playlists. Reflects a broader consumer-app pattern of bolting generative features onto apps users primarily want for curation.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+            
+            <span class="tag">spotify</span>
+            
+            <span class="tag">consumer-ai</span>
+            
+            <span class="tag">ux</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="low" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://davidoks.blog/p/why-japanese-companies-do-so-many" class="item-title" target="_blank" rel="noopener">Why Japanese companies do so many different things</a>
+            
+            <div class="signal-dots" data-level="low">
+              <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">Widely-read essay on why Japanese conglomerates remain horizontally diversified, tying it to lifetime employment, capital allocation norms, and risk culture. A useful lens as Western AI giants increasingly look conglomerate-like.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Y Combinator (davidoks.blog)</span>
+            
+            <span class="tag">business-history</span>
+            
+            <span class="tag">japan</span>
+            
+            <span class="tag">strategy</span>
+            
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    
+    <section class="category" data-category="signals">
+      <div class="category-header">
+        <div class="category-stripe" style="background:#854F0B"></div>
+        <h2>Signals Worth Watching</h2>
+        <span class="item-count">5 items</span>
+      </div>
+      <div class="items-grid">
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/" class="item-title" target="_blank" rel="noopener">AI used to reconstruct dead pilots&#39; voices from cockpit recordings</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Researchers and hobbyists are using AI to reconstruct cockpit audio from spectrogram images of NTSB recordings, prompting the agency to temporarily block public docket access. A new chapter in synthetic-media ethics and FOIA-era privacy.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+            
+            <span class="tag">synthetic-media</span>
+            
+            <span class="tag">ethics</span>
+            
+            <span class="tag">privacy</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators" class="item-title" target="_blank" rel="noopener">U.S. researchers face new restrictions on foreign co-authorship</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">New federal rules limit U.S. researchers&#39; ability to publish with collaborators in adversarial countries, with implications for AI labs, biotech, and quantum. Expect chilled cross-border science and compliance overhead at universities.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Science (via HN)</span>
+            
+            <span class="tag">research-policy</span>
+            
+            <span class="tag">geopolitics</span>
+            
+            <span class="tag">compliance</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://annas-archive.gl/blog/llms-txt.html" class="item-title" target="_blank" rel="noopener">&#39;If you&#39;re an LLM, please read this&#39; — Anna&#39;s Archive prompt-injection appeal</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">The shadow library publishes an llms.txt-style appeal addressed directly to crawling models, asking them to mirror and preserve content. An early example of sites trying to influence model behavior through embedded instructions—watch for governance and prompt-injection implications.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Y Combinator (annas-archive.gl)</span>
+            
+            <span class="tag">llms-txt</span>
+            
+            <span class="tag">prompt-injection</span>
+            
+            <span class="tag">open-web</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://modelrift.com/blog/openscad-llm-benchmark/" class="item-title" target="_blank" rel="noopener">Antigravity 2.0 tops OpenSCAD architectural 3D LLM benchmark</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">A new benchmark measures how well LLMs can produce parametric 3D architectural models in OpenSCAD. Antigravity 2.0 leads—early signal of LLMs moving into CAD and computational design workflows.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">ModelRift (via HN)</span>
+            
+            <span class="tag">llm-benchmarks</span>
+            
+            <span class="tag">cad</span>
+            
+            <span class="tag">3d</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="low" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/22/1137753/the-enhanced-games-fit-right-in-with-the-rest-of-2026s-longevity-vibes/" class="item-title" target="_blank" rel="noopener">Enhanced Games kick off — performance-enhancing drugs go mainstream</a>
+            
+            <div class="signal-dots" data-level="low">
+              <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">The inaugural Enhanced Games, where athletes openly use approved performance-enhancing drugs, take place this weekend in Las Vegas. Slots into the broader 2026 longevity/biohacking culture and likely accelerates conversations on regulated enhancement.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">MIT Technology Review</span>
+            
+            <span class="tag">biotech</span>
+            
+            <span class="tag">longevity</span>
+            
+            <span class="tag">culture</span>
+            
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+
+    <section class="top-signals">
+      <h2>Top Signals This Week</h2>
+      <div class="signals-list">
+        
+        
+        
+        
+        <div class="signal-row">
+          <div class="signal-number" style="background:#E24B4A">1</div>
+          <div class="signal-body">
+            <div class="signal-headline">Starship V3 flies as SpaceX heads to a $75B IPO — but booster recovery still elusive</div>
+            <div class="signal-detail">Starship V3 is the linchpin for Starlink V3, Artemis lunar missions, and SpaceX&#39;s mid-June Nasdaq listing. A successful upper-stage flight de-risks the IPO narrative; the booster loss keeps reusability—and full unit economics—an open question heading into public markets.</div>
+            <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="signal-row">
+          <div class="signal-number" style="background:#E24B4A">2</div>
+          <div class="signal-body">
+            <div class="signal-headline">DeepSeek makes 75% V4-Pro discount permanent, escalating LLM price war</div>
+            <div class="signal-detail">Permanent pricing at $0.435/M input and $0.87/M output tokens, plus 90% off cache hits, structurally undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro. Any AI product with material inference spend should re-run pricing models and evaluate dual-vendor strategies this week.</div>
+            <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="signal-row">
+          <div class="signal-number" style="background:#EF9F27">3</div>
+          <div class="signal-body">
+            <div class="signal-headline">AI memory demand is killing the cheap smartphone and lifting consumer-electronics prices</div>
+            <div class="signal-detail">The AI capex cycle has tightened DRAM/NAND so much that consumer device BOM costs are climbing. Expect price increases across phones, PCs, SSDs, and consoles—affecting hardware roadmaps, retail pricing, and any startup with bill-of-materials exposure.</div>
+            <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="signal-row">
+          <div class="signal-number" style="background:#EF9F27">4</div>
+          <div class="signal-body">
+            <div class="signal-headline">VCs tolerate inflated &#39;ARR&#39; as the AI startup crown is handed out</div>
+            <div class="signal-detail">TechCrunch documents how single-month annualizations, pilots, and one-time deals are being marketed as ARR—with investors complicit. Diligence teams, acquirers, and competitors should pressure-test revenue quality before the next correction prices it in.</div>
+            <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="signal-row">
+          <div class="signal-number" style="background:#5F5E5A">5</div>
+          <div class="signal-body">
+            <div class="signal-headline">U.S. tightens rules on publishing with foreign research collaborators</div>
+            <div class="signal-detail">New restrictions affect AI, biotech, and quantum labs, with chilling effects on cross-border collaboration that has historically powered open research. Universities, AI labs, and journals need compliance posture; expect downstream impact on talent flows and open-source publication.</div>
+            <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <footer>
+      <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
+      <div>Generated by Weekly Tech Update · May 23, 2026 02:12 UTC</div>
+    </footer>
+  </div>
+</body>
+</html>

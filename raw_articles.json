@@ -1,6 +1,48 @@
 {
   "techcrunch": [
     {
+      "title": "SolarSquare in talks to raise up to $60M as India\u2019s rooftop solar market draws major VC interest",
+      "url": "https://techcrunch.com/2026/05/23/solarsquare-in-talks-to-raise-up-to-60m-as-indias-rooftop-solar-market-draws-major-vc-interest/",
+      "description": "SolarSquare could be valued at up to $500 million in the financing expected to close next month.",
+      "published_at": "Sat, 23 May 2026 20:03:13 +0000",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "These special phone and app features can help protect you from spyware",
+      "url": "https://techcrunch.com/2026/05/23/you-dont-have-to-click-anything-to-get-hacked-anymore-heres-how-to-fight-back/",
+      "description": "Apple, Meta, and Google offer special security modes that provide your devices more secure against targeted spyware attacks. Here are how those modes work, what they do, and how to switch them on.",
+      "published_at": "Sat, 23 May 2026 16:00:00 +0000",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Ferrari is using IBM\u2019s AI to create F1 superfans",
+      "url": "https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/",
+      "description": "IBM and Scuderia Ferrari HP take TechCrunch inside how they are redefining the fan experience.",
+      "published_at": "Sat, 23 May 2026 15:08:00 +0000",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Nuclear startup Deep Fission says it\u2019s going public, again, and I have questions",
+      "url": "https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/",
+      "description": "Deep Fission is seeking an IPO that could raise $157 million, though investors may have trouble buying the nuclear startup's story.",
+      "published_at": "Sat, 23 May 2026 14:50:00 +0000",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Elon Musk has given up on solar power (on Earth)",
+      "url": "https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/",
+      "description": "Elon Muks's xAI has gone all in on natural gas, while SpaceX is obsessed with orbital data centers. What happened to the \"solar-electric economy\" he promised?",
+      "published_at": "Sat, 23 May 2026 13:00:00 +0000",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Peec, one of Berlin\u2019s rising startups, more than doubled annualized revenue in months to $10M, sources say",
+      "url": "https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/",
+      "description": "Peec, which helps brands track their presence in AI searches, offers proof of a key trend among European startups.",
+      "published_at": "Sat, 23 May 2026 07:01:00 +0000",
+      "source": "TechCrunch"
+    },
+    {
       "title": "AI is being used to resurrect the voices of dead pilots",
       "url": "https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/",
       "description": "People used AI on a spectrogram image of cockpit recordings to reconstruct them, forcing the NTSB to temporarily block access to its docket system.",
@@ -96,48 +138,6 @@
       "url": "https://techcrunch.com/2026/05/22/smart-ring-maker-oura-files-to-go-public/",
       "description": "The Finnish company said in September that it has sold 5.5 million smart rings to date.",
       "published_at": "Fri, 22 May 2026 14:03:35 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "Audio-generation app Huxe, founded by former NotebookLM developers, shuts down",
-      "url": "https://techcrunch.com/2026/05/22/audio-generation-app-huxe-founded-by-former-notebooklm-developers-shuts-down/",
-      "description": "Huxe said that it has pulled its app from App Store and Play Store, and that it will stop working later this month.",
-      "published_at": "Fri, 22 May 2026 13:48:03 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "Finnish phone maker HMD bundles Indian AI chatbot onto new smartphone in push to reach local market",
-      "url": "https://techcrunch.com/2026/05/21/finnish-phone-maker-hmd-bundles-indian-ai-chatbot-onto-new-smartphone-in-push-to-reach-local-market/",
-      "description": "The partnership is a potential testing ground for both companies to gauge the appetite for an India-focused chatbot.",
-      "published_at": "Fri, 22 May 2026 06:41:28 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "Waymo expands pause to four cities as robotaxis keep driving into floods",
-      "url": "https://techcrunch.com/2026/05/21/waymo-pauses-service-in-four-cities-as-robotaxis-keep-driving-into-floods/",
-      "description": "Waymo's robotaxi service is now suspended in both Atlanta and San Antonio, as the company works to stop its vehicles from driving into flooded roads.",
-      "published_at": "Fri, 22 May 2026 00:37:00 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "SpaceX scrubs first Starship V3 launch just before liftoff",
-      "url": "https://techcrunch.com/2026/05/21/spacex-scrubs-first-starship-v3-launch-just-before-liftoff/",
-      "description": "SpaceX fueled the third-generation rocket booster and ship and was just moments away from liftoff, before calling a scrub. It's expected to try again Friday.",
-      "published_at": "Fri, 22 May 2026 00:07:47 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "Who will benefit most from SpaceX IPO? Mostly Elon \u2014 and a few from his inner circle",
-      "url": "https://techcrunch.com/2026/05/21/who-will-benefit-most-from-spacex-ipo-mostly-elon-and-a-few-from-his-inner-circle/",
-      "description": "Elon Musk has the largest stake in SpaceX by billions of shares. The other biggest shareholders also have longstanding and deep ties to Musk.",
-      "published_at": "Thu, 21 May 2026 21:39:03 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "Waymo halts freeway rides after robotaxis struggle in construction zones",
-      "url": "https://techcrunch.com/2026/05/21/waymo-halts-freeway-rides-after-robotaxis-struggle-in-construction-zones/",
-      "description": "The service suspension comes as Waymo has also paused operations in Atlanta and San Antonio after its robotaxis drove into flooded streets.",
-      "published_at": "Thu, 21 May 2026 21:13:23 +0000",
       "source": "TechCrunch"
     }
   ],
@@ -378,143 +378,143 @@
   ],
   "ycombinator": [
     {
-      "title": "Project Hail Mary \u2013 Stellar Navigation Chart",
-      "url": "https://valhovey.github.io/gaia-mary/",
-      "description": "HN front page \u00b7 1141 points",
-      "published_at": "2026-05-21T16:23:11+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "If you\u2019re an LLM, please read this",
-      "url": "https://annas-archive.gl/blog/llms-txt.html",
-      "description": "HN front page \u00b7 730 points",
-      "published_at": "2026-05-22T11:28:08+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Why Japanese companies do so many different things",
-      "url": "https://davidoks.blog/p/why-japanese-companies-do-so-many",
-      "description": "HN front page \u00b7 488 points",
-      "published_at": "2026-05-22T15:22:04+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "The memory shortage is causing a repricing of consumer electronics",
-      "url": "https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone",
-      "description": "HN front page \u00b7 479 points",
-      "published_at": "2026-05-21T21:55:56+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Bun support is now limited and deprecated",
-      "url": "https://github.com/yt-dlp/yt-dlp/issues/16766",
-      "description": "HN front page \u00b7 371 points",
-      "published_at": "2026-05-22T17:24:12+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Antigravity 2.0 Tops the OpenSCAD Architectural 3D LLM Benchmark",
-      "url": "https://modelrift.com/blog/openscad-llm-benchmark/",
-      "description": "HN front page \u00b7 347 points",
-      "published_at": "2026-05-22T10:38:26+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "U.S. researchers face new restrictions on publishing with foreign collaborators",
-      "url": "https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators",
-      "description": "HN front page \u00b7 340 points",
-      "published_at": "2026-05-22T16:23:08+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "DeepSeek makes the V4 Pro price discount permanent",
-      "url": "https://api-docs.deepseek.com/quick_start/pricing",
-      "description": "HN front page \u00b7 316 points",
-      "published_at": "2026-05-22T15:59:26+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Project Glasswing: An Initial Update",
-      "url": "https://www.anthropic.com/research/glasswing-initial-update",
-      "description": "HN front page \u00b7 311 points",
-      "published_at": "2026-05-22T19:31:45+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Deno 2.8",
-      "url": "https://deno.com/blog/v2.8",
-      "description": "HN front page \u00b7 305 points",
-      "published_at": "2026-05-22T11:23:30+00:00",
-      "source": "Y Combinator"
-    },
-    {
       "title": "Shipping a laptop to a refugee camp in Uganda",
       "url": "https://notesbylex.com/shipping-a-laptop-to-a-refugee-camp-in-uganda",
-      "description": "HN front page \u00b7 190 points",
+      "description": "HN front page \u00b7 651 points",
       "published_at": "2026-05-22T21:36:55+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Open source Kanban desktop app that runs parallel agents on every card",
-      "url": "https://www.kanbots.dev/",
-      "description": "HN front page \u00b7 165 points",
-      "published_at": "2026-05-22T18:17:57+00:00",
+      "title": "Texas woman arrested for Facebook post about town water quality",
+      "url": "https://reclaimthenet.org/texas-woman-arrested-for-facebook-post-about-town-water-quality",
+      "description": "HN front page \u00b7 465 points",
+      "published_at": "2026-05-23T18:02:42+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "CISA tries to contain data leak",
-      "url": "https://krebsonsecurity.com/2026/05/lawmakers-demand-answers-as-cisa-tries-to-contain-data-leak/",
-      "description": "HN front page \u00b7 129 points",
-      "published_at": "2026-05-22T16:54:31+00:00",
+      "title": "On The <dl> (2021)",
+      "url": "https://benmyers.dev/blog/on-the-dl/",
+      "description": "HN front page \u00b7 314 points",
+      "published_at": "2026-05-23T13:03:43+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "A Wayland Compositor in Minecraft",
-      "url": "https://modrinth.com/mod/waylandcraft",
-      "description": "HN front page \u00b7 125 points",
-      "published_at": "2026-05-20T20:19:46+00:00",
+      "title": "Green card seekers must leave U.S. to apply, Trump administration says",
+      "url": "https://www.nytimes.com/2026/05/22/us/politics/green-card-changes-trump.html",
+      "description": "HN front page \u00b7 299 points",
+      "published_at": "2026-05-22T21:27:12+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "SpaceX launches Starship v3 rocket",
-      "url": "https://www.nbcnews.com/now/video/spacex-successfully-launches-prototype-of-starship-rocket-263835205505",
-      "description": "HN front page \u00b7 110 points",
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight",
+      "description": "HN front page \u00b7 298 points",
       "published_at": "2026-05-22T23:41:55+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "A Forth-inspired language for writing websites",
-      "url": "https://robida.net/entries/2026/05/21/a-forth-inspired-language-for-writing-websites",
-      "description": "HN front page \u00b7 104 points",
-      "published_at": "2026-05-22T15:00:50+00:00",
+      "title": "Oura says it gets government demands for user data",
+      "url": "https://this.weekinsecurity.com/oura-says-it-gets-government-demands-for-user-data-will-it-share-how-many/",
+      "description": "HN front page \u00b7 228 points",
+      "published_at": "2026-05-23T14:09:57+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Models.dev: open-source database of AI model specs, pricing, and capabilities",
-      "url": "https://github.com/anomalyco/models.dev",
-      "description": "HN front page \u00b7 103 points",
-      "published_at": "2026-05-22T20:26:07+00:00",
+      "title": "Italy Cancels Boeing Pegasus Order, Shifting to Airbus A330 MRTT",
+      "url": "https://www.euronews.com/my-europe/2026/05/21/italy-moves-to-airbus-a330-tankers-in-major-nato-aligned-shift",
+      "description": "HN front page \u00b7 202 points",
+      "published_at": "2026-05-23T16:02:43+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "I\u2019m writing again",
-      "url": "https://www.cringely.com/2026/05/21/im-writing-again/",
-      "description": "HN front page \u00b7 96 points",
-      "published_at": "2026-05-22T14:36:27+00:00",
+      "title": "80386 Microcode Disassembled",
+      "url": "https://www.reenigne.org/blog/80386-microcode-disassembled/",
+      "description": "HN front page \u00b7 197 points",
+      "published_at": "2026-05-23T12:11:43+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "1940 Air Terminal Museum Begins Liquidation",
-      "url": "https://www.1940airterminal.org/news/liquidation-of-simulators",
-      "description": "HN front page \u00b7 86 points",
-      "published_at": "2026-05-22T17:05:32+00:00",
+      "title": "sp.h: Fixing C by giving it a high quality, ultra portable standard library",
+      "url": "https://spader.zone/sp/",
+      "description": "HN front page \u00b7 161 points",
+      "published_at": "2026-05-20T13:05:46+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Wi-Wi is wireless time sync at 1 nanosecond",
-      "url": "https://www.jeffgeerling.com/blog/2026/wi-wi-is-wireless-time-sync-less-than-5ns/",
-      "description": "HN front page \u00b7 83 points",
-      "published_at": "2026-05-20T15:06:31+00:00",
+      "title": "Rubish: A Unix shell written in pure Ruby",
+      "url": "https://github.com/amatsuda/rubish",
+      "description": "HN front page \u00b7 158 points",
+      "published_at": "2026-05-23T06:32:00+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "The Art of Money Getting",
+      "url": "https://kk.org/cooltools/book-freak-210-the-art-of-money-getting/",
+      "description": "HN front page \u00b7 151 points",
+      "published_at": "2026-05-23T12:48:02+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "My two-part desk setup",
+      "url": "https://arslan.io/2025/11/18/my-two-part-desk-setup/",
+      "description": "HN front page \u00b7 147 points",
+      "published_at": "2026-05-20T21:21:14+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "It's time to talk about my writerdeck",
+      "url": "https://veronicaexplains.net/my-first-writerdeck/",
+      "description": "HN front page \u00b7 146 points",
+      "published_at": "2026-05-23T18:45:37+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Making Deep Learning Go Brrrr from First Principles (2022)",
+      "url": "https://horace.io/brrr_intro.html",
+      "description": "HN front page \u00b7 132 points",
+      "published_at": "2026-05-23T11:50:22+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Electrobun 2.0 will be decoupled from Bun due to the Rust rewrite",
+      "url": "https://twitter.com/i/status/2058064720553222567",
+      "description": "HN front page \u00b7 101 points",
+      "published_at": "2026-05-23T11:54:39+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "z386: An Open-Source 80386 Built Around Original Microcode",
+      "url": "https://nand2mario.github.io/posts/2026/z386/",
+      "description": "HN front page \u00b7 99 points",
+      "published_at": "2026-05-23T14:25:30+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Kindle loyalists scramble as Amazon turns page on old e-readers",
+      "url": "https://www.reuters.com/business/retail-consumer/kindle-loyalists-scramble-amazon-turns-page-old-e-readers-2026-05-19/",
+      "description": "HN front page \u00b7 88 points",
+      "published_at": "2026-05-19T15:30:01+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Spanish court declines to fine NordVPN over LaLiga piracy blocking order",
+      "url": "https://torrentfreak.com/spanish-court-declines-to-fine-nordvpn-over-laliga-piracy-blocking-order/",
+      "description": "HN front page \u00b7 88 points",
+      "published_at": "2026-05-23T06:54:49+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "PHP's Oddities",
+      "url": "https://flowtwo.io/post/php%27s-oddities",
+      "description": "HN front page \u00b7 80 points",
+      "published_at": "2026-05-19T20:41:48+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Hengefinder: Finding When the Sun Aligns with Your Street",
+      "url": "https://victoriaritvo.com/blog/hengefinder/",
+      "description": "HN front page \u00b7 73 points",
+      "published_at": "2026-05-22T20:39:42+00:00",
       "source": "Y Combinator"
     }
   ],
@@ -592,6 +592,118 @@
   ],
   "producthunt": [
     {
+      "title": "Google Antigravity CLI",
+      "url": "https://www.producthunt.com/products/google-antigravity",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Memdex",
+      "url": "https://www.producthunt.com/products/memdex",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "note.md",
+      "url": "https://www.producthunt.com/products/note-md",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "RetroMac",
+      "url": "https://www.producthunt.com/products/retromac",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Bulkmark",
+      "url": "https://www.producthunt.com/products/bulkmark-2",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Command A+",
+      "url": "https://www.producthunt.com/products/cohere-2",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Forsy",
+      "url": "https://www.producthunt.com/products/forsy",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Spantop",
+      "url": "https://www.producthunt.com/products/spantop",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Vibedock",
+      "url": "https://www.producthunt.com/products/vibedock",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "AppSignal",
+      "url": "https://www.producthunt.com/products/appsignal",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Kosshi",
+      "url": "https://www.producthunt.com/products/kosshi",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Coca 2.0",
+      "url": "https://www.producthunt.com/products/coca-2-0",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "SignalLEMO - Ai Outreach Made Simple",
+      "url": "https://www.producthunt.com/products/signallemo-ai-outreach-made-simple",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Area Contrast Checker",
+      "url": "https://www.producthunt.com/products/area-contrast-checker",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "Finderlock",
+      "url": "https://www.producthunt.com/products/finderlock",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
+      "title": "H\u039eNRY I've been using AppSignal for a little while now and I cannot imagine working without it. Their support is awesome, the interface is super clean and it was so easy to get it up and running.",
+      "url": "https://www.producthunt.com/products/appsignal?comment=341625",
+      "description": "Product Hunt launch",
+      "published_at": "",
+      "source": "Product Hunt"
+    },
+    {
       "title": "TestSprite 3.0",
       "url": "https://www.producthunt.com/products/testsprite",
       "description": "Product Hunt launch",
@@ -618,121 +730,16 @@
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
-    },
-    {
-      "title": "iPromise",
-      "url": "https://www.producthunt.com/products/ipromise-ai-focus-buddy-for-deep-work",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Auto Posts",
-      "url": "https://www.producthunt.com/products/auto-posts",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Prosed",
-      "url": "https://www.producthunt.com/products/prosed-turn-your-content-into-a-book",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "moop",
-      "url": "https://www.producthunt.com/products/moop",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Nugget AI",
-      "url": "https://www.producthunt.com/products/nugget-ai",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "AppSignal",
-      "url": "https://www.producthunt.com/products/appsignal",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "SuprSend AI",
-      "url": "https://www.producthunt.com/products/suprsend",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Reader Alive",
-      "url": "https://www.producthunt.com/products/reader-alive",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "buildpipe",
-      "url": "https://www.producthunt.com/products/buildpipe",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "motionvid.ai",
-      "url": "https://www.producthunt.com/products/motionvid-ai",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Zero Assist",
-      "url": "https://www.producthunt.com/products/zero-assist",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "JAMtime.ai",
-      "url": "https://www.producthunt.com/products/jamtime-ai",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Shuffle Design CLI",
-      "url": "https://www.producthunt.com/products/shuffle-design-cli",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "DCP",
-      "url": "https://www.producthunt.com/products/dcp",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Our Stories",
-      "url": "https://www.producthunt.com/products/our-stories",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
-    },
-    {
-      "title": "Shroomie",
-      "url": "https://www.producthunt.com/products/shroomie",
-      "description": "Product Hunt launch",
-      "published_at": "",
-      "source": "Product Hunt"
     }
   ],
   "hf_papers": [
+    {
+      "title": "DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards",
+      "url": "https://huggingface.co/papers/2605.21467",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
     {
       "title": "TransitLM: A Large-Scale Dataset and Benchmark for Map-Free Transit Route Generation",
       "url": "https://huggingface.co/papers/2605.22355",
@@ -743,13 +750,6 @@
     {
       "title": "Perception or Prejudice: Can MLLMs Go Beyond First Impressions of Personality?",
       "url": "https://huggingface.co/papers/2605.22109",
-      "description": "AI/ML research paper",
-      "published_at": "",
-      "source": "Hugging Face Papers"
-    },
-    {
-      "title": "DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards",
-      "url": "https://huggingface.co/papers/2605.21467",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
@@ -790,6 +790,13 @@
       "source": "Hugging Face Papers"
     },
     {
+      "title": "Forecasting Scientific Progress with Artificial Intelligence",
+      "url": "https://huggingface.co/papers/2605.22681",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
+    {
       "title": "WorldKV: Efficient World Memory with World Retrieval and Compression",
       "url": "https://huggingface.co/papers/2605.22718",
       "description": "AI/ML research paper",
@@ -804,22 +811,8 @@
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Forecasting Scientific Progress with Artificial Intelligence",
-      "url": "https://huggingface.co/papers/2605.22681",
-      "description": "AI/ML research paper",
-      "published_at": "",
-      "source": "Hugging Face Papers"
-    },
-    {
       "title": "SEGA: Spectral-Energy Guided Attention for Resolution Extrapolation in Diffusion Transformers",
       "url": "https://huggingface.co/papers/2605.22668",
-      "description": "AI/ML research paper",
-      "published_at": "",
-      "source": "Hugging Face Papers"
-    },
-    {
-      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
-      "url": "https://huggingface.co/papers/2605.22809",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
@@ -839,15 +832,8 @@
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Maestro: Reinforcement Learning to Orchestrate Hierarchical Model-Skill Ensembles",
-      "url": "https://huggingface.co/papers/2605.22177",
-      "description": "AI/ML research paper",
-      "published_at": "",
-      "source": "Hugging Face Papers"
-    },
-    {
-      "title": "Q-ARVD: Quantizing Autoregressive Video Diffusion Models",
-      "url": "https://huggingface.co/papers/2605.21072",
+      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
+      "url": "https://huggingface.co/papers/2605.22809",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
@@ -867,8 +853,22 @@
       "source": "Hugging Face Papers"
     },
     {
-      "title": "GenEvolve: Self-Evolving Image Generation Agents via Tool-Orchestrated Visual Experience Distillation",
-      "url": "https://huggingface.co/papers/2605.21605",
+      "title": "Q-ARVD: Quantizing Autoregressive Video Diffusion Models",
+      "url": "https://huggingface.co/papers/2605.21072",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
+    {
+      "title": "Maestro: Reinforcement Learning to Orchestrate Hierarchical Model-Skill Ensembles",
+      "url": "https://huggingface.co/papers/2605.22177",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
+    {
+      "title": "Training Large Language Models to Predict Clinical Events",
+      "url": "https://huggingface.co/papers/2605.12817",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"

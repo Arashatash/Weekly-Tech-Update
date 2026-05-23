@@ -255,10 +255,174 @@
     }
     footer div { margin-bottom: 0.35rem; }
 
+    /* --- Strategic visuals --- */
+    .viz { margin-bottom: 2.5rem; }
+    .viz h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .viz-caption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .horizon-matrix {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .horizon-matrix { grid-template-columns: repeat(3, 1fr); }
+    }
+    .horizon-column {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      border-top: 4px solid var(--col-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .horizon-range {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .horizon-action {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--col-colour, #5F5E5A);
+    }
+    .horizon-count {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .horizon-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-cell {
+      font-size: 0.82rem;
+      line-height: 1.35;
+      padding: 0.5rem 0.6rem;
+      border-left: 3px solid var(--col-colour, #5F5E5A);
+      background: var(--bg);
+      border-radius: 4px;
+    }
+    .horizon-cell-title { font-weight: 600; color: var(--text-primary); }
+    .horizon-cell-meta {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+    .horizon-cell[data-signal="high"] { box-shadow: inset 0 0 0 1px rgba(226, 75, 74, 0.25); }
+    .horizon-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .thesis-map {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .thesis-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    .thesis-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    @media (min-width: 768px) {
+      .thesis-row {
+        grid-template-columns: minmax(180px, 1fr) auto minmax(0, 1.5fr);
+        align-items: center;
+      }
+    }
+    .thesis-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      color: var(--text-primary);
+      padding-left: 0.6rem;
+      border-left: 3px solid #0F6E56;
+    }
+    .thesis-arrow {
+      display: none;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      justify-self: center;
+    }
+    @media (min-width: 768px) {
+      .thesis-arrow { display: inline; }
+    }
+    .thesis-aligned {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .thesis-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .thesis-chip:hover { border-color: var(--chip-colour, #5F5E5A); }
+    .thesis-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--chip-colour, #5F5E5A);
+      flex-shrink: 0;
+    }
+    .thesis-chip[data-ph="true"] {
+      background: #FFF6E6;
+      border-color: #F0C36D;
+    }
+    @media (prefers-color-scheme: dark) {
+      .thesis-chip[data-ph="true"] {
+        background: rgba(240, 195, 109, 0.12);
+        border-color: rgba(240, 195, 109, 0.45);
+      }
+    }
+    .thesis-chip-label { color: var(--text-primary); }
+
     @media print {
       body { padding: 0; background: #fff; }
       .metrics { break-inside: avoid; }
       .item-card { break-inside: avoid; }
+      .horizon-matrix, .thesis-map { break-inside: avoid; }
     }
   </style>
 </head>
@@ -266,22 +430,22 @@
   <div class="container">
     <header>
       <div class="week-label">WEEK 21 · May 18 – May 24, 2026</div>
-      <h1>Agentic AI moves from pilots to parabolic deployment — and the infrastructure, capital, and security stack races to keep up</h1>
-      <p class="context">This week the AI conversation hardened around a single thesis: agents are no longer demos, they are deployable systems whose cost, security, and capital structure are being rebuilt in real time. Hassabis declared at I/O that we are &#34;in the foothills of the singularity&#34; while Jensen Huang called demand &#34;utterly parabolic&#34; and unveiled a $200B agentic-CPU TAM around Vera Rubin. Anthropic&#39;s Code with Claude and Project Glasswing updates show frontier labs converging on coding agents and AI-native cybersecurity as the two highest-leverage commercial wedges. Capital is repricing accordingly: Sequoia&#39;s AI Ascent thesis frames services as the new software and pegs a $10T opportunity, while a16z fired a salvo of seed announcements across agent infra (Exa, GitButler, Glif, Tessera). Operators should plan for: (1) a memory/inference cost squeeze hitting consumer hardware, (2) ARR metric inflation in AI startups, (3) Chinese open-source pricing pressure (DeepSeek V4 Pro permanent discount), and (4) cybersecurity becoming the first vertical where AI delivers durable defender advantage.</p>
+      <h1>Agents Reach Escape Velocity — Capital Chases the Harness Layer</h1>
+      <p class="context">The week of May 18, 2026 crystallized a sharp shift in how capital and operators frame AI. Two flagship developer events — Google I/O and Anthropic&#39;s Code with Claude London — both centered on agentic &#34;harnesses&#34; (orchestration layers wrapping models). Demis Hassabis declared we are in the &#34;foothills of the singularity,&#34; Jensen Huang said demand has gone &#34;parabolic&#34; and unveiled a $200B agentic-CPU TAM with Vera, and Sequoia rolled out its AI Ascent 2026 thesis declaring &#34;Services: The New Software.&#34; Meanwhile a16z published twelve seed/Series-A announcements in one week — a clear signal the firm is spreading capital across agent infra, vertical AI services, and bio. The undertow: ARR inflation in AI startups, Europe&#39;s &#34;AI search visibility&#34; startups raising fast (Peec hitting $10M ARR), and a quiet shift to enterprise-grade safety/governance (MCP tunnels, sandboxes, code-scanning). For operators and investors, the questions are no longer &#34;will agents work&#34; but &#34;who captures the harness, who captures the services revenue, and who builds the inference economics that make it pencil out.&#34;</p>
       <div class="meta-row">
-        <span>25 items</span>
-        <span>14 high signal</span>
-        <span>Generated May 23, 2026 21:25 UTC</span>
+        <span>21 items</span>
+        <span>12 high signal</span>
+        <span>Generated May 23, 2026 21:49 UTC</span>
       </div>
     </header>
 
     <div class="metrics">
       <div class="metric-card">
-        <div class="metric-value">25</div>
+        <div class="metric-value">21</div>
         <div class="metric-label">Items scanned</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">14</div>
+        <div class="metric-value">12</div>
         <div class="metric-label">High signal items</div>
       </div>
       <div class="metric-card">
@@ -303,45 +467,23 @@
         <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
           <div class="item-header">
             
-            <a href="https://sequoiacap.com/article/ai-ascent-2026/" class="item-title" target="_blank" rel="noopener">Sequoia AI Ascent 2026: &#39;This is AGI&#39; and the $10T revolution thesis</a>
+            <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Services-as-Software: AI eats the labor line item</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">Sequoia&#39;s flagship AI conference reframes 2026 as the AGI inflection year and bundles its core theses — Services as the New Software, the $1T retail rebuild, and the $10T AI revolution — into a single capital allocation framework. Implication: LPs and operators should expect Sequoia to lead aggressively in AI-native services replacing labor-line P&amp;L (not SaaS line), and price accordingly when competing for those deals.</p>
+          <p class="item-summary">Sequoia&#39;s AI Ascent 2026 keynote reframes the opportunity from SaaS-replacement to services-replacement — i.e., AI sold as outcomes (legal work done, claims processed, code shipped) priced against headcount budgets rather than seat budgets. Implication for capital: TAM expands from the ~$650B global software market to the ~$10T services economy, and the winning startups will be vertical, workflow-deep, and outcome-priced. Expect a16z and Sequoia to keep funding &#39;AI [vertical professional]&#39; plays (wealth mgmt, legal, accounting, support) at premium multiples.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
             
-            
-            <span class="tag">thesis</span>
-            
-            <span class="tag">AGI</span>
             
             <span class="tag">services-as-software</span>
             
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
-          <div class="item-header">
+            <span class="tag">thesis</span>
             
-            <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Services: The New Software — Sequoia&#39;s labor-budget thesis</a>
+            <span class="tag">vertical-ai</span>
             
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Sequoia is making explicit that AI-native companies should target the global services/labor TAM, not software budgets — a 10–100x larger pool. Capital implication: expect a wave of vertical AI rollups (legal, accounting, wealth, healthcare admin) backed at software-like multiples on services revenue, redefining what &#39;AI ARR&#39; even means.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
-            
-            
-            <span class="tag">vertical-AI</span>
-            
-            <span class="tag">rollups</span>
-            
-            <span class="tag">services</span>
             
           </div>
         </article>
@@ -349,45 +491,23 @@
         <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
           <div class="item-header">
             
-            <a href="https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/" class="item-title" target="_blank" rel="noopener">How VCs and founders use inflated &#39;ARR&#39; to crown AI startups</a>
+            <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">The Harness Layer: orchestration beats raw model IQ</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">TechCrunch documents how AI startups and their backers are stretching ARR definitions (annualizing weekly bursts, counting pilots, GMV-style metrics) to manufacture headline growth. Implication: late-stage AI valuations are increasingly disconnected from durable revenue; sophisticated buyers should demand cohort retention and gross-margin disclosure, and founders should expect a 2026 correction in markups tied to fake-ARR.</p>
+          <p class="item-summary">Both Google I/O (Antigravity, Gemini agents) and Anthropic&#39;s Code with Claude (Managed Agents, MCP tunnels, sandboxes) treated the model as commodity and put product gravity on the &#39;harness&#39; — planning, tools, memory, safety controls. Implication: capital should flow to companies that own the orchestration runtime, evals, and enterprise governance — not those rebuilding base models. This is bullish for infra/agent-platform startups (LangChain-likes, Glif, Exa) and bearish for thin LLM wrappers.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">MIT Technology Review</span>
             
             
-            <span class="tag">valuation</span>
+            <span class="tag">agents</span>
             
-            <span class="tag">metrics</span>
+            <span class="tag">infrastructure</span>
             
-            <span class="tag">risk</span>
+            <span class="tag">orchestration</span>
             
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://a16z.com/announcement/investing-in-exa/" class="item-title" target="_blank" rel="noopener">a16z fires a seed-stage salvo across agent infra (Exa, GitButler, Glif, Tessera, Stitch, Hilbert)</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Andreessen Horowitz announced eight new investments this week clustered around AI search/retrieval (Exa), developer-agent tooling (GitButler), generative pipelines (Glif), and applied AI verticals (Stitch, Ethos, Hilbert, Ulysses, Tessera Labs). Pattern: a16z is buying the picks-and-shovels around coding agents and retrieval, not chasing more foundation-model bets — a clear signal of where the firm sees defensible margin.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
-            
-            
-            <span class="tag">seed</span>
-            
-            <span class="tag">agent-infra</span>
-            
-            <span class="tag">a16z</span>
             
           </div>
         </article>
@@ -395,57 +515,216 @@
         <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
           <div class="item-header">
             
-            <a href="https://sequoiacap.com/article/ai-retail-opportunity/" class="item-title" target="_blank" rel="noopener">Sequoia: The $1T opportunity to build the next Amazon in retail</a>
+            <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">Open-source AI as US industrial policy</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Sequoia is publicly underwriting a thesis that AI-native commerce (agentic shopping, generative merchandising, personalized supply chain) can spawn a trillion-dollar consumer winner inside a decade. Implication: capital is being teed up for AI-commerce category creation; founders attacking discovery, checkout-by-agent, and SKU intelligence should expect Series A&#39;s sized far above traditional e-commerce comps.</p>
+          <p class="item-summary">Ben Horowitz re-upped his thesis that the US is losing the AI culture war to Chinese open-weight models (DeepSeek already embedded in US labs) and that closed-only strategies hand cultural/values dominance to Beijing. Implication for capital: a16z is signaling continued aggressive funding of US open-weight model labs, open-source agent runtimes, and any startup that can plausibly carry the &#39;American open AI stack&#39; flag — and lobbying for permissive federal policy. Investors should expect open-weight infra and fine-tuning startups to attract premium rounds.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
             
             
-            <span class="tag">retail-AI</span>
+            <span class="tag">open-source</span>
             
-            <span class="tag">consumer</span>
+            <span class="tag">geopolitics</span>
             
-            <span class="tag">agentic-commerce</span>
+            <span class="tag">policy</span>
+            
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/" class="item-title" target="_blank" rel="noopener">AI search visibility is the new SEO category</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Berlin&#39;s Peec more than doubled ARR to $10M in months helping brands monitor how they show up in ChatGPT/Gemini/Perplexity answers — a wedge that didn&#39;t exist 18 months ago. Implication for capital: &#39;GEO/AEO&#39; (generative/answer engine optimization) is becoming a venture-fundable category with clear B2B demand from marketing budgets that are panicked about losing Google referral traffic. Expect a wave of US and EU seed rounds; defensibility is data + agency relationships, not model quality.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            
+            
+            <span class="tag">ai-search</span>
+            
+            <span class="tag">martech</span>
+            
+            <span class="tag">europe</span>
+            
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/" class="item-title" target="_blank" rel="noopener">ARR inflation: due-diligence pricing power is shifting back to LPs</a>
+            
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+          <p class="item-summary">TechCrunch documented how AI startups (and their VCs) are publicly quoting annualized run-rate from peak weeks, free trials, and one-time deals to manufacture &#39;fastest to $100M ARR&#39; narratives. Implication: LPs and late-stage buyers are starting to demand GAAP-like revenue disclosures, and the next 6 months will see a quiet repricing of AI rounds that relied on inflated metrics. Smart money is shifting to firms with audited revenue and net-dollar-retention data.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+            
+            
+            <span class="tag">valuations</span>
+            
+            <span class="tag">due-diligence</span>
+            
+            <span class="tag">metrics</span>
+            
             
           </div>
         </article>
         
       </div>
     </section>
+
+    
+    <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
+      <h2>Thesis Map — where capital connects to what's shipping</h2>
+      <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
+      <div class="thesis-map">
+        
+        <div class="thesis-row">
+          <div class="thesis-label">Services-as-Software: AI eats the labor line item</div>
+          <div class="thesis-arrow" aria-hidden="true">→</div>
+          <div class="thesis-aligned">
+            
+            
+            <a class="thesis-chip" href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Nevis: AI for wealth management (Sequoia-backed)</span>
+            </a>
+            
+            
+            
+            <a class="thesis-chip" href="https://sequoiacap.com/article/services-the-new-software/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Outcome-priced vertical AI services (legal, accounting, support)</span>
+            </a>
+            
+            
+          </div>
+        </div>
+        
+        <div class="thesis-row">
+          <div class="thesis-label">The Harness Layer: orchestration beats raw model IQ</div>
+          <div class="thesis-arrow" aria-hidden="true">→</div>
+          <div class="thesis-aligned">
+            
+            
+            <a class="thesis-chip" href="https://www.producthunt.com/products/google-antigravity" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Google Antigravity CLI</span>
+            </a>
+            
+            
+            
+            <a class="thesis-chip" href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Nvidia Vera CPU + Dell AI Factory roll-out</span>
+            </a>
+            
+            
+            
+            <a class="thesis-chip" href="https://www.producthunt.com/products/memdex" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Memdex</span>
+            </a>
+            
+            
+            
+            <a class="thesis-chip" href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Agent-native CPU platforms beyond Nvidia</span>
+            </a>
+            
+            
+            
+            <a class="thesis-chip" href="https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Power and grid access become the AI competitive moat</span>
+            </a>
+            
+            
+          </div>
+        </div>
+        
+        <div class="thesis-row">
+          <div class="thesis-label">Open-source AI as US industrial policy</div>
+          <div class="thesis-arrow" aria-hidden="true">→</div>
+          <div class="thesis-aligned">
+            
+            
+            <a class="thesis-chip" href="https://www.producthunt.com/products/cohere-2" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Command A+ by Cohere</span>
+            </a>
+            
+            
+          </div>
+        </div>
+        
+        <div class="thesis-row">
+          <div class="thesis-label">AI search visibility is the new SEO category</div>
+          <div class="thesis-arrow" aria-hidden="true">→</div>
+          <div class="thesis-aligned">
+            
+            
+            <a class="thesis-chip" href="https://www.producthunt.com/products/forsy" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
+              <span class="thesis-chip-dot"></span>
+              <span class="thesis-chip-label">Forsy</span>
+            </a>
+            
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    
     
     
     <section class="category" data-category="building">
       <div class="category-header">
         <div class="category-stripe" style="background:#185FA5"></div>
         <h2>What&#39;s Being Built</h2>
-        <span class="item-count">6 items</span>
+        <span class="item-count">5 items</span>
       </div>
       <div class="items-grid">
         
         <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
           <div class="item-header">
             
-            <a href="https://www.anthropic.com/research/glasswing-initial-update" class="item-title" target="_blank" rel="noopener">Anthropic&#39;s Project Glasswing: frontier model now finds zero-days at industrial scale</a>
+            <a href="https://www.producthunt.com/products/google-antigravity" class="item-title" target="_blank" rel="noopener">Google Antigravity CLI</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">Anthropic&#39;s Glasswing update reports Claude Mythos Preview surfaced 10,000+ severe zero-days in its first month across partners including Cloudflare, Microsoft, Google and Mozilla (which patched 271 bugs in Firefox 150). Implication: AI-native cybersecurity has moved from pitch deck to working defender advantage; legacy pentest pricing ($20–120K) will compress, and the next durable security category is AI-assisted remediation, not discovery.</p>
+          <p class="item-summary">Validates The Harness Layer: orchestration beats raw model IQ: Google&#39;s Antigravity is a CLI/agent harness that, per I/O demos, can autonomously build a working OS-class project for under $1,000 of compute. Its arrival on Product Hunt this week shows the harness pattern is escaping research demos and entering developer workflows — putting pressure on Cursor, Devin, and Claude Code to differentiate on reliability and ecosystem.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator</span>
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
             
-            
-            <span class="tag">cybersecurity</span>
-            
-            <span class="tag">Anthropic</span>
             
             <span class="tag">agents</span>
+            
+            <span class="tag">developer-tools</span>
+            
+            <span class="tag">google</span>
+            
+            
+            <span class="tag" title="Validates thesis">↳ The Harness Layer: orchestration beats raw model IQ</span>
             
           </div>
         </article>
@@ -453,91 +732,49 @@
         <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
           <div class="item-header">
             
-            <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">Google I/O: Antigravity 2.0 builds an OS for &lt;$1,000 and Gemini ships across the stack</a>
+            <a href="https://www.producthunt.com/products/cohere-2" class="item-title" target="_blank" rel="noopener">Command A+ by Cohere</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">Google unveiled Antigravity 2.0, AI Mode, Gemini 3.5 Flash, Gemini Omni, Flow, and Android XR glasses — all tied to a single &#39;harness&#39; thesis where DeepMind models autonomously execute long workflows (including building a functional OS for under $1K). Implication: Google has closed the agent gap with Anthropic/OpenAI on coding; enterprise buyers now have a real second source for agent platforms, pressuring OpenAI/Anthropic margins.</p>
+          <p class="item-summary">Validates Open-source AI as US industrial policy: Cohere&#39;s Command A+ launch positions an enterprise-grade, deployable model squarely against closed frontier APIs — exactly the open/portable stack a16z argues the US needs. For operators: a credible third option for regulated enterprises that can&#39;t ship data to OpenAI/Anthropic. For investors: validates continued funding into Western open-ish model labs as a hedge against frontier concentration.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+            
+            
+            <span class="tag">foundation-models</span>
+            
+            <span class="tag">enterprise</span>
+            
+            <span class="tag">cohere</span>
+            
+            
+            <span class="tag" title="Validates thesis">↳ Open-source AI as US industrial policy</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Anthropic Code with Claude: Managed Agents, sandboxes, MCP tunnels</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Anthropic&#39;s London developer event rolled out sandboxes that let companies run Claude agents on their own infra and MCP tunnels that reach internal systems without touching the public internet. This is the harness-layer thesis made concrete: Anthropic is racing to own the enterprise control plane for agents. Strategic implication: any startup selling &#39;agent governance&#39; to F500 just got squeezed; the wedge now is vertical depth or proprietary data.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
             
             
-            <span class="tag">Google</span>
+            <span class="tag">anthropic</span>
             
             <span class="tag">agents</span>
             
-            <span class="tag">coding</span>
+            <span class="tag">enterprise</span>
             
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Anthropic Code with Claude: coding by agent is becoming the default</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">At Code with Claude in London (same day as Google I/O), Anthropic showed near-universal adoption among attendees of agent-written pull requests, signaling that &#39;vibe coding&#39; is the new floor for developer productivity. Implication: dev-tool incumbents (GitHub, JetBrains) face an existential need to rebuild around agent harnesses; new entrants like Kanbots, GitButler get a wedge.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
-            
-            
-            <span class="tag">coding-agents</span>
-            
-            <span class="tag">Anthropic</span>
-            
-            <span class="tag">dev-tools</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://api-docs.deepseek.com/quick_start/pricing" class="item-title" target="_blank" rel="noopener">DeepSeek makes V4 Pro discount permanent — Chinese open-source pricing pressure intensifies</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">DeepSeek converted its temporary V4 Pro discount into permanent pricing, undercutting frontier API margins and reinforcing Ben Horowitz&#39;s thesis that Chinese open-source has captured the global developer base. Implication: closed-model API revenue is now structurally squeezed; the durable moat shifts to harness, distribution, and verticalization, not raw model access.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator</span>
-            
-            
-            <span class="tag">DeepSeek</span>
-            
-            <span class="tag">open-source</span>
-            
-            <span class="tag">pricing</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone" class="item-title" target="_blank" rel="noopener">Memory shortage is repricing consumer electronics — AI is eating the BOM</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">HBM/DRAM allocation to AI data centers is causing a global memory shortage that is killing the cheap-smartphone segment and inflating BOMs across PCs, consoles, and IoT. Implication: hardware OEMs without LT memory contracts will see margin compression in 2026–27; investors should rotate toward memory suppliers (SK Hynix, Micron) and away from low-margin device OEMs.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator</span>
-            
-            
-            <span class="tag">memory</span>
-            
-            <span class="tag">hardware</span>
-            
-            <span class="tag">supply-chain</span>
             
           </div>
         </article>
@@ -545,109 +782,215 @@
         <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
           <div class="item-header">
             
-            <a href="https://modelrift.com/blog/openscad-llm-benchmark/" class="item-title" target="_blank" rel="noopener">Antigravity 2.0 tops the OpenSCAD architectural 3D LLM benchmark</a>
+            <a href="https://a16z.com/announcement/investing-in-exa/" class="item-title" target="_blank" rel="noopener">Investing in Exa, Glif, GitButler, Hilbert (a16z one-week burst)</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Google&#39;s Antigravity 2.0 harness now leads on a structured 3D/CAD reasoning benchmark, demonstrating that agent orchestration plus Gemini can outperform raw frontier models on spatial tasks. Implication: CAD, architecture, and physical-design software (Autodesk, Bentley) are the next agentic vertical; founders building agent-CAD copilots have a fresh credibility benchmark to point to.</p>
+          <p class="item-summary">a16z announced 12 investments in a single week spanning AI search infra (Exa), agent platforms (Glif), AI-native dev tooling (GitButler), bio (Stipple Bio, Tessera Labs, Petual), and vertical agents (Stitch, Ethos, Ulysses, Hilbert, Treeline). Pattern: heavy seed/A activity in agent infra, AI-bio, and AI-native developer surfaces — exactly the harness + services-as-software thesis being deployed in real checks. Operators should map their roadmap against these specific portfolio bets to anticipate competitive entrants.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator</span>
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">a16z</span>
             
             
-            <span class="tag">benchmarks</span>
+            <span class="tag">a16z</span>
             
-            <span class="tag">CAD</span>
+            <span class="tag">portfolio</span>
+            
+            <span class="tag">seed</span>
+            
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" class="item-title" target="_blank" rel="noopener">Nvidia Vera CPU + Dell AI Factory roll-out</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Nvidia&#39;s Vera, pitched as the first CPU &#39;purpose-built for agentic AI,&#39; is already at $20B in standalone sales and is the centerpiece of Dell&#39;s enterprise AI Factory rollout (5,000 customers including Lilly, Samsung, Honeywell). Strategic read: the agent era&#39;s infra winner may again be Nvidia, not the hyperscalers&#39; custom silicon. AWS Trainium/Graviton, Google TPU, and startups like Cerebras now have to prove they can match Vera&#39;s agent-workload economics or cede another decade.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+            
+            
+            <span class="tag">nvidia</span>
+            
+            <span class="tag">infrastructure</span>
             
             <span class="tag">agents</span>
+            
             
           </div>
         </article>
         
       </div>
     </section>
+
+    
+
+    
+    <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
+      <h2>Opportunity Horizon Matrix</h2>
+      <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
+      <div class="horizon-matrix">
+        
+        <div class="horizon-column" style="--col-colour: #993C1D">
+          <div class="horizon-head">
+            <span class="horizon-range">0–6 mo</span>
+            <span class="horizon-count">4 items</span>
+          </div>
+          <div class="horizon-action">Act now</div>
+          
+          <ul class="horizon-list">
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">Memdex</div>
+              
+              <div class="horizon-cell-meta">agent-memory · infrastructure</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="high">
+              <div class="horizon-cell-title">Forsy</div>
+              
+              <div class="horizon-cell-meta">geo · martech</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="high">
+              <div class="horizon-cell-title">Nevis: AI for wealth management (Sequoia-backed)</div>
+              
+              <div class="horizon-cell-meta">wealth-mgmt · services-as-software</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="high">
+              <div class="horizon-cell-title">Peec-style &#39;AI presence&#39; tooling for US mid-market</div>
+              
+              <div class="horizon-cell-meta">geo · go-to-market</div>
+              
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="horizon-column" style="--col-colour: #854F0B">
+          <div class="horizon-head">
+            <span class="horizon-range">6–18 mo</span>
+            <span class="horizon-count">4 items</span>
+          </div>
+          <div class="horizon-action">Position</div>
+          
+          <ul class="horizon-list">
+            
+            <li class="horizon-cell" data-signal="high">
+              <div class="horizon-cell-title">Agent-native CPU platforms beyond Nvidia</div>
+              
+              <div class="horizon-cell-meta">silicon · agents</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">Enterprise agent governance &amp; evals</div>
+              
+              <div class="horizon-cell-meta">governance · enterprise</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">AI-for-science verticals (Co-Scientist, Isomorphic, Hilbert)</div>
+              
+              <div class="horizon-cell-meta">ai-science · biotech</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="high">
+              <div class="horizon-cell-title">Outcome-priced vertical AI services (legal, accounting, support)</div>
+              
+              <div class="horizon-cell-meta">services-as-software · vertical-ai</div>
+              
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="horizon-column" style="--col-colour: #534AB7">
+          <div class="horizon-head">
+            <span class="horizon-range">18+ mo</span>
+            <span class="horizon-count">3 items</span>
+          </div>
+          <div class="horizon-action">Place bets</div>
+          
+          <ul class="horizon-list">
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">Power and grid access become the AI competitive moat</div>
+              
+              <div class="horizon-cell-meta">power · infrastructure</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">World models and AI scientists</div>
+              
+              <div class="horizon-cell-meta">world-models · research</div>
+              
+            </li>
+            
+            <li class="horizon-cell" data-signal="medium">
+              <div class="horizon-cell-title">One-person billion-dollar companies become real</div>
+              
+              <div class="horizon-cell-meta">solo-founders · capital-structure</div>
+              
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </section>
+    
     
     
     <section class="category" data-category="opp_now">
       <div class="category-header">
         <div class="category-stripe" style="background:#993C1D"></div>
         <h2>Opportunities Now</h2>
-        <span class="item-count">5 items</span>
+        <span class="item-count">4 items</span>
       </div>
       <div class="items-grid">
         
-        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
           <div class="item-header">
             
-            <a href="https://www.anthropic.com/research/glasswing-initial-update" class="item-title" target="_blank" rel="noopener">AI-assisted vulnerability remediation (not discovery) services</a>
+            <a href="https://www.producthunt.com/products/memdex" class="item-title" target="_blank" rel="noopener">Memdex</a>
             
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            <div class="signal-dots" data-level="medium">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Glasswing has shown discovery is now cheap; the bottleneck is triaging and shipping patches. Who captures it: a new generation of MSSPs and dev-sec-ops startups that wrap Mythos-class models with prioritization, SBOM context, and PR-shipping automation. What must be true: deep workflow integration into GitHub/GitLab and SOC tooling. When: 0–6 months — buyers are budgeting now in response to the Glasswing disclosures.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Y Combinator</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">cybersecurity</span>
-            
-            <span class="tag">remediation</span>
-            
-            <span class="tag">MSSP</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://www.producthunt.com/products/testsprite" class="item-title" target="_blank" rel="noopener">TestSprite 3.0 — autonomous QA validates the agent-coding thesis</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">TestSprite ships autonomous test generation and execution agents that plug into CI/CD. Directly validates our Anthropic Code with Claude thesis: as agents write more code, the QA/test layer becomes the bottleneck and a standalone budget line. Who captures: testing-native AI startups that integrate with Claude/Gemini coding agents. When: this quarter — every team deploying coding agents needs this yesterday.</p>
+          <p class="item-summary">Validates The Harness Layer: orchestration beats raw model IQ: Memdex is a memory/indexing layer for AI agents — exactly the kind of stateful primitive that becomes critical once agents run long-horizon tasks. Who captures: AI-native devtool startups and infra teams building agent memory before incumbents bundle it. What must be true: enterprises adopt long-running agents in production within 6 months (Anthropic&#39;s MCP tunnels + Google Antigravity make this credible). Window: act this quarter — the memory layer will be commoditized by hyperscalers within 12 months.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
             
             <span class="horizon-badge">0-6 mo</span>
             
             
-            <span class="tag">QA</span>
+            <span class="tag">agent-memory</span>
             
-            <span class="tag">agents</span>
+            <span class="tag">infrastructure</span>
             
-            <span class="tag">product-hunt</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://www.kanbots.dev/" class="item-title" target="_blank" rel="noopener">Kanbots — parallel-agent project management as a wedge</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Open-source desktop Kanban that runs parallel agents on every card — a concrete instantiation of multi-agent orchestration for knowledge work. Who captures: founders who can productize agent-per-task patterns into vertical workflows (legal matters, support tickets, sales accounts). What must be true: reliable long-horizon agent execution (see π-Bench paper). When: 0–6 months as Claude/Gemini harnesses stabilize.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Y Combinator</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
+            <span class="tag">devtools</span>
             
             
-            <span class="tag">agents</span>
-            
-            <span class="tag">PM</span>
-            
-            <span class="tag">open-source</span>
+            <span class="tag" title="Validates thesis">↳ The Harness Layer: orchestration beats raw model IQ</span>
             
           </div>
         </article>
@@ -655,111 +998,121 @@
         <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
           <div class="item-header">
             
-            <a href="https://techcrunch.com/2026/05/20/sam-altman-makes-mic-drop-offer-to-every-y-combinator-startup/" class="item-title" target="_blank" rel="noopener">Capture the YC token-credit arbitrage</a>
+            <a href="https://www.producthunt.com/products/forsy" class="item-title" target="_blank" rel="noopener">Forsy</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">Altman&#39;s $2M-in-tokens offer to every YC startup (uncapped SAFE) means ~169 funded teams will simultaneously burn OpenAI credits this summer. Who captures: tooling that helps startups maximize token efficiency (caching, routing, eval) and downstream investors who pre-position to back the standouts. What must be true: founders accept the OpenAI dependency. When: act this quarter — the cohort is building right now.</p>
+          <p class="item-summary">Validates AI search visibility is the new SEO category: Forsy is an AI-visibility/brand-monitoring tool — the same wedge that took Peec to $10M ARR in Berlin. Who captures: martech operators and growth agencies who already own SEO budgets at mid-market brands. What must be true: marketing buyers shift 5-15% of SEO spend to GEO/AEO in the next two budget cycles (high probability — search referral traffic is already down materially). Window: now through end of 2026; first-mover branding matters in a category that didn&#39;t exist 18 months ago.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
+            
+            <span class="horizon-badge">0-6 mo</span>
+            
+            
+            <span class="tag">geo</span>
+            
+            <span class="tag">martech</span>
+            
+            <span class="tag">ai-search</span>
+            
+            
+            <span class="tag" title="Validates thesis">↳ AI search visibility is the new SEO category</span>
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-title" target="_blank" rel="noopener">Nevis: AI for wealth management (Sequoia-backed)</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Sequoia&#39;s investment in Nevis productizes the services-as-software thesis for a $100T+ asset pool. Who captures: founders with RIA/broker-dealer domain expertise + agent engineering chops; secondarily, incumbents (Schwab, Fidelity) via M&amp;A. What must be true: SEC/FINRA tolerate AI-driven advisory workflows under supervision (already trending yes). Window: 6 months to plant a flag — Sequoia just signaled this is a fundable category and copycats will arrive fast.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Sequoia Capital</span>
+            
+            <span class="horizon-badge">0-6 mo</span>
+            
+            
+            <span class="tag">wealth-mgmt</span>
+            
+            <span class="tag">services-as-software</span>
+            
+            <span class="tag">fintech</span>
+            
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+          <div class="item-header">
+            
+            <a href="https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/" class="item-title" target="_blank" rel="noopener">Peec-style &#39;AI presence&#39; tooling for US mid-market</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Peec proved EU brand demand; the US mid-market is wide open. Who captures: solo founders or small teams who can build the tracker + sell into CMOs of $50M-$1B revenue brands within 90 days. What must be true: agencies adopt the tool as a billable line item (highly likely given the SEO industry&#39;s history). Window: 6-12 months before HubSpot/Semrush bundle this feature; ARR ramp to $5-10M is achievable based on Peec&#39;s curve.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
             
             <span class="horizon-badge">0-6 mo</span>
             
             
-            <span class="tag">YC</span>
+            <span class="tag">geo</span>
             
-            <span class="tag">OpenAI</span>
+            <span class="tag">go-to-market</span>
             
-            <span class="tag">token-economics</span>
+            <span class="tag">wedge</span>
             
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://huggingface.co/papers/2605.22642" class="item-title" target="_blank" rel="noopener">Spreadsheet-RL: agents for the most underserved enterprise surface</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">New RL-trained agent results on realistic spreadsheet tasks show step-change improvements. Who captures: finance, FP&amp;A, and ops-automation startups that ship Excel-native agents into the enterprise. What must be true: secure on-prem/VPC deployment and audit trails. When: 0–6 months — every CFO has this on their 2026 AI shortlist and few startups own the wedge yet.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Hugging Face Papers</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">finance</span>
-            
-            <span class="tag">RL</span>
             
           </div>
         </article>
         
       </div>
     </section>
+
+    
+
+    
     
     
     <section class="category" data-category="opp_mid">
       <div class="category-header">
         <div class="category-stripe" style="background:#854F0B"></div>
         <h2>Opportunities Mid-term</h2>
-        <span class="item-count">5 items</span>
+        <span class="item-count">4 items</span>
       </div>
       <div class="items-grid">
         
         <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
           <div class="item-header">
             
-            <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-title" target="_blank" rel="noopener">Vertical AI-services rollups in wealth, legal, and clinical ops</a>
+            <a href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" class="item-title" target="_blank" rel="noopener">Agent-native CPU platforms beyond Nvidia</a>
             
             <div class="signal-dots" data-level="high">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
             </div>
           </div>
-          <p class="item-summary">Sequoia&#39;s Nevis bet plus its Services-as-Software thesis signal that the mid-term play is buying or building services businesses and re-margining them with agents. Who captures: operator-led roll-ups with PE-style discipline and AI-native delivery. What must be true: regulatory clarity per vertical and clean data ingestion. When: 6–18 months as initial pilots prove unit-economics.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Sequoia Capital</span>
-            
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">rollups</span>
-            
-            <span class="tag">services</span>
-            
-            <span class="tag">vertical-AI</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" class="item-title" target="_blank" rel="noopener">Agent-native CPUs and the Vera Rubin ecosystem</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Huang&#39;s $200B agentic-CPU TAM claim implies a new layer of infra spend distinct from GPU training. Who captures: Nvidia plus the software ecosystem optimizing &#39;agent sandboxes&#39; (50% faster on Vera per Dell) — observability, sandboxing, agent-OS startups. What must be true: hyperscalers adopt Vera at scale (already underway). When: 6–18 months as Vera Rubin NVL72 ships into Dell/AWS/Azure footprints.</p>
+          <p class="item-summary">Huang&#39;s $200B agentic-CPU TAM signals that &#39;tools for agents&#39; (CPUs running tool-use, browser, code-exec sandboxes) is a real category, not a feature. Who captures: AWS (Graviton), startups doing custom agent-inference silicon, and software runtimes that virtualize agent compute across heterogeneous chips. What must be true: agent populations grow to billions as Huang predicts (likely given Anthropic&#39;s 80x usage growth). Window: 6-18 months to position; by mid-2027 the category will be defined.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
             
             <span class="horizon-badge">6-18 mo</span>
             
             
-            <span class="tag">Nvidia</span>
+            <span class="tag">silicon</span>
             
             <span class="tag">agents</span>
             
-            <span class="tag">infra</span>
+            <span class="tag">infrastructure</span>
+            
             
           </div>
         </article>
@@ -767,49 +1120,25 @@
         <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
           <div class="item-header">
             
-            <a href="https://www.producthunt.com/products/cleo-4" class="item-title" target="_blank" rel="noopener">Cleo — personal-finance agents as a consumer wedge into the $1T AI commerce thesis</a>
+            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Enterprise agent governance &amp; evals</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Cleo&#39;s new release pushes personal-finance agents toward action (paying, optimizing, negotiating), directly validating Sequoia&#39;s retail/commerce $1T thesis on the consumer side. Who captures: consumer-AI agents with payment rails and trust. What must be true: regulatory comfort with agent-initiated transactions and micropayment infra (see Altman). When: 6–18 months.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Product Hunt</span>
-            
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">consumer-AI</span>
-            
-            <span class="tag">fintech</span>
-            
-            <span class="tag">product-hunt</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-title" target="_blank" rel="noopener">World models as the next enterprise primitive</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">MIT TR&#39;s roundtable plus Google&#39;s Genie integration into Maps Street View shows world models moving from research curiosity to product. Who captures: robotics, simulation, logistics, and insurance startups that can use world models for scenario generation. What must be true: training data plus compute economics improve. When: 12–18 months.</p>
+          <p class="item-summary">MCP tunnels, sandboxes, and &#39;auto mode&#39; classifiers all point to enterprises demanding audit trails, permission scoping, and rollback for long-running agents. Who captures: cybersecurity-adjacent startups, AI-eval companies (Braintrust, LangSmith), and Big 4 consultancies. What must be true: a regulated-industry agent failure makes governance procurement-mandatory (likely within 12-18 months). Window: 12-18 months to land design-partner F500s before incumbents (Splunk, Datadog) catch up.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">MIT Technology Review</span>
             
             <span class="horizon-badge">6-18 mo</span>
             
             
-            <span class="tag">world-models</span>
+            <span class="tag">governance</span>
             
-            <span class="tag">robotics</span>
+            <span class="tag">enterprise</span>
             
-            <span class="tag">simulation</span>
+            <span class="tag">evals</span>
+            
             
           </div>
         </article>
@@ -817,86 +1146,119 @@
         <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
           <div class="item-header">
             
-            <a href="https://huggingface.co/papers/2605.14678" class="item-title" target="_blank" rel="noopener">Long-horizon proactive personal assistants (π-Bench category)</a>
+            <a href="https://sequoiacap.com/article/partnering-with-ineffable-intelligence-a-superlearner-for-the-era-of-experience/" class="item-title" target="_blank" rel="noopener">AI-for-science verticals (Co-Scientist, Isomorphic, Hilbert)</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">π-Bench formalizes evaluation for proactive personal assistants in long workflows — the missing benchmark for the consumer-agent category Nadella, Altman, and Google are all chasing. Who captures: a small number of consumer-AI winners (probably 1–2 per ecosystem) plus the eval/observability startups that score them. When: 12–18 months as harnesses mature.</p>
+          <p class="item-summary">Hassabis says Isomorphic aims at &#39;hundreds of diseases&#39;; Sequoia is funding &#39;superlearners&#39;; a16z funded Hilbert, Stipple Bio, Tessera. Who captures: founders who pair frontier-lab compute deals with proprietary wet-lab data. What must be true: at least one AI-discovered drug or material reaches a credible milestone in 12-18 months (probability rising). Window: 12-24 months to raise A/B rounds while narrative is hot; capital is moving from &#39;AI for software&#39; to &#39;AI for atoms.&#39;</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Hugging Face Papers</span>
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Sequoia Capital</span>
             
             <span class="horizon-badge">6-18 mo</span>
             
             
-            <span class="tag">agents</span>
+            <span class="tag">ai-science</span>
             
-            <span class="tag">benchmarks</span>
+            <span class="tag">biotech</span>
             
-            <span class="tag">consumer</span>
+            <span class="tag">deeptech</span>
+            
+            
+          </div>
+        </article>
+        
+        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+          <div class="item-header">
+            
+            <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Outcome-priced vertical AI services (legal, accounting, support)</a>
+            
+            <div class="signal-dots" data-level="high">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            </div>
+          </div>
+          <p class="item-summary">Sequoia&#39;s services-as-software thesis implies a multi-year buildout where AI-native firms acquire or undercut traditional service incumbents on a per-outcome basis. Who captures: domain-expert founders willing to operate (not just sell software) — Crosby Legal, Harvey, and a wave of accounting/CX agents. What must be true: enterprise buyers accept outcome-based pricing (already happening in legal). Window: 6-18 months to establish category leadership before PE roll-ups of traditional firms re-platform with AI.</p>
+          <div class="item-meta">
+            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Sequoia Capital</span>
+            
+            <span class="horizon-badge">6-18 mo</span>
+            
+            
+            <span class="tag">services-as-software</span>
+            
+            <span class="tag">vertical-ai</span>
+            
+            <span class="tag">labor</span>
+            
             
           </div>
         </article>
         
       </div>
     </section>
+
+    
+
+    
     
     
     <section class="category" data-category="opp_long">
       <div class="category-header">
         <div class="category-stripe" style="background:#534AB7"></div>
         <h2>Opportunities Long-term</h2>
-        <span class="item-count">4 items</span>
+        <span class="item-count">3 items</span>
       </div>
       <div class="items-grid">
         
         <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
           <div class="item-header">
             
-            <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">AI-driven scientific discovery as a fundable category, not a research curiosity</a>
+            <a href="https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/" class="item-title" target="_blank" rel="noopener">Power and grid access become the AI competitive moat</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Hassabis&#39;s framing of Isomorphic Labs as &#39;curing hundreds of diseases&#39; via AI, combined with WeatherNext and forecasting-scientific-progress papers, opens a long-horizon category: AI-first R&amp;D labs as venture investments. Who captures: a handful of &#39;AlphaFold-shaped&#39; companies per domain. What must be true: regulatory + data moats; foundation model science capability scales. When: 18+ months.</p>
+          <p class="item-summary">Musk&#39;s xAI pivoting to natural gas + SpaceX exploring orbital data centers, plus Nvidia/IREN&#39;s 5GW partnership, signal that compute scaling is now bottlenecked by electrons, not chips. Who captures over 18+ months: utility-aligned AI infra plays, behind-the-meter gas/nuclear startups, and orbital compute moonshots. What must be true: AI inference demand keeps doubling annually (Huang&#39;s parabolic call). Capital should track Deep Fission-style nuclear plays and DC siting startups even when the AI angle is one degree removed.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">TechCrunch</span>
             
             <span class="horizon-badge">18+ mo</span>
             
             
-            <span class="tag">AI-science</span>
+            <span class="tag">power</span>
             
-            <span class="tag">biotech</span>
+            <span class="tag">infrastructure</span>
             
             <span class="tag">long-bet</span>
             
+            
           </div>
         </article>
         
         <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
           <div class="item-header">
             
-            <a href="https://www.technologyreview.com/2026/05/20/1137523/boston-metal-funding-critical-metals/" class="item-title" target="_blank" rel="noopener">Energy-and-power as the binding constraint on AI growth</a>
+            <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-title" target="_blank" rel="noopener">World models and AI scientists</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">With Dell pegging AI infra spend at $3–4T by 2030 and Nvidia-IREN announcing 5GW partnerships, the bottleneck shifts to power, cooling, and critical minerals. Who captures: behind-the-meter power, SMR, transformer manufacturing, and critical-minerals startups (Boston Metal pivoting is a leading indicator). What must be true: permitting reform. When: 18+ months but capital is committing now.</p>
+          <p class="item-summary">MIT Tech Review&#39;s roundtable on world models, plus Sequoia&#39;s &#39;Ineffable Intelligence&#39; bet on superlearners, signal a directional shift from LLMs-as-language to AI-as-embodied-reasoner. Who captures: research-heavy startups (DeepMind spinouts, FAIR alumni) and robotics/physical-AI plays leveraging models like PhysX-Omni. What must be true: a world-model approach demonstrates a clear superhuman capability in a verticalized domain (weather, materials, robotics). Window: 24-48 months; positioning bets and acqui-hires should happen now.</p>
           <div class="item-meta">
             <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
             
             <span class="horizon-badge">18+ mo</span>
             
             
-            <span class="tag">energy</span>
+            <span class="tag">world-models</span>
             
-            <span class="tag">data-centers</span>
+            <span class="tag">research</span>
             
-            <span class="tag">minerals</span>
+            <span class="tag">agi</span>
+            
             
           </div>
         </article>
@@ -904,55 +1266,35 @@
         <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
           <div class="item-header">
             
-            <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">Open-source AI sovereignty as a national-security and capital theme</a>
+            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">One-person billion-dollar companies become real</a>
             
             <div class="signal-dots" data-level="medium">
               <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
-          <p class="item-summary">Horowitz&#39;s argument that the US has &#39;lost the AI culture war&#39; via closed-model policy while DeepSeek captured global developers reframes open-source AI as a sovereignty bet. Who captures: US-aligned open-weight labs, sovereign-cloud providers, and weights-distribution infrastructure. What must be true: policy support and a credible US open-weight frontier model. When: 18+ months — a multi-cycle bet shaped by 2028 election dynamics.</p>
+          <p class="item-summary">Amodei reiterated that two-person AI-native companies have already crossed $1B valuation and a one-person $1B company is plausible in 2026. Implication for capital over 18+ months: traditional VC ownership models (20% for $20M) break when capital efficiency is 100x; expect a rise of solo-GP funds, rev-share deals, and AI-native holdcos. Who captures: solo founders with distribution + the funds that figure out how to back them.</p>
           <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
             
             <span class="horizon-badge">18+ mo</span>
             
             
-            <span class="tag">open-source</span>
+            <span class="tag">solo-founders</span>
             
-            <span class="tag">policy</span>
+            <span class="tag">capital-structure</span>
             
-            <span class="tag">geopolitics</span>
+            <span class="tag">future-of-work</span>
             
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="low" style="--cat-colour: #534AB7">
-          <div class="item-header">
-            
-            <a href="https://huggingface.co/papers/2605.21572" class="item-title" target="_blank" rel="noopener">Physical-AI / simulation-ready 3D generation for robotics</a>
-            
-            <div class="signal-dots" data-level="low">
-              <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">PhysX-Omni delivers unified, simulation-ready 3D generation for rigid, deformable, and articulated objects — the kind of asset pipeline that unlocks scalable robot training. Who captures: humanoid/robotics startups and the picks-and-shovels (sim engines, data factories) underneath them. What must be true: sim-to-real gap continues narrowing. When: 18+ months.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Hugging Face Papers</span>
-            
-            <span class="horizon-badge">18+ mo</span>
-            
-            
-            <span class="tag">robotics</span>
-            
-            <span class="tag">physical-AI</span>
-            
-            <span class="tag">simulation</span>
             
           </div>
         </article>
         
       </div>
     </section>
+
+    
+
+    
     
 
     <section class="leader-voices">
@@ -969,8 +1311,8 @@
             <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
           </div>
           <div class="leader-org">Google DeepMind</div>
-          <p class="leader-quote">"Closing Google I/O 2026, Hassabis said we are &#39;standing in the foothills of the singularity&#39; and described 2026 as the year agents began genuinely working as useful harnesses across Google&#39;s stack, with DeepMind tech now touching everything from Maps&#39; Street View (via the Genie world model) to Isomorphic Labs&#39; drug discovery ambitions."</p>
-          <p class="leader-implication">Google is publicly tying every product to an AGI-arc narrative — operators should expect aggressive cross-product Gemini bundling and price competition; investors should size Google as a credible #1 in agent harnesses, not a laggard.</p>
+          <p class="leader-quote">"Closing the Google I/O 2026 keynote on May 19, Hassabis said attendees were &#39;standing in the foothills of the singularity,&#39; and in interviews afterward described AI&#39;s impact as roughly 100x the Industrial Revolution with human-level machines plausibly arriving &#39;as soon as 2030.&#39; He explicitly tied the claim to agentic harnesses (Antigravity, Gemini agents) becoming useful, not to a single model breakthrough."</p>
+          <p class="leader-implication">When DeepMind&#39;s CEO frames agents as the slope to AGI, it ratifies the harness-layer thesis and signals Google will keep shipping aggressively across science (WeatherNext, Isomorphic) and consumer (Maps with Genie). Investors should treat &#39;AI for science&#39; verticals as a top-tier capital destination.</p>
           
           <a href="https://www.semafor.com/article/05/20/2026/google-exec-demis-hassabis-predicts-were-at-the-foothills-of-the-singularity" class="leader-link" target="_blank" rel="noopener">Source →</a>
           
@@ -986,78 +1328,10 @@
             <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
           </div>
           <div class="leader-org">Nvidia</div>
-          <p class="leader-quote">"On Nvidia&#39;s earnings call and at Dell Technologies World, Huang declared that &#39;we&#39;ve now arrived at the era of useful AI&#39; and demand is &#39;utterly parabolic,&#39; announcing a &#39;brand new $200B TAM&#39; for Vera CPUs purpose-built for agentic AI, with $20B of Vera already sold in 2026."</p>
-          <p class="leader-implication">Nvidia is broadening from GPUs to a full agent-infra platform; competitors (AWS Trainium, AMD, Cerebras) must answer the agent-CPU question, and software startups should design for Vera Rubin economics (10x lower cost per token at NVL72 scale).</p>
+          <p class="leader-quote">"At Dell Technologies World on May 18, Huang declared &#39;we&#39;ve now arrived at the era of useful AI, which is the reason why demand is going parabolic, utterly parabolic.&#39; Two days later on Nvidia&#39;s earnings call he pitched the Vera CPU as opening a &#39;brand new $200 billion TAM,&#39; arguing the world will move from a billion human users to billions of agent users that each need CPUs."</p>
+          <p class="leader-implication">Huang is now selling the agent population explosion as the next leg of Nvidia&#39;s growth. Operators should plan capacity around an order-of-magnitude increase in inference workloads; investors should reweight toward power, networking, and agent-infra plays — not just GPUs.</p>
           
-          <a href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Jensen Huang</div>
-            </div>
-            <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
-          </div>
-          <div class="leader-org">Nvidia</div>
-          <p class="leader-quote">"Huang told CNBC that Nvidia has &#39;largely conceded&#39; China&#39;s advanced AI chip market to Huawei, treating any future H200 sales as upside rather than base case while warning that shutting China out only accelerates a rival stack."</p>
-          <p class="leader-implication">The bifurcation of the global AI hardware stack is now an explicit Nvidia planning assumption — investors should de-risk China exposure in their AI theses and watch Huawei/Cambricon as real competitors, not aspirational ones.</p>
-          
-          <a href="https://www.cnbc.com/2026/05/21/nvidia-jensen-huang-china-ai-chip-market-huawei.html" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Sam Altman</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">OpenAI</div>
-          <p class="leader-quote">"Altman announced OpenAI will invest $2M in API tokens into every startup in the current YC batch via uncapped SAFEs, saying he is excited to see &#39;tokenmaxxing&#39; startups and the products they can build."</p>
-          <p class="leader-implication">OpenAI is buying its way into early-stage distribution at near-zero marginal cost as inference prices collapse — competing labs (Anthropic, Google) will likely match, and seed investors should expect every YC company to be a partial OpenAI captive.</p>
-          
-          <a href="https://techcrunch.com/2026/05/20/sam-altman-makes-mic-drop-offer-to-every-y-combinator-startup/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Sam Altman</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">OpenAI</div>
-          <p class="leader-quote">"On The Atlantic&#39;s podcast, Altman endorsed micropayments — paid by AI agents rather than readers — as the future business model for publishers, signaling a shift away from lump-sum content licensing."</p>
-          <p class="leader-implication">Agent-paid micropayments would create a brand new monetization rail; founders building agent-side wallets, publisher monetization, or content-licensing infra have a clear thesis tailwind, and existing publisher deals could be repriced within 12–18 months.</p>
-          
-          <a href="https://www.niemanlab.org/2026/05/sam-altman-backs-micropayment-model-for-ai-agents-to-compensate-publishers/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Satya Nadella</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">Microsoft</div>
-          <p class="leader-quote">"Fortune reports Nadella personally demoed a self-built multi-agent orchestration app he calls &#39;Chain of Debate&#39; (vibe-coded by himself) to Copilot engineers, framing 2026 as Microsoft&#39;s AI &#39;refounding&#39; on top of an internal anxiety that open-source agent frameworks like OpenClaw had outpaced them."</p>
-          <p class="leader-implication">Microsoft is no longer treating its OpenAI relationship as sufficient — expect Copilot to integrate non-OpenAI models (Claude, Gemini, in-house) more aggressively and for the $190B 2026 capex to fund competing agent stacks, intensifying enterprise vendor competition.</p>
-          
-          <a href="https://fortune.com/2026/05/21/microsoft-copilot-ai-openai-satya-nadella-gemini-claude/" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          <a href="https://blogs.nvidia.com/blog/dell-technologies-agent-enterprise-ai/" class="leader-link" target="_blank" rel="noopener">Source →</a>
           
         </article>
         
@@ -1068,11 +1342,11 @@
             <div>
               <div class="leader-name">Ben Horowitz</div>
             </div>
-            <span class="stance-badge" style="background:#993C1D22; color:#993C1D">Bearish</span>
+            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
           </div>
           <div class="leader-org">Andreessen Horowitz</div>
-          <p class="leader-quote">"On the a16z Show, Horowitz argued the US has effectively lost the AI culture war to China because closed-model policy let DeepSeek capture the open-source developer base now running inside &#39;every major US company and university lab.&#39;"</p>
-          <p class="leader-implication">a16z is positioning open-source AI as both a portfolio strategy and a policy fight — founders pitching closed, US-only models will face skepticism from the firm, while open-weight infra and sovereignty plays should expect a friendlier capital environment.</p>
+          <p class="leader-quote">"On the a16z Show this week, Horowitz argued the US has &#39;already lost the AI culture war to China&#39; because closed-only model strategies allowed DeepSeek to capture the open-source heartbeat of global AI inside US enterprises and labs — and that the &#39;weights&#39; encode cultural values that will shape billions of devices."</p>
+          <p class="leader-implication">a16z will keep deploying capital and policy muscle behind US open-weight model labs, open-source agent runtimes, and &#39;American dynamism&#39; AI infra. Founders building in this lane have a clear path to capital; closed-API-only competitors should expect tougher policy and procurement headwinds.</p>
           
           <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="leader-link" target="_blank" rel="noopener">Source →</a>
           
@@ -1083,15 +1357,66 @@
         <article class="leader-card">
           <div class="leader-header">
             <div>
-              <div class="leader-name">Dario Amodei (via Anthropic Project Glasswing update)</div>
+              <div class="leader-name">Dario Amodei</div>
             </div>
             <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
           </div>
           <div class="leader-org">Anthropic</div>
-          <p class="leader-quote">"Anthropic disclosed that Claude Mythos Preview surfaced over 10,000 severe zero-day vulnerabilities in its first month with Glasswing partners — including 271 patched in Firefox 150 by Mozilla — and committed $100M in model credits, calling the work &#39;an urgent attempt to put these capabilities to work for defensive purposes.&#39;"</p>
-          <p class="leader-implication">Anthropic is racing to establish the AI-cybersecurity narrative before competitors (or adversaries) catch up — security buyers should expect a Mythos-class capability to become table stakes, and incumbent pentest/vulnerability vendors face pricing compression within 12 months.</p>
+          <p class="leader-quote">"At Code with Claude in May 2026, Amodei reported Q1 2026 revenue and usage grew 80x year-over-year (vs. 10x planned), reiterated his prediction of a one-person billion-dollar company in 2026 — noting two-person AI-native firms have already crossed $1B in valuation — and said the next inflection is &#39;teams of agents working at the level of organizations.&#39;"</p>
+          <p class="leader-implication">An 80x revenue surge at Anthropic is the single loudest demand signal in the market and explains the SpaceX/Colossus compute deal. For capital allocators, it argues for aggressive participation in any credible agent-native startup; for incumbents, it argues for radical team compression and AI-native workflows now.</p>
           
-          <a href="https://www.anthropic.com/research/glasswing-initial-update" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          <a href="https://www.infoq.com/news/2026/05/code-with-claude/" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          
+        </article>
+        
+        
+        
+        <article class="leader-card">
+          <div class="leader-header">
+            <div>
+              <div class="leader-name">Sam Altman</div>
+            </div>
+            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+          </div>
+          <div class="leader-org">OpenAI</div>
+          <p class="leader-quote">"In his recently published &#39;Our Principles&#39; post and follow-on interviews around the May 18 ChatGPT personal-finance and Codex/Dell launches, Altman framed OpenAI&#39;s strategy as betting on &#39;universal prosperity&#39; via massive compute buildout and vertical integration, while warning that power over superintelligence could either concentrate in a few firms or be decentralized to people."</p>
+          <p class="leader-implication">OpenAI is positioning ChatGPT as a horizontal operating system (apps, finance, Codex on Dell hybrid). For operators, the ChatGPT app surface is becoming a real distribution channel rivaling iOS at launch; for investors, OpenAI&#39;s pre-IPO posture at a rumored $1T valuation re-anchors comparable AI-app valuations upward.</p>
+          
+          <a href="https://openai.com/index/our-principles/" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          
+        </article>
+        
+        
+        
+        <article class="leader-card">
+          <div class="leader-header">
+            <div>
+              <div class="leader-name">Pat Grady</div>
+            </div>
+            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+          </div>
+          <div class="leader-org">Sequoia Capital</div>
+          <p class="leader-quote">"Sequoia&#39;s AI Ascent 2026 sessions and accompanying essays (&#39;Services: The New Software,&#39; &#39;From Hierarchy to Intelligence,&#39; &#39;The $10 Trillion AI Revolution&#39;) argue the prize is not replacing SaaS but absorbing the services economy, with AI agents priced against payroll lines rather than seats."</p>
+          <p class="leader-implication">Sequoia is publicly anchoring its 2026 thesis around outcome-priced vertical AI services. Founders selling &#39;AI [profession]&#39; should expect strong fundraising tailwinds; horizontal copilots without a workflow wedge will face tougher rounds.</p>
+          
+          <a href="https://sequoiacap.com/article/ai-ascent-2026/" class="leader-link" target="_blank" rel="noopener">Source →</a>
+          
+        </article>
+        
+        
+        
+        <article class="leader-card">
+          <div class="leader-header">
+            <div>
+              <div class="leader-name">Andy Jassy</div>
+            </div>
+            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+          </div>
+          <div class="leader-org">Amazon / AWS</div>
+          <p class="leader-quote">"AWS continues to push that it can do AI silicon — both GPUs and CPUs — at least as well and possibly better than Nvidia, evidenced by a giant homegrown-CPU contract with Meta announced last month. Jassy&#39;s stance frames Trainium/Graviton as the long-run economic answer to inference scale."</p>
+          <p class="leader-implication">If AWS converts its CPU/Trainium momentum into agent-workload wins, the inference economics of every AI startup change. Operators should pressure-test multi-silicon strategies; investors should watch hyperscaler capex mix as a leading indicator of where margins on AI inference will actually land.</p>
+          
+          <a href="https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/" class="leader-link" target="_blank" rel="noopener">Source →</a>
           
         </article>
         
@@ -1108,8 +1433,8 @@
         <div class="signal-row">
           <div class="signal-number" style="background:#E24B4A">1</div>
           <div class="signal-body">
-            <div class="signal-headline">Anthropic&#39;s Glasswing crosses 10,000 zero-days found — AI cybersecurity is no longer theoretical</div>
-            <div class="signal-detail">Defender economics just flipped. Operators must brief security teams this week on Mythos-class capabilities and procurement teams on incoming pentest price compression; investors should pull forward AI-sec theses by 2–3 quarters.</div>
+            <div class="signal-headline">Nvidia declares $200B agentic-CPU TAM and &#39;parabolic&#39; demand — the agent era&#39;s compute bill is now visible</div>
+            <div class="signal-detail">Vera CPU at $20B already booked + Dell AI Factory at 5,000 enterprises means agentic workloads are no longer a pilot phenomenon. Reprice your infra assumptions and watch hyperscaler capex; expect power and networking to become the bottleneck, not chips.</div>
             <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
           </div>
         </div>
@@ -1120,8 +1445,8 @@
         <div class="signal-row">
           <div class="signal-number" style="background:#E24B4A">2</div>
           <div class="signal-body">
-            <div class="signal-headline">Nvidia opens a $200B agentic-CPU TAM with Vera — and concedes China to Huawei</div>
-            <div class="signal-detail">The infra layer is restructuring around agents (Vera), not just training (Rubin GPUs), while the global hardware stack splits in two. Capital allocators need to reweight Nvidia, Huawei-exposed names, and the software ecosystem optimizing for agent sandboxes this week.</div>
+            <div class="signal-headline">Google Antigravity + Anthropic Managed Agents lock in the harness layer as the real battleground</div>
+            <div class="signal-detail">Both events this week put the orchestration runtime (planning, tools, memory, governance, sandboxes) — not raw model IQ — at the center of product strategy. Founders building thin model wrappers are exposed; founders owning workflow + memory + evals are now in the strategic moat.</div>
             <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
           </div>
         </div>
@@ -1130,11 +1455,11 @@
         
         
         <div class="signal-row">
-          <div class="signal-number" style="background:#EF9F27">3</div>
+          <div class="signal-number" style="background:#E24B4A">3</div>
           <div class="signal-body">
-            <div class="signal-headline">ARR-inflation is becoming the dominant AI valuation risk</div>
-            <div class="signal-detail">TechCrunch&#39;s investigation puts on the record what allocators have whispered: AI ARR figures are being stretched with VC tacit approval. Diligence playbooks must add gross-margin, cohort-retention, and contract-shape audits now — before the next round of mark-downs.</div>
-            <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+            <div class="signal-headline">Peec hits $10M ARR proving &#39;AI search visibility&#39; is a real venture category</div>
+            <div class="signal-detail">GEO/AEO tooling is the fastest-growing martech wedge of the year and the US mid-market is wide open. This is a 90-day window to plant a flag before HubSpot/Semrush bundle the feature.</div>
+            <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
           </div>
         </div>
         
@@ -1144,8 +1469,8 @@
         <div class="signal-row">
           <div class="signal-number" style="background:#EF9F27">4</div>
           <div class="signal-body">
-            <div class="signal-headline">DeepSeek V4 Pro permanent discount + Horowitz&#39;s open-source thesis = closed API margin squeeze</div>
-            <div class="signal-detail">Frontier API pricing power is eroding faster than expected. Companies pricing strategy around OpenAI/Anthropic list prices should renegotiate; founders should design fallback paths to open-weight models and treat lock-in as a 2026 liability.</div>
+            <div class="signal-headline">ARR inflation in AI startups is becoming a public scandal</div>
+            <div class="signal-detail">TechCrunch&#39;s exposé will accelerate LP and acquirer demands for GAAP-like revenue disclosures. Expect a quiet repricing of rounds dependent on annualized-peak-week metrics within two quarters — and a flight to startups that publish net-dollar-retention.</div>
             <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
           </div>
         </div>
@@ -1156,8 +1481,8 @@
         <div class="signal-row">
           <div class="signal-number" style="background:#5F5E5A">5</div>
           <div class="signal-body">
-            <div class="signal-headline">Hassabis&#39;s &#39;foothills of the singularity&#39; framing signals Google&#39;s AGI-arc product strategy</div>
-            <div class="signal-detail">When DeepMind explicitly ties every Google product (Gemini, Antigravity, Maps, Isomorphic) to an AGI narrative, enterprise buyers will face increasing pressure to standardize on Google&#39;s stack. Worth tracking monthly for competitive positioning, especially for Microsoft and Anthropic-aligned customers.</div>
+            <div class="signal-headline">Hassabis: &#39;foothills of the singularity&#39;; Amodei: 80x revenue growth; Huang: &#39;era of useful AI&#39;</div>
+            <div class="signal-detail">Three frontier-lab/infra CEOs converged on the same message in one week: capability is compounding and demand is compounding faster. Whether or not you buy the AGI framing, the capital-allocation implication is to overweight AI infra and agent-native services over the next 12 months.</div>
             <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
           </div>
         </div>
@@ -1167,7 +1492,7 @@
 
     <footer>
       <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
-      <div>Generated by Weekly Tech Update · May 23, 2026 21:25 UTC</div>
+      <div>Generated by Weekly Tech Update · May 23, 2026 21:49 UTC</div>
     </footer>
   </div>
 </body>

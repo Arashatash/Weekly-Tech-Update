@@ -1,62 +1,71 @@
 # Weekly Signal Briefing — Week 21, May 18 – May 24, 2026
 
-> AI's industrial reality check: scale, pricing, and the limits of hype
+> AI's Capability Cliff Meets Capital Markets Reality
 
-This week's signal is the collision of AI's industrial scale-up with hard physical and financial constraints. SpaceX flew Starship V3 (with a booster loss) just as its $75B IPO filing went public; DeepSeek made aggressive V4-Pro pricing permanent, escalating a US–China price war that's already pressuring Western API economics. Google I/O and Anthropic's Code with Claude reframed coding and science around AI agents, while Sequoia formally declared 2026 'AGI.' On the trend side, AI's appetite for memory is repricing consumer electronics, climate tech is pivoting to critical minerals to survive Trump-era policy, and VCs are quietly tolerating inflated ARR metrics—signaling froth even as fundamentals tighten.
+This week crystallized a tension that has been building all year: frontier AI is now objectively capable enough to reshape industries (Anthropic's Mythos Preview found 10,000+ zero-days in a month; Google I/O pushed AI-driven science to the "foothills of the singularity") while the financial scaffolding around it is straining under inflated ARR claims, a memory shortage repricing consumer electronics, and SpaceX's $1.75T IPO bet. Coding agents, AI glasses, and developer event keynotes from Anthropic and Google made it clear that the next 12 months are about turning capability into deployable workflows — and the bottlenecks are now human (patching, verification, monetization) rather than model.
 
 ---
 
 ## New Products & Launches
 
-### SpaceX launches Starship V3 for the first time, loses booster on return
+### Google's Android XR AI glasses prototype hands-on
 **Source:** TechCrunch | **Signal:** high
 
-SpaceX's upgraded 407-foot Starship V3 flew for the first time from Starbase, deploying 20 Starlink simulators and 2 modified satellites before a simulated landing in the Indian Ocean. The Super Heavy booster failed to relight engines for its return burn and tumbled into the Gulf. V3 is critical for Starlink expansion, NASA lunar missions, and SpaceX's June IPO targeting ~$75B.
+Google demoed prototype Android XR glasses that overlay Gemini-powered translation, navigation, and contextual information directly into the wearer's field of view. The hardware is close but not consumer-ready, signaling the smart-glasses race is now a serious front in the AI-form-factor war.
+
+[Read more →](https://techcrunch.com/2026/05/22/we-tried-googles-ai-glasses-and-theyre-almost-there/)
+
+---
+
+### SpaceX launches Starship V3 for the first time
+**Source:** TechCrunch | **Signal:** high
+
+SpaceX flew its upgraded Starship V3 for the first time in a mostly successful debut, though the booster was lost on return. V3 is the workhorse needed for Starlink V2 deployment, Mars ambitions and the orbital AI compute satellites described in the S-1.
 
 [Read more →](https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/)
 
 ---
 
-### DeepSeek makes V4-Pro 75% price discount permanent
-**Source:** Y Combinator / DeepSeek | **Signal:** high
+### DeepSeek makes V4 Pro discount pricing permanent
+**Source:** Y Combinator | **Signal:** high
 
-DeepSeek locked in permanent pricing of $0.435/M cache-miss input and $0.87/M output tokens for V4-Pro, plus a 90% cut on input cache hits across its API line. The move targets developers frustrated by Western chatbot rate caps and undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro on per-token basis.
+DeepSeek converted its temporary V4 Pro price cut into permanent API pricing, continuing relentless downward pressure on frontier-model token costs and reinforcing the open-weights pricing floor that US labs are pricing against.
 
 [Read more →](https://api-docs.deepseek.com/quick_start/pricing)
 
 ---
 
-### Anthropic's Code with Claude showcases the future of AI coding
-**Source:** MIT Technology Review | **Signal:** high
-
-At Anthropic's London developer event, the company demonstrated how nearly all production code is increasingly machine-written, with developers shifting toward orchestration and review. The event coincided with Google I/O, underscoring an industry-wide reorientation around AI-native software engineering workflows.
-
-[Read more →](https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/)
-
----
-
-### Blue Origin cleared to fly New Glenn after April mishap
+### Spotify ships a wave of AI creator tools
 **Source:** TechCrunch | **Signal:** medium
 
-Regulators have cleared Blue Origin to return New Glenn to flight after confirming an engine failure caused the loss of an AST SpaceMobile satellite in April. Limited details were disclosed, but a return-to-flight keeps Bezos's company competing with SpaceX in heavy-lift.
+Spotify rolled out AI-powered features that nudge users to generate more content rather than refine discovery. The launch illustrates how incumbent platforms are using AI primarily to grow supply, even when listeners are signaling demand for curation.
 
-[Read more →](https://techcrunch.com/2026/05/22/blue-origin-cleared-to-fly-new-glenn-mega-rocket-after-april-mishap/)
+[Read more →](https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/)
 
 ---
 
-### WordPress 7.0 launches
-**Source:** Product Hunt | **Signal:** medium
+### Deno 2.8 released
+**Source:** Y Combinator | **Signal:** medium
 
-A major version bump for the web's dominant CMS lands on Product Hunt. Worth tracking for shifts in editor, performance, and AI authoring integrations that ripple across publishing, agencies, and SMB websites.
+Deno shipped 2.8 with broader Node compatibility and runtime improvements, landing on HN's front page the same week yt-dlp announced it is deprecating Bun support. The JavaScript runtime wars continue to fragment around AI-agent and edge use cases.
+
+[Read more →](https://deno.com/blog/v2.8)
+
+---
+
+### WordPress 7.0 lands on Product Hunt
+**Source:** Product Hunt | **Signal:** low
+
+WordPress shipped its 7.0 release, a notable milestone for a platform that still powers a huge share of the web. The launch is a reminder that legacy open-source CMSes are quietly modernizing in parallel with the AI-native website builders chasing them.
 
 [Read more →](https://www.producthunt.com/products/wordpress-7-0)
 
 ---
 
-### TestSprite 3.0 ships next-gen AI test automation
+### TestSprite 3.0 launches AI testing platform
 **Source:** Product Hunt | **Signal:** medium
 
-TestSprite 3.0 advances AI-driven QA and test generation, part of a growing category of agents that author, run, and triage tests against shipping codebases—an area drawing heavy enterprise interest as more code is AI-generated.
+TestSprite's 3.0 release pushes deeper into AI-driven software test generation, riding the same wave as Anthropic's Code with Claude tooling. Autonomous QA is rapidly becoming a standalone category as agentic coding shifts where bugs originate.
 
 [Read more →](https://www.producthunt.com/products/testsprite)
 
@@ -64,224 +73,269 @@ TestSprite 3.0 advances AI-driven QA and test generation, part of a growing cate
 
 ## AI & Research
 
-### Google I/O signals a shift in the path to AI-driven science
+### Anthropic's Project Glasswing finds 10,000+ critical zero-days in a month
+**Source:** Y Combinator | **Signal:** high
+
+Anthropic's initial Project Glasswing update reports that Claude Mythos Preview and roughly 50 partner organizations have uncovered more than 10,000 high- or critical-severity vulnerabilities, with Cloudflare alone finding 2,000 bugs and Mozilla patching 271 in Firefox 150. The bottleneck has shifted from discovery to human verification and patching.
+
+[Read more →](https://www.anthropic.com/research/glasswing-initial-update)
+
+---
+
+### Google I/O signals a shift in AI-driven science
 **Source:** MIT Technology Review | **Signal:** high
 
-At I/O, DeepMind CEO Demis Hassabis described the industry as 'standing in the foothills of the singularity,' framing Google's bet on AI for scientific discovery. The keynote signaled a move from chatbots to research-grade systems aimed at biology, materials, and math.
+At I/O, Demis Hassabis claimed we are 'standing in the foothills of the singularity' as DeepMind pushed AI scientific tooling deeper into research workflows. MIT TR argues the path to AI-for-science is shifting from one-off breakthroughs to embedded daily research infrastructure.
 
 [Read more →](https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/)
 
 ---
 
-### Sequoia: 2026 is AGI
-**Source:** Sequoia Capital | **Signal:** high
+### Anthropic's Code with Claude pushes agentic coding mainstream
+**Source:** MIT Technology Review | **Signal:** high
 
-Sequoia's AI Ascent thesis argues that 2026 marks the arrival of practical AGI-level capability across reasoning, coding, and agents. The piece frames investment priorities around agent-native services, vertical AI, and the displacement of software by services.
+At Code with Claude in London, Anthropic asked attendees whether they had shipped a PR in the past week written entirely by an AI agent — and a striking share said yes. The event laid out a near-future where human review, not authoring, is the developer's primary loop.
 
-[Read more →](https://sequoiacap.com/article/2026-this-is-agi/)
-
----
-
-### Can AI learn to understand the world? — Roundtable on world models
-**Source:** MIT Technology Review | **Signal:** medium
-
-Editors discuss the rise of 'world models' as the next frontier beyond LLMs, with AI labs racing to build systems that can simulate physics, causality, and embodied reasoning. Likely to shape robotics, gaming, and autonomous systems roadmaps.
-
-[Read more →](https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/)
+[Read more →](https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/)
 
 ---
 
-### PhysX-Omni: unified simulation-ready 3D generation
+### WorldKV: efficient world memory via retrieval and compression
 **Source:** Hugging Face Papers | **Signal:** medium
 
-New work proposes a unified pipeline that generates rigid, deformable, and articulated 3D objects ready for physics simulation. A meaningful step toward world models and robotics datasets that don't require hand-authored assets.
+WorldKV proposes a memory architecture that combines retrieval with compression to give long-running agents persistent world state without the KV-cache blowup. Notable as one of several papers this week converging on world-model memory as the next scaling axis.
 
-[Read more →](https://huggingface.co/papers/2605.21572)
+[Read more →](https://huggingface.co/papers/2605.22718)
 
 ---
 
-### Full Attention Strikes Back: porting full attention to sparse in ~100 steps
+### Full Attention Strikes Back: converting dense to sparse in 100 steps
 **Source:** Hugging Face Papers | **Signal:** medium
 
-Paper demonstrates that full-attention models can be cheaply converted to sparse-attention variants in roughly a hundred training steps with negligible quality loss—relevant for serving long-context LLMs at lower cost.
+The paper shows full-attention transformers can be distilled into efficient sparse-attention variants in only a few hundred training steps, dramatically cutting inference cost without retraining from scratch. A practical efficiency win as long-context workloads dominate agent stacks.
 
 [Read more →](https://huggingface.co/papers/2605.16928)
 
 ---
 
-### π-Bench: evaluating proactive personal-assistant agents
-**Source:** Hugging Face Papers | **Signal:** low
+### Spreadsheet-RL trains agents on realistic spreadsheet tasks
+**Source:** Hugging Face Papers | **Signal:** medium
 
-New benchmark stress-tests agents on long-horizon, proactive workflows—anticipating user needs across multi-day tasks. Adds to a growing set of agent evaluations that go beyond single-turn tool use.
+Spreadsheet-RL applies reinforcement learning to LLM agents operating on realistic, multi-step spreadsheet workflows — a benchmark much closer to enterprise reality than synthetic toy tasks. Expect a wave of finance- and ops-vertical agents trained against similar setups.
 
-[Read more →](https://huggingface.co/papers/2605.14678)
+[Read more →](https://huggingface.co/papers/2605.22642)
+
+---
+
+### Roundtable: Can AI learn to understand the world?
+**Source:** MIT Technology Review | **Signal:** medium
+
+MIT TR editors discussed how world models are moving to the center of the AI research agenda as labs try to push past LLM limitations. The conversation maps cleanly onto Sequoia's '2026: This is AGI' framing and this week's wave of world-memory papers.
+
+[Read more →](https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/)
 
 ---
 
 ## Funding & Business Moves
 
-### SpaceX IPO filing made public, expected to raise ~$75B
+### SpaceX files S-1 for what could be the largest IPO in history
 **Source:** TechCrunch | **Signal:** high
 
-SpaceX's IPO prospectus is now public, with a Nasdaq listing expected mid-June targeting roughly $75B in proceeds. Funds are earmarked for Starship development, AI ambitions, and paying down debt linked to xAI and X. Starlink generated $11B in 2025 revenue per the filing.
+SpaceX's S-1 targets a roughly $1.75T valuation with a $75B raise, 36 pages of risk factors, a Mars-colony-linked pay package, and a $28T total addressable market claim. xAI consolidation drove a $4.28B Q1 net loss even as Starlink hit $11.4B in 2025 revenue — making this both the largest IPO ever attempted and the riskiest mega-cap debut in a generation.
 
-[Read more →](https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/)
+[Read more →](https://techcrunch.com/video/spacex-files-to-go-public-and-the-math-requires-a-little-faith/)
 
 ---
 
-### How VCs and founders inflate 'ARR' to crown AI startups
+### How VCs and founders use inflated ARR to crown AI startups
 **Source:** TechCrunch | **Signal:** high
 
-Reporting details how AI startups annualize a single strong month, count pilots, or include one-off contracts as 'ARR'—with investors complicit. A growing credibility risk as the market scrutinizes durability of AI revenue.
+TechCrunch documents how AI startups and their investors are publicly stretching ARR definitions — annualizing single best months, counting credits, mixing pilots with contracted revenue — to manufacture leaderboard positions. The practice is widespread and openly acknowledged inside the cap stack.
 
 [Read more →](https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/)
 
 ---
 
-### a16z backs Exa, Stitch, Ethos, Tessera Labs, Glif, Petual, Ulysses, Hilbert
+### Boston Metal raises $75M and pivots into critical metals
+**Source:** MIT Technology Review | **Signal:** medium
+
+Green-steel startup Boston Metal raised $75M and is repositioning around critical-metals production — an example of climate-tech companies retooling pitches around supply-chain security under the Trump administration's anti-climate posture.
+
+[Read more →](https://www.technologyreview.com/2026/05/20/1137523/boston-metal-funding-critical-metals/)
+
+---
+
+### a16z backs Exa, the AI-native search infrastructure company
 **Source:** a16z | **Signal:** medium
 
-Andreessen Horowitz announced a wave of eight new investments this week spanning AI search (Exa), creative AI (Glif), defense/dual-use (Hilbert, Ulysses), and consumer/services. The pace signals continued aggressive deployment despite ARR-quality concerns elsewhere in the market.
+Andreessen Horowitz announced an investment in Exa, an AI-native search/retrieval platform increasingly used as the web-search layer for agent pipelines. The bet reflects how 'search for LLMs' has emerged as a distinct infrastructure category.
 
 [Read more →](https://a16z.com/announcement/investing-in-exa/)
 
 ---
 
-### Sequoia spotlights Nevis, bringing AI to wealth management
-**Source:** Sequoia Capital | **Signal:** medium
+### a16z invests in GitButler for AI-era version control
+**Source:** a16z | **Signal:** medium
 
-Sequoia profiles Nevis as a vertical AI play targeting wealth management workflows. Part of its broader 'Services: The New Software' thesis where AI replaces seat-licensed SaaS with outcome-priced services.
+a16z backed GitButler, a Git client reimagined around concurrent branches and agent-generated commits. The investment underlines how dev-tools are being rebuilt assuming most code is produced by agents rather than humans.
 
-[Read more →](https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/)
+[Read more →](https://a16z.com/announcement/investing-in-gitbutler/)
 
 ---
 
-### Apple asks SCOTUS to narrow Epic App Store ruling
+### Sequoia partners with Ineffable Intelligence on a 'superlearner'
+**Source:** Sequoia Capital | **Signal:** medium
+
+Sequoia announced a partnership with Ineffable Intelligence, framing the company as a superlearner for the 'era of experience' — i.e. systems that learn continuously from agentic deployment rather than static training corpora.
+
+[Read more →](https://sequoiacap.com/article/partnering-with-ineffable-intelligence-a-superlearner-for-the-era-of-experience/)
+
+---
+
+### Blue Origin cleared to resume New Glenn flights after April mishap
 **Source:** TechCrunch | **Signal:** medium
 
-Apple petitioned the Supreme Court to narrow the injunction Epic Games won and overturn the contempt ruling on external payment fees. The outcome could redefine App Store economics for all developers in the U.S.
+Blue Origin was cleared to fly New Glenn again after confirming an engine failure caused the loss of an AST SpaceMobile satellite in April. The return-to-flight matters competitively as SpaceX heads into its IPO roadshow.
 
-[Read more →](https://techcrunch.com/2026/05/22/apple-says-epic-lawsuit-shouldnt-reshape-app-store-rules-for-all-developers/)
+[Read more →](https://techcrunch.com/2026/05/22/blue-origin-cleared-to-fly-new-glenn-mega-rocket-after-april-mishap/)
 
 ---
 
 ## Trends & Shifts
 
-### AI memory demand is repricing consumer electronics
-**Source:** Y Combinator (davidoks.blog) | **Signal:** high
+### Memory shortage is repricing consumer electronics
+**Source:** Y Combinator | **Signal:** high
 
-Analysis argues the AI-driven memory shortage is pushing DRAM/NAND prices high enough to kill the cheap smartphone segment and raise BOM costs across PCs, consoles, and SSDs. A consumer-facing macro effect of the AI capex cycle.
+A widely-shared analysis argues AI training and inference demand for HBM and DDR has tightened supply so severely that the cheap smartphone tier is functionally disappearing, with downstream price hikes across SSDs, PCs and consoles. The compute boom is now visible at retail.
 
 [Read more →](https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone)
 
 ---
 
-### Climate tech is pivoting to critical minerals
-**Source:** MIT Technology Review | **Signal:** high
+### Sequoia: 'Services are the new software'
+**Source:** Sequoia Capital | **Signal:** high
 
-Under a hostile second Trump administration, climate-tech companies are rebranding around critical minerals, energy security, and industrial competitiveness rather than decarbonization. Repositioning is reshaping go-to-market for the entire sector.
-
-[Read more →](https://www.technologyreview.com/2026/05/21/1137622/climate-tech-pivot-critical-minerals/)
-
----
-
-### Services: the new software
-**Source:** Sequoia Capital | **Signal:** medium
-
-Sequoia argues AI is collapsing the boundary between software and services, with AI-native firms billing on outcomes rather than seats. The thesis predicts a new generation of multi-hundred-billion-dollar 'services-as-software' companies.
+Sequoia's thesis piece argues that agentic AI lets startups attack labor budgets — not just software budgets — by selling outcomes rather than seats. Combined with their 'From Hierarchy to Intelligence' and '$10T AI Revolution' posts, it signals a coordinated push toward services-as-software portfolio construction.
 
 [Read more →](https://sequoiacap.com/article/services-the-new-software/)
 
 ---
 
-### Spotify floods users with AI tools they didn't ask for
-**Source:** TechCrunch | **Signal:** medium
+### Sequoia AI Ascent 2026 framing: 'This is AGI'
+**Source:** Sequoia Capital | **Signal:** medium
 
-Spotify keeps shipping AI features nudging users to create rather than listen—DJs, remix tools, generative playlists. Reflects a broader consumer-app pattern of bolting generative features onto apps users primarily want for curation.
+Sequoia's AI Ascent recap declares 2026 the year AGI becomes a practical lens rather than a thought experiment, and lays out a $10T market frame. Whether or not you accept the label, the firm is now publicly underwriting deals on AGI-grade assumptions.
 
-[Read more →](https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/)
-
----
-
-### Why Japanese companies do so many different things
-**Source:** Y Combinator (davidoks.blog) | **Signal:** low
-
-Widely-read essay on why Japanese conglomerates remain horizontally diversified, tying it to lifetime employment, capital allocation norms, and risk culture. A useful lens as Western AI giants increasingly look conglomerate-like.
-
-[Read more →](https://davidoks.blog/p/why-japanese-companies-do-so-many)
+[Read more →](https://sequoiacap.com/article/2026-this-is-agi/)
 
 ---
 
-## Signals Worth Watching
+### Ben Horowitz: open-source AI will determine America's future
+**Source:** a16z | **Signal:** medium
 
-### AI used to reconstruct dead pilots' voices from cockpit recordings
-**Source:** TechCrunch | **Signal:** high
+Horowitz argues open-weight models are now a national-competitiveness issue versus China, framing US policy around export controls and model release as decisive. A useful read against this week's DeepSeek pricing move and the new restrictions on US-foreign research publishing.
 
-Researchers and hobbyists are using AI to reconstruct cockpit audio from spectrogram images of NTSB recordings, prompting the agency to temporarily block public docket access. A new chapter in synthetic-media ethics and FOIA-era privacy.
-
-[Read more →](https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/)
+[Read more →](https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/)
 
 ---
 
-### U.S. researchers face new restrictions on foreign co-authorship
-**Source:** Science (via HN) | **Signal:** high
+### Climate tech pivots to critical minerals
+**Source:** MIT Technology Review | **Signal:** medium
 
-New federal rules limit U.S. researchers' ability to publish with collaborators in adversarial countries, with implications for AI labs, biotech, and quantum. Expect chilled cross-border science and compliance overhead at universities.
+MIT TR documents a broad pivot among climate startups toward critical-minerals narratives that play well with the current administration's industrial-policy priorities. Decarbonization is being repackaged as supply-chain security.
 
-[Read more →](https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators)
-
----
-
-### 'If you're an LLM, please read this' — Anna's Archive prompt-injection appeal
-**Source:** Y Combinator (annas-archive.gl) | **Signal:** medium
-
-The shadow library publishes an llms.txt-style appeal addressed directly to crawling models, asking them to mirror and preserve content. An early example of sites trying to influence model behavior through embedded instructions—watch for governance and prompt-injection implications.
-
-[Read more →](https://annas-archive.gl/blog/llms-txt.html)
+[Read more →](https://www.technologyreview.com/2026/05/21/1137622/climate-tech-pivot-critical-minerals/)
 
 ---
 
-### Antigravity 2.0 tops OpenSCAD architectural 3D LLM benchmark
-**Source:** ModelRift (via HN) | **Signal:** medium
-
-A new benchmark measures how well LLMs can produce parametric 3D architectural models in OpenSCAD. Antigravity 2.0 leads—early signal of LLMs moving into CAD and computational design workflows.
-
-[Read more →](https://modelrift.com/blog/openscad-llm-benchmark/)
-
----
-
-### Enhanced Games kick off — performance-enhancing drugs go mainstream
+### Enhanced Games and the longevity-vibes economy
 **Source:** MIT Technology Review | **Signal:** low
 
-The inaugural Enhanced Games, where athletes openly use approved performance-enhancing drugs, take place this weekend in Las Vegas. Slots into the broader 2026 longevity/biohacking culture and likely accelerates conversations on regulated enhancement.
+The inaugural Enhanced Games in Las Vegas will let 42 athletes openly use performance-enhancing drugs, framed as pushing human performance. MIT TR places it within a broader 2026 cultural shift normalizing biological enhancement and longevity interventions.
 
 [Read more →](https://www.technologyreview.com/2026/05/22/1137753/the-enhanced-games-fit-right-in-with-the-rest-of-2026s-longevity-vibes/)
 
 ---
 
+## Signals Worth Watching
+
+### Google Search breaks on the word 'disregard' after AI update
+**Source:** TechCrunch | **Signal:** high
+
+Google's latest AI Search update reportedly breaks queries containing the word 'disregard' — almost certainly a side-effect of prompt-injection filtering bleeding into the user-facing search box. A concrete sign of how prompt-injection mitigations are degrading product UX.
+
+[Read more →](https://techcrunch.com/2026/05/22/you-can-no-longer-google-the-word-disregard/)
+
+---
+
+### AI reconstructs voices of dead pilots from cockpit-recorder spectrograms
+**Source:** TechCrunch | **Signal:** high
+
+Researchers and hobbyists used AI on spectrogram images of cockpit voice recordings to reconstruct audio, prompting the NTSB to temporarily block its docket system. A vivid example of how passive public data is being re-weaponized by generative models.
+
+[Read more →](https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/)
+
+---
+
+### US researchers face new restrictions on foreign co-authorship
+**Source:** Y Combinator | **Signal:** high
+
+Science reports new federal restrictions on US researchers publishing with foreign collaborators, with particular focus on Chinese co-authors. Combined with Anthropic's geopolitical framing of open-source AI, this is a tangible step toward bifurcating the global research graph.
+
+[Read more →](https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators)
+
+---
+
+### Anna's Archive publishes an llms.txt aimed at training crawlers
+**Source:** Y Combinator | **Signal:** medium
+
+Anna's Archive published an open letter targeted at LLM training crawlers, effectively trying to negotiate with model labs via in-band metadata. A small but meaningful escalation in how data sources are addressing — rather than blocking — training pipelines.
+
+[Read more →](https://annas-archive.gl/blog/llms-txt.html)
+
+---
+
+### Trump Mobile confirms customer data exposure
+**Source:** TechCrunch | **Signal:** medium
+
+Trump Mobile confirmed it exposed customer phone numbers and home addresses through a third-party platform and is still evaluating whether to formally notify customers. The incident underlines ongoing supply-chain risk in white-label telecom builds.
+
+[Read more →](https://techcrunch.com/2026/05/22/trump-mobile-confirms-it-exposed-customers-personal-data-including-phone-numbers-and-home-addresses/)
+
+---
+
+### Apple asks Supreme Court to narrow Epic App Store ruling
+**Source:** TechCrunch | **Signal:** medium
+
+Apple is asking the Supreme Court to narrow the App Store injunction won by Epic Games and overturn the contempt ruling over external payment fees. The outcome will set the rules of engagement for every developer attempting to monetize outside Apple's payment rails.
+
+[Read more →](https://techcrunch.com/2026/05/22/apple-says-epic-lawsuit-shouldnt-reshape-app-store-rules-for-all-developers/)
+
+---
+
 ## Top Signals
 
-### 1. Starship V3 flies as SpaceX heads to a $75B IPO — but booster recovery still elusive
+### 1. Anthropic's Mythos Preview finds 10,000+ critical zero-days in a single month
 **Urgency:** Act now
 
-Starship V3 is the linchpin for Starlink V3, Artemis lunar missions, and SpaceX's mid-June Nasdaq listing. A successful upper-stage flight de-risks the IPO narrative; the booster loss keeps reusability—and full unit economics—an open question heading into public markets.
+Frontier models have crossed the threshold where vulnerability discovery outpaces human patching capacity. Security teams should assume zero-day discovery is now industrial-scale and compress patch SLAs accordingly — adversaries will have equivalent capability within 12 months.
 
-### 2. DeepSeek makes 75% V4-Pro discount permanent, escalating LLM price war
+### 2. Memory shortage is repricing the entire consumer electronics stack
 **Urgency:** Act now
 
-Permanent pricing at $0.435/M input and $0.87/M output tokens, plus 90% off cache hits, structurally undercuts GPT-5.5, Claude Opus 4.7, and Gemini 3.1 Pro. Any AI product with material inference spend should re-run pricing models and evaluate dual-vendor strategies this week.
+AI HBM/DDR demand is now visibly bleeding into smartphone, SSD, PC and console pricing. Hardware roadmaps, BOM forecasts, and any business dependent on cheap-tier devices need to be re-baselined this quarter.
 
-### 3. AI memory demand is killing the cheap smartphone and lifting consumer-electronics prices
+### 3. SpaceX files $1.75T S-1 — the largest IPO ever attempted
 **Urgency:** Watch closely
 
-The AI capex cycle has tightened DRAM/NAND so much that consumer device BOM costs are climbing. Expect price increases across phones, PCs, SSDs, and consoles—affecting hardware roadmaps, retail pricing, and any startup with bill-of-materials exposure.
+A $75B raise tied to Starship execution, an xAI-driven $4.28B Q1 loss, Mars-linked compensation, and orbital AI data centers in the prospectus. Whether it prices in June will set the tone for every late-stage AI/space financing for the next 18 months.
 
-### 4. VCs tolerate inflated 'ARR' as the AI startup crown is handed out
+### 4. Inflated ARR is now the public language of AI startup ranking
 **Urgency:** Watch closely
 
-TechCrunch documents how single-month annualizations, pilots, and one-time deals are being marketed as ARR—with investors complicit. Diligence teams, acquirers, and competitors should pressure-test revenue quality before the next correction prices it in.
+When founders and VCs openly stretch revenue definitions to claim leaderboard positions, diligence costs rise for everyone. Acquirers, LPs and enterprise buyers should demand contracted-revenue and net-retention disclosures before treating headline ARR figures as comparable.
 
-### 5. U.S. tightens rules on publishing with foreign research collaborators
+### 5. Sequoia and a16z are converging on 'services-as-software' and open-source-AI-as-policy
 **Urgency:** Stay informed
 
-New restrictions affect AI, biotech, and quantum labs, with chilling effects on cross-border collaboration that has historically powered open research. Universities, AI labs, and journals need compliance posture; expect downstream impact on talent flows and open-source publication.
+Both top firms are publicly underwriting an agentic-services thesis attacking labor budgets, while Horowitz frames open weights as US national strategy. Expect portfolio construction, hiring narratives, and policy lobbying to follow these frames over the next several quarters.

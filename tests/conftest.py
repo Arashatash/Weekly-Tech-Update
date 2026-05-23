@@ -5,20 +5,51 @@ import pytest
 
 @pytest.fixture
 def sample_briefing() -> dict:
-    item = {
-        "title": "Test Product Launch",
-        "source": "TechCrunch",
-        "url": "https://example.com/article",
-        "summary": "A new product launched. It does X. It matters because Y.",
-        "signal": "high",
-        "tags": ["AI", "SaaS"],
-    }
+    def _item(source: str, title: str = "Test item") -> dict:
+        return {
+            "title": title,
+            "source": source,
+            "url": "https://example.com/article",
+            "summary": "A new item. It does X. It matters because Y.",
+            "signal": "high",
+            "tags": ["AI", "SaaS"],
+        }
+
     categories = [
-        {"id": "products", "name": "New Products & Launches", "items": [item]},
-        {"id": "ai_research", "name": "AI & Research", "items": [item]},
-        {"id": "business", "name": "Funding & Business Moves", "items": [item]},
-        {"id": "trends", "name": "Trends & Shifts", "items": [item]},
-        {"id": "signals", "name": "Signals Worth Watching", "items": [item]},
+        {
+            "id": "products",
+            "name": "New Products & Launches",
+            "items": [
+                _item("TechCrunch", "TC product"),
+                _item("Product Hunt", "PH launch"),
+            ],
+        },
+        {
+            "id": "ai_research",
+            "name": "AI & Research",
+            "items": [
+                _item("Hugging Face Papers", "Paper"),
+                _item("MIT Technology Review", "Article"),
+            ],
+        },
+        {
+            "id": "business",
+            "name": "Funding & Business Moves",
+            "items": [
+                _item("a16z", "VC piece"),
+                _item("Sequoia Capital", "Sequoia thesis"),
+            ],
+        },
+        {
+            "id": "trends",
+            "name": "Trends & Shifts",
+            "items": [_item("Y Combinator", "HN trend")],
+        },
+        {
+            "id": "signals",
+            "name": "Signals Worth Watching",
+            "items": [_item("TechCrunch", "Signal")],
+        },
     ]
     return {
         "weekly_theme": "AI agents reshape the stack",

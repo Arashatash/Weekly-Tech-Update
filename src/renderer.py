@@ -101,6 +101,136 @@ def _category_colour_map() -> dict[str, str]:
     return dict(CATEGORY_COLOURS)
 
 
+def _get_category(briefing: dict, cat_id: str) -> dict | None:
+    for cat in briefing.get("categories", []):
+        if isinstance(cat, dict) and cat.get("id") == cat_id:
+            return cat
+    return None
+
+
+def opportunity_horizon_matrix(briefing: dict) -> list[dict]:
+    """Build matrix data for the Opportunity Horizon visual.
+
+    Returns one entry per horizon column in display order, with truncated card
+    data ready for templating. Returns [] if there is not enough data to render
+    a meaningful visual (fewer than 3 opportunity items combined).
+    """
+    columns_spec = (
+        ("now", "0\u20136 mo", "Act now", "opp_now"),
+        ("mid", "6\u201318 mo", "Position", "opp_mid"),
+        ("long", "18+ mo", "Place bets", "opp_long"),
+    )
+    columns: list[dict] = []
+    total = 0
+    for horizon_key, range_label, action_label, cat_id in columns_spec:
+        cat = _get_category(briefing, cat_id) or {}
+        items = [i for i in cat.get("items", []) if isinstance(i, dict)]
+        cards = [
+            {
+                "title": item.get("title", ""),
+                "tags": item.get("tags", [])[:2],
+                "signal": item.get("signal", "low"),
+                "source": item.get("source", ""),
+            }
+            for item in items
+        ]
+        total += len(items)
+        columns.append(
+            {
+                "horizon": horizon_key,
+                "range_label": range_label,
+                "action_label": action_label,
+                "colour": CATEGORY_COLOURS.get(cat_id, "#5F5E5A"),
+                "count": len(items),
+                "items": cards,
+            }
+        )
+    if total < 3:
+        return []
+    return columns
+
+
+_GENERIC_TAGS = {"agents", "ai", "infra", "ml", "llm", "agentic", "ai-infra"}
+
+
+def _thesis_match(thesis: dict, item: dict) -> bool:
+    """Return True if an item aligns with a thesis.
+
+    Priority order:
+    1. If the item has an explicit `aligned_thesis` field, match ONLY against
+       that exact thesis title (substring either way). This prevents items with
+       generic tags from being attached to every thesis they share a tag with.
+    2. Otherwise fall back to tag overlap, ignoring generic AI-wide tags so the
+       visual stays signal over noise.
+    """
+    thesis_title = str(thesis.get("title", "")).strip().lower()
+    aligned_field = str(item.get("aligned_thesis", "")).strip().lower()
+
+    if aligned_field:
+        if not thesis_title:
+            return False
+        if aligned_field == thesis_title:
+            return True
+        return aligned_field in thesis_title or thesis_title in aligned_field
+
+    thesis_tags = {
+        str(t).strip().lower() for t in thesis.get("tags", []) if t
+    } - _GENERIC_TAGS
+    item_tags = {
+        str(t).strip().lower() for t in item.get("tags", []) if t
+    } - _GENERIC_TAGS
+    return bool(thesis_tags and thesis_tags & item_tags)
+
+
+def thesis_map(briefing: dict) -> list[dict]:
+    """Map each capital_theses entry to aligned items in other categories.
+
+    Returns rows like:
+        [{"thesis": {...}, "aligned": [{"cat_id": str, "item": dict}, ...]}]
+    Only returns rows for theses that have at least one aligned item, and only
+    returns the list itself when at least 2 alignments exist overall (so the
+    visual is meaningful).
+    """
+    capital_cat = _get_category(briefing, "capital_theses")
+    if not capital_cat:
+        return []
+
+    other_items: list[tuple[str, dict]] = []
+    for cat in briefing.get("categories", []):
+        cat_id = cat.get("id") if isinstance(cat, dict) else None
+        if cat_id in (None, "capital_theses"):
+            continue
+        for item in cat.get("items", []):
+            if isinstance(item, dict):
+                other_items.append((cat_id, item))
+
+    rows: list[dict] = []
+    total_alignments = 0
+    for thesis in capital_cat.get("items", []):
+        if not isinstance(thesis, dict):
+            continue
+        aligned: list[dict] = []
+        for cat_id, item in other_items:
+            if _thesis_match(thesis, item):
+                aligned.append(
+                    {
+                        "cat_id": cat_id,
+                        "cat_colour": CATEGORY_COLOURS.get(cat_id, "#5F5E5A"),
+                        "title": item.get("title", ""),
+                        "source": item.get("source", ""),
+                        "url": item.get("url", ""),
+                        "is_ph": item.get("source") == "Product Hunt",
+                    }
+                )
+        if aligned:
+            total_alignments += len(aligned)
+            rows.append({"thesis": thesis, "aligned": aligned})
+
+    if total_alignments < 2:
+        return []
+    return rows
+
+
 def render_html(briefing: dict) -> str:
     """Returns complete HTML as a string."""
     env = Environment(
@@ -135,6 +265,8 @@ def render_html(briefing: dict) -> str:
         "signal_dots": signal_dots_html,
         "source_badge_style": source_badge_style,
         "horizon_labels": HORIZON_LABELS,
+        "horizon_matrix": opportunity_horizon_matrix(briefing),
+        "thesis_map_rows": thesis_map(briefing),
     }
     return template.render(**context)
 

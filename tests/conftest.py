@@ -9,12 +9,15 @@ def sample_briefing() -> dict:
         source: str,
         title: str = "Test item",
         horizon: str | None = None,
+        summary: str | None = None,
+        aligned_thesis: str | None = None,
+        url: str = "https://example.com/article",
     ) -> dict:
         item = {
             "title": title,
             "source": source,
-            "url": "https://example.com/article",
-            "summary": (
+            "url": url,
+            "summary": summary or (
                 "Capability shifted this week. Implies reallocating toward agent infra "
                 "and away from thin wrappers."
             ),
@@ -23,6 +26,8 @@ def sample_briefing() -> dict:
         }
         if horizon:
             item["horizon"] = horizon
+        if aligned_thesis:
+            item["aligned_thesis"] = aligned_thesis
         return item
 
     categories = [
@@ -40,13 +45,35 @@ def sample_briefing() -> dict:
             "items": [
                 _item("TechCrunch", "Anthropic ships agents"),
                 _item("Hugging Face Papers", "Sparse attention paper"),
+                _item(
+                    "Product Hunt",
+                    "AgentForge — multi-agent orchestrator",
+                    summary=(
+                        "Validates a16z backs agent search: AgentForge ships a "
+                        "multi-agent orchestration platform that operationalises the "
+                        "a16z thesis on agent-native developer infra."
+                    ),
+                    aligned_thesis="a16z backs agent search",
+                    url="https://www.producthunt.com/products/agentforge",
+                ),
             ],
         },
         {
             "id": "opp_now",
             "name": "Opportunities Now",
             "items": [
-                _item("Product Hunt", "AI QA wedge", horizon="now"),
+                _item(
+                    "Product Hunt",
+                    "AI QA wedge",
+                    horizon="now",
+                    summary=(
+                        "Validates Sequoia AGI thesis: autonomous QA agents plug into "
+                        "CI/CD and prove the Sequoia services-as-software thesis at the "
+                        "developer-tooling layer."
+                    ),
+                    aligned_thesis="Sequoia AGI thesis",
+                    url="https://www.producthunt.com/products/ai-qa",
+                ),
             ],
         },
         {

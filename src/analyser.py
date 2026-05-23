@@ -65,9 +65,53 @@ _ITEM_SCHEMA = {
         "signal": {"type": "string", "enum": ["high", "medium", "low"]},
         "tags": {"type": "array", "items": {"type": "string"}},
         "horizon": {"type": "string", "enum": ["now", "mid", "long"]},
+        "aligned_thesis": {"type": "string"},
     },
     "required": ["title", "source", "url", "summary", "signal", "tags"],
 }
+
+PH_SOURCE = "Product Hunt"
+PH_REQUIRED_CATEGORIES = ("building", "opp_now")
+PH_MIN_PICKS = 2
+PH_MAX_PICKS = 4
+PH_THESIS_PHRASES = (
+    "validates",
+    "validating",
+    "validation",
+    "aligned_thesis",
+    "aligned with",
+    "ties to",
+    "tied to",
+    "operationalizes",
+    "proves out",
+    "confirms",
+    "evidence for",
+    "instantiates",
+)
+
+
+def _has_thesis_tie(item: dict) -> bool:
+    """Return True if the item explicitly ties to a capital thesis."""
+    aligned = str(item.get("aligned_thesis", "")).strip()
+    if aligned:
+        return True
+    summary = str(item.get("summary", "")).lower()
+    return any(phrase in summary for phrase in PH_THESIS_PHRASES)
+
+
+def collect_ph_items(briefing: dict) -> list[tuple[str, dict]]:
+    """Return (category_id, item) pairs for Product Hunt items in building+opp_now."""
+    out: list[tuple[str, dict]] = []
+    for cat in briefing.get("categories", []):
+        if not isinstance(cat, dict):
+            continue
+        cat_id = cat.get("id")
+        if cat_id not in PH_REQUIRED_CATEGORIES:
+            continue
+        for item in cat.get("items", []):
+            if isinstance(item, dict) and item.get("source") == PH_SOURCE:
+                out.append((cat_id, item))
+    return out
 
 _BRIEFING_TOOL = {
     "name": "submit_weekly_briefing",
@@ -177,12 +221,23 @@ not a news digest. The reader is an operator or investor who needs a multi-angle
 market is heading: how capital is positioning, what top leaders are saying, what companies are shipping,
 which Product Hunt launches validate investor theses, and which opportunities are opening across horizons.
 
-## Your task
+## Your task (run in this order)
 1. Use the supplied raw articles as the PRIMARY data source ({total} articles from {len(sources_present)} sources).
 2. Use web_search to find recent (last 7-14 days) public statements from top AI leaders AND to verify facts/URLs.
-3. After building capital_theses and opp_* sections, cross-reference Product Hunt items from the raw list:
-   select 2-4 launches that DIRECTLY validate this week's investor theses or opportunity themes.
-4. When finished, call submit_weekly_briefing with the complete report.
+3. First, draft `capital_theses` (3-5 distinct investor theses for the week). Give each a short, memorable
+   title so other items can reference it by name.
+4. PRODUCT HUNT PICKS STEP (do this AFTER capital_theses is drafted, BEFORE finalising building/opp_now):
+   - Re-list the {PH_MIN_PICKS}-{PH_MAX_PICKS} capital_theses titles you just wrote.
+   - Scan the Product Hunt items in the raw articles. For EACH thesis, look for a PH launch
+     that operationalises/validates it. Discard PH items that do not map to a thesis.
+   - Select {PH_MIN_PICKS}-{PH_MAX_PICKS} PH products total. Place them in `building` (preferred) OR
+     `opp_now` (only when the PH launch is itself the wedge). Combined `building`+`opp_now` MUST
+     contain at least {PH_MIN_PICKS} Product Hunt items this week.
+   - For EACH PH item you include, set the optional field `aligned_thesis` to the exact title of the
+     capital_theses entry it validates, AND begin the `summary` with: "Validates [thesis title]: ...".
+   - `source` for these items MUST be exactly "Product Hunt"; `url` MUST be the Product Hunt URL.
+5. Finish building/opp_mid/opp_long with non-PH items as needed.
+6. When finished, call submit_weekly_briefing with the complete report.
 
 ## Time context
 - Today (UTC): {now.isoformat()}
@@ -212,10 +267,18 @@ Pat Grady, Andy Jassy, or comparable AI/tech executives.
 - Each entry needs: name, org, quote_or_paragraph, https url, stance (bullish|bearish|neutral on AI direction),
   and strategic_implication (1-2 sentences for operators/investors).
 
-## Product Hunt investor alignment
-- From scraped Product Hunt items, pick ONLY 2-4 that directly align with capital_theses or opp_* themes THIS week.
-- In each PH item summary, explicitly tie it to which thesis or opportunity it validates.
-- Drop non-AI PH items unless they clearly validate a thesis from this week's briefing.
+## Product Hunt investor alignment (HARD REQUIREMENT)
+- The combined `building` + `opp_now` categories MUST contain {PH_MIN_PICKS}-{PH_MAX_PICKS} Product
+  Hunt items this week. The audit pipeline will REJECT the briefing otherwise and force a retry.
+- Each Product Hunt item MUST:
+  * have `source` exactly "Product Hunt" (no variants);
+  * have `url` set to its Product Hunt page;
+  * set `aligned_thesis` to the exact title of the `capital_theses` entry it validates;
+  * begin its `summary` with the literal pattern: `Validates [thesis title]: ...` so the tie is
+    legible to readers and to the audit checker.
+- Drop non-AI Product Hunt launches and any PH item that does not map to a thesis from THIS week.
+- Place PH picks in `building` when they show what is being shipped against a thesis, or in `opp_now`
+  when the PH product itself is the actionable wedge for an operator/investor this quarter.
 - Do NOT include random indie SaaS that doesn't connect to investor narratives.
 
 ## AI-only filter (hard rule)
@@ -340,6 +403,26 @@ def _validate_briefing(data: dict) -> dict:
     if total_items > 25:
         raise ValueError(f"Too many category items ({total_items}); target 15-20")
 
+    ph_picks = collect_ph_items(data)
+    if len(ph_picks) < PH_MIN_PICKS:
+        raise ValueError(
+            f"Product Hunt alignment: need >= {PH_MIN_PICKS} Product Hunt items in "
+            f"building+opp_now, got {len(ph_picks)}. Add PH launches that validate this "
+            f"week's capital_theses (set aligned_thesis and start summary with 'Validates ...')."
+        )
+    if len(ph_picks) > PH_MAX_PICKS:
+        raise ValueError(
+            f"Too many Product Hunt picks in building+opp_now ({len(ph_picks)}); "
+            f"keep to {PH_MIN_PICKS}-{PH_MAX_PICKS} highest-conviction launches."
+        )
+    for cat_id, item in ph_picks:
+        if not _has_thesis_tie(item):
+            raise ValueError(
+                f"Product Hunt item '{item.get('title')}' in {cat_id} lacks an explicit "
+                "thesis tie. Set aligned_thesis to the capital_theses title it validates "
+                "and begin the summary with 'Validates [thesis]: ...'."
+            )
+
     leader_voices = data.get("leader_voices", [])
     if not isinstance(leader_voices, list):
         raise ValueError("leader_voices must be a list")
@@ -430,6 +513,9 @@ def analyse(
                     "Call submit_weekly_briefing again. Every item needs a real https URL. "
                     "AI-only content. opp_* items need horizon now/mid/long matching their category. "
                     "Include 4-8 leader_voices with name, org, url, stance, strategic_implication. "
+                    f"building+opp_now MUST include {PH_MIN_PICKS}-{PH_MAX_PICKS} Product Hunt items, "
+                    "each with source='Product Hunt', a Product Hunt url, aligned_thesis set, and "
+                    "summary starting with 'Validates [thesis title]: ...'. "
                     f"Sources must be one of {list(ALLOWED_SOURCES)}."
                 )
                 continue

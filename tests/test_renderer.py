@@ -2,7 +2,13 @@
 
 import json
 
-from src.renderer import render_html, render_json, render_markdown
+from src.renderer import (
+    opportunity_horizon_matrix,
+    render_html,
+    render_json,
+    render_markdown,
+    thesis_map,
+)
 
 CATEGORY_IDS = (
     "capital_theses",
@@ -52,3 +58,71 @@ def test_render_json_is_valid(sample_briefing):
     raw = render_json(sample_briefing)
     parsed = json.loads(raw)
     assert parsed["weekly_theme"] == sample_briefing["weekly_theme"]
+
+
+def test_horizon_matrix_has_three_columns(sample_briefing):
+    matrix = opportunity_horizon_matrix(sample_briefing)
+    assert len(matrix) == 3
+    assert [c["horizon"] for c in matrix] == ["now", "mid", "long"]
+    assert sum(c["count"] for c in matrix) >= 3
+
+
+def test_horizon_matrix_empty_when_too_few_opps():
+    briefing = {
+        "categories": [
+            {"id": "opp_now", "name": "Now", "items": [{"title": "x"}]},
+            {"id": "opp_mid", "name": "Mid", "items": []},
+            {"id": "opp_long", "name": "Long", "items": []},
+        ]
+    }
+    assert opportunity_horizon_matrix(briefing) == []
+
+
+def test_thesis_map_pairs_aligned_items(sample_briefing):
+    rows = thesis_map(sample_briefing)
+    assert rows, "expected aligned thesis rows"
+    titles_per_thesis = {
+        row["thesis"]["title"]: [a["title"] for a in row["aligned"]]
+        for row in rows
+    }
+    a16z_thesis = "a16z backs agent search"
+    assert a16z_thesis in titles_per_thesis
+    assert any(
+        "AgentForge" in t for t in titles_per_thesis[a16z_thesis]
+    )
+
+
+def test_thesis_map_empty_when_no_overlap():
+    briefing = {
+        "categories": [
+            {
+                "id": "capital_theses",
+                "name": "Capital",
+                "items": [
+                    {"title": "Lonely thesis", "tags": ["unique"]},
+                ],
+            },
+            {
+                "id": "building",
+                "name": "Building",
+                "items": [
+                    {"title": "Unrelated item", "tags": ["other"]},
+                ],
+            },
+        ]
+    }
+    assert thesis_map(briefing) == []
+
+
+def test_render_html_includes_visual_sections(sample_briefing):
+    html = render_html(sample_briefing)
+    assert 'data-viz="thesis-map"' in html
+    assert 'data-viz="horizon-matrix"' in html
+    assert "Opportunity Horizon Matrix" in html
+    assert "Thesis Map" in html
+
+
+def test_render_html_shows_aligned_thesis_tag(sample_briefing):
+    html = render_html(sample_briefing)
+    assert "AgentForge" in html
+    assert "↳" in html or "a16z backs agent search" in html

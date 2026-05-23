@@ -5,11 +5,17 @@ from __future__ import annotations
 from src.analyser import (
     ALLOWED_SOURCES,
     OPPORTUNITY_CATEGORY_IDS,
+    PH_MAX_PICKS,
+    PH_MIN_PICKS,
+    PH_REQUIRED_CATEGORIES,
+    PH_SOURCE,
     REQUIRED_CATEGORY_IDS,
     VALID_HORIZONS,
     VALID_SIGNALS,
     VALID_STANCES,
     VALID_URGENCY,
+    _has_thesis_tie,
+    collect_ph_items,
 )
 
 AI_BLOCKLIST = (
@@ -304,6 +310,77 @@ def audit_briefing(briefing: dict) -> dict:
                         )
                         break
 
+    # --- Product Hunt thesis alignment ---
+    ph_picks = collect_ph_items(briefing) if isinstance(categories, list) else []
+    ph_total = len(ph_picks)
+    ph_with_tie = 0
+
+    if ph_total < PH_MIN_PICKS:
+        issues.append(
+            _issue(
+                "critical",
+                "product_hunt_alignment",
+                f"Need at least {PH_MIN_PICKS} Product Hunt items in "
+                f"{'+'.join(PH_REQUIRED_CATEGORIES)} (each validating a capital thesis); "
+                f"found {ph_total}.",
+            )
+        )
+    elif ph_total > PH_MAX_PICKS:
+        issues.append(
+            _issue(
+                "critical",
+                "product_hunt_alignment",
+                f"Too many Product Hunt items in {'+'.join(PH_REQUIRED_CATEGORIES)} "
+                f"({ph_total}); keep to {PH_MIN_PICKS}-{PH_MAX_PICKS} highest-conviction picks.",
+            )
+        )
+
+    for cat_id, item in ph_picks:
+        title = item.get("title", "(untitled)")
+        if not str(item.get("url", "")).strip():
+            issues.append(
+                _issue(
+                    "critical",
+                    "product_hunt_alignment",
+                    f"Product Hunt item '{title}' in {cat_id} missing Product Hunt URL.",
+                )
+            )
+        if _has_thesis_tie(item):
+            ph_with_tie += 1
+        else:
+            issues.append(
+                _issue(
+                    "critical",
+                    "product_hunt_alignment",
+                    f"Product Hunt item '{title}' in {cat_id} lacks an explicit "
+                    "thesis tie (set aligned_thesis or start summary with 'Validates ...').",
+                )
+            )
+
+    # Catch PH items placed outside building/opp_now without a thesis tie (warn-only)
+    if isinstance(categories, list):
+        for cat in categories:
+            if not isinstance(cat, dict):
+                continue
+            cat_id = cat.get("id")
+            if cat_id in PH_REQUIRED_CATEGORIES:
+                continue
+            for item in cat.get("items", []):
+                if not isinstance(item, dict):
+                    continue
+                if item.get("source") != PH_SOURCE:
+                    continue
+                if not _has_thesis_tie(item):
+                    issues.append(
+                        _issue(
+                            "warning",
+                            "product_hunt_alignment",
+                            f"Product Hunt item '{item.get('title')}' in {cat_id} "
+                            "has no thesis tie; either add one or move to "
+                            f"{'+'.join(PH_REQUIRED_CATEGORIES)}.",
+                        )
+                    )
+
     # --- Strategic depth (warnings only) ---
     thin_count = 0
     if isinstance(categories, list):
@@ -333,12 +410,18 @@ def audit_briefing(briefing: dict) -> dict:
     )
     schema_score = 1.0 if schema_critical == 0 else max(0.0, 1.0 - schema_critical * 0.2)
 
+    ph_score = 0.0 if ph_total == 0 else round(ph_with_tie / ph_total, 2)
+    if ph_total < PH_MIN_PICKS:
+        ph_score = 0.0
+
     scores = {
         "url_integrity": round(url_score, 2),
         "ai_relevance": round(ai_score, 2),
         "schema_completeness": round(schema_score, 2),
         "leader_voices_count": leader_count,
         "thin_summaries": thin_count,
+        "ph_alignment": ph_score,
+        "ph_picks_count": ph_total,
     }
 
     passed = not any(i["level"] == "critical" for i in issues)

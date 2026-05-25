@@ -1,6 +1,13 @@
 {
   "techcrunch": [
     {
+      "title": "Everyone is navigating AI security in real time \u2014 even Google",
+      "url": "https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/",
+      "description": "We're in the transition period -- all of us.",
+      "published_at": "Sun, 24 May 2026 21:39:21 +0000",
+      "source": "TechCrunch"
+    },
+    {
       "title": "Xreal, Google\u2019s smartglasses partner, thinks it has finally mastered this notoriously tricky industry",
       "url": "https://techcrunch.com/2026/05/24/xreal-googles-smartglasses-partner-thinks-it-has-finally-mastered-this-notoriously-tricky-industry/",
       "description": "Chi Xu, the founder and CEO of XREAL, thinks the smart glasses business has finally reached a turning point.",
@@ -131,13 +138,6 @@
       "url": "https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/",
       "description": "Spotify has released a bunch of AI-powered tools that nudge users to create more content. It can be a bit much.",
       "published_at": "Fri, 22 May 2026 16:18:10 +0000",
-      "source": "TechCrunch"
-    },
-    {
-      "title": "You can no longer Google the word \u2018disregard\u2019",
-      "url": "https://techcrunch.com/2026/05/22/you-can-no-longer-google-the-word-disregard/",
-      "description": "After Google Search's AI update, the word \"disregard\" now effectively breaks the search interface.",
-      "published_at": "Fri, 22 May 2026 16:16:48 +0000",
       "source": "TechCrunch"
     }
   ],
@@ -378,143 +378,143 @@
   ],
   "ycombinator": [
     {
-      "title": "Microsoft open-sources \"the earliest DOS source code discovered to date\"",
-      "url": "https://arstechnica.com/gadgets/2026/04/microsoft-open-sources-the-earliest-dos-source-code-discovered-to-date/",
-      "description": "HN front page \u00b7 398 points",
-      "published_at": "2026-05-24T01:21:13+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Wake up! 16b",
-      "url": "https://hellmood.111mb.de/wake_up_16b_writeup.html",
-      "description": "HN front page \u00b7 385 points",
-      "published_at": "2026-05-24T00:30:50+00:00",
+      "title": "Time to talk about my writerdeck",
+      "url": "https://veronicaexplains.net/my-first-writerdeck/",
+      "description": "HN front page \u00b7 454 points",
+      "published_at": "2026-05-23T18:45:37+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "I spent 50 hours drawing a line graph",
       "url": "https://www.dougmacdowell.com/50-hours-to-draw-some-lines.html",
-      "description": "HN front page \u00b7 362 points",
+      "description": "HN front page \u00b7 431 points",
       "published_at": "2026-05-21T15:05:28+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost",
       "url": "https://esengine.github.io/DeepSeek-Reasonix/",
-      "description": "HN front page \u00b7 311 points",
+      "description": "HN front page \u00b7 430 points",
       "published_at": "2026-05-24T13:02:06+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Microsoft open-sources \u201cthe earliest DOS source code discovered to date\u201d",
+      "url": "https://arstechnica.com/gadgets/2026/04/microsoft-open-sources-the-earliest-dos-source-code-discovered-to-date/",
+      "description": "HN front page \u00b7 424 points",
+      "published_at": "2026-05-24T01:21:13+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Why is Vivado 2026.1 dropping Linux support for free tier?",
       "url": "https://adaptivesupport.amd.com/s/question/0D5Pd00001YQLdMKAX/why-is-vivado-20261-dropping-linux-support-for-free-tier-?language=en_US",
-      "description": "HN front page \u00b7 274 points",
+      "description": "HN front page \u00b7 298 points",
       "published_at": "2026-05-24T04:14:52+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Scammers are abusing an internal Microsoft account to send spam links",
-      "url": "https://techcrunch.com/2026/05/21/scammers-are-abusing-an-internal-microsoft-account-to-send-spam/",
-      "description": "HN front page \u00b7 248 points",
-      "published_at": "2026-05-24T00:51:32+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Memory has grown to nearly two-thirds of AI chip component costs",
       "url": "https://epoch.ai/data-insights/ai-chip-component-cost-shares",
-      "description": "HN front page \u00b7 205 points",
+      "description": "HN front page \u00b7 291 points",
       "published_at": "2026-05-24T16:31:29+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "DeepSeek to Make Permanent 75% Discount on Flagship AI Model",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-23/deepseek-to-make-permanent-75-discount-on-flagship-ai-model",
-      "description": "HN front page \u00b7 163 points",
-      "published_at": "2026-05-24T14:09:33+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Claude is not your architect. Stop letting it pretend",
-      "url": "https://www.hollandtech.net/claude-is-not-your-architect/",
-      "description": "HN front page \u00b7 156 points",
-      "published_at": "2026-05-24T18:28:11+00:00",
+      "title": "Scammers are abusing an internal Microsoft account to send spam links",
+      "url": "https://techcrunch.com/2026/05/21/scammers-are-abusing-an-internal-microsoft-account-to-send-spam/",
+      "description": "HN front page \u00b7 267 points",
+      "published_at": "2026-05-24T00:51:32+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Greg Brockman interview [video]",
       "url": "https://fs.blog/knowledge-project-podcast/greg-brockman/",
-      "description": "HN front page \u00b7 149 points",
+      "description": "HN front page \u00b7 176 points",
       "published_at": "2026-05-24T08:29:38+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Constraint Decay: The Fragility of LLM Agents in Back End Code Generation",
       "url": "https://arxiv.org/abs/2605.06445",
-      "description": "HN front page \u00b7 132 points",
+      "description": "HN front page \u00b7 171 points",
       "published_at": "2026-05-24T12:55:53+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Childhood Computing",
       "url": "https://susam.net/childhood-computing.html",
-      "description": "HN front page \u00b7 131 points",
+      "description": "HN front page \u00b7 158 points",
       "published_at": "2026-05-24T12:07:34+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Usborne 1980s Computer Books",
       "url": "https://usborne.com/us/books/computer-and-coding-books",
-      "description": "HN front page \u00b7 129 points",
+      "description": "HN front page \u00b7 157 points",
       "published_at": "2026-05-24T15:43:00+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Show HN: Audiomass \u2013 a free, open-source multitrack audio editor for the web",
+      "url": "https://audiomass.co/?multitrack=1",
+      "description": "HN front page \u00b7 144 points",
+      "published_at": "2026-05-24T15:25:43+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Migrating from Go to Rust",
+      "url": "https://corrode.dev/learn/migration-guides/go-to-rust/",
+      "description": "HN front page \u00b7 132 points",
+      "published_at": "2026-05-24T18:31:42+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "I keep bouncing off the Scheme language",
       "url": "https://www.sicpers.info/2026/05/i-keep-bouncing-off-the-scheme-language/",
-      "description": "HN front page \u00b7 115 points",
+      "description": "HN front page \u00b7 130 points",
       "published_at": "2026-05-22T08:32:39+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Mastering Dyalog APL",
       "url": "https://mastering.dyalog.com/README.html",
-      "description": "HN front page \u00b7 113 points",
+      "description": "HN front page \u00b7 126 points",
       "published_at": "2026-05-24T11:42:15+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Silk: Open-source cooperative fiber scheduler",
-      "url": "https://github.com/ClickHouse/silk",
-      "description": "HN front page \u00b7 98 points",
-      "published_at": "2026-05-20T17:15:40+00:00",
+      "title": "The C64 Dead Test Font",
+      "url": "https://www.masswerk.at/nowgobang/2026/c64-dead-test-font",
+      "description": "HN front page \u00b7 126 points",
+      "published_at": "2026-05-24T03:57:01+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "CBP Directive 3340-049B: Border Search of Electronic Devices",
+      "url": "https://www.cbp.gov/document/directives/cbp-directive-no-3340-049b-border-search-electronic-devices",
+      "description": "HN front page \u00b7 119 points",
+      "published_at": "2026-05-24T19:12:46+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Ruby for Good",
       "url": "https://ti.to/codeforgood/rubyforgood",
-      "description": "HN front page \u00b7 94 points",
+      "description": "HN front page \u00b7 118 points",
       "published_at": "2026-05-24T15:49:19+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Perceptual Image Codec: What Matters in Practical Learned Image Compression",
-      "url": "https://apple.github.io/ml-pico/",
-      "description": "HN front page \u00b7 69 points",
-      "published_at": "2026-05-24T12:01:24+00:00",
       "source": "Y Combinator"
     },
     {
       "title": "Build Adafruit projects right from Firefox",
       "url": "https://www.firefox.com/en-US/landing/adafruit/",
-      "description": "HN front page \u00b7 64 points",
+      "description": "HN front page \u00b7 110 points",
       "published_at": "2026-05-22T03:13:07+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Australia Four-Day Work Week Study Data Shows Boosted Productivity",
-      "url": "https://scienceaim.com/australia-just-proved-the-four-day-work-week-works-here-is-what-the-data-actually-says/",
-      "description": "HN front page \u00b7 50 points",
-      "published_at": "2026-05-24T18:56:09+00:00",
+      "title": "Defeating Git Rigour Fatigue with Jujutsu",
+      "url": "https://ikesau.co/blog/defeating-git-rigour-fatigue-with-jujutsu/",
+      "description": "HN front page \u00b7 90 points",
+      "published_at": "2026-05-24T18:39:10+00:00",
       "source": "Y Combinator"
     }
   ],
@@ -648,85 +648,85 @@
       "source": "Product Hunt"
     },
     {
-      "title": "Lovable",
-      "url": "https://www.producthunt.com/products/lovable/reviews?ref=footer",
+      "title": "Memdex",
+      "url": "https://www.producthunt.com/products/memdex",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "n8n",
-      "url": "https://www.producthunt.com/products/n8n-io/reviews?ref=footer",
+      "title": "Google Antigravity CLI",
+      "url": "https://www.producthunt.com/products/google-antigravity",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Attio",
-      "url": "https://www.producthunt.com/products/attio/reviews?ref=footer",
+      "title": "note.md",
+      "url": "https://www.producthunt.com/products/note-md",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "PostHog",
-      "url": "https://www.producthunt.com/products/posthog/reviews?ref=footer",
+      "title": "RetroMac",
+      "url": "https://www.producthunt.com/products/retromac",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Vapi",
-      "url": "https://www.producthunt.com/products/vapi/reviews?ref=footer",
+      "title": "AppSignal",
+      "url": "https://www.producthunt.com/products/appsignal",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Granola",
-      "url": "https://www.producthunt.com/products/granola/reviews?ref=footer",
+      "title": "Bulkmark",
+      "url": "https://www.producthunt.com/products/bulkmark-2",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Raycast",
-      "url": "https://www.producthunt.com/products/raycast/reviews?ref=footer",
+      "title": "OpenHuman",
+      "url": "https://www.producthunt.com/products/openhuman",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Supabase",
-      "url": "https://www.producthunt.com/products/supabase/reviews?ref=footer",
+      "title": "Spellar 3.0",
+      "url": "https://www.producthunt.com/products/spellar",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Lovable",
-      "url": "https://www.producthunt.com/products/lovable?ref=footer",
+      "title": "Naptick AI",
+      "url": "https://www.producthunt.com/products/naptick-ai-sleep-companion",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Screen Studio",
-      "url": "https://www.producthunt.com/products/screen-studio?ref=footer",
+      "title": "articuler.ai",
+      "url": "https://www.producthunt.com/products/articuler-ai",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "bolt.new",
-      "url": "https://www.producthunt.com/products/bolt-new?ref=footer",
+      "title": "Framer",
+      "url": "https://www.producthunt.com/products/framer",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"
     },
     {
-      "title": "Wispr Flow",
-      "url": "https://www.producthunt.com/products/wisprflow?ref=footer",
+      "title": "Kelviq",
+      "url": "https://www.producthunt.com/products/kelviq",
       "description": "Product Hunt launch",
       "published_at": "",
       "source": "Product Hunt"

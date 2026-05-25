@@ -5,63 +5,63 @@
       "name": "Capital & Theses",
       "items": [
         {
-          "title": "Services Are the New Software",
+          "title": "Services-as-Software: VC re-rates labor markets",
           "source": "Sequoia Capital",
           "url": "https://sequoiacap.com/article/services-the-new-software/",
-          "summary": "Sequoia's hardening thesis: agents are now capable enough that the $6-of-services-for-every-$1-of-software pool is the real addressable market. Capital is rotating away from copilot/tool startups toward 'autopilot' AI-native services that sell completed work (NDAs, IT outcomes, recruiting, litigation). Implication for allocators: pricing on outcome, not seats; underwrite gross margin like a software co even as the company looks like a services firm on the outside.",
+          "summary": "Sequoia is openly framing AI's next trillion-dollar surface as services replaced by software-priced agents, not seat-based SaaS. The thesis re-rates TAM from IT budgets to labor budgets and tells founders to price on outcomes/headcount-equivalent, not licenses. Capital will follow agent companies that can underwrite SLAs against a human baseline.",
           "signal": "high",
           "tags": [
-            "thesis",
+            "services-as-software",
             "agents",
-            "services-as-software"
+            "thesis"
           ]
         },
         {
-          "title": "Agents Year: 2026 Is Long-Horizon",
-          "source": "Sequoia Capital",
-          "url": "https://sequoiacap.com/article/2026-this-is-agi/",
-          "summary": "Sonya Huang's framing at AI Ascent 2026: the three ingredients (models, tools, harnesses) finally clicked, so 2026 is the year long-horizon agents move from demo to background/async workflows and even 'dark factories' with no human in the loop. Capital implication: agent-eval, memory, orchestration and 'harness' infra are now must-own positions; copilot wrappers without a verifiable reward loop are increasingly uninvestable.",
+          "title": "AGI-as-product-narrative: foothills of the singularity",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/",
+          "summary": "Hassabis explicitly tied Google's product stack to AGI/singularity language at I/O 2026, mirrored by Sequoia's '2026: This is AGI' post. Frontier labs are pricing and pitching against an AGI-imminent narrative, which is how they justify $100B+ capex and trillion-dollar IPO chatter. Operators should expect customer procurement cycles to compress as buyers fear being on the wrong side of the curve.",
           "signal": "high",
           "tags": [
-            "agents",
-            "long-horizon",
-            "infra"
+            "agi",
+            "narrative",
+            "frontier-labs"
           ]
         },
         {
-          "title": "Compute Is the Binding Constraint",
+          "title": "Compute & memory as the binding constraint",
           "source": "Y Combinator",
           "url": "https://epoch.ai/data-insights/ai-chip-component-cost-shares",
-          "summary": "Memory has grown to nearly two-thirds of AI chip BoM, Brockman is on the record that 'there's not going to be enough compute,' and OpenAI committed ~$122B in 2026 to it. The investable wedge has moved one layer down: HBM, packaging, power, inference-optimized silicon, and any startup that meaningfully cuts tokens-per-task. Overweight memory/power supply chain; underweight businesses whose unit economics assume frontier-token deflation continues unchecked.",
+          "summary": "Epoch shows memory is now ~two-thirds of AI chip component cost, while Brockman repeats that compute, not algorithms, is the scarce resource. The investable conclusion: HBM suppliers, custom-silicon design houses, power/cooling, and inference-efficiency tooling are the durable picks-and-shovels — not another wrapper. Anyone selling efficiency (sparsity, KV-cache, fallback routing) gets a procurement audience this year.",
           "signal": "high",
           "tags": [
-            "compute",
+            "infra",
             "memory",
-            "infra-spend"
+            "compute-scarcity"
           ]
         },
         {
-          "title": "Open-Weight Price War From China",
-          "source": "Y Combinator",
-          "url": "https://www.bloomberg.com/news/articles/2026-05-23/deepseek-to-make-permanent-75-discount-on-flagship-ai-model",
-          "summary": "DeepSeek making its 75% V4-Pro discount permanent — output tokens ~34x cheaper than GPT-5.5 — turns a promotion into a structural price floor and ratifies Ben Horowitz's open-source-AI thesis. Capital implication: API-margin businesses lose pricing power; value migrates to (a) proprietary workflow/data moats, (b) cost-arbitrage app-layer startups, and (c) inference and routing infra that can mix Chinese open weights with Western frontier for sensitive workloads.",
+          "title": "Agent-native developer tooling consolidates",
+          "source": "a16z",
+          "url": "https://a16z.com/announcement/investing-in-gitbutler/",
+          "summary": "a16z's run of dev-tooling bets (GitButler, Exa, Glif, Tessera) plus Anthropic's Code with Claude event signal a thesis that the IDE/git/search stack gets rebuilt around agents, not humans. Winners will own the agent's working memory and review surface. Incumbents (GitHub, Atlassian) are now defenders, not category leaders.",
           "signal": "high",
           "tags": [
-            "pricing",
-            "open-source",
-            "china"
+            "devtools",
+            "agents",
+            "a16z"
           ]
         },
         {
-          "title": "AI-Native Vertical Wedges",
-          "source": "a16z",
-          "url": "https://a16z.com/announcement/investing-in-stitch/",
-          "summary": "a16z's announcement cadence this week — Stitch, Ethos, Tessera, Hilbert, Petual, Ulysses, Glif, GitButler, Stipple Bio, Treeline, Exa — reads as a portfolio bet on AI-native verticals (creative tools, dev infra, bio, knowledge retrieval) rather than another foundation model. Capital implication: at Series A, the diffusion-gap play is winning over horizontal copilots; founders shipping owned workflows with measurable ROI are getting term sheets that horizontal tools no longer can.",
+          "title": "AI-search visibility as the new SEO budget",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/",
+          "summary": "Peec hitting $10M ARR in months tracking brand presence in AI answers validates that marketing spend is migrating from Google SERPs to LLM citations. Expect a fast-forming category (AI-SEO / answer-engine optimization) with 2-3 winners and a clear playbook for any horizontal SaaS to attach. CMO budget is the line item to chase in 2026 H2.",
           "signal": "medium",
           "tags": [
-            "vertical-ai",
-            "a16z",
-            "application-layer"
+            "ai-seo",
+            "marketing",
+            "category-formation"
           ]
         }
       ]
@@ -71,91 +71,66 @@
       "name": "What's Being Built",
       "items": [
         {
-          "title": "Stitch 3.0 by Google",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products/stitch-by-google",
-          "summary": "Validates Agents Year: 2026 Is Long-Horizon: Google's Stitch 3.0 turns natural-language prompts into shippable UI/code, exposing the 'harness' layer Sonya Huang highlighted at AI Ascent — model + tools + orchestration in one product. For operators it shortens the design-to-prod loop; for investors it signals that Big Tech is collapsing the copilot stack into the OS, squeezing standalone UI-AI startups.",
-          "signal": "high",
-          "aligned_thesis": "Agents Year: 2026 Is Long-Horizon",
-          "tags": [
-            "product-hunt",
-            "agents",
-            "google"
-          ]
-        },
-        {
-          "title": "Runway Agent",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products/runway-agent",
-          "summary": "Validates Services Are the New Software: Runway moves from creative tool to autonomous video agent that delivers a finished edited asset, not just a model endpoint. Operators in marketing/media can now buy completed creative work-units rather than seats — exactly the autopilot pattern Sequoia's Julien Bek described. Implication: stock-footage, agency, and post-production budgets become the real TAM, not Adobe seats.",
-          "signal": "high",
-          "aligned_thesis": "Services Are the New Software",
-          "tags": [
-            "product-hunt",
-            "creative-agents",
-            "media"
-          ]
-        },
-        {
-          "title": "Edgee Fallback Models",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products/edgee",
-          "summary": "Validates Open-Weight Price War From China: Edgee adds automatic fallback/routing between frontier and open-weight models at the edge, exactly the infra primitive enterprises need to harvest DeepSeek-class economics without single-vendor lock-in. Implication: routing/observability is becoming a distinct budget line; expect every CIO deck to include a 'multi-model arbitrage' slide within two quarters.",
-          "signal": "medium",
-          "aligned_thesis": "Open-Weight Price War From China",
-          "tags": [
-            "product-hunt",
-            "routing",
-            "infra"
-          ]
-        },
-        {
-          "title": "Anthropic's Code with Claude points at AI-written PRs as the norm",
+          "title": "Anthropic's Code with Claude: shipping-by-agent becomes default",
           "source": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/",
-          "summary": "Anthropic's London dev event normalized the room-question 'who shipped a PR this week written entirely by AI?' — the developer event is now a venue for ratifying agentic workflows, not just SDK launches. For engineering leaders, the hiring bar and dev-tool stack need a refactor (Claude Code, Codex, agent harness budgets); for investors, dev-tool incumbents that don't ship background agents this year are at structural risk.",
+          "summary": "Anthropic's London developer event normalized the idea that PRs written end-to-end by Claude are now the median, not the exception. This puts pressure on every dev-tools roadmap to rebuild around agent review, sandboxed execution, and policy controls. Operators not retooling workflow this quarter will fall behind on cycle time within 2 sprints.",
           "signal": "high",
           "tags": [
             "coding-agents",
             "anthropic",
-            "devtools"
+            "workflow"
           ]
         },
         {
-          "title": "Google I/O: Antigravity, Gemini Omni, and AI-for-science as flagship",
+          "title": "Google I/O 2026: Gemini stack collapses into agent harnesses",
           "source": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/",
-          "summary": "Hassabis closed I/O with 'foothills of the singularity' framing, but the substance was infrastructure: Antigravity 2.0 autonomously building an OS for under $1,000, Genie powering Maps, WeatherNext as a deployed scientific model. Strategic read: Google is collapsing model + harness + product into one stack; the diffusion gap will shrink fastest inside its own surfaces (Workspace, Search, Maps), pulling oxygen from standalone agent layers built on top of Gemini.",
+          "summary": "I/O bundled Antigravity, Stitch, Gemini 3.5/Omni, and WeatherNext under a single agent-harness narrative — Google is no longer selling models, it's selling orchestrated outcomes. The strategic implication: standalone model APIs commoditize faster, and the moat shifts to harnesses + distribution. Anyone selling 'API access to a frontier model' needs a vertical wedge.",
           "signal": "high",
           "tags": [
             "google",
-            "agents",
-            "science"
+            "harnesses",
+            "agents"
           ]
         },
         {
-          "title": "Memory dominates AI chip BoM",
-          "source": "Y Combinator",
-          "url": "https://epoch.ai/data-insights/ai-chip-component-cost-shares",
-          "summary": "Epoch data showing memory at ~two-thirds of AI chip component cost reframes the compute supply story: the bottleneck is HBM and packaging, not logic. For builders, optimizing KV-cache, context compression and on-chip memory reuse is now a first-order architecture decision; for investors, the SK Hynix/Samsung/Micron complex and advanced packaging tools (TSMC CoWoS adjacencies) capture more of the marginal AI dollar than headline GPU SKUs suggest.",
-          "signal": "high",
-          "tags": [
-            "memory",
-            "hbm",
-            "supply-chain"
-          ]
-        },
-        {
-          "title": "DeepSeek Reasonix native coding agent",
+          "title": "DeepSeek Reasonix: cheap, cached coding agent from China",
           "source": "Y Combinator",
           "url": "https://esengine.github.io/DeepSeek-Reasonix/",
-          "summary": "A DeepSeek-native coding agent emphasizing aggressive prompt caching and low cost surfaces on HN the same week DeepSeek makes its V4-Pro discount permanent. Together they push coding-agent unit economics to a level Western vendors can't match on equal hardware, and create a real adoption path for cost-sensitive dev teams that previously stuck with Claude/Codex by default.",
-          "signal": "medium",
+          "summary": "A high-caching, low-cost native coding agent on the HN front page reinforces that price/perf parity in coding is no longer a US-only story. This compresses margins for closed-source coding copilots and strengthens the open-source-AI thesis Horowitz is pushing. Enterprises will start dual-sourcing coding agents on cost grounds within 2 quarters.",
+          "signal": "high",
           "tags": [
+            "open-source",
             "deepseek",
-            "coding-agents",
-            "open-weights"
+            "coding-agent"
           ]
+        },
+        {
+          "title": "Stitch 3.0 by Google",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/stitch-by-google",
+          "summary": "Validates AGI-as-product-narrative: foothills of the singularity: Stitch 3.0 ships Google I/O's design-to-code agent as a real product, turning the AGI keynote rhetoric into a concrete workflow that compresses design→prod cycles. It's the clearest operator-level proof that the harness story Hassabis pitched is actually shippable today.",
+          "signal": "high",
+          "tags": [
+            "google",
+            "design-to-code",
+            "agent"
+          ],
+          "aligned_thesis": "AGI-as-product-narrative: foothills of the singularity"
+        },
+        {
+          "title": "Google Antigravity CLI",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/google-antigravity",
+          "summary": "Validates Agent-native developer tooling consolidates: Antigravity CLI exposes Google's autonomous-engineering harness (the one that reportedly built an OS for <$1k) directly to developers, mirroring Anthropic's Code-with-Claude push. It confirms that the IDE/CLI surface is being rebuilt around agents — and that the platform wars now run through dev tooling.",
+          "signal": "high",
+          "tags": [
+            "devtools",
+            "google",
+            "cli-agent"
+          ],
+          "aligned_thesis": "Agent-native developer tooling consolidates"
         }
       ]
     },
@@ -164,60 +139,57 @@
       "name": "Opportunities Now",
       "items": [
         {
-          "title": "ModelHub",
+          "title": "Edgee Fallback Models",
           "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products/modelhub",
-          "summary": "Validates Open-Weight Price War From China: ModelHub gives teams a unified catalog and access layer across open and closed models — the practical wedge for an operator who wants to capture DeepSeek-class savings this quarter without rewriting their stack. Who captures: lean AI platform/devtool startups with one strong design partner. What has to be true: enterprise comfort routing non-sensitive workloads to Chinese open weights. When: 0-3 months.",
+          "url": "https://www.producthunt.com/products/edgee",
+          "summary": "Validates Compute & memory as the binding constraint: Edgee routes inference across providers with automatic fallback, directly monetizing the compute-scarcity reality Brockman keeps describing. Operators can deploy this now to cut inference cost 20-40% and survive provider rate-limit outages — a wedge any infra-savvy team can ship inside a quarter.",
           "signal": "high",
-          "horizon": "now",
-          "aligned_thesis": "Open-Weight Price War From China",
           "tags": [
-            "product-hunt",
-            "model-routing",
-            "cost-arbitrage"
-          ]
+            "inference",
+            "routing",
+            "infra"
+          ],
+          "aligned_thesis": "Compute & memory as the binding constraint",
+          "horizon": "now"
         },
         {
-          "title": "GEO/AI-search visibility services",
+          "title": "Answer-engine optimization agency/tooling play",
           "source": "TechCrunch",
           "url": "https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/",
-          "summary": "Peec went from launch to ~$10M ARR by helping brands track their presence in AI answers — proof that 'generative engine optimization' is a real budget. Who captures: small, fast teams that bundle measurement + remediation as a managed service (autopilot, not dashboard). What has to be true: CMOs reallocate 5-10% of SEO spend to AI-answer visibility in 2026 budgets. When: act this quarter; the category is naming itself right now.",
+          "summary": "Who: bootstrapped SEO operators and B2B marketing SaaS. What has to be true: brands keep panicking about disappearing from Google AI Overviews and ChatGPT citations. When: 6 months. Peec's $10M ARR ramp shows budget is already moving; the gap is mid-market tooling priced under Peec's enterprise tier.",
           "signal": "high",
-          "horizon": "now",
-          "aligned_thesis": "Services Are the New Software",
           "tags": [
-            "geo",
-            "ai-search",
+            "ai-seo",
+            "wedge",
             "marketing"
-          ]
+          ],
+          "horizon": "now"
         },
         {
-          "title": "Agent-eval and reliability tooling",
+          "title": "Agent-trajectory data labeling / RL evals",
           "source": "Hugging Face Papers",
-          "url": "https://huggingface.co/papers/2605.14678",
-          "summary": "π-Bench and Constraint Decay both formalize what every agent team already feels: long-horizon agents quietly fail as context grows. Who captures: focused devtool startups selling agent eval/observability as completed-work (regression reports, not SDKs). What has to be true: enterprise buyers institutionalize an 'agent SRE' line item. When: 0-6 months — every Fortune 500 agent pilot needs this before it can go to prod.",
-          "signal": "high",
-          "horizon": "now",
-          "aligned_thesis": "Agents Year: 2026 Is Long-Horizon",
+          "url": "https://huggingface.co/papers/2605.21850",
+          "summary": "Who: data-labeling shops and forward-deployed eval teams. What has to be true: long-context agent training (ACC, DelTA) keeps hitting trajectory-data bottlenecks. When: 0-6 months. Every frontier lab is buying trajectory data and verifiable-reward pipelines right now; small specialist firms can land $1-5M ACV contracts before the category gets in-housed.",
+          "signal": "medium",
           "tags": [
-            "agent-eval",
-            "reliability",
-            "devtools"
-          ]
+            "data",
+            "rl",
+            "evals"
+          ],
+          "horizon": "now"
         },
         {
-          "title": "Multi-model routing for cost arbitrage",
-          "source": "Y Combinator",
-          "url": "https://www.bloomberg.com/news/articles/2026-05-23/deepseek-to-make-permanent-75-discount-on-flagship-ai-model",
-          "summary": "With DeepSeek V4-Pro permanently ~11-34x cheaper than GPT-5.5 on output, the immediate arbitrage is a routing layer that sends low-stakes / high-volume traffic to open weights and reserves frontier models for reasoning-heavy steps. Who captures: infra startups with strong eval pipelines and SOC2 posture. What has to be true: legal/compliance gives green light for non-PII workloads on Chinese-origin weights run on Western hardware. When: 0-2 quarters.",
-          "signal": "high",
-          "horizon": "now",
-          "aligned_thesis": "Open-Weight Price War From China",
+          "title": "Spreadsheet-RL operator wedge",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2605.22642",
+          "summary": "Who: finance/ops vertical SaaS founders. What has to be true: spreadsheet automation via RL'd agents reaches good-enough accuracy on realistic tasks. When: 6 months. The Spreadsheet-RL paper plus the services-as-software thesis means anyone shipping an audited Excel agent for FP&A, RevOps, or insurance underwriting can win paid pilots immediately.",
+          "signal": "medium",
           "tags": [
-            "routing",
-            "cost-arbitrage",
-            "open-weights"
-          ]
+            "vertical-agents",
+            "finance-ops",
+            "rl"
+          ],
+          "horizon": "now"
         }
       ]
     },
@@ -226,59 +198,56 @@
       "name": "Opportunities Mid-term",
       "items": [
         {
-          "title": "Autopilot wealth and back-office services",
+          "title": "Outcome-priced services-as-software roll-ups",
           "source": "Sequoia Capital",
-          "url": "https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/",
-          "summary": "Nevis-style AI-native wealth management is the template: sell the outcome (managed portfolios, compliance, client reporting) not the tool. Who captures: founders pairing a credentialed services lead with a strong agent infra team; PE rollups that retro-fit AI into existing books. What has to be true: regulators accept agent-in-the-loop sign-offs; LP comfort with services-margin businesses persists. When: 6-18 months to material ARR.",
-          "signal": "medium",
-          "horizon": "mid",
-          "aligned_thesis": "Services Are the New Software",
+          "url": "https://sequoiacap.com/article/services-the-new-software/",
+          "summary": "Who: PE-backed operators and AI-native founders. What has to be true: agent reliability hits ~95% on bounded workflows (legal intake, claims adjudication, tax prep). When: 6-18 months. The Sequoia thesis points to acquiring sleepy services businesses and re-pricing them on AI margins — early movers in legal, accounting and insurance BPO will set the comp set.",
+          "signal": "high",
           "tags": [
-            "wealth",
-            "fintech",
-            "autopilot"
-          ]
+            "services-as-software",
+            "rollups",
+            "vertical"
+          ],
+          "horizon": "mid"
         },
         {
-          "title": "Agent-native enterprise interfaces",
-          "source": "Sequoia Capital",
-          "url": "https://sequoiacap.com/article/from-hierarchy-to-intelligence/",
-          "summary": "Karpathy's framing — most software is still built for humans clicking buttons — opens a 6-18 month window to ship 'agent-native' versions of common B2B surfaces (CRM, ITSM, billing) where the primary user is a model. Who captures: vertical incumbents that move first, plus new entrants targeting categories with weak incumbents. What has to be true: MCP-style standards mature; buyers accept agent SLAs. When: mid-horizon — pilots now, revenue next year.",
-          "signal": "medium",
-          "horizon": "mid",
-          "tags": [
-            "agent-native",
-            "enterprise",
-            "interfaces"
-          ]
-        },
-        {
-          "title": "Inference-time compute optimization as a category",
+          "title": "Inference-efficiency IP (sparse attention, KV compression)",
           "source": "Hugging Face Papers",
           "url": "https://huggingface.co/papers/2605.16928",
-          "summary": "Papers like 'Full Attention Strikes Back' (transferring full → sparse attention in ~hundred steps) and WorldKV (compressed world memory) make the case that inference cost is a software problem as much as a hardware one. Who captures: focused infra startups selling drop-in efficiency to model providers and enterprises. What has to be true: frontier labs continue to license/buy rather than purely build in-house. When: 6-18 months for category formation.",
+          "summary": "Who: ex-lab researchers spinning out. What has to be true: full-attention→sparse transfer (and WorldKV-style memory compression) generalizes across model families. When: 12-18 months. With memory at two-thirds of chip BOM, any drop-in technique that cuts KV-cache 3-5x is acquisition bait for hyperscalers and inference clouds.",
           "signal": "medium",
-          "horizon": "mid",
-          "aligned_thesis": "Compute Is the Binding Constraint",
           "tags": [
-            "inference",
             "efficiency",
-            "research"
-          ]
+            "research-spinout",
+            "infra"
+          ],
+          "horizon": "mid"
         },
         {
-          "title": "Vertical AI scientists (biotech, materials)",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/",
-          "summary": "Isomorphic Labs aims at curing 'hundreds of diseases' via AI rather than a single drug — the same pattern is forming in materials and climate. Who captures: focused labs that pair a narrow scientific objective with a proprietary data flywheel (a16z's Stipple Bio fits the mold). What has to be true: regulatory paths for AI-discovered molecules continue to clear. When: 12-24 months to first commercial readouts.",
+          "title": "AI-native wealth and SMB financial advisory",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/",
+          "summary": "Who: fintech founders with compliance DNA. What has to be true: regulators allow AI co-pilots to deliver bounded fiduciary advice. When: 12-18 months. Sequoia's Nevis bet signals the asset-management vertical is the next services-as-software target after legal/coding; sub-$1M HNW clients are an underserved wedge.",
           "signal": "medium",
-          "horizon": "mid",
-          "aligned_thesis": "AI-Native Vertical Wedges",
           "tags": [
-            "bio",
-            "ai-for-science",
-            "verticals"
-          ]
+            "fintech",
+            "wealth",
+            "vertical-agent"
+          ],
+          "horizon": "mid"
+        },
+        {
+          "title": "Personality- and persuasion-aware multimodal agents",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2605.22109",
+          "summary": "Who: consumer and B2B sales/CX startups. What has to be true: MLLMs reliably read user state without crossing manipulative-design lines. When: 12-18 months. The 'Perception or Prejudice' work plus π-Bench proactive-assistant evals show the research is moving fast; sales-coaching and elderly-care agents are the most defensible early markets.",
+          "signal": "medium",
+          "tags": [
+            "mllm",
+            "agents",
+            "consumer"
+          ],
+          "horizon": "mid"
         }
       ]
     },
@@ -287,219 +256,213 @@
       "name": "Opportunities Long-term",
       "items": [
         {
-          "title": "AI-mediated wearables become the next interface",
-          "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/05/24/xreal-googles-smartglasses-partner-thinks-it-has-finally-mastered-this-notoriously-tricky-industry/",
-          "summary": "Xreal's confidence plus Amazon's Bee plus Google's I/O glasses signal the third serious wave of AI wearables. Who captures: companies that own the always-on agent (not the glass itself) — memory, summarization, action APIs. What has to be true: form factor + battery + on-device inference converge; privacy regulation stays workable. When: 18-36 months before a meaningful install base.",
+          "title": "Open-source AI as US industrial policy",
+          "source": "a16z",
+          "url": "https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/",
+          "summary": "Who: open-weight model labs, sovereign-AI vendors, on-prem inference startups. What has to be true: a16z's lobbying narrative converts into US policy that subsidizes open weights against DeepSeek/Qwen. When: 18-36 months. If it lands, the value shifts from closed APIs to whoever owns the open-weight distribution and fine-tuning surface — a once-a-decade re-platforming.",
           "signal": "medium",
-          "horizon": "long",
           "tags": [
-            "wearables",
-            "ambient-ai",
-            "consumer"
-          ]
+            "open-source",
+            "policy",
+            "geopolitics"
+          ],
+          "horizon": "long"
         },
         {
-          "title": "World models as the substrate for real-world agents",
+          "title": "World models for embodied/robotic foundations",
           "source": "MIT Technology Review",
           "url": "https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/",
-          "summary": "Google now embeds Genie into Maps Street View; research like PhysX-Omni unifies simulation-ready physical 3D generation. Who captures: robotics, AV, and gaming companies that can train policies inside high-fidelity world models. What has to be true: world-model fidelity crosses sim-to-real threshold; data-licensing for physical environments matures. When: 2-4 year horizon.",
+          "summary": "Who: robotics, AV, and simulation startups. What has to be true: PhysX-Omni-style unified simulators and Genie-class world models scale to real physical robots. When: 24-36 months. The companies that own a simulation-to-real pipeline plus proprietary trajectory data become the 'Android of robots' — Nvidia, Google DeepMind and a handful of startups are the live candidates.",
           "signal": "medium",
-          "horizon": "long",
           "tags": [
             "world-models",
             "robotics",
             "simulation"
-          ]
+          ],
+          "horizon": "long"
         },
         {
-          "title": "AI-driven scientific discovery as a venture-scale outcome",
+          "title": "AI-driven scientific discovery as a productized service",
           "source": "Hugging Face Papers",
           "url": "https://huggingface.co/papers/2605.22681",
-          "summary": "'Forecasting Scientific Progress with Artificial Intelligence' joins Sequoia's claim that agents are already solving Erdős-class problems and proposing novel superconductors. Who captures: labs that own a verifiable reward loop (lab automation + simulators). What has to be true: reproducibility + IP frameworks for AI-generated discoveries. When: 3-5 years to first defensible billion-dollar outcomes.",
+          "summary": "Who: bio, materials and climate-tech founders. What has to be true: agentic scientists move from 'real but narrow contributions' to defensible IP generation. When: 24-48 months. Isomorphic Labs is the template; expect 5-10 vertical 'AI-first labs' priced like biotechs but with software gross margins to emerge as a new asset class.",
           "signal": "low",
-          "horizon": "long",
           "tags": [
-            "ai-for-science",
-            "discovery",
+            "ai-science",
+            "biotech",
             "long-bet"
-          ]
+          ],
+          "horizon": "long"
         },
         {
-          "title": "Sovereign open-weight stacks outside US/China",
-          "source": "a16z",
-          "url": "https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/",
-          "summary": "Horowitz frames open-source weights as cultural infrastructure; DeepSeek's price move makes Chinese weights default in many global stacks. Who captures: EU/India/Gulf sovereign-AI plays that fork open weights and bundle local compute + compliance. What has to be true: governments fund the compute; export controls don't collapse the supply. When: 18-36 months for the first credible sovereign tiers.",
-          "signal": "medium",
-          "horizon": "long",
-          "aligned_thesis": "Open-Weight Price War From China",
+          "title": "Orbital and gas-powered AI compute",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/",
+          "summary": "Who: energy/AI infra hybrids. What has to be true: terrestrial power siting (especially nuclear/gas) and SpaceX-style orbital data-center experiments become economically real. When: 36+ months. Musk's xAI gas pivot plus orbital DC ambitions reveal that compute siting is the next regulatory battleground; investors who can underwrite power+compute together get a structural edge.",
+          "signal": "low",
           "tags": [
-            "sovereign-ai",
-            "open-weights",
-            "geopolitics"
-          ]
+            "energy",
+            "infra",
+            "long-bet"
+          ],
+          "horizon": "long"
         }
       ]
     }
   ],
-  "leader_voices": [
-    {
-      "name": "Demis Hassabis",
-      "org": "Google DeepMind",
-      "quote_or_paragraph": "Closing Google I/O 2026, Hassabis told the audience that, looking back, we will realize we were standing in the foothills of the singularity — framing Gemini, Antigravity and agentic harnesses as a turning point rather than incremental updates.",
-      "url": "https://www.semafor.com/article/05/20/2026/google-exec-demis-hassabis-predicts-were-at-the-foothills-of-the-singularity",
-      "stance": "bullish",
-      "strategic_implication": "Google is signaling it will collapse model + harness + product into its own surfaces; partners building on top of Gemini should assume the diffusion gap closes fastest inside Google, not third-party app layers."
-    },
-    {
-      "name": "Greg Brockman",
-      "org": "OpenAI",
-      "quote_or_paragraph": "On The Knowledge Project, Brockman said it is hard to know what percent of OpenAI's own code is not written by AI, and described compute as the binding constraint of the next era — not algorithms.",
-      "url": "https://fs.blog/knowledge-project-podcast/greg-brockman/",
-      "stance": "bullish",
-      "strategic_implication": "Treat compute (and especially memory/power) as the scarce input. Knowledge-worker products should be designed for agent-orchestration users, not human typists."
-    },
-    {
-      "name": "Ben Horowitz",
-      "org": "Andreessen Horowitz",
-      "quote_or_paragraph": "Horowitz argues that closed-model policy handed cultural and developer mindshare to Chinese open weights via DeepSeek, which is now widely deployed across US enterprises and labs.",
-      "url": "https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/",
-      "stance": "bullish",
-      "strategic_implication": "Open-weight strategy is now a board-level question. Operators should plan a multi-model future; investors should price in margin compression on closed-API businesses."
-    },
-    {
-      "name": "Sonya Huang",
-      "org": "Sequoia Capital",
-      "quote_or_paragraph": "At AI Ascent 2026, Huang declared 2026 the year of agents and walked through the three ingredients — models, tools, and harnesses — that have finally come together, with the next paradigm being background and async agents.",
-      "url": "https://sequoiacap.com/article/ai-ascent-2026/",
-      "stance": "bullish",
-      "strategic_implication": "Founders should pitch owned workflows, agent evals, and outcome pricing — not 'AI-powered tools.' Capital is rewarding long-horizon agents and harness infra."
-    },
-    {
-      "name": "Julien Bek",
-      "org": "Sequoia Capital",
-      "quote_or_paragraph": "Bek's 'Services: The New Software' thesis reframes the addressable market: for every dollar spent on software, six are spent on services, and AI-native autopilots can capture that pool.",
-      "url": "https://sequoiacap.com/article/services-the-new-software/",
-      "stance": "bullish",
-      "strategic_implication": "Pricing should follow outcomes, not seats. Copilot startups face an innovator's-dilemma squeeze; autopilot-from-day-one entrants can claim margin from professional-services budgets."
-    },
-    {
-      "name": "Andrej Karpathy",
-      "org": "Eureka Labs",
-      "quote_or_paragraph": "At AI Ascent 2026, Karpathy described 'Software 3.0' — programming through context, tools, memory and verification — and argued the next infrastructure wave will be agent-native, not user-native.",
-      "url": "https://sequoiacap.com/article/from-hierarchy-to-intelligence/",
-      "stance": "bullish",
-      "strategic_implication": "Operators should refactor internal tooling for agent consumers; founders who ship agent-native versions of standard B2B surfaces will lead the mid-term category."
-    },
-    {
-      "name": "Liang Wenfeng",
-      "org": "DeepSeek",
-      "quote_or_paragraph": "DeepSeek announced on May 22-23 that it is making the 75% discount on flagship V4-Pro permanent, pushing pricing to roughly 11-34x cheaper than GPT-5.5 depending on token type.",
-      "url": "https://www.bloomberg.com/news/articles/2026-05-23/deepseek-to-make-permanent-75-discount-on-flagship-ai-model",
-      "stance": "bullish",
-      "strategic_implication": "DeepSeek is choosing share over short-term margin ahead of a reported $45B funding round; Western API-margin businesses must assume structural price compression, not a promotion-ending bounce."
-    }
-  ],
-  "top_signals": [
-    {
-      "headline": "DeepSeek's permanent 75% price cut turns an AI promo into a structural price floor",
-      "why_it_matters": "Output tokens now ~34x cheaper than GPT-5.5 — any product whose unit economics assumed Western frontier pricing needs a re-plan and a routing layer this quarter.",
-      "urgency": "act_now"
-    },
-    {
-      "headline": "Sequoia hardens 'Services Are the New Software' as the default 2026 thesis",
-      "why_it_matters": "Founders pitching tools without an autopilot/outcome motion are being repriced down; allocators should rotate from copilot wrappers to AI-native services with measurable ROI.",
-      "urgency": "act_now"
-    },
-    {
-      "headline": "Memory is now ~two-thirds of AI chip BoM",
-      "why_it_matters": "The compute bottleneck is HBM, not logic — re-weight infra exposure toward memory, packaging and inference-efficiency startups, and stress-test product roadmaps against tighter context budgets.",
-      "urgency": "watch_closely"
-    },
-    {
-      "headline": "Google I/O collapses model + harness + product into one stack",
-      "why_it_matters": "Antigravity 2.0, Gemini Omni and Genie-in-Maps mean Big Tech is closing the diffusion gap inside its own surfaces — third-party agent layers on Gemini have a shrinking window.",
-      "urgency": "watch_closely"
-    },
-    {
-      "headline": "Long-horizon agent reliability research is catching up with the hype",
-      "why_it_matters": "Papers on constraint decay and proactive-assistant benchmarks formalize the failure modes operators are already hitting; agent eval/observability becomes a near-term budget line.",
-      "urgency": "stay_informed"
-    }
-  ],
   "commentary_synthesis": {
-    "grounded_view": "AI in late May 2026 sits at a strange intersection: capability is racing (Google's Antigravity, OpenAI's claim that ~80% of internal code is AI-written, DeepSeek pushing frontier-quality tokens to a tenth of last year's price) while diffusion into the Fortune 500 still lags by months or years. The dominant narrative on the investor side is converging on three points — (1) services, not tools, capture the next trillion; (2) 2026 is when long-horizon agents become deployable, not just demoable; (3) compute (especially memory and power) is the binding constraint, not algorithms. Operators broadly agree on the constraint diagnosis but are more skeptical of the deployment story: NBER and other empirical work continue to show most enterprises measuring no productivity lift from AI, and reliability research this week (π-Bench, constraint decay) confirms long-horizon agents quietly degrade. What to expect next: API-margin compression accelerates as open-weight Chinese models become default for cost-sensitive workloads, capital concentrates in (a) memory/power infra, (b) AI-native services with outcome pricing, and (c) agent reliability/eval tooling, while horizontal copilot startups without a verifiable workflow get repriced. The realistic timeline for 'agents in production' is still measured in pilots-to-prod quarters, not the keynote-implied weeks.",
+    "grounded_view": "AI in late May 2026 is in a strange equilibrium: capability claims (Hassabis on the 'foothills of the singularity', Brockman on 80% AI-written code) are running well ahead of measured enterprise productivity (NBER finds most AI-using firms still report no productivity gains). What is real and well-evidenced this week: (1) agent harnesses, not raw models, are now the product surface — Google's Antigravity/Stitch and Anthropic's Code-with-Claude both proved it; (2) memory and power, not algorithms, are the binding constraints — Epoch's data showing memory at two-thirds of chip BOM is the most underdiscussed chart of the month; (3) capital is rotating from horizontal LLM apps to either deep-vertical 'services-as-software' (Sequoia) or open-source/dev-tools infra (a16z). Expect the next 6 months to be defined by a brutal margin squeeze on thin GPT-wrappers, the first credible IPO comps for agentic services companies, and an intensifying compute-siting fight (gas, nuclear, possibly orbital). The honest read: this is a real platform shift, but the AGI rhetoric is partially a financing narrative to justify $100B+ capex cycles.",
     "comparison_table": [
       {
-        "topic": "Where the value accrues",
-        "investor_view": "Sequoia/a16z: application + services layer captures the diffusion gap; infra is consolidating but memory/power still investable.",
-        "operator_view": "Hassabis/Brockman: foundation labs + integrated harnesses inside Big Tech surfaces will absorb most of the value; third parties live or die on workflow ownership.",
-        "practical_implication": "Build at the workflow/outcome layer with proprietary data; assume the model layer commoditizes and the platform layer consolidates."
+        "topic": "How close is AGI?",
+        "investor_view": "Sequoia's '2026: This is AGI' and a16z's open-source AI push treat AGI-adjacent capability as the working assumption for portfolio construction.",
+        "operator_view": "Hassabis says 'foothills of the singularity' but separately maintains ~50% probability by 2030; Brockman says AGI is '70-80% there' by his definition but stresses jaggedness.",
+        "practical_implication": "Plan capital deployment as if powerful agents arrive in 18-36 months, but underwrite revenue on today's jagged capability — don't pre-spend on speculative AGI margins."
       },
       {
-        "topic": "How close are we to AGI/'singularity'",
-        "investor_view": "Sequoia frames 2026 as 'this is AGI' but tempered with a sober view that AGI and data-center timelines will slip while adoption rises.",
-        "operator_view": "Hassabis says we are at the 'foothills'; Brockman calls it '70-80% there' by his definition; MIT Tech Review and NBER push back that real-world impact is uneven.",
-        "practical_implication": "Plan products for jagged intelligence — superhuman in narrow verified domains, brittle everywhere else. Don't bet a roadmap on smooth capability curves."
+        "topic": "Where is the moat?",
+        "investor_view": "VCs are funding agent harnesses, vertical services-as-software, and infra (memory, routing, evals). Wrapper apps are getting passed on.",
+        "operator_view": "Frontier labs say the moat is compute + distribution; DeepSeek Reasonix and open weights are eroding pure-model moats fast.",
+        "practical_implication": "Founders must own either proprietary workflow data, a regulated vertical, or an efficiency primitive. Pure API resellers are uninvestable by Q4 2026."
       },
       {
-        "topic": "Open source vs closed weights",
-        "investor_view": "Horowitz (a16z): open-source AI determines US strategic position; DeepSeek already inside most US firms.",
-        "operator_view": "OpenAI/Anthropic continue to bet on closed frontier + scale; DeepSeek prices for share, not margin.",
-        "practical_implication": "Architect for a multi-model future with routing and clear data-sensitivity tiers; treat open weights as a real procurement option, not a research curiosity."
+        "topic": "What's the binding constraint?",
+        "investor_view": "Sequoia/a16z increasingly write about distribution and GTM as the bottleneck, given model commoditization.",
+        "operator_view": "Brockman: 'there's not going to be enough compute' — memory, power and GPUs gate everything.",
+        "practical_implication": "Both are right at different layers. Picks-and-shovels investors should overweight memory/power/inference-routing; app investors should overweight distribution and embedded workflow."
       },
       {
-        "topic": "Compute supply",
-        "investor_view": "Smart money is rotating into memory, packaging and power as the binding constraints.",
-        "operator_view": "Brockman: 'there's not going to be enough compute' even at 50M GPUs; DeepSeek leans on Huawei Ascend to escape Nvidia dependency.",
-        "practical_implication": "Treat tokens as scarce in your architecture (cache aggressively, prune context); on the cap-table side, overweight HBM and inference-efficiency plays."
+        "topic": "Coding automation",
+        "investor_view": "a16z's GitButler/Exa/Tessera bets assume the IDE+git+search stack is fully re-platformed around agents within 24 months.",
+        "operator_view": "Anthropic and OpenAI internally report 70-80% of code written by AI; external NBER data shows most enterprises see no productivity lift yet.",
+        "practical_implication": "There's a 12-18 month gap between lab-internal productivity and enterprise reality. The arbitrage is selling the workflow retooling (training, change management, governance), not just the model."
       }
     ]
   },
   "follow_the_money": [
     {
+      "trend_type": "infra_spend",
+      "observation": "Epoch shows memory now ~two-thirds of AI chip component cost; Brockman frames compute (not algorithms) as the binding constraint and says OpenAI is treating compute as a revenue center.",
+      "implication": "HBM suppliers (SK Hynix, Micron, Samsung) and inference-efficiency startups are structurally favored. Expect a wave of secondary-market memory shortages and a new round of HBM-focused fundraises by H2."
+    },
+    {
       "trend_type": "capital_flow",
-      "observation": "a16z published 11+ new investment announcements this week across dev infra (GitButler), retrieval (Exa), creative (Glif), bio (Stipple), and vertical apps (Stitch, Ethos, Petual, Ulysses, Hilbert, Treeline, Tessera).",
-      "implication": "a16z is deploying its multi-billion AI fund into application-layer verticals, not another foundation model — consistent with the 'diffusion gap is where alpha lives' thesis. Expect Series A pricing to stay rich for AI-native vertical wedges with real revenue."
+      "observation": "a16z announced ~10 AI-adjacent investments this week (Exa, Stitch, Ethos, Tessera, Glif, Petual, Ulysses, Hilbert, GitButler, Stipple Bio, Treeline) skewed toward dev-tools, search/retrieval and bio.",
+      "implication": "a16z is concentrating into the agent-tooling and vertical-AI stack; founders in horizontal chat/wrapper plays should not expect a16z term sheets in 2026."
     },
     {
       "trend_type": "enterprise_spend",
-      "observation": "Peec scaled to ~$10M ARR in months helping brands track AI-search visibility; Sequoia-backed Auctor raised $20M to chase the implementation-services budget; Netomi raised $110M led by Accenture Ventures for agentic CX.",
-      "implication": "Enterprises are opening a fresh line item — 'AI visibility' on the marketing side and 'AI-native implementation/CX services' on the operations side. Services-priced AI is the fastest-growing buy category."
+      "observation": "Peec reportedly doubled to $10M ARR in months selling AI-search-visibility tracking; Ferrari/IBM deployed AI for F1 fan engagement.",
+      "implication": "CMO budgets are the fastest-moving line item in AI right now. Marketing-tech founders have a 12-month window before incumbents (Adobe, HubSpot, Salesforce) bundle answer-engine optimization for free."
     },
     {
       "trend_type": "infra_spend",
-      "observation": "Memory now constitutes ~two-thirds of AI chip component cost; OpenAI raised ~$122B in 2026 with most going to compute; DeepSeek is leaning on Huawei Ascend 950 supernodes.",
-      "implication": "Capex is rotating from GPU logic into memory, packaging and power. Public-market exposure: SK Hynix/Samsung/Micron; private exposure: advanced packaging, inference accelerators, power/cooling, and software that reduces tokens-per-task."
-    },
-    {
-      "trend_type": "capital_flow",
-      "observation": "DeepSeek is in advanced talks for a ~$10B round at a $45B valuation while permanently cutting V4-Pro pricing by 75%.",
-      "implication": "A Chinese open-weight provider is choosing share over margin ahead of an IPO-track round — a deliberate land-grab. Western frontier labs face an emerging two-tier market and must justify premium pricing with reliability and compliance, not raw capability."
+      "observation": "OpenAI raised $122B in 2026 and is targeting a potential $1T IPO; Musk's xAI is pivoting to natural gas and SpaceX is exploring orbital data centers.",
+      "implication": "Power siting is the next gating factor after chips. Energy-AI hybrids and behind-the-meter gas/nuclear projects will see record VC and infra-fund interest in 2026 H2."
     },
     {
       "trend_type": "acquisition_or_bet",
-      "observation": "Anthropic's annualised revenue surged from $9B to $30B between end-2025 and early April 2026; OpenAI is targeting a potential $1T IPO; Legora hit $100M ARR in legal AI and extended its Series D to $600M at a $5.6B valuation.",
-      "implication": "Top-of-stack AI revenue is compounding faster than any prior software cycle, but concentration risk is extreme — a handful of model and AI-native services companies are absorbing most of the spend. LPs underwriting AI exposure need to size for power-law outcomes."
+      "observation": "Sequoia's 'Services: The New Software' and Nevis (AI wealth management) bet, plus Ineffable Intelligence ('superlearner'), signal a concentrated push into agentic services replacing labor cost centers.",
+      "implication": "Expect Sequoia-led roll-ups in legal, accounting, insurance BPO and wealth management within 12 months — set comp tables now."
     },
     {
       "trend_type": "overheated_signal",
-      "observation": "Deep Fission is attempting a second IPO seeking ~$157M while framing itself as AI-power infrastructure; SolarSquare is raising $60M at up to $500M for Indian rooftop solar partly on AI-energy narratives.",
-      "implication": "The 'AI power' narrative is being grafted onto pre-existing energy stories to unlock capital. Watch for re-rating risk if any of these IPOs prices ahead of fundamentals — a useful tell for late-cycle exuberance in the AI-adjacent infra trade."
+      "observation": "Hassabis closing I/O with 'foothills of the singularity', Sequoia titling a post '2026: This is AGI', and OpenAI floating $1T IPO chatter — all in the same fortnight.",
+      "implication": "Narrative density is at a local maximum. Late-stage AI valuations are pricing AGI-imminent; any earnings miss or capability plateau in H2 could trigger a sharp multiple compression in pure-AI public comps."
     },
     {
-      "trend_type": "enterprise_spend",
-      "observation": "Ferrari/IBM AI fan experience, Sequoia-backed Nevis in wealth management, Accenture buying equity in Netomi — incumbents are buying AI capability rather than building it.",
-      "implication": "Strategic acquirers and corporate venture arms are becoming the most active mid-stage check writers in vertical AI. Founders selling to regulated industries should explicitly map a strategic-buyer path in addition to VC."
-    },
-    {
-      "trend_type": "infra_spend",
-      "observation": "xAI committing to natural-gas-powered data centers while SpaceX pursues orbital data centers; nuclear startups (Deep Fission) attempting public-market access.",
-      "implication": "Power, not silicon, is becoming the most binding AI-infra input. Expect more announcements pairing model labs with dedicated generation; this also widens the political surface area of AI policy (siting, permitting, grid)."
+      "trend_type": "capital_flow",
+      "observation": "Deep Fission filing for a $157M IPO and Boston Metal raising $75M for critical metals reflect adjacent capex flooding into anything labeled 'AI power' or 'AI supply chain'.",
+      "implication": "Watch for label-washing: non-AI energy/materials companies will increasingly market themselves as AI infra. Diligence the actual offtake agreements, not the pitch deck."
     }
   ],
-  "generated_at": "2026-05-25T01:29:21Z",
+  "generated_at": "2026-05-25T01:45:00Z",
+  "leader_voices": [
+    {
+      "name": "Demis Hassabis",
+      "org": "Google DeepMind",
+      "quote_or_paragraph": "Closing Google I/O 2026, Hassabis said this moment may later be seen as standing at the start of the singularity, calling it a significant moment for humanity and framing AGI as 'the era we're in' rather than a distant horizon.",
+      "url": "https://www.semafor.com/article/05/20/2026/google-exec-demis-hassabis-predicts-were-at-the-foothills-of-the-singularity",
+      "stance": "bullish",
+      "strategic_implication": "Google is now explicitly underwriting product strategy to an AGI-imminent narrative; expect every Gemini/Antigravity release to be pitched as a step on that path, which pressures competitors to match the rhetoric or lose mindshare with enterprise buyers."
+    },
+    {
+      "name": "Greg Brockman",
+      "org": "OpenAI",
+      "quote_or_paragraph": "In his recent Knowledge Project interview Brockman said it's now hard to know what percent of OpenAI's code is NOT written by AI, that AGI is '70-80% there' by his personal definition, and that compute — not algorithms — is the binding constraint, with 'not going to be enough compute' to meet demand.",
+      "url": "https://fs.blog/knowledge-project-podcast/greg-brockman/",
+      "stance": "bullish",
+      "strategic_implication": "Operators should plan workflows around AI-first coding now; investors should overweight compute, memory and inference-routing rather than yet another coding wrapper."
+    },
+    {
+      "name": "Ben Horowitz",
+      "org": "Andreessen Horowitz",
+      "quote_or_paragraph": "In a new a16z podcast Horowitz argues that open-source AI will determine America's future, framing open weights as a national-security and economic competitiveness imperative versus Chinese open-source progress.",
+      "url": "https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/",
+      "stance": "bullish",
+      "strategic_implication": "Expect a16z to lobby aggressively for open-weight-friendly policy and to fund the open-source distribution layer; closed-API-only startups should plan for a more competitive 18-month horizon."
+    },
+    {
+      "name": "Roelof Botha (and Sequoia partners)",
+      "org": "Sequoia Capital",
+      "quote_or_paragraph": "Sequoia's AI Ascent 2026 and accompanying essays ('2026: This is AGI', 'Services: The New Software', 'The $10 Trillion AI Revolution') argue AI is moving from selling software to selling labor outcomes, framing a multi-trillion-dollar services TAM as the real prize.",
+      "url": "https://sequoiacap.com/article/services-the-new-software/",
+      "stance": "bullish",
+      "strategic_implication": "Sequoia is signaling its portfolio construction will favor vertical agent companies priced on outcomes/headcount-equivalent; founders pricing by seats are pitching into a closing thesis window."
+    },
+    {
+      "name": "Elon Musk",
+      "org": "xAI / SpaceX",
+      "quote_or_paragraph": "Musk has effectively abandoned terrestrial solar in his AI plans: xAI is going all-in on natural gas for its compute build-out while SpaceX is pushing orbital data centers as a longer-term compute frontier.",
+      "url": "https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/",
+      "stance": "bullish",
+      "strategic_implication": "Energy siting — not chips — is becoming the next gating factor for frontier compute. Expect xAI and hyperscaler procurement to drive a step-change in gas-turbine and SMR orders through 2027."
+    },
+    {
+      "name": "Dario Amodei (via Anthropic Code with Claude)",
+      "org": "Anthropic",
+      "quote_or_paragraph": "At Code with Claude in London, Anthropic positioned PRs written end-to-end by Claude as the new median for developers — staff repeatedly asked attendees who had shipped fully AI-written code in the past week, treating it as the baseline expectation.",
+      "url": "https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/",
+      "stance": "bullish",
+      "strategic_implication": "Anthropic is locking in the 'agent-as-developer' positioning; dev-tool vendors that don't natively support multi-agent review and sandboxed execution within two quarters will lose the next procurement cycle."
+    },
+    {
+      "name": "Chi Xu",
+      "org": "XREAL",
+      "quote_or_paragraph": "XREAL's CEO told TechCrunch the smart-glasses industry has reached a turning point, framing Google's partnership and AI-assistant integration as the inflection that finally makes the form factor consumer-viable.",
+      "url": "https://techcrunch.com/2026/05/24/xreal-googles-smartglasses-partner-thinks-it-has-finally-mastered-this-notoriously-tricky-industry/",
+      "stance": "bullish",
+      "strategic_implication": "Ambient/wearable AI is the next consumer surface after the phone; companies betting on chat UIs alone risk missing a hardware-driven distribution shift in 2027-2028."
+    }
+  ],
+  "theme_context": "Frontier labs spent the week pitching AGI-imminent narratives (Hassabis's 'foothills of the singularity' at I/O, Sequoia's '2026: This is AGI', Brockman's 70-80% AGI framing) while the real action moved one layer down: agent harnesses (Antigravity, Stitch, Code with Claude) replaced raw models as the product surface, and compute/memory/power emerged as the genuine bottleneck. Capital is bifurcating into two clear plays — vertical 'services-as-software' (Sequoia) and the agent-native infra/dev-tools stack (a16z) — with horizontal wrapper apps quietly being defunded.",
+  "top_signals": [
+    {
+      "headline": "Agent harnesses, not models, are now the product — retool dev and procurement workflows this quarter",
+      "why_it_matters": "Google's Antigravity/Stitch and Anthropic's Code with Claude make it clear that the buying unit has shifted from API access to orchestrated agent workflows. Teams still selling or buying raw model access are competing on the wrong axis.",
+      "urgency": "act_now"
+    },
+    {
+      "headline": "Memory is now ~2/3 of AI chip BOM — re-price your infra thesis",
+      "why_it_matters": "Epoch's data plus Brockman's 'not enough compute' framing means HBM and inference-efficiency are the structural winners. Anyone allocating to AI infra without an explicit memory/power view is mispriced.",
+      "urgency": "act_now"
+    },
+    {
+      "headline": "Services-as-software roll-ups are the next investable category",
+      "why_it_matters": "Sequoia's essay stack and Nevis bet telegraph a coming wave of agent-powered acquisitions in legal, accounting, insurance and wealth management. Operators should map acquirable targets now; investors should set comp tables before the first marquee deal prints.",
+      "urgency": "act_now"
+    },
+    {
+      "headline": "AGI narrative density is at a local maximum — watch for multiple compression",
+      "why_it_matters": "When Hassabis, Sequoia and OpenAI all invoke AGI/singularity in the same fortnight while NBER finds 80% of AI-using firms see no productivity gain, the gap between rhetoric and revenue is widening. Any H2 capability plateau will hit late-stage AI valuations hard.",
+      "urgency": "watch_closely"
+    },
+    {
+      "headline": "Energy siting (gas, nuclear, orbital) is the next regulatory battleground",
+      "why_it_matters": "Musk's xAI gas pivot and SpaceX orbital DC plans, plus Deep Fission's IPO attempt, show compute power is moving from a procurement problem to a permitting and policy problem. Infra investors need an energy/permitting thesis, not just a GPU thesis.",
+      "urgency": "stay_informed"
+    }
+  ],
   "week_of": "2026-05-25",
-  "weekly_theme": "The diffusion gap closes from two sides: Big Tech absorbs the agent stack while open-weight pricing collapses the API margin floor.",
-  "theme_context": "This week Google I/O collapsed model + harness + product into a single stack while DeepSeek made its 75% V4-Pro discount permanent, putting structural pressure on Western API margins. Sequoia's AI Ascent essays hardened around 'services as the new software' and 'this is the year of long-horizon agents,' and a16z's investment cadence confirmed that Series A capital is rotating to AI-native vertical wedges and infra — not new foundation models. The strategic question for operators and allocators is no longer 'will agents work?' but 'where does the margin live once tokens are cheap and harnesses are commoditized inside Big Tech?'"
+  "weekly_theme": "Harnesses eat models: AGI rhetoric peaks while compute, memory and energy quietly become the real moat."
 }

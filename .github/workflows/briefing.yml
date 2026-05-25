@@ -2,7 +2,7 @@ name: Weekly Signal Briefing
 
 on:
   schedule:
-    - cron: '0 20 * * SUN'   # Sunday 8pm UTC = Monday 7am AEST
+    - cron: '0 22 * * THU'   # Thursday 10pm UTC = Friday 8am AEST (Sydney)
   workflow_dispatch:
 
 permissions:
@@ -33,6 +33,14 @@ jobs:
           GITHUB_USERNAME: Arashatash
           REPO_NAME: Weekly-Tech-Update
         run: python generate.py
+
+      - name: Commit history to main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add history/
+          git commit -m "chore: archive briefing history" || true
+          git push
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

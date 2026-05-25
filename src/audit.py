@@ -26,6 +26,14 @@ AI_BLOCKLIST = (
     "crypto casino",
     "sports betting",
     "dating app",
+    "nft marketplace",
+    "fantasy sports",
+    "recipe sharing",
+    "weather widget",
+    "fitness tracker",
+    "food delivery app",
+    "real estate listing",
+    "social media scheduler",
 )
 
 THIN_SUMMARY_CHARS = 40
@@ -60,6 +68,8 @@ def audit_briefing(briefing: dict) -> dict:
         "categories",
         "leader_voices",
         "top_signals",
+        "commentary_synthesis",
+        "follow_the_money",
     ):
         if key not in briefing:
             issues.append(
@@ -110,6 +120,20 @@ def audit_briefing(briefing: dict) -> dict:
                 f"{len(top_signals) if isinstance(top_signals, list) else 'invalid'}",
             )
         )
+
+    commentary = briefing.get("commentary_synthesis")
+    if isinstance(commentary, dict):
+        if not str(commentary.get("grounded_view", "")).strip():
+            issues.append(_issue("critical", "schema", "commentary_synthesis missing grounded_view"))
+        if not isinstance(commentary.get("comparison_table"), list):
+            issues.append(_issue("critical", "schema", "commentary_synthesis missing comparison_table list"))
+
+    ftm = briefing.get("follow_the_money")
+    if isinstance(ftm, list):
+        if len(ftm) < 4:
+            issues.append(
+                _issue("critical", "schema", f"Expected at least 4 follow_the_money entries, got {len(ftm)}")
+            )
 
     # --- URL integrity ---
     url_total = 0

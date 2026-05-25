@@ -31,6 +31,82 @@
       background: var(--bg);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+    .layout-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @media (min-width: 1024px) {
+      .layout-wrapper {
+        flex-direction: row;
+      }
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      background: var(--card-bg);
+      border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.5rem;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        border-bottom: none;
+        flex-shrink: 0;
+      }
+    }
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .history-item a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .history-item a:hover {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+    .history-item a.active {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-weight: 600;
+      border-left: 3px solid #185FA5;
+    }
+    .history-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+      opacity: 0.8;
+    }
+    .history-theme {
+      line-height: 1.3;
+    }
+
+    /* --- Main Content --- */
+    .content {
+      flex: 1;
       padding: 1.5rem 1rem 3rem;
     }
     .container { max-width: var(--max-width); margin: 0 auto; }
@@ -187,8 +263,52 @@
       color: #fff;
       flex-shrink: 0;
     }
-    .signal-headline { font-weight: 600; margin-bottom: 0.35rem; }
-    .signal-detail { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .signal-body { flex: 1; min-width: 0; }
+    .signal-headline { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1.1rem; }
+    .signal-detail { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+
+    /* --- Tables (Commentary & Money) --- */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      background: var(--card-bg);
+      font-weight: 600;
+      color: var(--text-primary);
+      position: sticky;
+      top: 0;
+    }
+    td {
+      background: #ffffff;
+      vertical-align: top;
+      color: var(--text-secondary);
+    }
+    .topic-cell { font-weight: 600; color: var(--text-primary); }
+    .implication-cell { font-style: italic; }
+    .grounded-view {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-left: 4px solid var(--text-primary);
+      border-radius: 4px;
+    }
+
     .urgency-badge {
       font-size: 0.7rem;
       font-weight: 600;
@@ -420,6 +540,7 @@
 
     @media print {
       body { padding: 0; background: #fff; }
+      .sidebar { display: none; }
       .metrics { break-inside: avoid; }
       .item-card { break-inside: avoid; }
       .horizon-matrix, .thesis-map { break-inside: avoid; }
@@ -427,19 +548,37 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="week-label">WEEK {{ week_number }} · {{ date_range }}</div>
-      <h1>{{ briefing.weekly_theme }}</h1>
-      <p class="context">{{ briefing.theme_context }}</p>
-      <div class="meta-row">
-        <span>{{ total_items }} items</span>
-        <span>{{ high_signal_count }} high signal</span>
-        <span>Generated {{ generated_display }}</span>
-      </div>
-    </header>
+  {% set root = '../../' if is_archive else './' %}
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-title">Archive</div>
+      <ul class="history-list">
+        {% for h in history_menu %}
+        {% set is_latest = loop.index0 == 0 %}
+        {% set href = root + 'index.html' if is_latest else root + 'archive/' + h.date + '/index.html' %}
+        <li class="history-item">
+          <a href="{{ href }}" class="{{ 'active' if h.date == current_date else '' }}">
+            <div class="history-date">{{ h.date }}</div>
+            <div class="history-theme">{{ h.theme }}</div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <main class="content">
+      <div class="container">
+        <header>
+          <div class="week-label">WEEK {{ week_number }} · {{ date_range }}</div>
+          <h1>{{ briefing.weekly_theme }}</h1>
+          <p class="context">{{ briefing.theme_context }}</p>
+          <div class="meta-row">
+            <span>{{ total_items }} items</span>
+            <span>{{ high_signal_count }} high signal</span>
+            <span>Generated {{ generated_display }}</span>
+          </div>
+        </header>
 
-    <div class="metrics">
+        <div class="metrics">
       <div class="metric-card">
         <div class="metric-value">{{ total_items }}</div>
         <div class="metric-label">Items scanned</div>
@@ -556,6 +695,61 @@
     {% endif %}
     {% endfor %}
 
+    {% if briefing.commentary_synthesis %}
+    <section class="commentary-synthesis">
+      <h2>Commentary Synthesis: Investors vs Operators</h2>
+      <p class="grounded-view">{{ briefing.commentary_synthesis.grounded_view }}</p>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Investor View</th>
+              <th>Operator View</th>
+              <th>Practical Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in briefing.commentary_synthesis.comparison_table %}
+            <tr>
+              <td class="topic-cell">{{ row.topic }}</td>
+              <td>{{ row.investor_view }}</td>
+              <td>{{ row.operator_view }}</td>
+              <td class="implication-cell">{{ row.practical_implication }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if briefing.follow_the_money %}
+    <section class="follow-the-money">
+      <h2>Follow the Money</h2>
+      <div class="table-wrapper">
+        <table class="money-table">
+          <thead>
+            <tr>
+              <th>Trend Type</th>
+              <th>Observation</th>
+              <th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in briefing.follow_the_money %}
+            <tr>
+              <td class="trend-cell"><span class="tag">{{ item.trend_type.replace('_', ' ')|title }}</span></td>
+              <td>{{ item.observation }}</td>
+              <td>{{ item.implication }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="leader-voices">
       <h2>Leader Voices</h2>
       <div class="leaders-grid">
@@ -600,9 +794,11 @@
     </section>
 
     <footer>
-      <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
-      <div>Generated by Weekly Tech Update · {{ generated_display }}</div>
-    </footer>
+          <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
+          <div>Generated by Weekly Tech Update · {{ generated_display }}</div>
+        </footer>
+      </div>
+    </main>
   </div>
 </body>
 </html>

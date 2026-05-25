@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.analyser import analyse, build_prompt, _validate_briefing
+from src.analyser import analyse, build_prompt, _build_system_prompt, _validate_briefing
 
 
 class FakeTextBlock:
@@ -26,21 +26,26 @@ def valid_briefing_json(sample_briefing) -> str:
 
 def test_build_prompt_includes_articles(sample_raw_articles):
     prompt = build_prompt(sample_raw_articles)
+    # User prompt should contain the articles data and task steps
     assert "techcrunch" in prompt
-    assert "submit_weekly_briefing" in prompt
-    assert "AI-only" in prompt or "AI-only filter" in prompt
     assert "capital_theses" in prompt
     assert "opp_now" in prompt
-    assert "leader_voices" in prompt
     assert "Product Hunt" in prompt
+    assert "PRODUCT HUNT PICKS STEP" in prompt
+    # Static rules should now be in system prompt, not user prompt
+    system = _build_system_prompt()
+    assert "submit_weekly_briefing" in system
+    assert "AI-only" in system or "AI-only filter" in system
+    assert "leader_voices" in system
 
 
 def test_build_prompt_enforces_product_hunt_alignment(sample_raw_articles):
     prompt = build_prompt(sample_raw_articles)
+    system = _build_system_prompt()
     assert "PRODUCT HUNT PICKS STEP" in prompt
-    assert "aligned_thesis" in prompt
-    assert "Validates" in prompt
-    assert "building+opp_now" in prompt or "building" in prompt and "opp_now" in prompt
+    assert "aligned_thesis" in system
+    assert "Validates" in system
+    assert "building" in system and "opp_now" in system
 
 
 def test_validate_briefing(sample_briefing):
@@ -98,7 +103,7 @@ def test_analyse_returns_valid_schema(sample_raw_articles, sample_briefing, vali
 def test_analyse_retries_on_parse_failure(sample_raw_articles, sample_briefing):
     call_count = 0
 
-    def flaky_call(client, prompt):
+    def flaky_call(client, system_prompt, user_prompt):
         nonlocal call_count
         call_count += 1
         if call_count == 1:

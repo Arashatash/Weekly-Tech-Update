@@ -181,6 +181,47 @@ _BRIEFING_TOOL = {
                     "required": ["headline", "why_it_matters", "urgency"],
                 },
             },
+            "commentary_synthesis": {
+                "type": "object",
+                "properties": {
+                    "grounded_view": {"type": "string"},
+                    "comparison_table": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "topic": {"type": "string"},
+                                "investor_view": {"type": "string"},
+                                "operator_view": {"type": "string"},
+                                "practical_implication": {"type": "string"},
+                            },
+                            "required": ["topic", "investor_view", "operator_view", "practical_implication"],
+                        },
+                    },
+                },
+                "required": ["grounded_view", "comparison_table"],
+            },
+            "follow_the_money": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "trend_type": {
+                            "type": "string",
+                            "enum": [
+                                "capital_flow",
+                                "enterprise_spend",
+                                "infra_spend",
+                                "acquisition_or_bet",
+                                "overheated_signal",
+                            ],
+                        },
+                        "observation": {"type": "string"},
+                        "implication": {"type": "string"},
+                    },
+                    "required": ["trend_type", "observation", "implication"],
+                },
+            },
         },
         "required": [
             "weekly_theme",
@@ -190,6 +231,8 @@ _BRIEFING_TOOL = {
             "categories",
             "leader_voices",
             "top_signals",
+            "commentary_synthesis",
+            "follow_the_money",
         ],
     },
 }
@@ -199,19 +242,13 @@ def _trim_articles(raw_articles: dict[str, list[dict]]) -> dict[str, list[dict]]
     return {k: v[:MAX_ARTICLES_IN_PROMPT] for k, v in raw_articles.items()}
 
 
-def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
-    """Build the AI strategy briefing prompt for Claude."""
-    now = datetime.now(timezone.utc)
-    week_monday = now.date()
-    week_monday = week_monday.fromordinal(
-        week_monday.toordinal() - week_monday.weekday()
-    )
+def _build_system_prompt() -> str:
+    """Build the static system prompt with role, constraints, and all rules.
 
-    trimmed = _trim_articles(raw_articles)
-    articles_blob = json.dumps(trimmed, indent=2, default=str)
-    total = sum(len(v) for v in trimmed.values())
-
-    sources_present = sorted({k for k, v in trimmed.items() if v})
+    Everything here is context-independent — it does not change between runs.
+    Placing these instructions in the dedicated ``system`` parameter improves
+    Claude's instruction-following compared to stuffing them into the user turn.
+    """
     category_lines = "\n".join(
         f"- {cid}: {CATEGORY_NAMES[cid]}" for cid in REQUIRED_CATEGORY_IDS
     )
@@ -221,21 +258,133 @@ not a news digest. The reader is an operator or investor who needs a multi-angle
 market is heading: how capital is positioning, what top leaders are saying, what companies are shipping,
 which Product Hunt launches validate investor theses, and which opportunities are opening across horizons.
 
-## Your task (run in this order)
+## Category structure (exactly 5 categories)
+{category_lines}
+
+### Per-category guidance
+- **capital_theses**: How investors see and believe — rounds, fund theses, partner essays, valuation narratives, where smart money is moving in AI.
+- **building**: How companies tackle and solve — frontier model releases, agent platforms, enterprise rollouts, infra/tooling that actually ships. Include aligned Product Hunt picks here when they validate a thesis.
+- **opp_now** (0-6 months): Immediate plays — gaps to move on this quarter, acute wedges, near-term arbitrage. Each item MUST set horizon="now".
+- **opp_mid** (6-18 months): Forming categories, positioning windows, second-order effects. Each item MUST set horizon="mid".
+- **opp_long** (18+ months): Paradigm shifts, directional bets, weak signals that could compound. Each item MUST set horizon="long".
+
+## Product Hunt investor alignment (HARD REQUIREMENT)
+The combined `building` + `opp_now` categories MUST contain {PH_MIN_PICKS}-{PH_MAX_PICKS} Product
+Hunt items that validate this week's capital theses. The audit pipeline will REJECT the briefing
+otherwise and force a retry.
+
+Rules for every Product Hunt item:
+- `source` MUST be exactly "Product Hunt" (no variants).
+- `url` MUST be the Product Hunt page URL.
+- `aligned_thesis` MUST be set to the exact title of the `capital_theses` entry it validates.
+- `summary` MUST begin with: "Validates [thesis title]: ..." so the tie is legible.
+- Place in `building` when the PH launch shows what is being shipped against a thesis.
+- Place in `opp_now` only when the PH product itself is the actionable wedge for an operator/investor.
+- Drop non-AI Product Hunt launches and any PH item that does not map to a thesis from THIS week.
+- Do NOT include random indie SaaS that doesn't connect to investor narratives.
+
+## AI-only filter (hard rule)
+Include ONLY items with a direct, material AI angle. DROP without exception:
+- Generic space/hardware launches unless explicitly about AI compute
+- Non-AI consumer apps, CMS releases, climate/energy unless AI is the core story
+- Cryptocurrency/blockchain projects unless specifically about AI integration
+- Indie SaaS unless it materially reshapes an AI category or validates a stated thesis
+
+Inclusion test: "Would a serious AI investor or AI-company operator regret missing this?"
+If no, drop it.
+
+## Item quality rules
+- 15-25 category items total (3-5 per category); skip weak categories rather than pad.
+- Every item MUST have a non-empty, real https URL in the `url` field.
+- Each `summary` must answer: what changed AND what it implies for capital allocation,
+  company strategy, or which doors opened/closed. No descriptive news recaps.
+- Opportunity items (opp_now, opp_mid, opp_long) must name: who could capture the play,
+  what would have to be true, and roughly when. Set `horizon` to now/mid/long respectively.
+
+## Source rules
+- The `source` field is constrained by the tool schema — use only the allowed values.
+- If web search enriched a story, `source` stays the original feed source from the raw list.
+- Sources are best-effort: omit a source if nothing AI-relevant surfaced this week.
+
+## Leader voices (required — use web search)
+Add 4-8 entries in leader_voices from recent public statements by top AI/tech executives
+(CEOs, CTOs, GP-level VCs, research lab directors) who made notable public statements in
+the last 7-14 days. Prioritise statements that moved markets, signalled strategic shifts,
+or revealed new product/investment direction. Do not force-include leaders who had no
+notable public activity this week.
+- Find interviews, earnings calls, keynotes, or verified posts.
+- Paraphrase is OK if the source URL is real and recent.
+- Each entry needs: name, org, quote_or_paragraph, https url, stance (bullish|bearish|neutral
+  on AI direction), and strategic_implication (1-2 sentences for operators/investors).
+
+## Commentary Synthesis
+- Search for public commentary from leading AI investors (e.g., Sequoia, a16z, YC partners) and compare them with leading operators (e.g., Sam Altman, Jensen Huang).
+- Create a `grounded_view` describing where AI is today, where it is heading, and what to expect next. Avoid hype, buzzwords, or exaggerated claims. Focus on patterns, evidence, and practical implications.
+- Create a `comparison_table` mapping their differing views on 2-4 key topics, highlighting the practical implications.
+
+## Follow the Money
+- Track capital flows, enterprise spend, infra spend, acquisitions, strategic bets, and overheated signals.
+- Provide 4-8 concrete entries. Highlight what these money flows imply and what signals are worth paying attention to.
+
+## Top signals
+- Exactly 3-5 items, ordered by urgency (act_now first).
+- Each must be AI-strategic and actionable for an operator/investor this week.
+
+## Signal levels
+- high = actionable this week; medium = track monthly; low = background awareness
+- tags: max 3 short strings per item
+
+## Web search guidance
+Make 3-6 targeted web searches focused on:
+1. Leader statements and quotes from the last 7-14 days.
+2. Verifying facts and URLs for high-signal items.
+Do NOT use web search to duplicate information already in the supplied articles.
+
+## Required output structure (ALL fields mandatory)
+When calling submit_weekly_briefing, you MUST include ALL of these top-level fields:
+- `weekly_theme`: one bold sentence capturing the week's dominant narrative
+- `theme_context`: 2-3 sentences expanding on the theme with strategic context
+- `generated_at`: ISO 8601 UTC timestamp
+- `week_of`: Monday date in YYYY-MM-DD format
+- `categories`: array of exactly 5 category objects (capital_theses, building, opp_now, opp_mid, opp_long)
+- `leader_voices`: array of 4-8 leader voice objects (see Leader voices section)
+- `top_signals`: array of 3-5 signal objects
+- `commentary_synthesis`: object with `grounded_view` and `comparison_table`
+- `follow_the_money`: array of 4-8 objects tracking financial flows
+
+Omitting ANY of these fields will cause validation failure and a forced retry.
+
+You MUST call submit_weekly_briefing when done. Do not reply with free-form JSON in text."""
+
+
+def build_prompt(raw_articles: dict[str, list[dict]]) -> str:
+    """Build the user-facing prompt with task steps, time context, and article data.
+
+    This is the dynamic, per-run content placed in the ``user`` message.
+    Static rules and constraints live in :func:`_build_system_prompt`.
+    """
+    now = datetime.now(timezone.utc)
+    week_monday = now.date()
+    week_monday = week_monday.fromordinal(
+        week_monday.toordinal() - week_monday.weekday()
+    )
+
+    trimmed = _trim_articles(raw_articles)
+    articles_blob = json.dumps(trimmed, indent=2, default=str)
+    total = sum(len(v) for v in trimmed.values())
+    sources_present = sorted({k for k, v in trimmed.items() if v})
+
+    return f"""## Your task (run in this order)
 1. Use the supplied raw articles as the PRIMARY data source ({total} articles from {len(sources_present)} sources).
-2. Use web_search to find recent (last 7-14 days) public statements from top AI leaders AND to verify facts/URLs.
-3. First, draft `capital_theses` (3-5 distinct investor theses for the week). Give each a short, memorable
+2. Use web_search to find recent leader statements and verify facts/URLs (see web search guidance).
+3. Draft `capital_theses` first (3-5 distinct investor theses for the week). Give each a short, memorable
    title so other items can reference it by name.
 4. PRODUCT HUNT PICKS STEP (do this AFTER capital_theses is drafted, BEFORE finalising building/opp_now):
-   - Re-list the {PH_MIN_PICKS}-{PH_MAX_PICKS} capital_theses titles you just wrote.
+   - Re-list the capital_theses titles you just wrote.
    - Scan the Product Hunt items in the raw articles. For EACH thesis, look for a PH launch
      that operationalises/validates it. Discard PH items that do not map to a thesis.
-   - Select {PH_MIN_PICKS}-{PH_MAX_PICKS} PH products total. Place them in `building` (preferred) OR
-     `opp_now` (only when the PH launch is itself the wedge). Combined `building`+`opp_now` MUST
-     contain at least {PH_MIN_PICKS} Product Hunt items this week.
-   - For EACH PH item you include, set the optional field `aligned_thesis` to the exact title of the
-     capital_theses entry it validates, AND begin the `summary` with: "Validates [thesis title]: ...".
-   - `source` for these items MUST be exactly "Product Hunt"; `url` MUST be the Product Hunt URL.
+   - Select {PH_MIN_PICKS}-{PH_MAX_PICKS} PH products total and place them per the Product Hunt
+     alignment rules.
 5. Finish building/opp_mid/opp_long with non-PH items as needed.
 6. When finished, call submit_weekly_briefing with the complete report.
 
@@ -246,73 +395,7 @@ which Product Hunt launches validate investor theses, and which opportunities ar
 - Set week_of to "{week_monday.isoformat()}"
 
 ## Raw articles by source
-{articles_blob}
-
-## Category structure (exactly 5 categories)
-{category_lines}
-
-### Per-category guidance
-- **capital_theses**: How investors see and believe — rounds, fund theses, partner essays, valuation narratives, where smart money is moving in AI.
-- **building**: How companies tackle and solve — frontier model releases, agent platforms, enterprise rollouts, infra/tooling that actually ships. Include aligned Product Hunt picks here when they validate a thesis.
-- **opp_now** (0-6 months): Immediate plays — gaps to move on this quarter, acute wedges, near-term arbitrage. Each item MUST set horizon="now". Include PH launches here when they validate a near-term thesis.
-- **opp_mid** (6-18 months): Forming categories, positioning windows, second-order effects. Each item MUST set horizon="mid".
-- **opp_long** (18+ months): Paradigm shifts, directional bets, weak signals that could compound. Each item MUST set horizon="long".
-
-## Leader voices (required — use web_search)
-Add 4-8 entries in leader_voices from recent public statements by top leaders such as:
-Elon Musk, Jensen Huang, Satya Nadella, Sundar Pichai, Sam Altman, Demis Hassabis, Ben Horowitz,
-Pat Grady, Andy Jassy, or comparable AI/tech executives.
-- Find interviews, earnings calls, keynotes, or verified posts from the last 7-14 days.
-- Paraphrase is OK if the source URL is real and recent.
-- Each entry needs: name, org, quote_or_paragraph, https url, stance (bullish|bearish|neutral on AI direction),
-  and strategic_implication (1-2 sentences for operators/investors).
-
-## Product Hunt investor alignment (HARD REQUIREMENT)
-- The combined `building` + `opp_now` categories MUST contain {PH_MIN_PICKS}-{PH_MAX_PICKS} Product
-  Hunt items this week. The audit pipeline will REJECT the briefing otherwise and force a retry.
-- Each Product Hunt item MUST:
-  * have `source` exactly "Product Hunt" (no variants);
-  * have `url` set to its Product Hunt page;
-  * set `aligned_thesis` to the exact title of the `capital_theses` entry it validates;
-  * begin its `summary` with the literal pattern: `Validates [thesis title]: ...` so the tie is
-    legible to readers and to the audit checker.
-- Drop non-AI Product Hunt launches and any PH item that does not map to a thesis from THIS week.
-- Place PH picks in `building` when they show what is being shipped against a thesis, or in `opp_now`
-  when the PH product itself is the actionable wedge for an operator/investor this quarter.
-- Do NOT include random indie SaaS that doesn't connect to investor narratives.
-
-## AI-only filter (hard rule)
-Include ONLY items with a direct, material AI angle. DROP without exception:
-- Generic space/hardware launches (e.g. SpaceX) unless explicitly about AI compute
-- Non-AI consumer apps, CMS releases, climate/energy unless AI is the core story
-- Indie SaaS unless it materially reshapes an AI category or validates a stated thesis
-
-Inclusion test: "Would a serious AI investor or AI-company operator regret missing this?"
-If no, drop it. Target ~15-20 category items plus 4-8 leader voices (~30 total entries max).
-
-## Item quality rules
-- Every item MUST have a non-empty, real https URL in the `url` field.
-- 3-5 items per category; skip weak categories rather than pad.
-- Each `summary` must answer: what changed AND what it implies for capital allocation,
-  company strategy, or which doors opened/closed. No descriptive news recaps.
-- Opportunity items (opp_now, opp_mid, opp_long) must name: who could capture the play,
-  what would have to be true, and roughly when. Set `horizon` to now/mid/long respectively.
-
-## Source rules
-- `source` MUST be EXACTLY one of: {", ".join(repr(s) for s in ALLOWED_SOURCES)}
-- Do NOT invent source names or combine with "/" or "+".
-- If web_search enriched a story, `source` stays the original feed source from the raw list.
-- Sources are best-effort: omit a source if nothing AI-relevant surfaced this week.
-
-## Top signals
-- Exactly 3-5 items, ordered by urgency (act_now first).
-- Each must be AI-strategic and actionable for an operator/investor this week.
-
-## signal levels
-- high = actionable this week; medium = track monthly; low = background awareness
-- tags: max 3 short strings per item
-
-You MUST call submit_weekly_briefing when done. Do not reply with free-form JSON in text."""
+{articles_blob}"""
 
 
 def _extract_text(content: list) -> str:
@@ -401,7 +484,7 @@ def _validate_briefing(data: dict) -> dict:
                     )
 
     if total_items > 25:
-        raise ValueError(f"Too many category items ({total_items}); target 15-20")
+        raise ValueError(f"Too many category items ({total_items}); target 15-25")
 
     ph_picks = collect_ph_items(data)
     if len(ph_picks) < PH_MIN_PICKS:
@@ -463,17 +546,37 @@ def _validate_briefing(data: dict) -> dict:
     return data
 
 
-def _call_claude(client: anthropic.Anthropic, prompt: str) -> dict:
+def _call_claude(
+    client: anthropic.Anthropic,
+    system_prompt: str,
+    user_prompt: str,
+) -> dict:
     model = os.getenv("CLAUDE_MODEL", DEFAULT_MODEL)
-    response = client.messages.create(
+
+    kwargs: dict = dict(
         model=model,
         max_tokens=16000,
+        system=system_prompt,
         tools=[
             {"type": "web_search_20250305", "name": "web_search"},
             _BRIEFING_TOOL,
         ],
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": user_prompt}],
     )
+
+    # Some models (e.g. claude-opus-4-7) deprecate the temperature param.
+    # Only include it when the model is known to support it, or when
+    # explicitly set via CLAUDE_TEMPERATURE env var.
+    temp_env = os.getenv("CLAUDE_TEMPERATURE")
+    if temp_env is not None:
+        kwargs["temperature"] = float(temp_env)
+    elif "opus" not in model:
+        kwargs["temperature"] = 0.4
+
+    response = client.messages.create(**kwargs)
+
+    if getattr(response, "stop_reason", None) == "max_tokens":
+        log.warning("Claude API hit max_tokens limit! Output may be truncated.")
 
     tool_data = _extract_tool_briefing(response.content)
     if tool_data is not None:
@@ -494,30 +597,47 @@ def analyse(
     Returns a validated AI strategy BriefingDict.
     """
     client = anthropic.Anthropic()
-    prompt = build_prompt(raw_articles)
+    system_prompt = _build_system_prompt()
+    user_prompt = build_prompt(raw_articles)
+
+    # Prepend remediation at the TOP of the user message so it's in a
+    # high-attention position (beginning of context) rather than buried
+    # after the articles blob where it would be "lost in the middle".
     if audit_feedback:
-        prompt += f"\n\n## Audit remediation (fix these issues)\n{audit_feedback}"
+        user_prompt = (
+            f"## PRIORITY: Audit remediation (fix these issues FIRST)\n"
+            f"{audit_feedback}\n\n{user_prompt}"
+        )
+
     last_error: Exception | None = None
 
     for attempt in range(2):
         try:
-            data = _call_claude(client, prompt)
+            data = _call_claude(client, system_prompt, user_prompt)
             return _validate_briefing(data)
         except (json.JSONDecodeError, ValueError) as exc:
             last_error = exc
             log.warning("Parse/validation failed (attempt %d): %s", attempt + 1, exc)
             if attempt == 0:
                 log.info("Retrying Claude API call...")
-                prompt += (
-                    f"\n\nIMPORTANT: Validation failed: {exc}. "
-                    "Call submit_weekly_briefing again. Every item needs a real https URL. "
-                    "AI-only content. opp_* items need horizon now/mid/long matching their category. "
-                    "Include 4-8 leader_voices with name, org, url, stance, strategic_implication. "
-                    f"building+opp_now MUST include {PH_MIN_PICKS}-{PH_MAX_PICKS} Product Hunt items, "
-                    "each with source='Product Hunt', a Product Hunt url, aligned_thesis set, and "
-                    "summary starting with 'Validates [thesis title]: ...'. "
-                    f"Sources must be one of {list(ALLOWED_SOURCES)}."
+                remediation = (
+                    f"## PRIORITY: Fix validation errors from previous attempt\n"
+                    f"Validation failed: {exc}\n"
+                    f"Call submit_weekly_briefing again with ALL required fields:\n"
+                    f"- weekly_theme (string)\n"
+                    f"- theme_context (2-3 sentences of strategic context)\n"
+                    f"- generated_at (ISO 8601 UTC)\n"
+                    f"- week_of (YYYY-MM-DD Monday)\n"
+                    f"- categories (exactly 5: capital_theses, building, opp_now, opp_mid, opp_long)\n"
+                    f"- leader_voices (4-8 entries with name, org, quote_or_paragraph, url, stance, strategic_implication)\n"
+                    f"- top_signals (3-5 entries)\n"
+                    f"Every item needs a real https URL. AI-only content only. "
+                    f"opp_* items need horizon now/mid/long matching their category. "
+                    f"building+opp_now MUST include {PH_MIN_PICKS}-{PH_MAX_PICKS} "
+                    f"Product Hunt items with aligned_thesis set and summary "
+                    f"starting with 'Validates [thesis]: ...'.\n\n"
                 )
+                user_prompt = remediation + user_prompt
                 continue
             raise ValueError(
                 f"Failed to parse briefing after 2 attempts: {exc}"

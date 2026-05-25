@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -93,12 +94,39 @@ def main() -> None:
 
     log.info("Analysis complete")
 
-    # Step 3: Render
+    # Step 3: Render and Archive
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    history_dir = Path("history")
+    history_dir.mkdir(exist_ok=True)
+    history_path = history_dir / f"{date_str}.json"
+    history_path.write_text(json.dumps(briefing, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    history_menu = []
+    for p in history_dir.glob("*.json"):
+        try:
+            b = json.loads(p.read_text(encoding="utf-8"))
+            history_menu.append({
+                "date": p.stem,
+                "theme": b.get("weekly_theme", "Weekly Briefing"),
+            })
+        except Exception as e:
+            log.warning("Failed to load history %s: %s", p, e)
+    history_menu.sort(key=lambda x: x["date"], reverse=True)
+
     outputs = {
-        "index.html": render_html(briefing),
+        "index.html": render_html(briefing, history_menu, date_str, is_archive=False),
         "briefing.json": render_json(briefing),
         "briefing.md": render_markdown(briefing),
     }
+
+    for item in history_menu:
+        b_path = history_dir / f"{item['date']}.json"
+        try:
+            old_b = json.loads(b_path.read_text(encoding="utf-8"))
+            html = render_html(old_b, history_menu, item["date"], is_archive=True)
+            outputs[f"archive/{item['date']}/index.html"] = html
+        except Exception as e:
+            log.warning("Failed to render archive %s: %s", item['date'], e)
 
     # Step 4: Publish
     write_local(outputs)

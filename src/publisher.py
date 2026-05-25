@@ -12,23 +12,15 @@ log = logging.getLogger(__name__)
 
 
 def write_local(outputs: dict[str, str], output_dir: str = "output") -> None:
-    """Writes index.html, briefing.json, briefing.md to output_dir."""
+    """Writes all outputs to output_dir, preserving subdirectories."""
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
     for filename, content in outputs.items():
         path = out / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
         log.info("Wrote %s", path)
-
-    # Archive copy
-    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    archive_dir = out / "archive" / date_str
-    archive_dir.mkdir(parents=True, exist_ok=True)
-    if "index.html" in outputs:
-        archive_html = archive_dir / "index.html"
-        archive_html.write_text(outputs["index.html"], encoding="utf-8")
-        log.info("Archived to %s", archive_html)
 
 
 def publish_to_github(output_dir: str = "output") -> None:

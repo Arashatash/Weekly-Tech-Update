@@ -64,11 +64,11 @@ The system generates a single self-contained `index.html` file with the followin
 
 | ID | Display name | Colour (hex) | Description |
 |----|-------------|-------------|-------------|
-| `products` | New Products & Launches | `#185FA5` | New tools, apps, demos released this week |
-| `ai_research` | AI & Research | `#534AB7` | Model releases, papers, breakthroughs |
-| `business` | Funding & Business Moves | `#0F6E56` | Rounds, acquisitions, strategic shifts |
-| `trends` | Trends & Shifts | `#993C1D` | Emerging behavioural or adoption patterns |
-| `signals` | Signals Worth Watching | `#854F0B` | Early, weak signals that could compound |
+| `capital_theses` | Capital & Theses | `#0F6E56` | How investors see and believe — rounds, fund theses, partner essays, valuation narratives |
+| `building` | What's Being Built | `#185FA5` | Frontier model releases, agent platforms, enterprise rollouts, infra/tooling that ships |
+| `opp_now` | Opportunities Now | `#993C1D` | 0-6 month plays — immediate gaps, acute wedges, near-term arbitrage |
+| `opp_mid` | Opportunities Mid-term | `#854F0B` | 6-18 month positioning windows, forming categories, second-order effects |
+| `opp_long` | Opportunities Long-term | `#534AB7` | 18+ month paradigm shifts, directional bets, weak signals that could compound |
 
 ### 3.3 Per-item data model
 
@@ -76,13 +76,57 @@ The system generates a single self-contained `index.html` file with the followin
 {
   "title": "string — exact article/product title",
   "source": "string — source display name",
-  "url": "string — direct link, empty string if not found",
-  "summary": "string — 2–3 sentences: what it is, what it does, why it matters",
+  "url": "string — direct link",
+  "summary": "string — 2–3 sentences: what changed and what it implies",
   "signal": "high | medium | low",
-  "tags": ["array", "of", "short", "strings", "max 3"]
+  "tags": ["array", "of", "short", "strings", "max 3"],
+  "horizon": "now | mid | long (required for opp_* categories)",
+  "aligned_thesis": "string — title of capital_theses entry this validates (required for Product Hunt items)"
 }
 ```
 
+#### 3.3.1 Leader voices data model
+
+```json
+{
+  "name": "string — leader's full name",
+  "org": "string — organisation",
+  "quote_or_paragraph": "string — recent public statement",
+  "url": "string — source URL (must be https)",
+  "stance": "bullish | bearish | neutral",
+  "strategic_implication": "string — 1-2 sentences for operators/investors"
+}
+```
+
+The briefing requires 4-8 `leader_voices` entries sourced from recent public statements by top AI/tech executives.
+
+#### 3.3.2 Commentary synthesis data model
+
+```json
+{
+  "grounded_view": "string — clear, hype-free summary of where AI is today",
+  "comparison_table": [
+    {
+      "topic": "string",
+      "investor_view": "string",
+      "operator_view": "string",
+      "practical_implication": "string"
+    }
+  ]
+}
+```
+
+#### 3.3.3 Follow the money data model
+
+```json
+[
+  {
+    "trend_type": "capital_flow | enterprise_spend | infra_spend | acquisition_or_bet | overheated_signal",
+    "observation": "string",
+    "implication": "string"
+  }
+]
+```
 ### 3.4 Signal levels
 
 | Level | Dot indicator | Meaning |
@@ -253,11 +297,14 @@ The prompt must instruct the model to:
   "week_of": "YYYY-MM-DD of the Monday of this week",
   "categories": [
     {
-      "id": "products | ai_research | business | trends | signals",
+      "id": "capital_theses | building | opp_now | opp_mid | opp_long",
       "name": "string",
       "items": [ ...per Section 3.3... ]
     }
   ],
+  "leader_voices": [ ...per Section 3.3.1... ],
+  "commentary_synthesis": { ...per Section 3.3.2... },
+  "follow_the_money": [ ...per Section 3.3.3... ],
   "top_signals": [
     {
       "headline": "string",

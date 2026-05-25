@@ -158,6 +158,39 @@ def sample_briefing() -> dict:
                 ),
             },
         ],
+        "commentary_synthesis": {
+            "grounded_view": "AI capabilities are transitioning from generalized reasoning to verticalized action.",
+            "comparison_table": [
+                {
+                    "topic": "Agent autonomy",
+                    "investor_view": "Agents will replace 50% of junior knowledge work in 3 years.",
+                    "operator_view": "Reliability in edge cases remains the barrier to full autonomy.",
+                    "practical_implication": "Build human-in-the-loop fallback mechanisms.",
+                }
+            ],
+        },
+        "follow_the_money": [
+            {
+                "trend_type": "infra_spend",
+                "observation": "Cloud providers increasing GPU capex by 30%.",
+                "implication": "Inference costs will continue to drop.",
+            },
+            {
+                "trend_type": "capital_flow",
+                "observation": "Series A rounds concentrating in evaluation tooling.",
+                "implication": "Enterprise trust is the primary bottleneck.",
+            },
+            {
+                "trend_type": "enterprise_spend",
+                "observation": "Shift from generic chat tools to verticalized workflow automation.",
+                "implication": "Wedge startups must integrate deeply with existing data silos.",
+            },
+            {
+                "trend_type": "overheated_signal",
+                "observation": "Foundational model wrappers raising at 100x ARR.",
+                "implication": "Valuations are disconnected from moat defensibility.",
+            },
+        ],
     }
 
 

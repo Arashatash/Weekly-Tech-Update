@@ -231,7 +231,12 @@ def thesis_map(briefing: dict) -> list[dict]:
     return rows
 
 
-def render_html(briefing: dict) -> str:
+def render_html(
+    briefing: dict,
+    history_menu: list[dict] | None = None,
+    current_date: str = "",
+    is_archive: bool = False,
+) -> str:
     """Returns complete HTML as a string."""
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
@@ -267,6 +272,9 @@ def render_html(briefing: dict) -> str:
         "horizon_labels": HORIZON_LABELS,
         "horizon_matrix": opportunity_horizon_matrix(briefing),
         "thesis_map_rows": thesis_map(briefing),
+        "history_menu": history_menu or [],
+        "current_date": current_date,
+        "is_archive": is_archive,
     }
     return template.render(**context)
 
@@ -322,6 +330,31 @@ def render_markdown(briefing: dict) -> str:
         url = lv.get("url", "")
         if url:
             lines.append(f"[Source →]({url})")
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    if "commentary_synthesis" in briefing:
+        lines.append("## Commentary Synthesis: Investors vs Operators")
+        lines.append("")
+        lines.append(briefing["commentary_synthesis"].get("grounded_view", ""))
+        lines.append("")
+        lines.append("| Topic | Investor View | Operator View | Practical Implication |")
+        lines.append("|---|---|---|---|")
+        for row in briefing["commentary_synthesis"].get("comparison_table", []):
+            lines.append(f"| **{row.get('topic', '')}** | {row.get('investor_view', '')} | {row.get('operator_view', '')} | *{row.get('practical_implication', '')}* |")
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    if "follow_the_money" in briefing:
+        lines.append("## Follow the Money")
+        lines.append("")
+        lines.append("| Trend Type | Observation | Implication |")
+        lines.append("|---|---|---|")
+        for item in briefing.get("follow_the_money", []):
+            ttype = item.get("trend_type", "").replace("_", " ").title()
+            lines.append(f"| **{ttype}** | {item.get('observation', '')} | {item.get('implication', '')} |")
         lines.append("")
         lines.append("---")
         lines.append("")

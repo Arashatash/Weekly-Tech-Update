@@ -21,7 +21,7 @@ from dotenv import load_dotenv
 
 from src.analyser import analyse
 from src.audit import audit_briefing
-from src.publisher import publish_to_github, write_local
+from src.publisher import write_local
 from src.renderer import render_html, render_json, render_markdown
 from src.scraper import fetch_all_sources
 
@@ -87,9 +87,25 @@ def main() -> None:
         briefing = analyse(raw, audit_feedback=feedback)
         audit_result = audit_briefing(briefing)
         log.info(
-            "Re-audit: passed=%s scores=%s",
+            "Re-audit: passed=%s scores=%s issues=%d",
             audit_result["passed"],
             audit_result["scores"],
+            len(audit_result["issues"]),
+        )
+        for issue in audit_result["issues"]:
+            if issue["level"] == "critical":
+                log.error(
+                    "Re-audit [%s] %s: %s",
+                    issue["level"],
+                    issue["check"],
+                    issue["message"],
+                )
+
+    if not audit_result["passed"]:
+        critical = [i for i in audit_result["issues"] if i["level"] == "critical"]
+        raise RuntimeError(
+            f"Briefing failed audit after retry ({len(critical)} critical issues). "
+            "Aborting before render/publish."
         )
 
     log.info("Analysis complete")
@@ -128,13 +144,13 @@ def main() -> None:
         except Exception as e:
             log.warning("Failed to render archive %s: %s", item['date'], e)
 
-    # Step 4: Publish
+    # Step 4: Write outputs (GitHub Actions deploys output/ via peaceiris/actions-gh-pages)
     write_local(outputs)
-    if not args.dry_run:
-        publish_to_github()
-    else:
-        log.info("Dry run. Skipping GitHub publish.")
+    if args.dry_run:
+        log.info("Dry run — outputs written locally only.")
         log.info("Open output/index.html in your browser to preview.")
+    else:
+        log.info("Outputs written to output/ for GitHub Pages deployment.")
 
 
 if __name__ == "__main__":

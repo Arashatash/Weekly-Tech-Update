@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from src.analyser import (
     ALLOWED_SOURCES,
+    MIN_CATEGORY_ITEMS,
     OPPORTUNITY_CATEGORY_IDS,
     PH_MAX_PICKS,
     PH_MIN_PICKS,
@@ -134,6 +135,21 @@ def audit_briefing(briefing: dict) -> dict:
             issues.append(
                 _issue("critical", "schema", f"Expected at least 4 follow_the_money entries, got {len(ftm)}")
             )
+
+    # --- Category item count ---
+    category_item_count = 0
+    if isinstance(categories, list):
+        for cat in categories:
+            if isinstance(cat, dict):
+                category_item_count += len(cat.get("items", []))
+    if category_item_count < MIN_CATEGORY_ITEMS:
+        issues.append(
+            _issue(
+                "critical",
+                "schema",
+                f"Expected at least {MIN_CATEGORY_ITEMS} category items, got {category_item_count}",
+            )
+        )
 
     # --- URL integrity ---
     url_total = 0

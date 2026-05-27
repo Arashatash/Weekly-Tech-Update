@@ -148,8 +148,9 @@ def _fetch_rss(
     days_back: int,
     cutoff: datetime,
 ) -> list[dict[str, str]]:
-    _rate_limit(feed_url)
-    parsed = feedparser.parse(feed_url, agent=USER_AGENT)
+    resp = _get(feed_url)
+    resp.raise_for_status()
+    parsed = feedparser.parse(resp.content)
     articles: list[dict[str, str]] = []
     for entry in parsed.entries[: MAX_ARTICLES * 2]:
         title = entry.get("title", "")
@@ -335,8 +336,10 @@ def fetch_producthunt(days_back: int, cutoff: datetime) -> list[dict[str, str]]:
         if full in seen:
             continue
         seen.add(full)
+        tagline = _extract_ph_tagline(a)
+        description = tagline or "Product Hunt launch"
         articles.append(
-            _article(title, full, "Product Hunt launch", "", SOURCE_DISPLAY["producthunt"])
+            _article(title, full, description, "", SOURCE_DISPLAY["producthunt"])
         )
         if len(articles) >= MAX_ARTICLES:
             break
@@ -391,11 +394,8 @@ def fetch_all_sources(days_back: int = 7) -> dict[str, list[dict]]:
     cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
     results: dict[str, list[dict]] = {}
 
-    import sys
-
-    mod = sys.modules[__name__]
     for source_id in SOURCE_IDS:
-        fetcher = getattr(mod, f"fetch_{source_id}")
+        fetcher = _FETCHERS[source_id]
         try:
             articles = fetcher(days_back, cutoff)
             results[source_id] = articles

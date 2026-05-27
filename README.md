@@ -10,7 +10,7 @@ This is a **strategy document**, not a general tech news digest. Each week it:
 
 1. Scrapes 7 frontier sources (TechCrunch, a16z, Sequoia, Hacker News, MIT Tech Review, Product Hunt, Hugging Face Papers)
 2. Sends content to Claude (Opus 4.7 + web search) with a strict AI-only filter
-3. Publishes a styled HTML briefing to GitHub Pages every Sunday 20:00 UTC (Monday 7am AEST)
+3. Publishes a styled HTML briefing to GitHub Pages every Thursday 22:00 UTC (Friday 8am AEST)
 
 ## Three lenses (5 categories)
 
@@ -109,7 +109,7 @@ pytest tests/
 │   ├── analyser.py       # Claude API + AI strategy JSON
 │   ├── audit.py          # Multi-angle briefing quality checks
 │   ├── renderer.py       # HTML / MD / JSON output
-│   └── publisher.py      # Write files + gh-pages
+│   └── publisher.py      # Write output files (Actions deploys to gh-pages)
 ├── templates/page.html   # Jinja2 HTML template
 ├── output/               # Generated artifacts
 └── tests/

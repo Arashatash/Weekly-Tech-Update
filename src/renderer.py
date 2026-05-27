@@ -48,6 +48,11 @@ STANCE_COLOURS = {
 
 TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
 
+_JINJA_ENV = Environment(
+    loader=FileSystemLoader(str(TEMPLATE_DIR)),
+    autoescape=select_autoescape(["html", "xml"]),
+)
+
 
 def _week_number(week_of: str) -> int:
     try:

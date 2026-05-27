@@ -578,6 +578,47 @@
           </div>
         </header>
 
+        <section class="tldr" aria-label="How this briefing is built">
+          <div class="tldr-head">
+            <span class="tldr-pill">TL;DR</span>
+            <span class="tldr-title">What this is &amp; how it's built</span>
+          </div>
+          <p class="tldr-text">
+            A weekly <strong>AI strategy briefing</strong> — not a news digest — for operators and investors.
+            Each Thursday it scans <strong>7 frontier sources</strong>, hands the raw stories to
+            <strong>Claude Opus + web search</strong>, and ships a structured report covering
+            <strong>capital theses, what's being built, and opportunities now / mid / long</strong>.
+          </p>
+          <div class="pipeline">
+            <div class="pipeline-step" data-step="1">
+              <span class="pipeline-step-num">Step 1 · Scan</span>
+              <span class="pipeline-step-label">7 sources, AI-only</span>
+              <span class="pipeline-step-detail">TechCrunch, a16z, Sequoia, Y Combinator, MIT Tech Review, Product Hunt, HF Papers.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="2">
+              <span class="pipeline-step-num">Step 2 · Analyse</span>
+              <span class="pipeline-step-label">Claude Opus + web search</span>
+              <span class="pipeline-step-detail">Filters non-AI noise, validates URLs, aligns Product Hunt launches to investor theses, pulls leader voices.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="3">
+              <span class="pipeline-step-num">Step 3 · Brief</span>
+              <span class="pipeline-step-label">5 lenses + signals</span>
+              <span class="pipeline-step-detail">Capital theses, what's being built, opportunities (now / mid / long), top signals, leader voices, follow the money.</span>
+            </div>
+          </div>
+          <div class="tldr-footer">
+            <span class="tldr-footer-chip">Cadence: weekly · Thu 22:00 UTC</span>
+            <span class="tldr-footer-chip">Audit-gated output</span>
+            <span class="tldr-footer-chip">~15–25 items / week</span>
+            <span class="tldr-footer-chip">Open source</span>
+          </div>
+          <div class="tldr-goal">
+            <strong>Goal:</strong> a 5-minute read that tells an AI operator or investor where capital is moving, what's shipping, and which doors are opening — clearly, with sources.
+          </div>
+        </section>
+
         <div class="metrics">
       <div class="metric-card">
         <div class="metric-value">{{ total_items }}</div>

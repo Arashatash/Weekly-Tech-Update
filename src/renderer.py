@@ -48,11 +48,6 @@ STANCE_COLOURS = {
 
 TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
 
-_JINJA_ENV = Environment(
-    loader=FileSystemLoader(str(TEMPLATE_DIR)),
-    autoescape=select_autoescape(["html", "xml"]),
-)
-
 
 def _week_number(week_of: str) -> int:
     try:
@@ -259,6 +254,13 @@ def render_html(
     except ValueError:
         gen_display = generated_at
 
+    menu = history_menu or []
+    current_entry = next(
+        (h for h in menu if h["date"] == current_date),
+        menu[0] if menu else None,
+    )
+    archive_entries = [h for h in menu if not current_entry or h["date"] != current_entry["date"]]
+
     context = {
         "briefing": briefing,
         "week_number": _week_number(week_of),
@@ -277,7 +279,9 @@ def render_html(
         "horizon_labels": HORIZON_LABELS,
         "horizon_matrix": opportunity_horizon_matrix(briefing),
         "thesis_map_rows": thesis_map(briefing),
-        "history_menu": history_menu or [],
+        "history_menu": menu,
+        "current_entry": current_entry,
+        "archive_entries": archive_entries,
         "current_date": current_date,
         "is_archive": is_archive,
     }

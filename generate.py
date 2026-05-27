@@ -41,7 +41,8 @@ def main() -> None:
     parser.add_argument(
         "--render-only",
         action="store_true",
-        help="Skip scrape + Claude call; re-render HTML from the latest history JSON",
+        help="Skip scrape + Claude call; re-render HTML from latest history JSON "
+        "(or the pre-launch landing if no history exists yet).",
     )
     args = parser.parse_args()
 
@@ -57,11 +58,16 @@ def main() -> None:
     if args.render_only:
         history_dir.mkdir(exist_ok=True)
         history_files = sorted(history_dir.glob("*.json"), reverse=True)
-        if not history_files:
-            raise SystemExit("No history JSON found. Run a real generation first.")
-        latest = history_files[0]
-        log.info("Render-only mode — using %s", latest)
-        briefing = json.loads(latest.read_text(encoding="utf-8"))
+        briefing: dict | None
+        if history_files:
+            latest = history_files[0]
+            log.info("Render-only mode — using %s", latest)
+            briefing = json.loads(latest.read_text(encoding="utf-8"))
+        else:
+            log.info(
+                "Render-only mode — no history yet; rendering pre-launch landing."
+            )
+            briefing = None
         _render_and_write(briefing, history_dir, log, dry_run=args.dry_run)
         return
 
@@ -142,13 +148,17 @@ def main() -> None:
 
 
 def _render_and_write(
-    briefing: dict,
+    briefing: dict | None,
     history_dir: Path,
     log: logging.Logger,
     *,
     dry_run: bool,
 ) -> None:
-    """Render HTML/MD/JSON for the current + archive briefings and write output/."""
+    """Render HTML/MD/JSON for the current + archive briefings and write output/.
+
+    If ``briefing`` is None, only emit ``index.html`` (the pre-launch landing
+    page) — there's nothing to serialise to Markdown or JSON yet.
+    """
     history_menu: list[dict[str, str]] = []
     for p in history_dir.glob("*.json"):
         try:
@@ -166,9 +176,10 @@ def _render_and_write(
         "index.html": render_html(
             briefing, history_menu, current_date, is_archive=False
         ),
-        "briefing.json": render_json(briefing),
-        "briefing.md": render_markdown(briefing),
     }
+    if briefing is not None:
+        outputs["briefing.json"] = render_json(briefing)
+        outputs["briefing.md"] = render_markdown(briefing)
 
     for item in history_menu[1:]:
         b_path = history_dir / f"{item['date']}.json"

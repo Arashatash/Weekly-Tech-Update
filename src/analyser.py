@@ -166,6 +166,18 @@ _BRIEFING_TOOL = {
                             "type": "string",
                             "enum": list(VALID_URGENCY),
                         },
+                        "url": {"type": "string"},
+                        "references": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "label": {"type": "string"},
+                                    "url": {"type": "string"},
+                                },
+                                "required": ["url"],
+                            },
+                        },
                     },
                     "required": ["headline", "why_it_matters", "urgency"],
                 },
@@ -183,6 +195,8 @@ _BRIEFING_TOOL = {
                                 "investor_view": {"type": "string"},
                                 "operator_view": {"type": "string"},
                                 "practical_implication": {"type": "string"},
+                                "investor_source_url": {"type": "string"},
+                                "operator_source_url": {"type": "string"},
                             },
                             "required": ["topic", "investor_view", "operator_view", "practical_implication"],
                         },
@@ -207,6 +221,7 @@ _BRIEFING_TOOL = {
                         },
                         "observation": {"type": "string"},
                         "implication": {"type": "string"},
+                        "source_url": {"type": "string"},
                     },
                     "required": ["trend_type", "observation", "implication"],
                 },
@@ -310,14 +325,17 @@ notable public activity this week.
 - Search for public commentary from leading AI investors (e.g., Sequoia, a16z, YC partners) and compare them with leading operators (e.g., Sam Altman, Jensen Huang).
 - Create a `grounded_view` describing where AI is today, where it is heading, and what to expect next. Avoid hype, buzzwords, or exaggerated claims. Focus on patterns, evidence, and practical implications.
 - Create a `comparison_table` mapping their differing views on 2-4 key topics, highlighting the practical implications.
+- For each row, include `investor_source_url` and `operator_source_url` (real https URLs) whenever you can identify the source, so readers can click through to the original statement.
 
 ## Follow the Money
 - Track capital flows, enterprise spend, infra spend, acquisitions, strategic bets, and overheated signals.
 - Provide 4-8 concrete entries. Highlight what these money flows imply and what signals are worth paying attention to.
+- Whenever possible, include `source_url` (real https URL) on each entry pointing to the primary article, filing, or press release.
 
 ## Top signals
 - Exactly 3-5 items, ordered by urgency (act_now first).
 - Each must be AI-strategic and actionable for an operator/investor this week.
+- Every signal SHOULD include `url` (a primary source) and MAY include a `references` array of objects with `label` and `url` for additional supporting evidence. Prefer signals whose evidence is clickable.
 
 ## Signal levels
 - high = actionable this week; medium = track monthly; low = background awareness

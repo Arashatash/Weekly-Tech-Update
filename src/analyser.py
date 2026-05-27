@@ -21,10 +21,16 @@ MAX_ARTICLES_IN_PROMPT = 12
 REQUIRED_TOP_KEYS = (
     "weekly_theme",
     "theme_context",
+    "generated_at",
+    "week_of",
     "categories",
     "leader_voices",
     "top_signals",
+    "commentary_synthesis",
+    "follow_the_money",
 )
+MIN_CATEGORY_ITEMS = 15
+MAX_CATEGORY_ITEMS = 25
 VALID_STANCES = {"bullish", "bearish", "neutral"}
 REQUIRED_CATEGORY_IDS = (
     "capital_theses",
@@ -74,29 +80,12 @@ PH_SOURCE = "Product Hunt"
 PH_REQUIRED_CATEGORIES = ("building", "opp_now")
 PH_MIN_PICKS = 2
 PH_MAX_PICKS = 4
-PH_THESIS_PHRASES = (
-    "validates",
-    "validating",
-    "validation",
-    "aligned_thesis",
-    "aligned with",
-    "ties to",
-    "tied to",
-    "operationalizes",
-    "proves out",
-    "confirms",
-    "evidence for",
-    "instantiates",
-)
-
-
 def _has_thesis_tie(item: dict) -> bool:
     """Return True if the item explicitly ties to a capital thesis."""
-    aligned = str(item.get("aligned_thesis", "")).strip()
-    if aligned:
+    if str(item.get("aligned_thesis", "")).strip():
         return True
-    summary = str(item.get("summary", "")).lower()
-    return any(phrase in summary for phrase in PH_THESIS_PHRASES)
+    summary = str(item.get("summary", "")).strip()
+    return summary.lower().startswith("validates ")
 
 
 def collect_ph_items(briefing: dict) -> list[tuple[str, dict]]:
@@ -177,6 +166,18 @@ _BRIEFING_TOOL = {
                             "type": "string",
                             "enum": list(VALID_URGENCY),
                         },
+                        "url": {"type": "string"},
+                        "references": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "label": {"type": "string"},
+                                    "url": {"type": "string"},
+                                },
+                                "required": ["url"],
+                            },
+                        },
                     },
                     "required": ["headline", "why_it_matters", "urgency"],
                 },
@@ -194,6 +195,8 @@ _BRIEFING_TOOL = {
                                 "investor_view": {"type": "string"},
                                 "operator_view": {"type": "string"},
                                 "practical_implication": {"type": "string"},
+                                "investor_source_url": {"type": "string"},
+                                "operator_source_url": {"type": "string"},
                             },
                             "required": ["topic", "investor_view", "operator_view", "practical_implication"],
                         },
@@ -218,6 +221,7 @@ _BRIEFING_TOOL = {
                         },
                         "observation": {"type": "string"},
                         "implication": {"type": "string"},
+                        "source_url": {"type": "string"},
                     },
                     "required": ["trend_type", "observation", "implication"],
                 },
@@ -321,14 +325,17 @@ notable public activity this week.
 - Search for public commentary from leading AI investors (e.g., Sequoia, a16z, YC partners) and compare them with leading operators (e.g., Sam Altman, Jensen Huang).
 - Create a `grounded_view` describing where AI is today, where it is heading, and what to expect next. Avoid hype, buzzwords, or exaggerated claims. Focus on patterns, evidence, and practical implications.
 - Create a `comparison_table` mapping their differing views on 2-4 key topics, highlighting the practical implications.
+- For each row, include `investor_source_url` and `operator_source_url` (real https URLs) whenever you can identify the source, so readers can click through to the original statement.
 
 ## Follow the Money
 - Track capital flows, enterprise spend, infra spend, acquisitions, strategic bets, and overheated signals.
 - Provide 4-8 concrete entries. Highlight what these money flows imply and what signals are worth paying attention to.
+- Whenever possible, include `source_url` (real https URL) on each entry pointing to the primary article, filing, or press release.
 
 ## Top signals
 - Exactly 3-5 items, ordered by urgency (act_now first).
 - Each must be AI-strategic and actionable for an operator/investor this week.
+- Every signal SHOULD include `url` (a primary source) and MAY include a `references` array of objects with `label` and `url` for additional supporting evidence. Prefer signals whose evidence is clickable.
 
 ## Signal levels
 - high = actionable this week; medium = track monthly; low = background awareness
@@ -460,9 +467,9 @@ def _validate_briefing(data: dict) -> dict:
                     raise ValueError(f"Item missing '{field}' in category {cat_id}")
             if not str(item.get("url", "")).strip():
                 raise ValueError(f"Item in {cat_id} has empty url: {item.get('title')}")
-            if not str(item["url"]).strip().startswith("http"):
+            if not str(item["url"]).strip().startswith("https://"):
                 raise ValueError(
-                    f"Item in {cat_id} url must start with http: {item.get('url')}"
+                    f"Item in {cat_id} url must start with https://: {item.get('url')}"
                 )
             if item["signal"] not in VALID_SIGNALS:
                 raise ValueError(f"Invalid signal: {item['signal']}")
@@ -483,8 +490,16 @@ def _validate_briefing(data: dict) -> dict:
                         f"Item in {cat_id} should have horizon={expected}, got {horizon}"
                     )
 
-    if total_items > 25:
-        raise ValueError(f"Too many category items ({total_items}); target 15-25")
+    if total_items < MIN_CATEGORY_ITEMS:
+        raise ValueError(
+            f"Too few category items ({total_items}); "
+            f"target {MIN_CATEGORY_ITEMS}-{MAX_CATEGORY_ITEMS}"
+        )
+    if total_items > MAX_CATEGORY_ITEMS:
+        raise ValueError(
+            f"Too many category items ({total_items}); "
+            f"target {MIN_CATEGORY_ITEMS}-{MAX_CATEGORY_ITEMS}"
+        )
 
     ph_picks = collect_ph_items(data)
     if len(ph_picks) < PH_MIN_PICKS:
@@ -524,9 +539,9 @@ def _validate_briefing(data: dict) -> dict:
         ):
             if field not in lv or not str(lv.get(field, "")).strip():
                 raise ValueError(f"Leader voice missing required field: {field}")
-        if not str(lv["url"]).strip().startswith("https"):
+        if not str(lv["url"]).strip().startswith("https://"):
             raise ValueError(
-                f"Leader voice url must start with https: {lv.get('url')}"
+                f"Leader voice url must start with https://: {lv.get('url')}"
             )
         if lv["stance"] not in VALID_STANCES:
             raise ValueError(f"Invalid leader stance: {lv['stance']}")
@@ -541,6 +556,21 @@ def _validate_briefing(data: dict) -> dict:
     if not (3 <= len(data["top_signals"]) <= 5):
         raise ValueError(
             f"Expected 3-5 top_signals, got {len(data['top_signals'])}"
+        )
+
+    commentary = data.get("commentary_synthesis")
+    if not isinstance(commentary, dict):
+        raise ValueError("commentary_synthesis must be an object")
+    if not str(commentary.get("grounded_view", "")).strip():
+        raise ValueError("commentary_synthesis missing grounded_view")
+    if not isinstance(commentary.get("comparison_table"), list):
+        raise ValueError("commentary_synthesis missing comparison_table list")
+
+    ftm = data.get("follow_the_money")
+    if not isinstance(ftm, list) or len(ftm) < 4:
+        raise ValueError(
+            f"Expected at least 4 follow_the_money entries, got "
+            f"{len(ftm) if isinstance(ftm, list) else 'invalid'}"
         )
 
     return data

@@ -48,6 +48,11 @@ STANCE_COLOURS = {
 
 TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
 
+_JINJA_ENV = Environment(
+    loader=FileSystemLoader(str(TEMPLATE_DIR)),
+    autoescape=select_autoescape(["html", "xml"]),
+)
+
 
 def _week_number(week_of: str) -> int:
     try:
@@ -232,35 +237,62 @@ def thesis_map(briefing: dict) -> list[dict]:
 
 
 def render_html(
-    briefing: dict,
+    briefing: dict | None,
     history_menu: list[dict] | None = None,
     current_date: str = "",
     is_archive: bool = False,
 ) -> str:
-    """Returns complete HTML as a string."""
-    env = Environment(
-        loader=FileSystemLoader(str(TEMPLATE_DIR)),
-        autoescape=select_autoescape(["html", "xml"]),
+    """Render the full HTML page as a string.
+
+    When ``briefing`` is None or empty, renders the pre-launch landing page —
+    sidebar + TL;DR + "Coming Thursday" hero only, no briefing content. The
+    template hides every briefing-dependent section via ``{% if briefing %}``
+    guards.
+    """
+    template = _JINJA_ENV.get_template("page.html")
+
+    if briefing:
+        week_of = briefing.get("week_of", "")
+        generated_at = briefing.get("generated_at", "")
+        try:
+            gen_display = datetime.fromisoformat(
+                generated_at.replace("Z", "+00:00")
+            ).strftime("%b %d, %Y %H:%M UTC")
+        except ValueError:
+            gen_display = generated_at
+        week_number = _week_number(week_of)
+        date_range = _date_range(week_of)
+        total_items = _count_items(briefing)
+        high_signal_count = _count_high_signal(briefing)
+        horizon = opportunity_horizon_matrix(briefing)
+        thesis_rows = thesis_map(briefing)
+    else:
+        gen_display = ""
+        week_number = 0
+        date_range = ""
+        total_items = 0
+        high_signal_count = 0
+        horizon = []
+        thesis_rows = []
+
+    menu = history_menu or []
+    current_entry = next(
+        (h for h in menu if h["date"] == current_date),
+        menu[0] if menu else None,
     )
-    template = env.get_template("page.html")
+    archive_entries = [
+        h for h in menu if not current_entry or h["date"] != current_entry["date"]
+    ]
 
-    week_of = briefing.get("week_of", "")
-    generated_at = briefing.get("generated_at", "")
-
-    try:
-        gen_display = datetime.fromisoformat(
-            generated_at.replace("Z", "+00:00")
-        ).strftime("%b %d, %Y %H:%M UTC")
-    except ValueError:
-        gen_display = generated_at
+    today_label = datetime.now().strftime("%b %d, %Y")
 
     context = {
         "briefing": briefing,
-        "week_number": _week_number(week_of),
-        "date_range": _date_range(week_of),
+        "week_number": week_number,
+        "date_range": date_range,
         "generated_display": gen_display,
-        "total_items": _count_items(briefing),
-        "high_signal_count": _count_high_signal(briefing),
+        "total_items": total_items,
+        "high_signal_count": high_signal_count,
         "sources_monitored": 7,
         "category_colours": _category_colour_map(),
         "urgency_labels": URGENCY_LABELS,
@@ -270,11 +302,14 @@ def render_html(
         "signal_dots": signal_dots_html,
         "source_badge_style": source_badge_style,
         "horizon_labels": HORIZON_LABELS,
-        "horizon_matrix": opportunity_horizon_matrix(briefing),
-        "thesis_map_rows": thesis_map(briefing),
-        "history_menu": history_menu or [],
+        "horizon_matrix": horizon,
+        "thesis_map_rows": thesis_rows,
+        "history_menu": menu,
+        "current_entry": current_entry,
+        "archive_entries": archive_entries,
         "current_date": current_date,
         "is_archive": is_archive,
+        "today_label": today_label,
     }
     return template.render(**context)
 

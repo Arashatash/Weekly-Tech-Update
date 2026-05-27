@@ -61,6 +61,19 @@ def test_validate_briefing_rejects_missing_ph(sample_briefing):
         _validate_briefing(sample_briefing)
 
 
+def test_validate_briefing_rejects_http_url(sample_briefing):
+    sample_briefing["categories"][0]["items"][0]["url"] = "http://insecure.example.com/x"
+    with pytest.raises(ValueError, match="https://"):
+        _validate_briefing(sample_briefing)
+
+
+def test_validate_briefing_rejects_too_few_items(sample_briefing):
+    for cat in sample_briefing["categories"]:
+        cat["items"] = cat["items"][:1]
+    with pytest.raises(ValueError, match="Too few"):
+        _validate_briefing(sample_briefing)
+
+
 def test_validate_briefing_rejects_ph_without_thesis_tie(sample_briefing):
     for cat in sample_briefing["categories"]:
         if cat["id"] in ("building", "opp_now"):

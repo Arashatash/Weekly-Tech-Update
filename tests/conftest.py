@@ -37,6 +37,8 @@ def sample_briefing() -> dict:
             "items": [
                 _item("a16z", "a16z backs agent search"),
                 _item("Sequoia Capital", "Sequoia AGI thesis"),
+                _item("a16z", "Foundation model infra round"),
+                _item("Sequoia Capital", "Enterprise agent spend thesis"),
             ],
         },
         {
@@ -45,6 +47,8 @@ def sample_briefing() -> dict:
             "items": [
                 _item("TechCrunch", "Anthropic ships agents"),
                 _item("Hugging Face Papers", "Sparse attention paper"),
+                _item("TechCrunch", "OpenAI workflow APIs"),
+                _item("Hugging Face Papers", "Efficient RLHF stack"),
                 _item(
                     "Product Hunt",
                     "AgentForge — multi-agent orchestrator",
@@ -74,6 +78,8 @@ def sample_briefing() -> dict:
                     aligned_thesis="Sequoia AGI thesis",
                     url="https://www.producthunt.com/products/ai-qa",
                 ),
+                _item("TechCrunch", "Vertical legal agents", horizon="now"),
+                _item("Y Combinator", "Outcome-priced support bots", horizon="now"),
             ],
         },
         {
@@ -81,6 +87,8 @@ def sample_briefing() -> dict:
             "name": "Opportunities Mid-term",
             "items": [
                 _item("MIT Technology Review", "World models category", horizon="mid"),
+                _item("a16z", "Eval infrastructure layer", horizon="mid"),
+                _item("Sequoia Capital", "On-device agent runtimes", horizon="mid"),
             ],
         },
         {
@@ -88,6 +96,7 @@ def sample_briefing() -> dict:
             "name": "Opportunities Long-term",
             "items": [
                 _item("Y Combinator", "Autonomous science stack", horizon="long"),
+                _item("MIT Technology Review", "Embodied AI platforms", horizon="long"),
             ],
         },
     ]

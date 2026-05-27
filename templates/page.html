@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekly AI Strategy Briefing — Week {{ week_number }}</title>
+  <title>Weekly AI Strategy Briefing{% if briefing %} — Week {{ week_number }}{% endif %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,9 +38,7 @@
       min-height: 100vh;
     }
     @media (min-width: 1024px) {
-      .layout-wrapper {
-        flex-direction: row;
-      }
+      .layout-wrapper { flex-direction: row; }
     }
 
     /* --- Sidebar --- */
@@ -65,14 +63,52 @@
     .sidebar-title {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       color: var(--text-primary);
+    }
+    .sidebar-section + .sidebar-section { margin-top: 1.5rem; }
+    .sidebar-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      padding: 0.55rem 0.6rem;
+      border: 1px dashed var(--card-border);
+      border-radius: 6px;
+      line-height: 1.4;
+    }
+    .current-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .sidebar-cadence {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--card-border);
+      line-height: 1.4;
     }
     .history-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
     .history-item a {
       display: block;
@@ -98,11 +134,9 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.2rem;
-      opacity: 0.8;
+      opacity: 0.85;
     }
-    .history-theme {
-      line-height: 1.3;
-    }
+    .history-theme { line-height: 1.3; }
 
     /* --- Main Content --- */
     .content {
@@ -112,8 +146,8 @@
     .container { max-width: var(--max-width); margin: 0 auto; }
 
     header {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--card-border);
     }
     .week-label {
@@ -138,6 +172,235 @@
       gap: 1rem;
       font-size: 0.875rem;
       color: var(--text-secondary);
+    }
+
+    /* --- TL;DR / How it works --- */
+    .tldr {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tldr-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .tldr-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #0F6E5622;
+      color: #0F6E56;
+    }
+    .tldr-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .tldr-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .tldr-text strong { color: var(--text-primary); }
+    .tldr-subhead {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 1.25rem 0 0.55rem;
+    }
+
+    /* Sources grid (resources we read each week) */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) {
+      .sources-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .sources-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .source-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      padding: 0.55rem 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .source-row:hover {
+      border-color: var(--src-colour, #185FA5);
+      transform: translateY(-1px);
+    }
+    .source-row-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      border-left: 3px solid var(--src-colour, #185FA5);
+      padding-left: 0.5rem;
+      font-size: 0.82rem;
+    }
+    .source-row-role { line-height: 1.35; }
+
+    /* Synthesis flow */
+    .synthesis-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .synthesis-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .synthesis-step-icon {
+      font-weight: 700;
+      color: #0F6E56;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 0.1rem 0.45rem;
+      background: #0F6E5615;
+      border-radius: 4px;
+      align-self: start;
+    }
+    .synthesis-step strong { color: var(--text-primary); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .pipeline {
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: stretch;
+      }
+    }
+    .pipeline-step {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .pipeline-step[data-step="1"] { border-left: 3px solid #185FA5; }
+    .pipeline-step[data-step="2"] { border-left: 3px solid #0F6E56; }
+    .pipeline-step[data-step="3"] { border-left: 3px solid #993C1D; }
+    .pipeline-step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .pipeline-step-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+    .pipeline-step-detail {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .pipeline-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    @media (min-width: 768px) { .pipeline-arrow { display: flex; } }
+
+    .tldr-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .tldr-footer-chip {
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+    }
+    .tldr-goal {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-left: 3px solid #534AB7;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .tldr-goal strong { color: #534AB7; }
+
+    /* --- Pre-launch hero (no briefing yet) --- */
+    .prelaunch {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid #185FA5;
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .prelaunch-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-bottom: 0.6rem;
+    }
+    .prelaunch-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .prelaunch-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
     }
 
     .metrics {
@@ -178,7 +441,6 @@
       gap: 1rem;
     }
     @media (min-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1280px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
 
     .item-card {
       background: var(--card-bg);
@@ -186,6 +448,8 @@
       border-radius: 8px;
       padding: 1.25rem;
       border-left: 3px solid var(--cat-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
     }
     .item-header {
       display: flex;
@@ -239,6 +503,21 @@
       background: var(--card-border);
       color: var(--text-secondary);
     }
+    .item-source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .item-source-link:hover { color: var(--cat-colour, #185FA5); }
+    .item-source-arrow { font-weight: 700; }
 
     .top-signals { margin-bottom: 2.5rem; }
     .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
@@ -266,6 +545,41 @@
     .signal-body { flex: 1; min-width: 0; }
     .signal-headline { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1.1rem; }
     .signal-detail { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .signal-refs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .signal-refs .ref-link {
+      padding: 0.18rem 0.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+    }
+
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed transparent;
+    }
+    .ref-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+    .ref-link-arrow { font-weight: 700; }
+    .table-ref-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: 0.4rem;
+      border-bottom: 1px dashed transparent;
+    }
+    .table-ref-link:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
 
     /* --- Tables (Commentary & Money) --- */
     .table-wrapper {
@@ -292,7 +606,7 @@
       top: 0;
     }
     td {
-      background: #ffffff;
+      background: var(--card-bg);
       vertical-align: top;
       color: var(--text-secondary);
     }
@@ -362,8 +676,11 @@
       font-size: 0.8rem;
       color: var(--text-secondary);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
-    .leader-link:hover { text-decoration: underline; }
+    .leader-link:hover { text-decoration: underline; color: var(--text-primary); }
 
     footer {
       margin-top: 3rem;
@@ -374,6 +691,12 @@
       text-align: center;
     }
     footer div { margin-bottom: 0.35rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    footer a:hover { color: var(--text-primary); }
 
     /* --- Strategic visuals --- */
     .viz { margin-bottom: 2.5rem; }
@@ -393,9 +716,7 @@
       grid-template-columns: 1fr;
       gap: 1rem;
     }
-    @media (min-width: 768px) {
-      .horizon-matrix { grid-template-columns: repeat(3, 1fr); }
-    }
+    @media (min-width: 768px) { .horizon-matrix { grid-template-columns: repeat(3, 1fr); } }
     .horizon-column {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -497,9 +818,7 @@
       font-size: 1.1rem;
       justify-self: center;
     }
-    @media (min-width: 768px) {
-      .thesis-arrow { display: inline; }
-    }
+    @media (min-width: 768px) { .thesis-arrow { display: inline; } }
     .thesis-aligned {
       display: flex;
       flex-wrap: wrap;
@@ -551,23 +870,53 @@
   {% set root = '../../' if is_archive else './' %}
   <div class="layout-wrapper">
     <nav class="sidebar">
-      <div class="sidebar-title">Archive</div>
-      <ul class="history-list">
-        {% for h in history_menu %}
-        {% set is_latest = loop.index0 == 0 %}
-        {% set href = root + 'index.html' if is_latest else root + 'archive/' + h.date + '/index.html' %}
-        <li class="history-item">
-          <a href="{{ href }}" class="{{ 'active' if h.date == current_date else '' }}">
-            <div class="history-date">{{ h.date }}</div>
-            <div class="history-theme">{{ h.theme }}</div>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
+      <div class="sidebar-title">Weekly AI Strategy</div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">This week</div>
+        {% if current_entry %}
+        <ul class="history-list">
+          <li class="history-item">
+            <a href="{{ root }}index.html" class="{{ 'active' if not is_archive else '' }}">
+              <div class="history-date">
+                {{ current_entry.date }}<span class="current-pill">Live</span>
+              </div>
+              <div class="history-theme">{{ current_entry.theme }}</div>
+            </a>
+          </li>
+        </ul>
+        {% else %}
+        <div class="sidebar-empty">First briefing publishes Thursday 22:00 UTC — today's run will be #1.</div>
+        {% endif %}
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Archive</div>
+        {% if archive_entries %}
+        <ul class="history-list">
+          {% for h in archive_entries %}
+          <li class="history-item">
+            <a href="{{ root }}archive/{{ h.date }}/index.html" class="{{ 'active' if h.date == current_date and is_archive else '' }}">
+              <div class="history-date">{{ h.date }}</div>
+              <div class="history-theme">{{ h.theme }}</div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="sidebar-empty">Past briefings appear here as new ones ship.</div>
+        {% endif %}
+      </div>
+
+      <div class="sidebar-cadence">
+        New briefing every Thursday 22:00 UTC (Friday 8am AEST). The current week's edition rotates to Archive when the next one publishes.
+      </div>
     </nav>
+
     <main class="content">
       <div class="container">
         <header>
+          {% if briefing %}
           <div class="week-label">WEEK {{ week_number }} · {{ date_range }}</div>
           <h1>{{ briefing.weekly_theme }}</h1>
           <p class="context">{{ briefing.theme_context }}</p>
@@ -576,226 +925,371 @@
             <span>{{ high_signal_count }} high signal</span>
             <span>Generated {{ generated_display }}</span>
           </div>
+          {% else %}
+          <div class="week-label">PRE-LAUNCH · {{ today_label }}</div>
+          <h1>Weekly AI Strategy Briefing</h1>
+          <p class="context">A 5-minute weekly read for AI operators and investors. Capital theses, what's shipping, and opportunities across now / mid / long horizons — every Thursday.</p>
+          {% endif %}
         </header>
 
-        <div class="metrics">
-      <div class="metric-card">
-        <div class="metric-value">{{ total_items }}</div>
-        <div class="metric-label">Items scanned</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">{{ high_signal_count }}</div>
-        <div class="metric-label">High signal items</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">{{ sources_monitored }}</div>
-        <div class="metric-label">Sources monitored</div>
-      </div>
-    </div>
-
-    {% for cat in briefing.categories %}
-    {% set colour = category_colours.get(cat.id, '#5F5E5A') %}
-    <section class="category" data-category="{{ cat.id }}">
-      <div class="category-header">
-        <div class="category-stripe" style="background:{{ colour }}"></div>
-        <h2>{{ cat.name }}</h2>
-        <span class="item-count">{{ cat['items']|length }} items</span>
-      </div>
-      <div class="items-grid">
-        {% for item in cat['items'] %}
-        <article class="item-card" data-signal="{{ item.signal }}" style="--cat-colour: {{ colour }}">
-          <div class="item-header">
-            {% if item.url %}
-            <a href="{{ item.url }}" class="item-title" target="_blank" rel="noopener">{{ item.title }}</a>
-            {% else %}
-            <span class="item-title">{{ item.title }}</span>
-            {% endif %}
-            <div class="signal-dots" data-level="{{ item.signal }}">
-              {{ signal_dots(item.signal)|safe }}
-            </div>
+        <section class="tldr" aria-label="How this briefing is built">
+          <div class="tldr-head">
+            <span class="tldr-pill">TL;DR</span>
+            <span class="tldr-title">What this is &amp; how it's built</span>
           </div>
-          <p class="item-summary">{{ item.summary }}</p>
-          <div class="item-meta">
-            <span class="source-badge" style="{{ source_badge_style(cat.id) }}">{{ item.source }}</span>
-            {% if item.horizon %}
-            <span class="horizon-badge">{{ horizon_labels.get(item.horizon, item.horizon) }}</span>
-            {% endif %}
-            {% for tag in item.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
-            {% if item.aligned_thesis %}
-            <span class="tag" title="Validates thesis">↳ {{ item.aligned_thesis }}</span>
-            {% endif %}
-          </div>
-        </article>
-        {% endfor %}
-      </div>
-    </section>
+          <p class="tldr-text">
+            A weekly <strong>AI strategy briefing</strong> — not a news digest — for operators and investors.
+            Every Thursday it pulls from <strong>7 frontier sources</strong>, hands the raw stories to
+            <strong>Claude Opus + web search</strong>, and ships a structured report covering
+            <strong>capital theses, what's being built, and opportunities now / mid / long</strong>.
+          </p>
 
-    {% if cat.id == 'capital_theses' and thesis_map_rows %}
-    <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
-      <h2>Thesis Map — where capital connects to what's shipping</h2>
-      <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
-      <div class="thesis-map">
-        {% for row in thesis_map_rows %}
-        <div class="thesis-row">
-          <div class="thesis-label">{{ row.thesis.title }}</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            {% for a in row.aligned %}
-            {% if a.url %}
-            <a class="thesis-chip" href="{{ a.url }}" target="_blank" rel="noopener" data-ph="{{ 'true' if a.is_ph else 'false' }}" style="--chip-colour: {{ a.cat_colour }}">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">{{ a.title }}</span>
+          <div class="tldr-subhead">Resources we read each week</div>
+          <div class="sources-grid">
+            <a class="source-row" href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">TechCrunch</span>
+              <span class="source-row-role">AI deals, launches, regulatory news</span>
             </a>
-            {% else %}
-            <span class="thesis-chip" data-ph="{{ 'true' if a.is_ph else 'false' }}" style="--chip-colour: {{ a.cat_colour }}">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">{{ a.title }}</span>
-            </span>
-            {% endif %}
-            {% endfor %}
+            <a class="source-row" href="https://a16z.com/news-content/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">a16z</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://sequoiacap.com/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">Sequoia</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://news.ycombinator.com/front" target="_blank" rel="noopener" style="--src-colour: #993C1D">
+              <span class="source-row-name">Y Combinator</span>
+              <span class="source-row-role">Founder &amp; HN front-page pulse</span>
+            </a>
+            <a class="source-row" href="https://www.technologyreview.com/" target="_blank" rel="noopener" style="--src-colour: #534AB7">
+              <span class="source-row-name">MIT Tech Review</span>
+              <span class="source-row-role">Research-to-product context</span>
+            </a>
+            <a class="source-row" href="https://www.producthunt.com/" target="_blank" rel="noopener" style="--src-colour: #854F0B">
+              <span class="source-row-name">Product Hunt</span>
+              <span class="source-row-role">What's shipping right now</span>
+            </a>
+            <a class="source-row" href="https://huggingface.co/papers" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">HF Papers</span>
+              <span class="source-row-role">Frontier ML research</span>
+            </a>
           </div>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
 
-    {% if cat.id == 'building' and horizon_matrix %}
-    <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
-      <h2>Opportunity Horizon Matrix</h2>
-      <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
-      <div class="horizon-matrix">
-        {% for col in horizon_matrix %}
-        <div class="horizon-column" style="--col-colour: {{ col.colour }}">
-          <div class="horizon-head">
-            <span class="horizon-range">{{ col.range_label }}</span>
-            <span class="horizon-count">{{ col.count }} item{{ '' if col.count == 1 else 's' }}</span>
-          </div>
-          <div class="horizon-action">{{ col.action_label }}</div>
-          {% if col['items'] %}
-          <ul class="horizon-list">
-            {% for cell in col['items'] %}
-            <li class="horizon-cell" data-signal="{{ cell.signal }}">
-              <div class="horizon-cell-title">{{ cell.title }}</div>
-              {% if cell.tags %}
-              <div class="horizon-cell-meta">{{ cell.tags|join(' · ') }}</div>
-              {% endif %}
-            </li>
-            {% endfor %}
-          </ul>
-          {% else %}
-          <div class="horizon-empty">No items this week.</div>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-    {% endfor %}
-
-    {% if briefing.commentary_synthesis %}
-    <section class="commentary-synthesis">
-      <h2>Commentary Synthesis: Investors vs Operators</h2>
-      <p class="grounded-view">{{ briefing.commentary_synthesis.grounded_view }}</p>
-      <div class="table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Topic</th>
-              <th>Investor View</th>
-              <th>Operator View</th>
-              <th>Practical Implication</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for row in briefing.commentary_synthesis.comparison_table %}
-            <tr>
-              <td class="topic-cell">{{ row.topic }}</td>
-              <td>{{ row.investor_view }}</td>
-              <td>{{ row.operator_view }}</td>
-              <td class="implication-cell">{{ row.practical_implication }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </section>
-    {% endif %}
-
-    {% if briefing.follow_the_money %}
-    <section class="follow-the-money">
-      <h2>Follow the Money</h2>
-      <div class="table-wrapper">
-        <table class="money-table">
-          <thead>
-            <tr>
-              <th>Trend Type</th>
-              <th>Observation</th>
-              <th>Implication</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in briefing.follow_the_money %}
-            <tr>
-              <td class="trend-cell"><span class="tag">{{ item.trend_type.replace('_', ' ')|title }}</span></td>
-              <td>{{ item.observation }}</td>
-              <td>{{ item.implication }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </section>
-    {% endif %}
-
-    <section class="leader-voices">
-      <h2>Leader Voices</h2>
-      <div class="leaders-grid">
-        {% for lv in briefing.leader_voices %}
-        {% set stance_colour = stance_colours.get(lv.stance, '#5F5E5A') %}
-        {% set stance_label = stance_labels.get(lv.stance, lv.stance) %}
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">{{ lv.name }}</div>
+          <div class="tldr-subhead">How we synthesise them</div>
+          <div class="synthesis-flow">
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">A · INPUT</span>
+              <span>Each Thursday, scrape <strong>up to ~140 articles</strong> from the 7 sources (last 7 days) into one corpus of raw titles, summaries, and URLs.</span>
             </div>
-            <span class="stance-badge" style="background:{{ stance_colour }}22; color:{{ stance_colour }}">{{ stance_label }}</span>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">B · ANALYSE</span>
+              <span><strong>Claude Opus + web search</strong> filters out non-AI noise, validates URLs, and writes the briefing: capital theses first, then aligns Product Hunt launches to those theses, pulls leader voices via web search, and groups opportunities by horizon.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">C · AUDIT</span>
+              <span>An automated audit checks <strong>https URLs, AI-relevance, schema, horizons, source whitelist, PH thesis alignment</strong>. If anything critical fails, the briefing is re-generated with the audit feedback before it ever publishes.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">D · OUTPUT</span>
+              <span>Render to <strong>HTML + Markdown + JSON</strong>, archive the JSON, and deploy to GitHub Pages.</span>
+            </div>
           </div>
-          <div class="leader-org">{{ lv.org }}</div>
-          <p class="leader-quote">"{{ lv.quote_or_paragraph }}"</p>
-          <p class="leader-implication">{{ lv.strategic_implication }}</p>
-          {% if lv.url %}
-          <a href="{{ lv.url }}" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          {% endif %}
-        </article>
-        {% endfor %}
-      </div>
-    </section>
 
-    <section class="top-signals">
-      <h2>Top Signals This Week</h2>
-      <div class="signals-list">
-        {% for sig in briefing.top_signals %}
-        {% set idx = loop.index %}
-        {% set urg_colour = urgency_colours.get(sig.urgency, '#5F5E5A') %}
-        {% set urg_label = urgency_labels.get(sig.urgency, sig.urgency) %}
-        <div class="signal-row">
-          <div class="signal-number" style="background:{{ urg_colour }}">{{ idx }}</div>
-          <div class="signal-body">
-            <div class="signal-headline">{{ sig.headline }}</div>
-            <div class="signal-detail">{{ sig.why_it_matters }}</div>
-            <span class="urgency-badge" style="background:{{ urg_colour }}22; color:{{ urg_colour }}">{{ urg_label }}</span>
+          <div class="tldr-subhead">The 3-step pipeline</div>
+          <div class="pipeline">
+            <div class="pipeline-step" data-step="1">
+              <span class="pipeline-step-num">Step 1 · Scan</span>
+              <span class="pipeline-step-label">7 sources, AI-only</span>
+              <span class="pipeline-step-detail">TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="2">
+              <span class="pipeline-step-num">Step 2 · Analyse</span>
+              <span class="pipeline-step-label">Claude Opus + web search</span>
+              <span class="pipeline-step-detail">Filter noise · validate URLs · align PH to theses · pull leader voices.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="3">
+              <span class="pipeline-step-num">Step 3 · Brief</span>
+              <span class="pipeline-step-label">5 lenses + signals</span>
+              <span class="pipeline-step-detail">Capital theses · what's being built · opp now / mid / long · top signals · leader voices · follow the money.</span>
+            </div>
+          </div>
+
+          <div class="tldr-footer">
+            <span class="tldr-footer-chip">Cadence: weekly · Thu 22:00 UTC</span>
+            <span class="tldr-footer-chip">Audit-gated output</span>
+            <span class="tldr-footer-chip">~15–25 items / week</span>
+            <span class="tldr-footer-chip">Every claim has a clickable source</span>
+            <span class="tldr-footer-chip"><a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Open source ↗</a></span>
+          </div>
+
+          <div class="tldr-goal">
+            <strong>Goal:</strong> a 5-minute read that tells an AI operator or investor where capital is moving, what's shipping, and which doors are opening — clearly, simply, and with sources you can click on every line.
+          </div>
+        </section>
+
+        {% if not briefing %}
+        <section class="prelaunch" aria-label="Pre-launch notice">
+          <span class="prelaunch-pill">Coming Thursday</span>
+          <div class="prelaunch-title">The first briefing publishes this Thursday 22:00 UTC.</div>
+          <p class="prelaunch-text">
+            This page is the pre-launch landing for the Weekly AI Strategy Briefing. The first edition will appear here automatically on the next Thursday run — including capital theses, what's being built, opportunities across horizons, leader voices, and the full top-signals list. Subscribe by bookmarking this URL.
+          </p>
+        </section>
+        {% endif %}
+
+        {% if briefing %}
+        <div class="metrics">
+          <div class="metric-card">
+            <div class="metric-value">{{ total_items }}</div>
+            <div class="metric-label">Items scanned</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">{{ high_signal_count }}</div>
+            <div class="metric-label">High signal items</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">{{ sources_monitored }}</div>
+            <div class="metric-label">Sources monitored</div>
           </div>
         </div>
-        {% endfor %}
-      </div>
-    </section>
 
-    <footer>
+        {% for cat in briefing.categories %}
+        {% set colour = category_colours.get(cat.id, '#5F5E5A') %}
+        <section class="category" data-category="{{ cat.id }}">
+          <div class="category-header">
+            <div class="category-stripe" style="background:{{ colour }}"></div>
+            <h2>{{ cat.name }}</h2>
+            <span class="item-count">{{ cat['items']|length }} items</span>
+          </div>
+          <div class="items-grid">
+            {% for item in cat['items'] %}
+            <article class="item-card" data-signal="{{ item.signal }}" style="--cat-colour: {{ colour }}">
+              <div class="item-header">
+                {% if item.url %}
+                <a href="{{ item.url }}" class="item-title" target="_blank" rel="noopener">{{ item.title }}</a>
+                {% else %}
+                <span class="item-title">{{ item.title }}</span>
+                {% endif %}
+                <div class="signal-dots" data-level="{{ item.signal }}">
+                  {{ signal_dots(item.signal)|safe }}
+                </div>
+              </div>
+              <p class="item-summary">{{ item.summary }}</p>
+              <div class="item-meta">
+                <span class="source-badge" style="{{ source_badge_style(cat.id) }}">{{ item.source }}</span>
+                {% if item.horizon %}
+                <span class="horizon-badge">{{ horizon_labels.get(item.horizon, item.horizon) }}</span>
+                {% endif %}
+                {% for tag in item.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+                {% if item.aligned_thesis %}
+                <span class="tag" title="Validates thesis">↳ {{ item.aligned_thesis }}</span>
+                {% endif %}
+              </div>
+              {% if item.url %}
+              <a href="{{ item.url }}" class="item-source-link" target="_blank" rel="noopener">
+                Read source on {{ item.source }} <span class="item-source-arrow">↗</span>
+              </a>
+              {% endif %}
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        {% if cat.id == 'capital_theses' and thesis_map_rows %}
+        <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
+          <h2>Thesis Map — where capital connects to what's shipping</h2>
+          <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
+          <div class="thesis-map">
+            {% for row in thesis_map_rows %}
+            <div class="thesis-row">
+              <div class="thesis-label">{{ row.thesis.title }}</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                {% for a in row.aligned %}
+                {% if a.url %}
+                <a class="thesis-chip" href="{{ a.url }}" target="_blank" rel="noopener" data-ph="{{ 'true' if a.is_ph else 'false' }}" style="--chip-colour: {{ a.cat_colour }}">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">{{ a.title }}</span>
+                </a>
+                {% else %}
+                <span class="thesis-chip" data-ph="{{ 'true' if a.is_ph else 'false' }}" style="--chip-colour: {{ a.cat_colour }}">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">{{ a.title }}</span>
+                </span>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        {% if cat.id == 'building' and horizon_matrix %}
+        <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
+          <h2>Opportunity Horizon Matrix</h2>
+          <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
+          <div class="horizon-matrix">
+            {% for col in horizon_matrix %}
+            <div class="horizon-column" style="--col-colour: {{ col.colour }}">
+              <div class="horizon-head">
+                <span class="horizon-range">{{ col.range_label }}</span>
+                <span class="horizon-count">{{ col.count }} item{{ '' if col.count == 1 else 's' }}</span>
+              </div>
+              <div class="horizon-action">{{ col.action_label }}</div>
+              {% if col['items'] %}
+              <ul class="horizon-list">
+                {% for cell in col['items'] %}
+                <li class="horizon-cell" data-signal="{{ cell.signal }}">
+                  <div class="horizon-cell-title">{{ cell.title }}</div>
+                  {% if cell.tags %}
+                  <div class="horizon-cell-meta">{{ cell.tags|join(' · ') }}</div>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+              {% else %}
+              <div class="horizon-empty">No items this week.</div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+        {% endfor %}
+
+        {% if briefing.commentary_synthesis %}
+        <section class="commentary-synthesis">
+          <h2>Commentary Synthesis: Investors vs Operators</h2>
+          <p class="grounded-view">{{ briefing.commentary_synthesis.grounded_view }}</p>
+          <div class="table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Investor View</th>
+                  <th>Operator View</th>
+                  <th>Practical Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in briefing.commentary_synthesis.comparison_table %}
+                <tr>
+                  <td class="topic-cell">{{ row.topic }}</td>
+                  <td>
+                    {{ row.investor_view }}
+                    {% if row.investor_source_url %}
+                    <a class="table-ref-link" href="{{ row.investor_source_url }}" target="_blank" rel="noopener">Investor source ↗</a>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {{ row.operator_view }}
+                    {% if row.operator_source_url %}
+                    <a class="table-ref-link" href="{{ row.operator_source_url }}" target="_blank" rel="noopener">Operator source ↗</a>
+                    {% endif %}
+                  </td>
+                  <td class="implication-cell">{{ row.practical_implication }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </section>
+        {% endif %}
+
+        {% if briefing.follow_the_money %}
+        <section class="follow-the-money">
+          <h2>Follow the Money</h2>
+          <div class="table-wrapper">
+            <table class="money-table">
+              <thead>
+                <tr>
+                  <th>Trend Type</th>
+                  <th>Observation</th>
+                  <th>Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in briefing.follow_the_money %}
+                <tr>
+                  <td class="trend-cell"><span class="tag">{{ item.trend_type.replace('_', ' ')|title }}</span></td>
+                  <td>
+                    {{ item.observation }}
+                    {% if item.source_url %}
+                    <a class="table-ref-link" href="{{ item.source_url }}" target="_blank" rel="noopener">Source ↗</a>
+                    {% endif %}
+                  </td>
+                  <td>{{ item.implication }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </section>
+        {% endif %}
+
+        <section class="leader-voices">
+          <h2>Leader Voices</h2>
+          <div class="leaders-grid">
+            {% for lv in briefing.leader_voices %}
+            {% set stance_colour = stance_colours.get(lv.stance, '#5F5E5A') %}
+            {% set stance_label = stance_labels.get(lv.stance, lv.stance) %}
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">{{ lv.name }}</div>
+                </div>
+                <span class="stance-badge" style="background:{{ stance_colour }}22; color:{{ stance_colour }}">{{ stance_label }}</span>
+              </div>
+              <div class="leader-org">{{ lv.org }}</div>
+              <p class="leader-quote">"{{ lv.quote_or_paragraph }}"</p>
+              <p class="leader-implication">{{ lv.strategic_implication }}</p>
+              {% if lv.url %}
+              <a href="{{ lv.url }}" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              {% endif %}
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="top-signals">
+          <h2>Top Signals This Week</h2>
+          <div class="signals-list">
+            {% for sig in briefing.top_signals %}
+            {% set idx = loop.index %}
+            {% set urg_colour = urgency_colours.get(sig.urgency, '#5F5E5A') %}
+            {% set urg_label = urgency_labels.get(sig.urgency, sig.urgency) %}
+            <div class="signal-row">
+              <div class="signal-number" style="background:{{ urg_colour }}">{{ idx }}</div>
+              <div class="signal-body">
+                <div class="signal-headline">{{ sig.headline }}</div>
+                <div class="signal-detail">{{ sig.why_it_matters }}</div>
+                <span class="urgency-badge" style="background:{{ urg_colour }}22; color:{{ urg_colour }}">{{ urg_label }}</span>
+                {% if sig.url or sig.references %}
+                <div class="signal-refs">
+                  {% if sig.url %}
+                  <a class="ref-link" href="{{ sig.url }}" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  {% endif %}
+                  {% for ref in sig.references or [] %}
+                  <a class="ref-link" href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.label or 'Source' }} <span class="ref-link-arrow">↗</span></a>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        <footer>
           <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
-          <div>Generated by Weekly Tech Update · {{ generated_display }}</div>
+          <div>Generated by <a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener">Weekly Tech Update</a>{% if briefing %} · {{ generated_display }}{% endif %}</div>
         </footer>
       </div>
     </main>

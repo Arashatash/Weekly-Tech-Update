@@ -43,6 +43,17 @@ def test_audit_warns_on_thin_summary(sample_briefing):
     )
 
 
+def test_audit_flags_too_few_category_items(sample_briefing):
+    for cat in sample_briefing["categories"]:
+        cat["items"] = cat["items"][:1]
+    result = audit_briefing(sample_briefing)
+    assert result["passed"] is False
+    assert any(
+        i["check"] == "schema" and "at least" in i["message"]
+        for i in result["issues"]
+    )
+
+
 def test_audit_flags_missing_leader_voices(sample_briefing):
     del sample_briefing["leader_voices"]
     result = audit_briefing(sample_briefing)

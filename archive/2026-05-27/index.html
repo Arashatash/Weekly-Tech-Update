@@ -38,9 +38,7 @@
       min-height: 100vh;
     }
     @media (min-width: 1024px) {
-      .layout-wrapper {
-        flex-direction: row;
-      }
+      .layout-wrapper { flex-direction: row; }
     }
 
     /* --- Sidebar --- */
@@ -65,14 +63,52 @@
     .sidebar-title {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       color: var(--text-primary);
+    }
+    .sidebar-section + .sidebar-section { margin-top: 1.5rem; }
+    .sidebar-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      padding: 0.55rem 0.6rem;
+      border: 1px dashed var(--card-border);
+      border-radius: 6px;
+      line-height: 1.4;
+    }
+    .current-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .sidebar-cadence {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--card-border);
+      line-height: 1.4;
     }
     .history-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
     .history-item a {
       display: block;
@@ -98,11 +134,9 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.2rem;
-      opacity: 0.8;
+      opacity: 0.85;
     }
-    .history-theme {
-      line-height: 1.3;
-    }
+    .history-theme { line-height: 1.3; }
 
     /* --- Main Content --- */
     .content {
@@ -112,8 +146,8 @@
     .container { max-width: var(--max-width); margin: 0 auto; }
 
     header {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--card-border);
     }
     .week-label {
@@ -138,6 +172,235 @@
       gap: 1rem;
       font-size: 0.875rem;
       color: var(--text-secondary);
+    }
+
+    /* --- TL;DR / How it works --- */
+    .tldr {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tldr-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .tldr-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #0F6E5622;
+      color: #0F6E56;
+    }
+    .tldr-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .tldr-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .tldr-text strong { color: var(--text-primary); }
+    .tldr-subhead {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 1.25rem 0 0.55rem;
+    }
+
+    /* Sources grid (resources we read each week) */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) {
+      .sources-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .sources-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .source-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      padding: 0.55rem 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .source-row:hover {
+      border-color: var(--src-colour, #185FA5);
+      transform: translateY(-1px);
+    }
+    .source-row-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      border-left: 3px solid var(--src-colour, #185FA5);
+      padding-left: 0.5rem;
+      font-size: 0.82rem;
+    }
+    .source-row-role { line-height: 1.35; }
+
+    /* Synthesis flow */
+    .synthesis-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .synthesis-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .synthesis-step-icon {
+      font-weight: 700;
+      color: #0F6E56;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 0.1rem 0.45rem;
+      background: #0F6E5615;
+      border-radius: 4px;
+      align-self: start;
+    }
+    .synthesis-step strong { color: var(--text-primary); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .pipeline {
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: stretch;
+      }
+    }
+    .pipeline-step {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .pipeline-step[data-step="1"] { border-left: 3px solid #185FA5; }
+    .pipeline-step[data-step="2"] { border-left: 3px solid #0F6E56; }
+    .pipeline-step[data-step="3"] { border-left: 3px solid #993C1D; }
+    .pipeline-step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .pipeline-step-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+    .pipeline-step-detail {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .pipeline-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    @media (min-width: 768px) { .pipeline-arrow { display: flex; } }
+
+    .tldr-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .tldr-footer-chip {
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+    }
+    .tldr-goal {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-left: 3px solid #534AB7;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .tldr-goal strong { color: #534AB7; }
+
+    /* --- Pre-launch hero (no briefing yet) --- */
+    .prelaunch {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid #185FA5;
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .prelaunch-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-bottom: 0.6rem;
+    }
+    .prelaunch-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .prelaunch-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
     }
 
     .metrics {
@@ -178,7 +441,6 @@
       gap: 1rem;
     }
     @media (min-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1280px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
 
     .item-card {
       background: var(--card-bg);
@@ -186,6 +448,8 @@
       border-radius: 8px;
       padding: 1.25rem;
       border-left: 3px solid var(--cat-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
     }
     .item-header {
       display: flex;
@@ -239,6 +503,21 @@
       background: var(--card-border);
       color: var(--text-secondary);
     }
+    .item-source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .item-source-link:hover { color: var(--cat-colour, #185FA5); }
+    .item-source-arrow { font-weight: 700; }
 
     .top-signals { margin-bottom: 2.5rem; }
     .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
@@ -266,6 +545,41 @@
     .signal-body { flex: 1; min-width: 0; }
     .signal-headline { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1.1rem; }
     .signal-detail { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .signal-refs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .signal-refs .ref-link {
+      padding: 0.18rem 0.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+    }
+
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed transparent;
+    }
+    .ref-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+    .ref-link-arrow { font-weight: 700; }
+    .table-ref-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: 0.4rem;
+      border-bottom: 1px dashed transparent;
+    }
+    .table-ref-link:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
 
     /* --- Tables (Commentary & Money) --- */
     .table-wrapper {
@@ -292,7 +606,7 @@
       top: 0;
     }
     td {
-      background: #ffffff;
+      background: var(--card-bg);
       vertical-align: top;
       color: var(--text-secondary);
     }
@@ -362,8 +676,11 @@
       font-size: 0.8rem;
       color: var(--text-secondary);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
-    .leader-link:hover { text-decoration: underline; }
+    .leader-link:hover { text-decoration: underline; color: var(--text-primary); }
 
     footer {
       margin-top: 3rem;
@@ -374,6 +691,12 @@
       text-align: center;
     }
     footer div { margin-bottom: 0.35rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    footer a:hover { color: var(--text-primary); }
 
     /* --- Strategic visuals --- */
     .viz { margin-bottom: 2.5rem; }
@@ -393,9 +716,7 @@
       grid-template-columns: 1fr;
       gap: 1rem;
     }
-    @media (min-width: 768px) {
-      .horizon-matrix { grid-template-columns: repeat(3, 1fr); }
-    }
+    @media (min-width: 768px) { .horizon-matrix { grid-template-columns: repeat(3, 1fr); } }
     .horizon-column {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -497,9 +818,7 @@
       font-size: 1.1rem;
       justify-self: center;
     }
-    @media (min-width: 768px) {
-      .thesis-arrow { display: inline; }
-    }
+    @media (min-width: 768px) { .thesis-arrow { display: inline; } }
     .thesis-aligned {
       display: flex;
       flex-wrap: wrap;
@@ -551,50 +870,49 @@
   
   <div class="layout-wrapper">
     <nav class="sidebar">
-      <div class="sidebar-title">Archive</div>
-      <ul class="history-list">
+      <div class="sidebar-title">Weekly AI Strategy</div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">This week</div>
         
+        <ul class="history-list">
+          <li class="history-item">
+            <a href="../../index.html" class="">
+              <div class="history-date">
+                2026-05-27<span class="current-pill">Live</span>
+              </div>
+              <div class="history-theme">The model became a commodity; the orchestration, services, and operating models built on top became the prize.</div>
+            </a>
+          </li>
+        </ul>
         
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Archive</div>
         
-        <li class="history-item">
-          <a href="../../index.html" class="active">
-            <div class="history-date">2026-05-27</div>
-            <div class="history-theme">The model became a commodity; the orchestration, services, and operating models built on top became the prize.</div>
-          </a>
-        </li>
+        <ul class="history-list">
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-04/index.html" class="">
+              <div class="history-date">2026-06-04</div>
+              <div class="history-theme">The AI race repriced itself around capital, electricity, and outcomes — not models.</div>
+            </a>
+          </li>
+          
+        </ul>
         
-        
-        
-        <li class="history-item">
-          <a href="../../archive/2026-05-25/index.html" class="">
-            <div class="history-date">2026-05-25</div>
-            <div class="history-theme">Harnesses eat models: AGI rhetoric peaks while compute, memory and energy quietly become the real moat.</div>
-          </a>
-        </li>
-        
-        
-        
-        <li class="history-item">
-          <a href="../../archive/2026-05-24/index.html" class="">
-            <div class="history-date">2026-05-24</div>
-            <div class="history-theme">Foothills of the singularity meet a permanent price war: capital pivots from frontier models to the agents, memory and open-weight infrastructure underneath them.</div>
-          </a>
-        </li>
-        
-        
-        
-        <li class="history-item">
-          <a href="../../archive/2026-05-18/index.html" class="">
-            <div class="history-date">2026-05-18</div>
-            <div class="history-theme">Last Week Theme</div>
-          </a>
-        </li>
-        
-      </ul>
+      </div>
+
+      <div class="sidebar-cadence">
+        New briefing every Thursday 22:00 UTC (Friday 8am AEST). The current week's edition rotates to Archive when the next one publishes.
+      </div>
     </nav>
+
     <main class="content">
       <div class="container">
         <header>
+          
           <div class="week-label">WEEK 22 · May 25 – May 31, 2026</div>
           <h1>The model became a commodity; the orchestration, services, and operating models built on top became the prize.</h1>
           <p class="context">Two narratives collided this week. On one side, the multi-model future shipped: OpenRouter&#39;s $1.3B valuation, Anthropic&#39;s agentic coding event, and Sequoia&#39;s services-as-software thesis all point to value moving from the model itself to the orchestration, services, and operating models built on top. On the other side, the leadership voice on AI&#39;s social impact fractured — Altman walked back his jobs apocalypse framing the same week Hassabis called this the foothills of the singularity. Operators should treat capability gains as continuous but adoption as gated by infra, governance, and org design — not raw intelligence.</p>
@@ -603,1275 +921,1541 @@
             <span>10 high signal</span>
             <span>Generated May 27, 2026 02:15 UTC</span>
           </div>
+          
         </header>
 
+        <section class="tldr" aria-label="How this briefing is built">
+          <div class="tldr-head">
+            <span class="tldr-pill">TL;DR</span>
+            <span class="tldr-title">What this is &amp; how it's built</span>
+          </div>
+          <p class="tldr-text">
+            A weekly <strong>AI strategy briefing</strong> — not a news digest — for operators and investors.
+            Every Thursday it pulls from <strong>7 frontier sources</strong>, hands the raw stories to
+            <strong>Claude Opus + web search</strong>, and ships a structured report covering
+            <strong>capital theses, what's being built, and opportunities now / mid / long</strong>.
+          </p>
+
+          <div class="tldr-subhead">Resources we read each week</div>
+          <div class="sources-grid">
+            <a class="source-row" href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">TechCrunch</span>
+              <span class="source-row-role">AI deals, launches, regulatory news</span>
+            </a>
+            <a class="source-row" href="https://a16z.com/news-content/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">a16z</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://sequoiacap.com/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">Sequoia</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://news.ycombinator.com/front" target="_blank" rel="noopener" style="--src-colour: #993C1D">
+              <span class="source-row-name">Y Combinator</span>
+              <span class="source-row-role">Founder &amp; HN front-page pulse</span>
+            </a>
+            <a class="source-row" href="https://www.technologyreview.com/" target="_blank" rel="noopener" style="--src-colour: #534AB7">
+              <span class="source-row-name">MIT Tech Review</span>
+              <span class="source-row-role">Research-to-product context</span>
+            </a>
+            <a class="source-row" href="https://www.producthunt.com/" target="_blank" rel="noopener" style="--src-colour: #854F0B">
+              <span class="source-row-name">Product Hunt</span>
+              <span class="source-row-role">What's shipping right now</span>
+            </a>
+            <a class="source-row" href="https://huggingface.co/papers" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">HF Papers</span>
+              <span class="source-row-role">Frontier ML research</span>
+            </a>
+          </div>
+
+          <div class="tldr-subhead">How we synthesise them</div>
+          <div class="synthesis-flow">
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">A · INPUT</span>
+              <span>Each Thursday, scrape <strong>up to ~140 articles</strong> from the 7 sources (last 7 days) into one corpus of raw titles, summaries, and URLs.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">B · ANALYSE</span>
+              <span><strong>Claude Opus + web search</strong> filters out non-AI noise, validates URLs, and writes the briefing: capital theses first, then aligns Product Hunt launches to those theses, pulls leader voices via web search, and groups opportunities by horizon.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">C · AUDIT</span>
+              <span>An automated audit checks <strong>https URLs, AI-relevance, schema, horizons, source whitelist, PH thesis alignment</strong>. If anything critical fails, the briefing is re-generated with the audit feedback before it ever publishes.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">D · OUTPUT</span>
+              <span>Render to <strong>HTML + Markdown + JSON</strong>, archive the JSON, and deploy to GitHub Pages.</span>
+            </div>
+          </div>
+
+          <div class="tldr-subhead">The 3-step pipeline</div>
+          <div class="pipeline">
+            <div class="pipeline-step" data-step="1">
+              <span class="pipeline-step-num">Step 1 · Scan</span>
+              <span class="pipeline-step-label">7 sources, AI-only</span>
+              <span class="pipeline-step-detail">TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="2">
+              <span class="pipeline-step-num">Step 2 · Analyse</span>
+              <span class="pipeline-step-label">Claude Opus + web search</span>
+              <span class="pipeline-step-detail">Filter noise · validate URLs · align PH to theses · pull leader voices.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="3">
+              <span class="pipeline-step-num">Step 3 · Brief</span>
+              <span class="pipeline-step-label">5 lenses + signals</span>
+              <span class="pipeline-step-detail">Capital theses · what's being built · opp now / mid / long · top signals · leader voices · follow the money.</span>
+            </div>
+          </div>
+
+          <div class="tldr-footer">
+            <span class="tldr-footer-chip">Cadence: weekly · Thu 22:00 UTC</span>
+            <span class="tldr-footer-chip">Audit-gated output</span>
+            <span class="tldr-footer-chip">~15–25 items / week</span>
+            <span class="tldr-footer-chip">Every claim has a clickable source</span>
+            <span class="tldr-footer-chip"><a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Open source ↗</a></span>
+          </div>
+
+          <div class="tldr-goal">
+            <strong>Goal:</strong> a 5-minute read that tells an AI operator or investor where capital is moving, what's shipping, and which doors are opening — clearly, simply, and with sources you can click on every line.
+          </div>
+        </section>
+
+        
+
+        
         <div class="metrics">
-      <div class="metric-card">
-        <div class="metric-value">22</div>
-        <div class="metric-label">Items scanned</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">10</div>
-        <div class="metric-label">High signal items</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">7</div>
-        <div class="metric-label">Sources monitored</div>
-      </div>
-    </div>
-
-    
-    
-    <section class="category" data-category="capital_theses">
-      <div class="category-header">
-        <div class="category-stripe" style="background:#0F6E56"></div>
-        <h2>Capital &amp; Theses</h2>
-        <span class="item-count">5 items</span>
-      </div>
-      <div class="items-grid">
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">The Multi-Model Inference Layer</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
+          <div class="metric-card">
+            <div class="metric-value">22</div>
+            <div class="metric-label">Items scanned</div>
           </div>
-          <p class="item-summary">OpenRouter&#39;s $113M CapitalG-led Series B at ~$1.3B post-money and a 5x jump to 25T tokens/week confirms capital is repricing the inference orchestration layer as a Stripe/Cloudflare-class platform. Investors are now explicitly betting against single-vendor lock-in and pricing the model as a commodity engine — the moat moves to routing, governance, and live traffic data.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
-            
-            
-            <span class="tag">infra</span>
-            
-            <span class="tag">inference</span>
-            
-            <span class="tag">multi-model</span>
-            
-            
+          <div class="metric-card">
+            <div class="metric-value">10</div>
+            <div class="metric-label">High signal items</div>
           </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Services as the New Software</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Sequoia is hardening a thesis that the biggest 2026 AI businesses will sell completed work (outcomes/labor hours) rather than seat-based tools — turning agentic systems into a multi-trillion services TAM. Implication: AI-native firms can attack incumbents in legal, wealth, retail, and healthcare by pricing on work delivered, not software accessed.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
-            
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">services</span>
-            
-            <span class="tag">thesis</span>
-            
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-title" target="_blank" rel="noopener">Physical AI Needs Human Data</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Human Archive (Berkeley/Stanford founders) paying Indian gig workers to wear sensor caps signals that capital has accepted physical-world training data as the next scarce resource for robotics/embodied AI. Whoever owns the egocentric data pipeline becomes the ImageNet of physical AI — a defensible data moat the labs cannot generate themselves.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
-            
-            
-            <span class="tag">robotics</span>
-            
-            <span class="tag">data</span>
-            
-            <span class="tag">physical-ai</span>
-            
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">Open Source AI as US Strategic Asset</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Ben Horowitz frames open-source AI weights as the cultural and geopolitical battlefield where the US is currently losing to Chinese models like DeepSeek. Capital implication: a16z&#39;s $20B AI fund and American Dynamism allocations will tilt toward US open-weights and defense-adjacent infra — opening rounds for any credible US open-source frontier challenger.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
-            
-            
-            <span class="tag">open-source</span>
-            
-            <span class="tag">geopolitics</span>
-            
-            <span class="tag">policy</span>
-            
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
-          <div class="item-header">
-            
-            <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-title" target="_blank" rel="noopener">Agentic Org Design</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Roelof Botha and Jack Dorsey&#39;s joint argument that hierarchical org charts are obsolete — replaced by a circle of humans around an AI center — is a real capital signal: Sequoia is underwriting AI-native operating models, not just AI products. Founders building flatter, agent-centric companies will get preferential terms; legacy SaaS metrics are being repriced.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
-            
-            
-            <span class="tag">org-design</span>
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">operating-model</span>
-            
-            
-          </div>
-        </article>
-        
-      </div>
-    </section>
-
-    
-    <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
-      <h2>Thesis Map — where capital connects to what's shipping</h2>
-      <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
-      <div class="thesis-map">
-        
-        <div class="thesis-row">
-          <div class="thesis-label">The Multi-Model Inference Layer</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            
-            
-            <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">OpenRouter scales to 25T tokens/week as the AI model exchange</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Build the enterprise governance layer on top of multi-model gateways</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">FinOps for inference budgets</span>
-            </a>
-            
-            
+          <div class="metric-card">
+            <div class="metric-value">7</div>
+            <div class="metric-label">Sources monitored</div>
           </div>
         </div>
-        
-        <div class="thesis-row">
-          <div class="thesis-label">Services as the New Software</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            
-            
-            <a class="thesis-chip" href="https://www.producthunt.com/products/portia-ai" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Portia AI (Rezonant) — PRD-to-coding-agent flow</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://www.producthunt.com/products/willow-voice" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Willow Scribe — voice-first knowledge work</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">AI-native vertical services firms (legal, wealth, retail)</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://huggingface.co/papers/2605.27366" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Agent evaluation and verifiability infrastructure</span>
-            </a>
-            
-            
-          </div>
-        </div>
-        
-        <div class="thesis-row">
-          <div class="thesis-label">Physical AI Needs Human Data</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            
-            
-            <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Egocentric data pipelines for physical AI</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">World models as the new compute platform</span>
-            </a>
-            
-            
-          </div>
-        </div>
-        
-        <div class="thesis-row">
-          <div class="thesis-label">Open Source AI as US Strategic Asset</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            
-            
-            <a class="thesis-chip" href="https://www.producthunt.com/products/avaturn-live-2" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">AVTR-1 Real-Time Open Weights Avatar Model</span>
-            </a>
-            
-            
-            
-            <a class="thesis-chip" href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">US open-weights revival or permanent loss</span>
-            </a>
-            
-            
-          </div>
-        </div>
-        
-        <div class="thesis-row">
-          <div class="thesis-label">Agentic Org Design</div>
-          <div class="thesis-arrow" aria-hidden="true">→</div>
-          <div class="thesis-aligned">
-            
-            
-            <a class="thesis-chip" href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
-              <span class="thesis-chip-dot"></span>
-              <span class="thesis-chip-label">Post-hierarchical companies as a fundable category</span>
-            </a>
-            
-            
-          </div>
-        </div>
-        
-      </div>
-    </section>
-    
 
-    
-    
-    
-    <section class="category" data-category="building">
-      <div class="category-header">
-        <div class="category-stripe" style="background:#185FA5"></div>
-        <h2>What&#39;s Being Built</h2>
-        <span class="item-count">5 items</span>
-      </div>
-      <div class="items-grid">
         
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">OpenRouter scales to 25T tokens/week as the AI model exchange</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">OpenRouter now routes 100T tokens/month across 400+ models and serves 8M users — concrete proof the multi-model paradigm is in production, not aspirational. For operators: standardize on a routing layer now or risk lock-in; for model labs: the brand premium is collapsing into per-token economics visible on OpenRouter&#39;s public rankings.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
-            
-            
-            <span class="tag">inference</span>
-            
-            <span class="tag">routing</span>
-            
-            <span class="tag">enterprise</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
-            
-          </div>
-        </article>
         
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Anthropic&#39;s Code with Claude — coding is a vibe-coded pipeline</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
+        <section class="category" data-category="capital_theses">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#0F6E56"></div>
+            <h2>Capital &amp; Theses</h2>
+            <span class="item-count">5 items</span>
           </div>
-          <p class="item-summary">Anthropic&#39;s London developer event made it clear that agentic coding — multi-file, long-horizon PRs shipped without a human writing every line — is the production default, not an experiment. Implication: dev tools that still assume line-by-line authorship are stranded assets; the next moat is evaluation, review, and verifiability of agent output.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
+          <div class="items-grid">
             
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">The Multi-Model Inference Layer</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">OpenRouter&#39;s $113M CapitalG-led Series B at ~$1.3B post-money and a 5x jump to 25T tokens/week confirms capital is repricing the inference orchestration layer as a Stripe/Cloudflare-class platform. Investors are now explicitly betting against single-vendor lock-in and pricing the model as a commodity engine — the moat moves to routing, governance, and live traffic data.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">infra</span>
+                
+                <span class="tag">inference</span>
+                
+                <span class="tag">multi-model</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
-            <span class="tag">coding</span>
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-title" target="_blank" rel="noopener">Services as the New Software</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Sequoia is hardening a thesis that the biggest 2026 AI businesses will sell completed work (outcomes/labor hours) rather than seat-based tools — turning agentic systems into a multi-trillion services TAM. Implication: AI-native firms can attack incumbents in legal, wealth, retail, and healthcare by pricing on work delivered, not software accessed.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
+                
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">services</span>
+                
+                <span class="tag">thesis</span>
+                
+                
+              </div>
+              
+              <a href="https://sequoiacap.com/article/services-the-new-software/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Sequoia Capital <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
-            <span class="tag">agents</span>
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-title" target="_blank" rel="noopener">Physical AI Needs Human Data</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Human Archive (Berkeley/Stanford founders) paying Indian gig workers to wear sensor caps signals that capital has accepted physical-world training data as the next scarce resource for robotics/embodied AI. Whoever owns the egocentric data pipeline becomes the ImageNet of physical AI — a defensible data moat the labs cannot generate themselves.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">data</span>
+                
+                <span class="tag">physical-ai</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
-            <span class="tag">dev-tools</span>
+            <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">Open Source AI as US Strategic Asset</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Ben Horowitz frames open-source AI weights as the cultural and geopolitical battlefield where the US is currently losing to Chinese models like DeepSeek. Capital implication: a16z&#39;s $20B AI fund and American Dynamism allocations will tilt toward US open-weights and defense-adjacent infra — opening rounds for any credible US open-source frontier challenger.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">open-source</span>
+                
+                <span class="tag">geopolitics</span>
+                
+                <span class="tag">policy</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
+            <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-title" target="_blank" rel="noopener">Agentic Org Design</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Roelof Botha and Jack Dorsey&#39;s joint argument that hierarchical org charts are obsolete — replaced by a circle of humans around an AI center — is a real capital signal: Sequoia is underwriting AI-native operating models, not just AI products. Founders building flatter, agent-centric companies will get preferential terms; legacy SaaS metrics are being repriced.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">Sequoia Capital</span>
+                
+                
+                <span class="tag">org-design</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">operating-model</span>
+                
+                
+              </div>
+              
+              <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Sequoia Capital <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
           </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-title" target="_blank" rel="noopener">Google I/O 2026 replaces blue links with AI agents</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">Google overhauled Search at I/O to put AI agents in front of blue links, triggering a 30% spike in DuckDuckGo installs — a measurable consumer backlash. For builders: the SEO-as-distribution era is collapsing; for investors: agent-native discovery (and privacy-first alternatives) is suddenly a fundable category again.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
-            
-            
-            <span class="tag">search</span>
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">distribution</span>
-            
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://www.producthunt.com/products/portia-ai" class="item-title" target="_blank" rel="noopener">Portia AI (Rezonant) — PRD-to-coding-agent flow</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Validates Services as the New Software: Portia ships a flow that turns product intent into PRDs and dispatches work directly to coding agents — selling completed engineering work, not editor seats. Concrete operator wedge: PM/eng teams can route greenfield tasks to agents while preserving spec quality; investor read: services-as-software is shipping at the application layer.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
-            
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">coding</span>
-            
-            <span class="tag">prd</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
-          <div class="item-header">
-            
-            <a href="https://www.producthunt.com/products/avaturn-live-2" class="item-title" target="_blank" rel="noopener">AVTR-1 Real-Time Open Weights Avatar Model</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Validates Open Source AI as US Strategic Asset: a real-time avatar model shipped with open weights shows the open-source frontier is now competing in multimodal/real-time generation, not just text. For investors backing US open-source: this is the kind of capability density needed to keep western open weights culturally and commercially relevant against Chinese alternatives.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
-            
-            
-            <span class="tag">open-weights</span>
-            
-            <span class="tag">multimodal</span>
-            
-            <span class="tag">avatars</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Open Source AI as US Strategic Asset</span>
-            
-          </div>
-        </article>
-        
-      </div>
-    </section>
+        </section>
 
-    
+        
+        <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
+          <h2>Thesis Map — where capital connects to what's shipping</h2>
+          <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
+          <div class="thesis-map">
+            
+            <div class="thesis-row">
+              <div class="thesis-label">The Multi-Model Inference Layer</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">OpenRouter scales to 25T tokens/week as the AI model exchange</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Build the enterprise governance layer on top of multi-model gateways</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">FinOps for inference budgets</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Services as the New Software</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://www.producthunt.com/products/portia-ai" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Portia AI (Rezonant) — PRD-to-coding-agent flow</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://www.producthunt.com/products/willow-voice" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Willow Scribe — voice-first knowledge work</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">AI-native vertical services firms (legal, wealth, retail)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://huggingface.co/papers/2605.27366" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Agent evaluation and verifiability infrastructure</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Physical AI Needs Human Data</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Egocentric data pipelines for physical AI</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">World models as the new compute platform</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Open Source AI as US Strategic Asset</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://www.producthunt.com/products/avaturn-live-2" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">AVTR-1 Real-Time Open Weights Avatar Model</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">US open-weights revival or permanent loss</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Agentic Org Design</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Post-hierarchical companies as a fundable category</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
 
-    
-    <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
-      <h2>Opportunity Horizon Matrix</h2>
-      <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
-      <div class="horizon-matrix">
         
-        <div class="horizon-column" style="--col-colour: #993C1D">
-          <div class="horizon-head">
-            <span class="horizon-range">0–6 mo</span>
-            <span class="horizon-count">4 items</span>
-          </div>
-          <div class="horizon-action">Act now</div>
-          
-          <ul class="horizon-list">
-            
-            <li class="horizon-cell" data-signal="high">
-              <div class="horizon-cell-title">Build the enterprise governance layer on top of multi-model gateways</div>
-              
-              <div class="horizon-cell-meta">finops · governance</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">Willow Scribe — voice-first knowledge work</div>
-              
-              <div class="horizon-cell-meta">voice · agents</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">Privacy-first / non-AI search distribution arbitrage</div>
-              
-              <div class="horizon-cell-meta">search · privacy</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="high">
-              <div class="horizon-cell-title">FinOps for inference budgets</div>
-              
-              <div class="horizon-cell-meta">finops · agents</div>
-              
-            </li>
-            
-          </ul>
-          
-        </div>
         
-        <div class="horizon-column" style="--col-colour: #854F0B">
-          <div class="horizon-head">
-            <span class="horizon-range">6–18 mo</span>
-            <span class="horizon-count">4 items</span>
-          </div>
-          <div class="horizon-action">Position</div>
-          
-          <ul class="horizon-list">
-            
-            <li class="horizon-cell" data-signal="high">
-              <div class="horizon-cell-title">AI-native vertical services firms (legal, wealth, retail)</div>
-              
-              <div class="horizon-cell-meta">vertical-ai · services</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="high">
-              <div class="horizon-cell-title">Egocentric data pipelines for physical AI</div>
-              
-              <div class="horizon-cell-meta">robotics · data-ops</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">Agent evaluation and verifiability infrastructure</div>
-              
-              <div class="horizon-cell-meta">evals · agents</div>
-              
-            </li>
-            
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">Repricing the entry-level career ladder</div>
-              
-              <div class="horizon-cell-meta">workforce · edtech</div>
-              
-            </li>
-            
-          </ul>
-          
-        </div>
         
-        <div class="horizon-column" style="--col-colour: #534AB7">
-          <div class="horizon-head">
-            <span class="horizon-range">18+ mo</span>
-            <span class="horizon-count">4 items</span>
+        <section class="category" data-category="building">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#185FA5"></div>
+            <h2>What&#39;s Being Built</h2>
+            <span class="item-count">5 items</span>
           </div>
-          <div class="horizon-action">Place bets</div>
-          
-          <ul class="horizon-list">
+          <div class="items-grid">
             
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">Agentic scientific discovery as an industry</div>
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">OpenRouter scales to 25T tokens/week as the AI model exchange</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">OpenRouter now routes 100T tokens/month across 400+ models and serves 8M users — concrete proof the multi-model paradigm is in production, not aspirational. For operators: standardize on a routing layer now or risk lock-in; for model labs: the brand premium is collapsing into per-token economics visible on OpenRouter&#39;s public rankings.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">inference</span>
+                
+                <span class="tag">routing</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
+                
+              </div>
               
-              <div class="horizon-cell-meta">ai-science · drug-discovery</div>
+              <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
               
-            </li>
+            </article>
             
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">World models as the new compute platform</div>
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-title" target="_blank" rel="noopener">Anthropic&#39;s Code with Claude — coding is a vibe-coded pipeline</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Anthropic&#39;s London developer event made it clear that agentic coding — multi-file, long-horizon PRs shipped without a human writing every line — is the production default, not an experiment. Implication: dev tools that still assume line-by-line authorship are stranded assets; the next moat is evaluation, review, and verifiability of agent output.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
+                
+                
+                <span class="tag">coding</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">dev-tools</span>
+                
+                
+              </div>
               
-              <div class="horizon-cell-meta">world-models · robotics</div>
+              <a href="https://www.technologyreview.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
               
-            </li>
+            </article>
             
-            <li class="horizon-cell" data-signal="medium">
-              <div class="horizon-cell-title">US open-weights revival or permanent loss</div>
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-title" target="_blank" rel="noopener">Google I/O 2026 replaces blue links with AI agents</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Google overhauled Search at I/O to put AI agents in front of blue links, triggering a 30% spike in DuckDuckGo installs — a measurable consumer backlash. For builders: the SEO-as-distribution era is collapsing; for investors: agent-native discovery (and privacy-first alternatives) is suddenly a fundable category again.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">search</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">distribution</span>
+                
+                
+              </div>
               
-              <div class="horizon-cell-meta">open-source · geopolitics</div>
+              <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
               
-            </li>
+            </article>
             
-            <li class="horizon-cell" data-signal="low">
-              <div class="horizon-cell-title">Post-hierarchical companies as a fundable category</div>
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.producthunt.com/products/portia-ai" class="item-title" target="_blank" rel="noopener">Portia AI (Rezonant) — PRD-to-coding-agent flow</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Services as the New Software: Portia ships a flow that turns product intent into PRDs and dispatches work directly to coding agents — selling completed engineering work, not editor seats. Concrete operator wedge: PM/eng teams can route greenfield tasks to agents while preserving spec quality; investor read: services-as-software is shipping at the application layer.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">coding</span>
+                
+                <span class="tag">prd</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
+                
+              </div>
               
-              <div class="horizon-cell-meta">org-design · ai-native</div>
+              <a href="https://www.producthunt.com/products/portia-ai" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
               
-            </li>
+            </article>
             
-          </ul>
-          
-        </div>
-        
-      </div>
-    </section>
-    
-    
-    
-    <section class="category" data-category="opp_now">
-      <div class="category-header">
-        <div class="category-stripe" style="background:#993C1D"></div>
-        <h2>Opportunities Now</h2>
-        <span class="item-count">4 items</span>
-      </div>
-      <div class="items-grid">
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">Build the enterprise governance layer on top of multi-model gateways</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">With 67% of enterprises already burning &gt;1B tokens/month and routing across 400+ models, ops leaders have an acute pain: cost attribution, prompt/data leakage policies, and per-team spend visibility across providers. Who: AI infra startups and FinOps vendors. What must be true: deep integration with OpenRouter/LiteLLM/Bedrock. When: this quarter — budgets are being set now.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">finops</span>
-            
-            <span class="tag">governance</span>
-            
-            <span class="tag">enterprise</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.producthunt.com/products/avaturn-live-2" class="item-title" target="_blank" rel="noopener">AVTR-1 Real-Time Open Weights Avatar Model</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Open Source AI as US Strategic Asset: a real-time avatar model shipped with open weights shows the open-source frontier is now competing in multimodal/real-time generation, not just text. For investors backing US open-source: this is the kind of capability density needed to keep western open weights culturally and commercially relevant against Chinese alternatives.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">open-weights</span>
+                
+                <span class="tag">multimodal</span>
+                
+                <span class="tag">avatars</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Open Source AI as US Strategic Asset</span>
+                
+              </div>
+              
+              <a href="https://www.producthunt.com/products/avaturn-live-2" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
           </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://www.producthunt.com/products/willow-voice" class="item-title" target="_blank" rel="noopener">Willow Scribe — voice-first knowledge work</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Validates Services as the New Software: Willow Scribe turns spoken intent into completed written work (notes, docs, follow-ups), pricing on output rather than seats. Operator play this quarter: deploy as a wedge into professional services firms (law, consulting, wealth) where billable hour structures are the exact target Sequoia is naming. ElevenLabs&#39; $400M revenue at 400 people proves voice has unit economics.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">voice</span>
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">knowledge-work</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-title" target="_blank" rel="noopener">Privacy-first / non-AI search distribution arbitrage</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">The 30% DuckDuckGo install surge is a near-term distribution opening: a large minority of users actively reject AI-summarized search. Who could capture: privacy browsers, Kagi-style paid search, and AI-skeptic publishers building direct subscriber funnels. What must be true: ship a credible alternative within the next 1-2 quarters before users habituate to AI Search.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">search</span>
-            
-            <span class="tag">privacy</span>
-            
-            <span class="tag">distribution</span>
-            
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/" class="item-title" target="_blank" rel="noopener">FinOps for inference budgets</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
-            </div>
-          </div>
-          <p class="item-summary">85% of orgs want to be agentic in 3 years but 76% admit infra can&#39;t support it — and reports of Uber burning its 2026 Claude Code budget in four months show inference cost overruns are now a board-level issue. Who: FinOps tooling vendors, controllers-of-record for agent traffic. When: budget reset cycles in H2 2026 are the window.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">MIT Technology Review</span>
-            
-            <span class="horizon-badge">0-6 mo</span>
-            
-            
-            <span class="tag">finops</span>
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">enterprise-readiness</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
-            
-          </div>
-        </article>
-        
-      </div>
-    </section>
+        </section>
 
-    
+        
 
-    
-    
-    
-    <section class="category" data-category="opp_mid">
-      <div class="category-header">
-        <div class="category-stripe" style="background:#854F0B"></div>
-        <h2>Opportunities Mid-term</h2>
-        <span class="item-count">4 items</span>
-      </div>
-      <div class="items-grid">
         
-        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
-          <div class="item-header">
+        <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
+          <h2>Opportunity Horizon Matrix</h2>
+          <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
+          <div class="horizon-matrix">
             
-            <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-title" target="_blank" rel="noopener">AI-native vertical services firms (legal, wealth, retail)</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            <div class="horizon-column" style="--col-colour: #993C1D">
+              <div class="horizon-head">
+                <span class="horizon-range">0–6 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Act now</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Build the enterprise governance layer on top of multi-model gateways</div>
+                  
+                  <div class="horizon-cell-meta">finops · governance</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Willow Scribe — voice-first knowledge work</div>
+                  
+                  <div class="horizon-cell-meta">voice · agents</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Privacy-first / non-AI search distribution arbitrage</div>
+                  
+                  <div class="horizon-cell-meta">search · privacy</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">FinOps for inference budgets</div>
+                  
+                  <div class="horizon-cell-meta">finops · agents</div>
+                  
+                </li>
+                
+              </ul>
+              
             </div>
-          </div>
-          <p class="item-summary">Sequoia&#39;s Nevis (wealth) and the $1T AI retail thesis signal a 6-18 month window to attack high-margin services with AI-native firms that sell completed work, not software. Who: founders combining domain licensure + agent infra. What must be true: regulatory approval pathways and customer trust in agent-delivered outputs. When: category leaders likely set by late 2027.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Sequoia Capital</span>
             
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">vertical-ai</span>
-            
-            <span class="tag">services</span>
-            
-            <span class="tag">incumbents</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
-          <div class="item-header">
-            
-            <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-title" target="_blank" rel="noopener">Egocentric data pipelines for physical AI</a>
-            
-            <div class="signal-dots" data-level="high">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+            <div class="horizon-column" style="--col-colour: #854F0B">
+              <div class="horizon-head">
+                <span class="horizon-range">6–18 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Position</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">AI-native vertical services firms (legal, wealth, retail)</div>
+                  
+                  <div class="horizon-cell-meta">vertical-ai · services</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Egocentric data pipelines for physical AI</div>
+                  
+                  <div class="horizon-cell-meta">robotics · data-ops</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Agent evaluation and verifiability infrastructure</div>
+                  
+                  <div class="horizon-cell-meta">evals · agents</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Repricing the entry-level career ladder</div>
+                  
+                  <div class="horizon-cell-meta">workforce · edtech</div>
+                  
+                </li>
+                
+              </ul>
+              
             </div>
-          </div>
-          <p class="item-summary">Human Archive&#39;s gig-worker camera caps are an early move; the 6-18 month opportunity is verticalized physical data: warehouse, surgical, kitchen, construction. Who: data ops startups in LATAM/India/SEA with labor cost advantage. What must be true: clean licensing, consent infrastructure, and exclusive customer contracts with robotics labs (Figure, 1X, Physical Intelligence).</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
             
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">robotics</span>
-            
-            <span class="tag">data-ops</span>
-            
-            <span class="tag">labor-arbitrage</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Physical AI Needs Human Data</span>
-            
-          </div>
-        </article>
-        
-        <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
-          <div class="item-header">
-            
-            <a href="https://huggingface.co/papers/2605.27366" class="item-title" target="_blank" rel="noopener">Agent evaluation and verifiability infrastructure</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+            <div class="horizon-column" style="--col-colour: #534AB7">
+              <div class="horizon-head">
+                <span class="horizon-range">18+ mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Place bets</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Agentic scientific discovery as an industry</div>
+                  
+                  <div class="horizon-cell-meta">ai-science · drug-discovery</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">World models as the new compute platform</div>
+                  
+                  <div class="horizon-cell-meta">world-models · robotics</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">US open-weights revival or permanent loss</div>
+                  
+                  <div class="horizon-cell-meta">open-source · geopolitics</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="low">
+                  <div class="horizon-cell-title">Post-hierarchical companies as a fundable category</div>
+                  
+                  <div class="horizon-cell-meta">org-design · ai-native</div>
+                  
+                </li>
+                
+              </ul>
+              
             </div>
-          </div>
-          <p class="item-summary">MUSE-Autoskill and adjacent self-evolving agent research signal that &#39;is the agent working?&#39; becomes the dominant question once agents are in production. Mid-term play: domain-specific eval harnesses, RL-environment-as-a-service, and audit/observability for autonomous workflows. Who: ex-DeepMind/Anthropic eval engineers; what must be true: enterprises accept that benchmarks ≠ business KPIs.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Hugging Face Papers</span>
-            
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">evals</span>
-            
-            <span class="tag">agents</span>
-            
-            <span class="tag">observability</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
             
           </div>
-        </article>
+        </section>
         
-        <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/26/1137865/its-time-to-address-the-looming-crisis-in-entry-level-work/" class="item-title" target="_blank" rel="noopener">Repricing the entry-level career ladder</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Aggregate employment is stable but entry-level work is quietly weakening — opening a 12-18 month opportunity for apprenticeship-as-a-service, AI-augmented training, and credentialing platforms that rebuild the first career rung. Who: edtech + workforce VCs; what must be true: enterprises pay for talent pipelines once they realize they&#39;ve gutted their own.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">MIT Technology Review</span>
-            
-            <span class="horizon-badge">6-18 mo</span>
-            
-            
-            <span class="tag">workforce</span>
-            
-            <span class="tag">edtech</span>
-            
-            <span class="tag">labor</span>
-            
-            
-          </div>
-        </article>
         
-      </div>
-    </section>
+        
+        <section class="category" data-category="opp_now">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#993C1D"></div>
+            <h2>Opportunities Now</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-title" target="_blank" rel="noopener">Build the enterprise governance layer on top of multi-model gateways</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">With 67% of enterprises already burning &gt;1B tokens/month and routing across 400+ models, ops leaders have an acute pain: cost attribution, prompt/data leakage policies, and per-team spend visibility across providers. Who: AI infra startups and FinOps vendors. What must be true: deep integration with OpenRouter/LiteLLM/Bedrock. When: this quarter — budgets are being set now.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">finops</span>
+                
+                <span class="tag">governance</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://www.producthunt.com/products/willow-voice" class="item-title" target="_blank" rel="noopener">Willow Scribe — voice-first knowledge work</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Services as the New Software: Willow Scribe turns spoken intent into completed written work (notes, docs, follow-ups), pricing on output rather than seats. Operator play this quarter: deploy as a wedge into professional services firms (law, consulting, wealth) where billable hour structures are the exact target Sequoia is naming. ElevenLabs&#39; $400M revenue at 400 people proves voice has unit economics.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">voice</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">knowledge-work</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
+                
+              </div>
+              
+              <a href="https://www.producthunt.com/products/willow-voice" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-title" target="_blank" rel="noopener">Privacy-first / non-AI search distribution arbitrage</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">The 30% DuckDuckGo install surge is a near-term distribution opening: a large minority of users actively reject AI-summarized search. Who could capture: privacy browsers, Kagi-style paid search, and AI-skeptic publishers building direct subscriber funnels. What must be true: ship a credible alternative within the next 1-2 quarters before users habituate to AI Search.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">search</span>
+                
+                <span class="tag">privacy</span>
+                
+                <span class="tag">distribution</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/" class="item-title" target="_blank" rel="noopener">FinOps for inference budgets</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">85% of orgs want to be agentic in 3 years but 76% admit infra can&#39;t support it — and reports of Uber burning its 2026 Claude Code budget in four months show inference cost overruns are now a board-level issue. Who: FinOps tooling vendors, controllers-of-record for agent traffic. When: budget reset cycles in H2 2026 are the window.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">finops</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">enterprise-readiness</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Multi-Model Inference Layer</span>
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/05/26/1137584/rethinking-organizational-design-in-the-age-of-agentic-ai/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
 
-    
+        
 
-    
-    
-    
-    <section class="category" data-category="opp_long">
-      <div class="category-header">
-        <div class="category-stripe" style="background:#534AB7"></div>
-        <h2>Opportunities Long-term</h2>
-        <span class="item-count">4 items</span>
-      </div>
-      <div class="items-grid">
         
-        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">Agentic scientific discovery as an industry</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">Hassabis framing &#39;foothills of the singularity&#39; alongside WeatherNext and Isomorphic Labs points to an 18+ month bet: autonomous scientific agents become the unit of R&amp;D in weather, materials, biology, and chemistry. Who could capture: vertical AI-science labs that own proprietary wet-lab/instrument loops. What must be true: regulatory and IP frameworks adapt to non-human discovery.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
-            
-            <span class="horizon-badge">18+ mo</span>
-            
-            
-            <span class="tag">ai-science</span>
-            
-            <span class="tag">drug-discovery</span>
-            
-            <span class="tag">agi</span>
-            
-            
-          </div>
-        </article>
         
-        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
-          <div class="item-header">
-            
-            <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-title" target="_blank" rel="noopener">World models as the new compute platform</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">If LLM ceilings are real, world models (Genie-class) become the foundation layer for robotics, simulation, gaming, and embodied AI over 2027-2029. Who: foundation-model labs and a small set of well-capitalized challengers; what must be true: world models reach economic parity with LLMs on a measurable task. Long-horizon bet for patient capital.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
-            
-            <span class="horizon-badge">18+ mo</span>
-            
-            
-            <span class="tag">world-models</span>
-            
-            <span class="tag">robotics</span>
-            
-            <span class="tag">foundation</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Physical AI Needs Human Data</span>
-            
-          </div>
-        </article>
         
-        <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
-          <div class="item-header">
-            
-            <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">US open-weights revival or permanent loss</a>
-            
-            <div class="signal-dots" data-level="medium">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
-            </div>
+        <section class="category" data-category="opp_mid">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#854F0B"></div>
+            <h2>Opportunities Mid-term</h2>
+            <span class="item-count">4 items</span>
           </div>
-          <p class="item-summary">Horowitz argues that without a credible US open-weights answer to DeepSeek and Chinese stacks, cultural and developer mindshare is lost permanently. 18+ month opportunity: a national-champion US open frontier lab (potentially seeded with a16z + DoD anchor capital). What must be true: export controls relax for open weights and a credible team consolidates.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+          <div class="items-grid">
             
-            <span class="horizon-badge">18+ mo</span>
+            <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-title" target="_blank" rel="noopener">AI-native vertical services firms (legal, wealth, retail)</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Sequoia&#39;s Nevis (wealth) and the $1T AI retail thesis signal a 6-18 month window to attack high-margin services with AI-native firms that sell completed work, not software. Who: founders combining domain licensure + agent infra. What must be true: regulatory approval pathways and customer trust in agent-delivered outputs. When: category leaders likely set by late 2027.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Sequoia Capital</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">vertical-ai</span>
+                
+                <span class="tag">services</span>
+                
+                <span class="tag">incumbents</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
+                
+              </div>
+              
+              <a href="https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Sequoia Capital <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
+            <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-title" target="_blank" rel="noopener">Egocentric data pipelines for physical AI</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Human Archive&#39;s gig-worker camera caps are an early move; the 6-18 month opportunity is verticalized physical data: warehouse, surgical, kitchen, construction. Who: data ops startups in LATAM/India/SEA with labor cost advantage. What must be true: clean licensing, consent infrastructure, and exclusive customer contracts with robotics labs (Figure, 1X, Physical Intelligence).</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">data-ops</span>
+                
+                <span class="tag">labor-arbitrage</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI Needs Human Data</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
-            <span class="tag">open-source</span>
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://huggingface.co/papers/2605.27366" class="item-title" target="_blank" rel="noopener">Agent evaluation and verifiability infrastructure</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">MUSE-Autoskill and adjacent self-evolving agent research signal that &#39;is the agent working?&#39; becomes the dominant question once agents are in production. Mid-term play: domain-specific eval harnesses, RL-environment-as-a-service, and audit/observability for autonomous workflows. Who: ex-DeepMind/Anthropic eval engineers; what must be true: enterprises accept that benchmarks ≠ business KPIs.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">Hugging Face Papers</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">evals</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">observability</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Services as the New Software</span>
+                
+              </div>
+              
+              <a href="https://huggingface.co/papers/2605.27366" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Hugging Face Papers <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
-            <span class="tag">geopolitics</span>
-            
-            <span class="tag">frontier</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Open Source AI as US Strategic Asset</span>
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/05/26/1137865/its-time-to-address-the-looming-crisis-in-entry-level-work/" class="item-title" target="_blank" rel="noopener">Repricing the entry-level career ladder</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Aggregate employment is stable but entry-level work is quietly weakening — opening a 12-18 month opportunity for apprenticeship-as-a-service, AI-augmented training, and credentialing platforms that rebuild the first career rung. Who: edtech + workforce VCs; what must be true: enterprises pay for talent pipelines once they realize they&#39;ve gutted their own.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">workforce</span>
+                
+                <span class="tag">edtech</span>
+                
+                <span class="tag">labor</span>
+                
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/05/26/1137865/its-time-to-address-the-looming-crisis-in-entry-level-work/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
             
           </div>
-        </article>
-        
-        <article class="item-card" data-signal="low" style="--cat-colour: #534AB7">
-          <div class="item-header">
-            
-            <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-title" target="_blank" rel="noopener">Post-hierarchical companies as a fundable category</a>
-            
-            <div class="signal-dots" data-level="low">
-              <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-          </div>
-          <p class="item-summary">If Block&#39;s restructuring works, the 18+ month opportunity is a new generation of AI-native companies built from day one around agents-at-center, not org charts. Who: founders willing to flatten and integrate agents into the operating model. What must be true: governance, accountability, and labor law adapt — a slow but compounding shift.</p>
-          <div class="item-meta">
-            <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Sequoia Capital</span>
-            
-            <span class="horizon-badge">18+ mo</span>
-            
-            
-            <span class="tag">org-design</span>
-            
-            <span class="tag">ai-native</span>
-            
-            <span class="tag">operating-model</span>
-            
-            
-            <span class="tag" title="Validates thesis">↳ Agentic Org Design</span>
-            
-          </div>
-        </article>
-        
-      </div>
-    </section>
+        </section>
 
-    
+        
 
-    
-    
+        
+        
+        
+        <section class="category" data-category="opp_long">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#534AB7"></div>
+            <h2>Opportunities Long-term</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-title" target="_blank" rel="noopener">Agentic scientific discovery as an industry</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Hassabis framing &#39;foothills of the singularity&#39; alongside WeatherNext and Isomorphic Labs points to an 18+ month bet: autonomous scientific agents become the unit of R&amp;D in weather, materials, biology, and chemistry. Who could capture: vertical AI-science labs that own proprietary wet-lab/instrument loops. What must be true: regulatory and IP frameworks adapt to non-human discovery.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">ai-science</span>
+                
+                <span class="tag">drug-discovery</span>
+                
+                <span class="tag">agi</span>
+                
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-title" target="_blank" rel="noopener">World models as the new compute platform</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">If LLM ceilings are real, world models (Genie-class) become the foundation layer for robotics, simulation, gaming, and embodied AI over 2027-2029. Who: foundation-model labs and a small set of well-capitalized challengers; what must be true: world models reach economic parity with LLMs on a measurable task. Long-horizon bet for patient capital.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">world-models</span>
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">foundation</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI Needs Human Data</span>
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/05/21/1137756/roundtables-can-ai-learn-to-understand-the-world/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-title" target="_blank" rel="noopener">US open-weights revival or permanent loss</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Horowitz argues that without a credible US open-weights answer to DeepSeek and Chinese stacks, cultural and developer mindshare is lost permanently. 18+ month opportunity: a national-champion US open frontier lab (potentially seeded with a16z + DoD anchor capital). What must be true: export controls relax for open weights and a credible team consolidates.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">open-source</span>
+                
+                <span class="tag">geopolitics</span>
+                
+                <span class="tag">frontier</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Open Source AI as US Strategic Asset</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="low" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-title" target="_blank" rel="noopener">Post-hierarchical companies as a fundable category</a>
+                
+                <div class="signal-dots" data-level="low">
+                  <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">If Block&#39;s restructuring works, the 18+ month opportunity is a new generation of AI-native companies built from day one around agents-at-center, not org charts. Who: founders willing to flatten and integrate agents into the operating model. What must be true: governance, accountability, and labor law adapt — a slow but compounding shift.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Sequoia Capital</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">org-design</span>
+                
+                <span class="tag">ai-native</span>
+                
+                <span class="tag">operating-model</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Agentic Org Design</span>
+                
+              </div>
+              
+              <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Sequoia Capital <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
 
-    
-    <section class="commentary-synthesis">
-      <h2>Commentary Synthesis: Investors vs Operators</h2>
-      <p class="grounded-view">This week the AI market quietly resolved one big debate and opened a more uncomfortable one. Resolved: the multi-model future is real and in production — OpenRouter&#39;s $1.3B valuation and 5x token growth in six months prove enterprises are routing across providers rather than standardizing, which means model-layer brand premiums are eroding into per-token economics. Opened: leaders publicly disagree on what AI is actually doing to work. Altman walked back his &#39;jobs apocalypse&#39; framing the same week Hassabis called the current moment &#39;the foothills of the singularity,&#39; and MIT Technology Review&#39;s data shows aggregate employment is stable but the entry-level rung is quietly weakening. The honest read for operators and investors: model capability keeps climbing, but adoption is gated by infrastructure, governance, and org design — not intelligence. Sequoia&#39;s &#39;services as the new software&#39; thesis and the OpenRouter round are pointing at the same thing from opposite ends: value accrues to whoever sells completed work and whoever owns the orchestration layer that delivers it. Everyone in between is being squeezed.</p>
-      <div class="table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Topic</th>
-              <th>Investor View</th>
-              <th>Operator View</th>
-              <th>Practical Implication</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr>
-              <td class="topic-cell">AI impact on jobs</td>
-              <td>a16z and Sequoia underwrite agent platforms assuming material labor substitution over 3-5 years; Anthropic&#39;s Amodei has publicly predicted up to half of entry-level white-collar roles dissolving within five years.</td>
-              <td>Altman this week publicly retracted the &#39;jobs apocalypse&#39; prediction, saying entry-level white-collar elimination has not materialized as expected; Nvidia&#39;s Catanzaro has argued AI can cost more than the humans it replaces.</td>
-              <td class="implication-cell">Plan for a slow, uneven displacement rather than a cliff. Build for augmentation in the near term and re-skilling/apprenticeship infrastructure mid-term — the entry-level rung is weakening even if aggregate numbers look fine.</td>
-            </tr>
-            
-            <tr>
-              <td class="topic-cell">Model layer economics</td>
-              <td>CapitalG, a16z, Menlo, and Sequoia all backed OpenRouter — an explicit bet that no single model wins and infrastructure orchestration captures durable value.</td>
-              <td>OpenAI is reportedly preparing an IPO at potentially $1T valuation, and Anthropic is in talks at ~$900B — implying model labs themselves still believe in winner-takes-most economics.</td>
-              <td class="implication-cell">Both can be true short term, but build assuming swappable models. Lock-in is the operator&#39;s biggest unforced error in 2026.</td>
-            </tr>
-            
-            <tr>
-              <td class="topic-cell">Timeline to AGI / transformative AI</td>
-              <td>Sequoia&#39;s &#39;This is AGI&#39; framing and Brockman&#39;s &#39;80% of the way&#39; stance treat AGI as a near-term operational reality driving fund deployment.</td>
-              <td>Hassabis publicly calls this the &#39;foothills of the singularity&#39; and expects AGI within five years; LeCun says current systems aren&#39;t genuinely intelligent at all.</td>
-              <td class="implication-cell">Don&#39;t bet your roadmap on AGI dates. Bet on capability density per dollar — that&#39;s the metric that keeps improving regardless of where the &#39;AGI&#39; label lands.</td>
-            </tr>
-            
-            <tr>
-              <td class="topic-cell">Open source AI strategy</td>
-              <td>Horowitz and a16z argue US open-weights is a strategic national priority being lost to Chinese alternatives like DeepSeek; investment is flowing to American Dynamism and US open infra.</td>
-              <td>Frontier labs (OpenAI, Anthropic) remain closed; Meta and a small number of US groups are the only meaningful western open-weights producers, and pace of release is uneven.</td>
-              <td class="implication-cell">Operators should hedge with at least one open-weights deployment path for sovereignty and cost. Investors backing US open frontier challengers face a narrow window to fund a credible competitor.</td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    </section>
-    
+        
 
-    
-    <section class="follow-the-money">
-      <h2>Follow the Money</h2>
-      <div class="table-wrapper">
-        <table class="money-table">
-          <thead>
-            <tr>
-              <th>Trend Type</th>
-              <th>Observation</th>
-              <th>Implication</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Capital Flow</span></td>
-              <td>OpenRouter raised $113M Series B at ~$1.3B post-money led by CapitalG with NVIDIA, ServiceNow, MongoDB, Snowflake, Databricks ventures all participating alongside a16z and Menlo.</td>
-              <td>The strategic-investor stack signals every major data/cloud platform sees the inference routing layer as adjacent to its core business. Expect partnership/M&amp;A pressure on OpenRouter and rapid competitive entries from hyperscalers.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
-              <td>A 2026 Deloitte study shows 67% of enterprises now consume &gt;1B AI tokens/month; OpenRouter&#39;s weekly volume jumped 5x to 25T tokens in six months.</td>
-              <td>Inference is the new line item — moving from experiment budget to production infrastructure budget. FinOps for inference is the next mandatory enterprise category.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Infra Spend</span></td>
-              <td>OpenAI reportedly preparing IPO at potentially $1T valuation, Anthropic in talks at ~$900B; SpaceX targeting $1.5T IPO; ChatGPT mobile crossed $3B in lifetime consumer spend.</td>
-              <td>Frontier lab valuations now require multi-hundred-billion revenue trajectories to justify. Any slip in revenue ramp or compute economics will compress the entire AI multiple stack.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
-              <td>a16z deployed &gt;$10B across the AI value chain by late 2025 and raised &gt;$15B in early 2026, with explicit American Dynamism and US open-source allocations.</td>
-              <td>A single fund family is now systemically important to US AI policy and capital flow. Founders pitching outside a16z&#39;s thesis stack (open weights, defense, agents, dynamism) face a narrower path.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
-              <td>Uber&#39;s COO publicly said AI costs are becoming harder to justify; CTO admitted burning the 2026 Claude Code budget in four months. Meta cut ~8,000 roles citing AI focus; Intuit cut 17%.</td>
-              <td>Two divergent signals: enterprises both cut headcount citing AI and complain AI costs exceed savings. Operators who can produce hard ROI evidence for agent workflows will win 2026 budget battles.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Overheated Signal</span></td>
-              <td>Q1 2026 global venture hit a record $285.5B, but a single OpenAI round was 43% of that and deal count fell to its lowest since Q4&#39;16.</td>
-              <td>The market is bifurcated: a few mega-rounds dominate while everyone else fights for scraps. Mid-stage AI rounds are harder than headlines suggest; concentration risk is now a real LP concern.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Capital Flow</span></td>
-              <td>Human Archive (UC Berkeley/Stanford founders) is paying Indian gig workers to wear sensor caps to collect physical-world training data for robotics labs.</td>
-              <td>Capital is pricing physical-world data as the next ImageNet. Expect a wave of data-ops startups with labor-arbitrage geographies and exclusive lab contracts; whoever consolidates wins a defensible data moat.</td>
-            </tr>
-            
-            <tr>
-              <td class="trend-cell"><span class="tag">Infra Spend</span></td>
-              <td>Nvidia projected at least $1T in Blackwell/Rubin demand through 2027 at GTC 2026; Huang says Nvidia + Anthropic + Meta SL represent a third of global AI compute.</td>
-              <td>Compute concentration is intensifying, not diffusing. Anyone betting on rapid compute price collapse should hedge — Nvidia&#39;s order book suggests sustained scarcity through 2027.</td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    </section>
-    
+        
+        
 
-    <section class="leader-voices">
-      <h2>Leader Voices</h2>
-      <div class="leaders-grid">
         
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Sam Altman</div>
-            </div>
-            <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
+        <section class="commentary-synthesis">
+          <h2>Commentary Synthesis: Investors vs Operators</h2>
+          <p class="grounded-view">This week the AI market quietly resolved one big debate and opened a more uncomfortable one. Resolved: the multi-model future is real and in production — OpenRouter&#39;s $1.3B valuation and 5x token growth in six months prove enterprises are routing across providers rather than standardizing, which means model-layer brand premiums are eroding into per-token economics. Opened: leaders publicly disagree on what AI is actually doing to work. Altman walked back his &#39;jobs apocalypse&#39; framing the same week Hassabis called the current moment &#39;the foothills of the singularity,&#39; and MIT Technology Review&#39;s data shows aggregate employment is stable but the entry-level rung is quietly weakening. The honest read for operators and investors: model capability keeps climbing, but adoption is gated by infrastructure, governance, and org design — not intelligence. Sequoia&#39;s &#39;services as the new software&#39; thesis and the OpenRouter round are pointing at the same thing from opposite ends: value accrues to whoever sells completed work and whoever owns the orchestration layer that delivers it. Everyone in between is being squeezed.</p>
+          <div class="table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Investor View</th>
+                  <th>Operator View</th>
+                  <th>Practical Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="topic-cell">AI impact on jobs</td>
+                  <td>
+                    a16z and Sequoia underwrite agent platforms assuming material labor substitution over 3-5 years; Anthropic&#39;s Amodei has publicly predicted up to half of entry-level white-collar roles dissolving within five years.
+                    
+                  </td>
+                  <td>
+                    Altman this week publicly retracted the &#39;jobs apocalypse&#39; prediction, saying entry-level white-collar elimination has not materialized as expected; Nvidia&#39;s Catanzaro has argued AI can cost more than the humans it replaces.
+                    
+                  </td>
+                  <td class="implication-cell">Plan for a slow, uneven displacement rather than a cliff. Build for augmentation in the near term and re-skilling/apprenticeship infrastructure mid-term — the entry-level rung is weakening even if aggregate numbers look fine.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Model layer economics</td>
+                  <td>
+                    CapitalG, a16z, Menlo, and Sequoia all backed OpenRouter — an explicit bet that no single model wins and infrastructure orchestration captures durable value.
+                    
+                  </td>
+                  <td>
+                    OpenAI is reportedly preparing an IPO at potentially $1T valuation, and Anthropic is in talks at ~$900B — implying model labs themselves still believe in winner-takes-most economics.
+                    
+                  </td>
+                  <td class="implication-cell">Both can be true short term, but build assuming swappable models. Lock-in is the operator&#39;s biggest unforced error in 2026.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Timeline to AGI / transformative AI</td>
+                  <td>
+                    Sequoia&#39;s &#39;This is AGI&#39; framing and Brockman&#39;s &#39;80% of the way&#39; stance treat AGI as a near-term operational reality driving fund deployment.
+                    
+                  </td>
+                  <td>
+                    Hassabis publicly calls this the &#39;foothills of the singularity&#39; and expects AGI within five years; LeCun says current systems aren&#39;t genuinely intelligent at all.
+                    
+                  </td>
+                  <td class="implication-cell">Don&#39;t bet your roadmap on AGI dates. Bet on capability density per dollar — that&#39;s the metric that keeps improving regardless of where the &#39;AGI&#39; label lands.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Open source AI strategy</td>
+                  <td>
+                    Horowitz and a16z argue US open-weights is a strategic national priority being lost to Chinese alternatives like DeepSeek; investment is flowing to American Dynamism and US open infra.
+                    
+                  </td>
+                  <td>
+                    Frontier labs (OpenAI, Anthropic) remain closed; Meta and a small number of US groups are the only meaningful western open-weights producers, and pace of release is uneven.
+                    
+                  </td>
+                  <td class="implication-cell">Operators should hedge with at least one open-weights deployment path for sovereignty and cost. Investors backing US open frontier challengers face a narrow window to fund a credible competitor.</td>
+                </tr>
+                
+              </tbody>
+            </table>
           </div>
-          <div class="leader-org">OpenAI</div>
-          <p class="leader-quote">"Speaking virtually at a Commonwealth Bank of Australia conference in Sydney on May 26, Altman publicly retracted his earlier &#39;jobs apocalypse&#39; framing, saying he was &#39;delighted to be wrong&#39; that entry-level white-collar jobs have not been eliminated as rapidly as he had predicted, and acknowledged a &#39;human part&#39; of employment that he cannot imagine outsourcing to AI."</p>
-          <p class="leader-implication">Altman softening the labor disruption narrative right before a rumored OpenAI IPO de-risks the political/regulatory environment. Operators should plan for slower, more uneven displacement than the doom narrative implied — but investors should watch whether this is a sincere update or IPO-period messaging.</p>
-          
-          <a href="https://time.com/article/2026/05/26/sam-altman-ai-job-losses-openAI-/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
+        </section>
         
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Demis Hassabis</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">Google DeepMind</div>
-          <p class="leader-quote">"Closing the Google I/O 2026 keynote in Mountain View, Hassabis told the audience they were &#39;standing in the foothills of the singularity,&#39; and in follow-up interviews said agentic systems are making AGI tangibly closer — potentially within five years — and that AI&#39;s impact will be roughly 100 times the Industrial Revolution."</p>
-          <p class="leader-implication">DeepMind is publicly tying every product update — Gemini, Antigravity, WeatherNext, Isomorphic — to an AGI trajectory. For enterprises, this means Google&#39;s roadmap should be read as agent-first and science-first; for investors, it raises the bar on what &#39;AI startup&#39; must mean to be fundable inside Google&#39;s gravity well.</p>
-          
-          <a href="https://www.semafor.com/article/05/20/2026/google-exec-demis-hassabis-predicts-were-at-the-foothills-of-the-singularity" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Jensen Huang</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">NVIDIA</div>
-          <p class="leader-quote">"At Carnegie Mellon&#39;s commencement on May 11, Huang described AI as driving the largest technology infrastructure buildout in human history and a &#39;once-in-a-generation opportunity to reindustrialize America,&#39; while emphasizing that AI &#39;automates tasks but elevates workers&#39; — using radiologists as the canonical example."</p>
-          <p class="leader-implication">Huang is hardening the &#39;augmentation not replacement&#39; frame just as Nvidia&#39;s order book demands continued political and labor support for buildout. Combined with his GTC view of &gt;$1T compute demand through 2027, this is the most consistent infra-bull case in the market.</p>
-          
-          <a href="https://blogs.nvidia.com/blog/nvidia-ceo-carnegie-mellon-commencement-address/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Ben Horowitz</div>
-            </div>
-            <span class="stance-badge" style="background:#993C1D22; color:#993C1D">Bearish</span>
-          </div>
-          <div class="leader-org">Andreessen Horowitz</div>
-          <p class="leader-quote">"In a recent a16z podcast episode, Horowitz argued that the US has already lost the AI culture war to China at the open-source layer — pointing to DeepSeek running inside major US companies and university labs — and that closed-model policy choices ceded cultural ground to Beijing&#39;s encoded values."</p>
-          <p class="leader-implication">Expect a16z&#39;s $20B AI fund to push capital toward US open-weights challengers and defense-aligned infra. Founders building credible US open-source frontier alternatives have an unusually receptive top-tier investor right now.</p>
-          
-          <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Sonya Huang</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">Sequoia Capital</div>
-          <p class="leader-quote">"At AI Ascent 2026, Huang declared 2026 the year of agents and walked through the trajectory from assistants to managed interns to self-managing interns to trusted autonomous workers — noting &#39;dark factories&#39; (pipelines with no human review) are already appearing in narrow domains like cybersecurity."</p>
-          <p class="leader-implication">Sequoia is underwriting long-horizon, async, multi-agent workflows as the dominant 2026 architecture. Pitches still framed around &#39;AI-powered tools&#39; will be quietly downgraded — the bar is now selling completed work.</p>
-          
-          <a href="https://sequoiacap.com/article/ai-ascent-2026/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Roelof Botha</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">Sequoia Capital</div>
-          <p class="leader-quote">"Joining Block CEO Jack Dorsey at AI Ascent 2026, Botha argued the traditional corporate hierarchy isn&#39;t just inefficient but obsolete, advocating a circular org with AI at the center and people at the edges — and shared how AI-native startups are building differently from day one."</p>
-          <p class="leader-implication">When Sequoia&#39;s senior steward of governance publicly endorses dissolving org charts, expect AI-native operating models to become a real underwriting criterion. Legacy SaaS structures will be discounted in due diligence.</p>
-          
-          <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Alex Atallah</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">OpenRouter</div>
-          <p class="leader-quote">"Announcing OpenRouter&#39;s $113M CapitalG-led Series B, Atallah said running inference at scale is fundamentally a multi-model problem and &#39;the era of picking a single model is over&#39; — with success now depending on continuously routing across a changing market in real time."</p>
-          <p class="leader-implication">The CEO of the company sitting in production inference traffic for 8M users is publicly declaring model-vendor lock-in dead. Enterprise architects should treat this as a planning signal, not a marketing line.</p>
-          
-          <a href="https://www.businesswire.com/news/home/20260526953416/en/OpenRouter-Raises-$113-Million-CapitalG-led-Series-B-as-Weekly-Volume-Explodes-to-25T-Tokens" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-        
-        
-        <article class="leader-card">
-          <div class="leader-header">
-            <div>
-              <div class="leader-name">Andrej Karpathy</div>
-            </div>
-            <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
-          </div>
-          <div class="leader-org">Eureka Labs</div>
-          <p class="leader-quote">"At AI Ascent 2026, Karpathy said he has never felt more behind as a programmer, framed the shift from vibe coding (which raises the floor) to agentic engineering (which raises the ceiling), and described LLMs as &#39;ghosts&#39;: jagged, statistical, summoned entities requiring new taste and judgment to direct."</p>
-          <p class="leader-implication">Karpathy&#39;s framing — context windows as the new programming surface, agents as the new infrastructure target — is becoming the consensus mental model. Dev tools and infra still built for human-clicking workflows will lose share to agent-native alternatives.</p>
-          
-          <a href="https://x.com/karpathy/status/2049903821095354523" class="leader-link" target="_blank" rel="noopener">Source →</a>
-          
-        </article>
-        
-      </div>
-    </section>
 
-    <section class="top-signals">
-      <h2>Top Signals This Week</h2>
-      <div class="signals-list">
         
-        
-        
-        
-        <div class="signal-row">
-          <div class="signal-number" style="background:#E24B4A">1</div>
-          <div class="signal-body">
-            <div class="signal-headline">OpenRouter&#39;s $113M round confirms the multi-model paradigm has won at the inference layer</div>
-            <div class="signal-detail">Enterprises are deploying 100T tokens/month across 400+ models and explicitly rejecting single-vendor lock-in. Any AI architecture decision made this quarter that assumes a single model provider is already obsolete — and the orchestration layer is being capitalized as the next Stripe/Cloudflare.</div>
-            <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+        <section class="follow-the-money">
+          <h2>Follow the Money</h2>
+          <div class="table-wrapper">
+            <table class="money-table">
+              <thead>
+                <tr>
+                  <th>Trend Type</th>
+                  <th>Observation</th>
+                  <th>Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    OpenRouter raised $113M Series B at ~$1.3B post-money led by CapitalG with NVIDIA, ServiceNow, MongoDB, Snowflake, Databricks ventures all participating alongside a16z and Menlo.
+                    
+                  </td>
+                  <td>The strategic-investor stack signals every major data/cloud platform sees the inference routing layer as adjacent to its core business. Expect partnership/M&amp;A pressure on OpenRouter and rapid competitive entries from hyperscalers.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
+                  <td>
+                    A 2026 Deloitte study shows 67% of enterprises now consume &gt;1B AI tokens/month; OpenRouter&#39;s weekly volume jumped 5x to 25T tokens in six months.
+                    
+                  </td>
+                  <td>Inference is the new line item — moving from experiment budget to production infrastructure budget. FinOps for inference is the next mandatory enterprise category.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    OpenAI reportedly preparing IPO at potentially $1T valuation, Anthropic in talks at ~$900B; SpaceX targeting $1.5T IPO; ChatGPT mobile crossed $3B in lifetime consumer spend.
+                    
+                  </td>
+                  <td>Frontier lab valuations now require multi-hundred-billion revenue trajectories to justify. Any slip in revenue ramp or compute economics will compress the entire AI multiple stack.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
+                  <td>
+                    a16z deployed &gt;$10B across the AI value chain by late 2025 and raised &gt;$15B in early 2026, with explicit American Dynamism and US open-source allocations.
+                    
+                  </td>
+                  <td>A single fund family is now systemically important to US AI policy and capital flow. Founders pitching outside a16z&#39;s thesis stack (open weights, defense, agents, dynamism) face a narrower path.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
+                  <td>
+                    Uber&#39;s COO publicly said AI costs are becoming harder to justify; CTO admitted burning the 2026 Claude Code budget in four months. Meta cut ~8,000 roles citing AI focus; Intuit cut 17%.
+                    
+                  </td>
+                  <td>Two divergent signals: enterprises both cut headcount citing AI and complain AI costs exceed savings. Operators who can produce hard ROI evidence for agent workflows will win 2026 budget battles.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Overheated Signal</span></td>
+                  <td>
+                    Q1 2026 global venture hit a record $285.5B, but a single OpenAI round was 43% of that and deal count fell to its lowest since Q4&#39;16.
+                    
+                  </td>
+                  <td>The market is bifurcated: a few mega-rounds dominate while everyone else fights for scraps. Mid-stage AI rounds are harder than headlines suggest; concentration risk is now a real LP concern.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    Human Archive (UC Berkeley/Stanford founders) is paying Indian gig workers to wear sensor caps to collect physical-world training data for robotics labs.
+                    
+                  </td>
+                  <td>Capital is pricing physical-world data as the next ImageNet. Expect a wave of data-ops startups with labor-arbitrage geographies and exclusive lab contracts; whoever consolidates wins a defensible data moat.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    Nvidia projected at least $1T in Blackwell/Rubin demand through 2027 at GTC 2026; Huang says Nvidia + Anthropic + Meta SL represent a third of global AI compute.
+                    
+                  </td>
+                  <td>Compute concentration is intensifying, not diffusing. Anyone betting on rapid compute price collapse should hedge — Nvidia&#39;s order book suggests sustained scarcity through 2027.</td>
+                </tr>
+                
+              </tbody>
+            </table>
           </div>
-        </div>
+        </section>
         
-        
-        
-        
-        <div class="signal-row">
-          <div class="signal-number" style="background:#E24B4A">2</div>
-          <div class="signal-body">
-            <div class="signal-headline">Altman publicly retracts the &#39;jobs apocalypse&#39; narrative ahead of OpenAI IPO</div>
-            <div class="signal-detail">The most influential voice in AI just realigned the labor narrative — likely with IPO and regulatory timing in mind. Operators planning aggressive headcount cuts on AI-substitution logic now face weaker public cover; investors should re-examine which AI ROI stories were premised on labor displacement vs. genuine productivity.</div>
-            <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
-          </div>
-        </div>
-        
-        
-        
-        
-        <div class="signal-row">
-          <div class="signal-number" style="background:#EF9F27">3</div>
-          <div class="signal-body">
-            <div class="signal-headline">Google AI Search overhaul triggers measurable consumer backlash (DuckDuckGo +30%)</div>
-            <div class="signal-detail">First real data point that AI-summarized search has a non-trivial consumer rejection rate. The SEO-distribution era is destabilizing, and a window has opened for privacy-first/non-AI search alternatives and direct subscriber funnels — but only for the next 1-2 quarters before habituation sets in.</div>
-            <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
-          </div>
-        </div>
-        
-        
-        
-        
-        <div class="signal-row">
-          <div class="signal-number" style="background:#EF9F27">4</div>
-          <div class="signal-body">
-            <div class="signal-headline">Hassabis&#39;s &#39;foothills of the singularity&#39; framing reframes Google&#39;s entire product story</div>
-            <div class="signal-detail">DeepMind is now publicly tying every Gemini, Antigravity, and Isomorphic update to an explicit AGI-trajectory narrative. Whether or not the timeline is right, this changes how customers, regulators, and competitors must read Google&#39;s roadmap — and accelerates pressure on Anthropic and OpenAI to match the narrative.</div>
-            <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
-          </div>
-        </div>
-        
-        
-        
-        
-        <div class="signal-row">
-          <div class="signal-number" style="background:#5F5E5A">5</div>
-          <div class="signal-body">
-            <div class="signal-headline">Physical AI training data is being industrialized via gig-economy data collection</div>
-            <div class="signal-detail">Human Archive paying Indian gig workers to collect egocentric video/sensor data marks the start of an ImageNet-scale data race for embodied AI. Whoever consolidates exclusive physical data pipelines will become structurally hard to displace in robotics — and the labor-arbitrage geography matters as much as the algorithms.</div>
-            <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
-          </div>
-        </div>
-        
-      </div>
-    </section>
 
-    <footer>
+        <section class="leader-voices">
+          <h2>Leader Voices</h2>
+          <div class="leaders-grid">
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Sam Altman</div>
+                </div>
+                <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
+              </div>
+              <div class="leader-org">OpenAI</div>
+              <p class="leader-quote">"Speaking virtually at a Commonwealth Bank of Australia conference in Sydney on May 26, Altman publicly retracted his earlier &#39;jobs apocalypse&#39; framing, saying he was &#39;delighted to be wrong&#39; that entry-level white-collar jobs have not been eliminated as rapidly as he had predicted, and acknowledged a &#39;human part&#39; of employment that he cannot imagine outsourcing to AI."</p>
+              <p class="leader-implication">Altman softening the labor disruption narrative right before a rumored OpenAI IPO de-risks the political/regulatory environment. Operators should plan for slower, more uneven displacement than the doom narrative implied — but investors should watch whether this is a sincere update or IPO-period messaging.</p>
+              
+              <a href="https://time.com/article/2026/05/26/sam-altman-ai-job-losses-openAI-/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Demis Hassabis</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Google DeepMind</div>
+              <p class="leader-quote">"Closing the Google I/O 2026 keynote in Mountain View, Hassabis told the audience they were &#39;standing in the foothills of the singularity,&#39; and in follow-up interviews said agentic systems are making AGI tangibly closer — potentially within five years — and that AI&#39;s impact will be roughly 100 times the Industrial Revolution."</p>
+              <p class="leader-implication">DeepMind is publicly tying every product update — Gemini, Antigravity, WeatherNext, Isomorphic — to an AGI trajectory. For enterprises, this means Google&#39;s roadmap should be read as agent-first and science-first; for investors, it raises the bar on what &#39;AI startup&#39; must mean to be fundable inside Google&#39;s gravity well.</p>
+              
+              <a href="https://www.semafor.com/article/05/20/2026/google-exec-demis-hassabis-predicts-were-at-the-foothills-of-the-singularity" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Jensen Huang</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">NVIDIA</div>
+              <p class="leader-quote">"At Carnegie Mellon&#39;s commencement on May 11, Huang described AI as driving the largest technology infrastructure buildout in human history and a &#39;once-in-a-generation opportunity to reindustrialize America,&#39; while emphasizing that AI &#39;automates tasks but elevates workers&#39; — using radiologists as the canonical example."</p>
+              <p class="leader-implication">Huang is hardening the &#39;augmentation not replacement&#39; frame just as Nvidia&#39;s order book demands continued political and labor support for buildout. Combined with his GTC view of &gt;$1T compute demand through 2027, this is the most consistent infra-bull case in the market.</p>
+              
+              <a href="https://blogs.nvidia.com/blog/nvidia-ceo-carnegie-mellon-commencement-address/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Ben Horowitz</div>
+                </div>
+                <span class="stance-badge" style="background:#993C1D22; color:#993C1D">Bearish</span>
+              </div>
+              <div class="leader-org">Andreessen Horowitz</div>
+              <p class="leader-quote">"In a recent a16z podcast episode, Horowitz argued that the US has already lost the AI culture war to China at the open-source layer — pointing to DeepSeek running inside major US companies and university labs — and that closed-model policy choices ceded cultural ground to Beijing&#39;s encoded values."</p>
+              <p class="leader-implication">Expect a16z&#39;s $20B AI fund to push capital toward US open-weights challengers and defense-aligned infra. Founders building credible US open-source frontier alternatives have an unusually receptive top-tier investor right now.</p>
+              
+              <a href="https://a16z.com/podcast/ben-horowitz-why-open-source-ai-will-determine-americas-future-2/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Sonya Huang</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Sequoia Capital</div>
+              <p class="leader-quote">"At AI Ascent 2026, Huang declared 2026 the year of agents and walked through the trajectory from assistants to managed interns to self-managing interns to trusted autonomous workers — noting &#39;dark factories&#39; (pipelines with no human review) are already appearing in narrow domains like cybersecurity."</p>
+              <p class="leader-implication">Sequoia is underwriting long-horizon, async, multi-agent workflows as the dominant 2026 architecture. Pitches still framed around &#39;AI-powered tools&#39; will be quietly downgraded — the bar is now selling completed work.</p>
+              
+              <a href="https://sequoiacap.com/article/ai-ascent-2026/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Roelof Botha</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Sequoia Capital</div>
+              <p class="leader-quote">"Joining Block CEO Jack Dorsey at AI Ascent 2026, Botha argued the traditional corporate hierarchy isn&#39;t just inefficient but obsolete, advocating a circular org with AI at the center and people at the edges — and shared how AI-native startups are building differently from day one."</p>
+              <p class="leader-implication">When Sequoia&#39;s senior steward of governance publicly endorses dissolving org charts, expect AI-native operating models to become a real underwriting criterion. Legacy SaaS structures will be discounted in due diligence.</p>
+              
+              <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Alex Atallah</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">OpenRouter</div>
+              <p class="leader-quote">"Announcing OpenRouter&#39;s $113M CapitalG-led Series B, Atallah said running inference at scale is fundamentally a multi-model problem and &#39;the era of picking a single model is over&#39; — with success now depending on continuously routing across a changing market in real time."</p>
+              <p class="leader-implication">The CEO of the company sitting in production inference traffic for 8M users is publicly declaring model-vendor lock-in dead. Enterprise architects should treat this as a planning signal, not a marketing line.</p>
+              
+              <a href="https://www.businesswire.com/news/home/20260526953416/en/OpenRouter-Raises-$113-Million-CapitalG-led-Series-B-as-Weekly-Volume-Explodes-to-25T-Tokens" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Andrej Karpathy</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Eureka Labs</div>
+              <p class="leader-quote">"At AI Ascent 2026, Karpathy said he has never felt more behind as a programmer, framed the shift from vibe coding (which raises the floor) to agentic engineering (which raises the ceiling), and described LLMs as &#39;ghosts&#39;: jagged, statistical, summoned entities requiring new taste and judgment to direct."</p>
+              <p class="leader-implication">Karpathy&#39;s framing — context windows as the new programming surface, agents as the new infrastructure target — is becoming the consensus mental model. Dev tools and infra still built for human-clicking workflows will lose share to agent-native alternatives.</p>
+              
+              <a href="https://x.com/karpathy/status/2049903821095354523" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        <section class="top-signals">
+          <h2>Top Signals This Week</h2>
+          <div class="signals-list">
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">1</div>
+              <div class="signal-body">
+                <div class="signal-headline">OpenRouter&#39;s $113M round confirms the multi-model paradigm has won at the inference layer</div>
+                <div class="signal-detail">Enterprises are deploying 100T tokens/month across 400+ models and explicitly rejecting single-vendor lock-in. Any AI architecture decision made this quarter that assumes a single model provider is already obsolete — and the orchestration layer is being capitalized as the next Stripe/Cloudflare.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">2</div>
+              <div class="signal-body">
+                <div class="signal-headline">Altman publicly retracts the &#39;jobs apocalypse&#39; narrative ahead of OpenAI IPO</div>
+                <div class="signal-detail">The most influential voice in AI just realigned the labor narrative — likely with IPO and regulatory timing in mind. Operators planning aggressive headcount cuts on AI-substitution logic now face weaker public cover; investors should re-examine which AI ROI stories were premised on labor displacement vs. genuine productivity.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#EF9F27">3</div>
+              <div class="signal-body">
+                <div class="signal-headline">Google AI Search overhaul triggers measurable consumer backlash (DuckDuckGo +30%)</div>
+                <div class="signal-detail">First real data point that AI-summarized search has a non-trivial consumer rejection rate. The SEO-distribution era is destabilizing, and a window has opened for privacy-first/non-AI search alternatives and direct subscriber funnels — but only for the next 1-2 quarters before habituation sets in.</div>
+                <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#EF9F27">4</div>
+              <div class="signal-body">
+                <div class="signal-headline">Hassabis&#39;s &#39;foothills of the singularity&#39; framing reframes Google&#39;s entire product story</div>
+                <div class="signal-detail">DeepMind is now publicly tying every Gemini, Antigravity, and Isomorphic update to an explicit AGI-trajectory narrative. Whether or not the timeline is right, this changes how customers, regulators, and competitors must read Google&#39;s roadmap — and accelerates pressure on Anthropic and OpenAI to match the narrative.</div>
+                <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#5F5E5A">5</div>
+              <div class="signal-body">
+                <div class="signal-headline">Physical AI training data is being industrialized via gig-economy data collection</div>
+                <div class="signal-detail">Human Archive paying Indian gig workers to collect egocentric video/sensor data marks the start of an ImageNet-scale data race for embodied AI. Whoever consolidates exclusive physical data pipelines will become structurally hard to displace in robotics — and the labor-arbitrage geography matters as much as the algorithms.</div>
+                <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        <footer>
           <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
-          <div>Generated by Weekly Tech Update · May 27, 2026 02:15 UTC</div>
+          <div>Generated by <a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener">Weekly Tech Update</a> · May 27, 2026 02:15 UTC</div>
         </footer>
       </div>
     </main>

@@ -1,147 +1,168 @@
 {
   "techcrunch": [
     {
-      "title": "Ahead of its IPO, Anthropic\u2019s Daniela Amodei shrugs off doubts about AI\u2019s returns",
-      "url": "https://techcrunch.com/2026/06/04/ahead-of-its-ipo-anthropics-daniela-amodei-shrugs-off-doubts-about-ais-returns/",
-      "description": "The AI giant's co-founder explained why the company may tap the public market for capital and why tokenmaxxing pushback isn't a concern.",
-      "published_at": "Thu, 04 Jun 2026 22:43:26 +0000",
+      "title": "SpaceX officially prices shares at $135 in the largest IPO ever",
+      "url": "https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/",
+      "description": "Wits its official share pricing announcement, SpaceX's IPO has begun.",
+      "published_at": "Thu, 11 Jun 2026 20:33:10 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Airbnb\u2019s Brian Chesky plans to launch a new AI lab",
-      "url": "https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab/",
-      "description": "The Airbnb CEO said last year it hasn't struck an LLM partnership because existing products weren't quite ready.",
-      "published_at": "Thu, 04 Jun 2026 22:29:50 +0000",
+      "title": "Oracle warns of security bug that hackers abused to breach 100+ companies",
+      "url": "https://techcrunch.com/2026/06/11/oracle-warns-of-security-bug-that-hackers-abused-to-breach-100-companies/",
+      "description": "The tech giant warned of a security flaw that a cybercrime gang said it's exploiting as part of a mass-hacking campaign. Google said it notified more than 100 organizations that had potentially vulnerable servers.",
+      "published_at": "Thu, 11 Jun 2026 20:27:25 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Filtr is a new privacy tool that blocks ads in almost every iPhone and Mac app",
-      "url": "https://techcrunch.com/2026/06/04/filtr-is-a-new-privacy-tool-that-blocks-ads-in-almost-every-iphone-and-mac-app/",
-      "description": "This popular ad blocker app for iPhones, iPads, and Macs can now block ads from loading inside apps, including web browsers, thanks to a new feature in the latest Apple software.",
-      "published_at": "Thu, 04 Jun 2026 21:44:09 +0000",
+      "title": "SpaceX SPV investors won\u2019t know their true holdings until post-IPO lock-ups lift",
+      "url": "https://techcrunch.com/2026/06/11/spacex-spv-investors-wont-know-their-true-holdings-until-post-ipo-lock-ups-lift/",
+      "description": "After SpaceX makes its public debut, lower-tier SPV investors face hidden fees, lengthy payout delays, and the  risk of outright fraud.",
+      "published_at": "Thu, 11 Jun 2026 19:58:01 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Defense tech, AI, and fundraising take center stage at StrictlyVC Los Angeles on June 18",
-      "url": "https://techcrunch.com/2026/06/04/defense-tech-ai-and-fundraising-take-center-stage-at-strictlyvc-los-angeles-on-june-18/",
-      "description": "On Thursday, June 18, at The Aerospace Corporation Campus, investors, founders, and tech leaders will gather for an evening of conversation exploring some of the most consequential shifts taking place across venture capital, defense technology, artificial intelligence, and advanced industry.\u00a0Secure your spot today.",
-      "published_at": "Thu, 04 Jun 2026 21:30:00 +0000",
+      "title": "Bluesky launches group chats, as company shifts focus to community features",
+      "url": "https://techcrunch.com/2026/06/11/bluesky-launches-group-chats-as-company-shifts-focus-to-community-features/",
+      "description": "Bluesky's latest feature is group chats, arriving amid a shift in focus on building features for smaller communities.",
+      "published_at": "Thu, 11 Jun 2026 19:41:05 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Startup Battlefield is returning to Australia \u2014 here\u2019s what happened the last time we came to Sydney",
-      "url": "https://techcrunch.com/2026/06/04/startup-battlefield-is-returning-to-australia-heres-what-happened-the-last-time-we-came-to-sydney/",
-      "description": "On August 19, Startup Battlefield is returning to Sydney in partnership with Stripe, one of the world's most iconic technology companies. We're taking over Stripe Tour Sydney for a night that the Australian startup ecosystem won't forget.",
-      "published_at": "Thu, 04 Jun 2026 20:55:38 +0000",
+      "title": "Meta\u2019s Edits app is getting an AI assistant and a desktop version",
+      "url": "https://techcrunch.com/2026/06/11/metas-edits-app-is-getting-an-ai-assistant-and-a-desktop-version/",
+      "description": "By integrating an AI assistant directly into Edits, Meta is aiming to keep creators engaged on Instagram as it continues to compete with TikTok and YouTube for creators' attention.",
+      "published_at": "Thu, 11 Jun 2026 17:30:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Meta steals a tactic from Tesla and builds data centers in tents",
-      "url": "https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/",
-      "description": "Meta may have found one way to slash its massive data center bill: tents.",
-      "published_at": "Thu, 04 Jun 2026 19:33:09 +0000",
+      "title": "Coinbase\u2019s new tool can help agents trade and pay for premium research",
+      "url": "https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/",
+      "description": "Coinbase's agent can use x402 protocol to get access to data and APIs.",
+      "published_at": "Thu, 11 Jun 2026 17:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Apple approves Poke as the first AI agent on its Messages for Business platform",
-      "url": "https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/",
-      "description": "Poke, the startup that lets people use AI agents through simple text messages, has become the first AI agent approved for Apple\u2019s Messages for Business platform.",
-      "published_at": "Thu, 04 Jun 2026 19:20:58 +0000",
+      "title": "Quantum Space\u2019s military SPAC is trying to catch SpaceX\u2019s IPO wave",
+      "url": "https://techcrunch.com/2026/06/11/quantum-spaces-military-spac-is-trying-to-catch-spacexs-ipo-wave/",
+      "description": "Quantum Space says SPACs aren't dead as it seeks a $1.2 billion deal to build military spacecraft.",
+      "published_at": "Thu, 11 Jun 2026 16:59:28 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Helion, the Sam Altman-backed fusion startup, raises $465M to build a power plant for Microsoft",
-      "url": "https://techcrunch.com/2026/06/04/helion-the-sam-altman-backed-fusion-startup-raises-465m-to-build-a-power-plant-for-microsoft/",
-      "description": "Fusion startup Helion is racing to complete a power plant for Microsoft by 2028. A fresh infusion of cash should help with that.",
-      "published_at": "Thu, 04 Jun 2026 18:54:08 +0000",
+      "title": "Deezer\u2019s new tool can identify AI music from Spotify, Apple Music, and others",
+      "url": "https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/",
+      "description": "Deezer introduced a tool that scans playlists from Spotify, Apple Music, and other platforms to identify AI music.",
+      "published_at": "Thu, 11 Jun 2026 16:36:20 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Meta\u2019s Oversight Board says account bans lack due process, transparency",
-      "url": "https://techcrunch.com/2026/06/04/metas-oversight-board-says-account-bans-lack-due-process-transparency/",
-      "description": "Meta's board cites \"due process\" concerns over account bans. It's also pushing Meta to offer clear information about violations and its use in AI in making its determinations.",
-      "published_at": "Thu, 04 Jun 2026 16:47:12 +0000",
+      "title": "These are the countries moving to ban social media for children",
+      "url": "https://techcrunch.com/2026/06/11/social-media-ban-children-countries-list/",
+      "description": "Australia was the first country to issue a ban in late 2025, aiming to reduce the pressures and risks that young users may face on social media, including cyberbullying, social media addiction, and exposure to predators.",
+      "published_at": "Thu, 11 Jun 2026 16:17:50 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Meta rolls out a new AI creator assistant on Facebook",
-      "url": "https://techcrunch.com/2026/06/04/meta-rolls-out-a-new-ai-creator-assistant-on-facebook/",
-      "description": "Creators often have to parse through charts and dashboards to understand their performance, but with the new AI assistant, they can get quick answers to questions like \"When should I post?\" and \"What are people saying in my comments?\"",
-      "published_at": "Thu, 04 Jun 2026 16:32:48 +0000",
+      "title": "Waymo launches a loyalty program with 10% cash back and free cancellations",
+      "url": "https://techcrunch.com/2026/06/11/waymo-launches-a-loyalty-program-with-10-cash-back-and-free-cancellations/",
+      "description": "Members of the program, called \"Waymo Premier,\" will have to pony up $29.99 per month.",
+      "published_at": "Thu, 11 Jun 2026 16:00:23 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "What to expect from WWDC 2026: Siri\u2019s highly anticipated revamp and Apple Intelligence updates",
-      "url": "https://techcrunch.com/2026/06/04/what-to-expect-from-wwdc-2026-siris-highly-anticipated-revamp-and-apple-intelligence-updates/",
-      "description": "Apple's WWDC nears: Here's what you can look forward to.",
-      "published_at": "Thu, 04 Jun 2026 16:31:12 +0000",
+      "title": "Pool\u2019s new app turns your screenshots into something useful",
+      "url": "https://techcrunch.com/2026/06/11/pools-new-app-turns-your-screenshots-into-a-searchable-memory-bank/",
+      "description": "Pool's new app automatically sorts screenshots into personalized collections, tracks down the original links behind saved content, and helps you rediscover products, recipes, travel ideas, and other things you meant to revisit.",
+      "published_at": "Thu, 11 Jun 2026 15:30:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "A burglar used a Waymo to steal yoga clothes in San Francisco \u2014 and got away with it",
-      "url": "https://techcrunch.com/2026/06/04/a-burglar-used-a-waymo-to-steal-yoga-clothes-in-sf-and-got-away-with-it/",
-      "description": "The incident helps shed some new light on how Waymo treats and stores the footage captured by its robotaxis.",
-      "published_at": "Thu, 04 Jun 2026 16:16:37 +0000",
+      "title": "Microsoft taps Alt Carbon in sign of India\u2019s growing role in carbon removal",
+      "url": "https://techcrunch.com/2026/06/11/microsoft-taps-alt-carbon-in-sign-of-indias-growing-rile-in-carbon-removal/",
+      "description": "Alt Carbon said the agreement followed more than a year of scientific review and due diligence, with Microsoft requiring additional verification and data-sharing measures.",
+      "published_at": "Thu, 11 Jun 2026 15:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Cash App launches a wand for tap-and-pay",
-      "url": "https://techcrunch.com/2026/06/04/cash-app-launches-a-wand-for-tap-and-pay/",
-      "description": "Digital wallet app Cash App is launching a new gadget on Thursday, seemingly inspired by the social media trend that involves paying for items in the real world with a tap of a homemade magic wand, which hides a tap-and-pay credit card.",
-      "published_at": "Thu, 04 Jun 2026 16:00:00 +0000",
+      "title": "DoorDash\u2019s new AI chatbot lets you order with prompts and photos",
+      "url": "https://techcrunch.com/2026/06/11/doordashs-new-ai-chatbot-lets-you-order-with-prompts-and-photos/",
+      "description": "The new chatbot, called Ask DoorDash, allows users to search the app for what they're looking for in their own words instead of having to scroll through restaurants and stores to build a cart.",
+      "published_at": "Thu, 11 Jun 2026 14:23:43 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Waymo\u2019s spent robotaxi batteries will be used as grid storage",
-      "url": "https://techcrunch.com/2026/06/04/waymos-spent-robotaxi-batteries-will-be-used-as-grid-storage/",
-      "description": "The company announced a deal with B2U Storage Solutions to repurpose the battery packs as Waymo pulls them off the road.",
-      "published_at": "Thu, 04 Jun 2026 15:48:41 +0000",
+      "title": "Endurance Energy raises $54M to harness a massive untapped energy source",
+      "url": "https://techcrunch.com/2026/06/11/endurance-energy-raises-54m-to-harness-a-massive-untapped-energy-source/",
+      "description": "SpaceX alumni Andrew Redd is betting the ocean has vast amounts of untapped geothermal energy.",
+      "published_at": "Thu, 11 Jun 2026 14:00:12 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Ramp raises $750M at $44B valuation as investors hunger for fintechs with an AI story",
-      "url": "https://techcrunch.com/2026/06/04/ramp-raises-750m-at-44b-valuation-as-investors-hunger-for-fintechs-with-an-ai-story/",
-      "description": "Ramp has nearly tripled its valuation over the past year as investors scramble to grab a part of the fast-growing startup.",
-      "published_at": "Thu, 04 Jun 2026 15:08:34 +0000",
+      "title": "South Korea hits Coupang with $400M+ fine for data breach that affected millions",
+      "url": "https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/",
+      "description": "South Korean authorities issued the record-breaking fine following a data breach that affected over 30 million customers.",
+      "published_at": "Thu, 11 Jun 2026 13:18:51 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Is Silicon Valley ready to put robots in people\u2019s homes? Hello Robot is.",
-      "url": "https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/",
-      "description": "The California startup released the fourth-generation of its home assistance robot, Stretch.",
-      "published_at": "Thu, 04 Jun 2026 15:05:00 +0000",
+      "title": "Anthropic taps TCS to scale its enterprise AI deployments",
+      "url": "https://techcrunch.com/2026/06/11/anthropic-taps-tcs-to-scale-its-enterprise-ai-deployments/",
+      "description": "The partnership will see TCS creating a business unit focused on deploying Anthropic's AI models to its customers.",
+      "published_at": "Thu, 11 Jun 2026 11:48:55 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Chinese spies are using LinkedIn to lure Westerners into sharing sensitive information",
-      "url": "https://techcrunch.com/2026/06/04/chinese-spies-are-using-linkedin-to-lure-westerners-into-sharing-sensitive-information/",
-      "description": "The advisory warns that Chinese spies are using public job search platforms to recruit people with access to non-public information.",
-      "published_at": "Thu, 04 Jun 2026 14:57:41 +0000",
+      "title": "Opendoor\u2019s India exit is fueling a bigger conversation about AI and outsourcing",
+      "url": "https://techcrunch.com/2026/06/10/opendoors-india-exit-is-fueling-a-bigger-conversation-about-ai-and-outsourcing/",
+      "description": "The decision comes as India emerges as the world\u2019s largest GCC market.",
+      "published_at": "Thu, 11 Jun 2026 04:02:19 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Apple touts $1.4 trillion in App Store billings and sales, 90% without a commission",
-      "url": "https://techcrunch.com/2026/06/04/apple-touts-1-4-trillion-in-app-store-billings-and-sales-90-without-a-commission/",
-      "description": "Apple's App Store generated $1.4 trillion in sales, up from $1.3 trillion last year, with $149 billion in sales for digital goods.",
-      "published_at": "Thu, 04 Jun 2026 14:05:58 +0000",
+      "title": "Anthropic\u2019s Dario Amodei has just one direct report",
+      "url": "https://techcrunch.com/2026/06/10/anthropics-dario-amodei-has-just-one-direct-report/",
+      "description": "If founders and other business leaders weren't already envious of Dario Amodei, who sits atop one of the world's fastest-growing AI companies, they're going to be seriously envious now.",
+      "published_at": "Thu, 11 Jun 2026 03:53:06 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Oura Ring 5 review: Thinner, lighter, better",
-      "url": "https://techcrunch.com/2026/06/04/oura-ring-5-review-thinner-lighter-better/",
-      "description": "The Ring 5, which Oura describes as the world\u2019s smallest smart ring, is 40% smaller than its predecessor and starts at $399.",
-      "published_at": "Thu, 04 Jun 2026 12:00:00 +0000",
+      "title": "xAI fired an engineer who raised alarms about Grok safety, new lawsuit claims",
+      "url": "https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/",
+      "description": "A former xAI engineer is suing the company and SpaceX, alleging he was fired for raising AI safety concerns about Grok days before SpaceX's historic IPO.",
+      "published_at": "Wed, 10 Jun 2026 22:31:19 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Benchmark raises its first-ever growth fund as part of $2B capital haul",
-      "url": "https://techcrunch.com/2026/06/03/benchmark-raises-its-first-ever-growth-fund-as-part-of-2b-capital-raise/",
-      "description": "The legendary Silicon Valley VC firm abandons its more than 20-year tradition of keeping its funds to about $425 million.",
-      "published_at": "Thu, 04 Jun 2026 03:52:15 +0000",
+      "title": "Why Andrew Yang is building instead of waiting for Washington",
+      "url": "https://techcrunch.com/video/why-andrew-yang-is-building-instead-of-waiting-for-washington/",
+      "description": "Andrew Yang\u2019s 2020 presidential campaign&#160;was based on a&#160;warning that automation and AI would hollow out the labor market and concentrate wealth in the hands of a few. At the time, ideas like Universal Basic Income felt fringe. Now Dario Amodei, Sam Altman, and Bernie Sanders are all&#160;saying versions&#160;of the same thing.&#160; An entrepreneur at heart, [&#8230;]",
+      "published_at": "Wed, 10 Jun 2026 22:24:12 +0000",
       "source": "TechCrunch"
     }
   ],
   "a16z": [
+    {
+      "title": "Marc Andreessen on Evaluating Founders and AI\u2019s Consumer Surplus",
+      "url": "https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Building Search for AI Agents with Exa CEO Will Bryk",
+      "url": "https://a16z.com/podcast/building-search-for-ai-agents-with-exa-ceo-will-bryk/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "AI Agents and the Fight for Customer Data",
+      "url": "https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
     {
       "title": "Investing in Town",
       "url": "https://a16z.com/announcement/investing-in-town/",
@@ -157,8 +178,22 @@
       "source": "a16z"
     },
     {
+      "title": "Balaji and Steven Glinert on Network States, Supply Chains, and Allied Coalition Strategy",
+      "url": "https://a16z.com/podcast/balaji-and-steven-glinert-on-network-states-supply-chains-and-allied-coalition-strategy/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
       "title": "Investing in Westmag",
       "url": "https://a16z.com/announcement/investing-in-westmag/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Steven Sinofsky on AI PCs, NVIDIA, and the Future of Computing",
+      "url": "https://a16z.com/podcast/steven-sinofsky-on-ai-pcs-nvidia-and-the-future-of-computing/",
       "description": "a16z perspective",
       "published_at": "",
       "source": "a16z"
@@ -178,6 +213,62 @@
       "source": "a16z"
     },
     {
+      "title": "Why $1B Exits are Dead",
+      "url": "https://a16z.com/podcast/why-1b-exits-are-dead/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Building AI Agents for Enterprise Operations",
+      "url": "https://a16z.com/podcast/building-ai-agents-for-enterprise-operations/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Stablecoins, AI Agents, and The Future of Global Banking",
+      "url": "https://a16z.com/podcast/stablecoins-ai-agents-and-the-future-of-global-banking/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Marc Rowan on Private Markets, Software Repricing, and Capital Allocation",
+      "url": "https://a16z.com/podcast/marc-rowan-on-private-markets-software-repricing-and-capital-allocation/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Robin Hanson on Prediction Markets, Gambling, and the Future of Forecasting",
+      "url": "https://a16z.com/podcast/robin-hanson-on-prediction-markets-gambling-and-the-future-of-forecasting/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Why AI Isn\u2019t Killing SaaS Yet",
+      "url": "https://a16z.com/podcast/why-ai-isnt-killing-saas-yet/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "Hugging Face\u2019s Clem Delangue on Open Source AI and the LLM Bubble | MTS Live",
+      "url": "https://a16z.com/podcast/hugging-faces-clem-delangue-on-open-source-ai-and-the-llm-bubble-mts-live/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
+      "title": "How Superhuman Took Over Silicon Valley Email",
+      "url": "https://a16z.com/podcast/how-superhuman-took-over-silicon-valley-email/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
+    {
       "title": "Investing in Exa",
       "url": "https://a16z.com/announcement/investing-in-exa/",
       "description": "a16z perspective",
@@ -185,99 +276,8 @@
       "source": "a16z"
     },
     {
-      "title": "Investing in Stitch",
-      "url": "https://a16z.com/announcement/investing-in-stitch/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Investing in Ethos",
-      "url": "https://a16z.com/announcement/investing-in-ethos/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "The New Space Race: NASA, Artemis, and the Race to the Moon",
-      "url": "https://a16z.com/podcast/the-new-space-race-nasa-artemis-and-the-race-to-the-moon/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Investing in Tessera Labs",
-      "url": "https://a16z.com/announcement/investing-in-tessera-labs/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Building Blackstone, Backing Costco, with Tony James",
-      "url": "https://a16z.com/podcast/building-blackstone-backing-costco-with-tony-james/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Sarah Rogers: Free Speech, AI Diplomacy, and What America Owes Its Allies",
-      "url": "https://a16z.com/podcast/sarah-rogers-free-speech-ai-diplomacy-and-what-america-owes-its-allies/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Balaji and Taylor Lorenz on AI and Media",
-      "url": "https://a16z.com/podcast/balaji-and-taylor-lorenz-on-ai-and-media/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Workday\u2019s Last Workday? AI and the Future of Enterprise Software",
-      "url": "https://a16z.com/podcast/workdays-last-workday-ai-and-the-future-of-enterprise-software/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "The Shift in Global Drug Development",
-      "url": "https://a16z.com/podcast/the-shift-in-global-drug-development/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "John and Patrick Collison on Stripe\u2019s Growth, Agent Commerce, and the Future of Software",
-      "url": "https://a16z.com/podcast/john-and-patrick-collison-on-stripes-growth-agent-commerce-and-the-future-of-software/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Ben Horowitz on Venture Capital and AI",
-      "url": "https://a16z.com/podcast/ben-horowitz-on-venture-capital-and-ai/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "AI Inside the Enterprise",
-      "url": "https://a16z.com/podcast/ai-inside-the-enterprise/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Investing in Glif",
-      "url": "https://a16z.com/announcement/investing-in-glif/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
-    },
-    {
-      "title": "Martin Shkreli on AI, Pharma, and What Actually Matters",
-      "url": "https://a16z.com/podcast/martin-shkreli-on-ai-pharma-and-what-actually-matters/",
+      "title": "Marc Andreessen on AI, California, and the Future of America | Joe Rogan",
+      "url": "https://a16z.com/podcast/marc-andreessen-on-ai-california-and-the-future-of-america-joe-rogan/",
       "description": "a16z perspective",
       "published_at": "",
       "source": "a16z"
@@ -299,8 +299,8 @@
       "source": "Sequoia Capital"
     },
     {
-      "title": "2026: This is AGI",
-      "url": "https://sequoiacap.com/article/2026-this-is-agi/",
+      "title": "AI Ascent 2026",
+      "url": "https://sequoiacap.com/article/ai-ascent-2026/",
       "description": "Sequoia perspective",
       "published_at": "",
       "source": "Sequoia Capital"
@@ -313,15 +313,8 @@
       "source": "Sequoia Capital"
     },
     {
-      "title": "AI Ascent 2026",
-      "url": "https://sequoiacap.com/article/ai-ascent-2026/",
-      "description": "Sequoia perspective",
-      "published_at": "",
-      "source": "Sequoia Capital"
-    },
-    {
-      "title": "From Hierarchy to Intelligence",
-      "url": "https://sequoiacap.com/article/from-hierarchy-to-intelligence/",
+      "title": "2026: This is AGI",
+      "url": "https://sequoiacap.com/article/2026-this-is-agi/",
       "description": "Sequoia perspective",
       "published_at": "",
       "source": "Sequoia Capital"
@@ -378,356 +371,356 @@
   ],
   "ycombinator": [
     {
-      "title": "VoidZero Is Joining Cloudflare",
-      "url": "https://blog.cloudflare.com/voidzero-joins-cloudflare/",
-      "description": "HN front page \u00b7 537 points",
-      "published_at": "2026-06-04T13:00:51+00:00",
+      "title": "Show HN: Homebrew 6.0.0",
+      "url": "https://brew.sh/2026/06/11/homebrew-6.0.0/",
+      "description": "HN front page \u00b7 881 points",
+      "published_at": "2026-06-11T13:24:29+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Ian's Secure Shoelace Knot",
-      "url": "https://www.fieggen.com/shoelace/secureknot.htm",
-      "description": "HN front page \u00b7 463 points",
-      "published_at": "2026-06-04T11:17:34+00:00",
+      "title": "MiMo Code is now released and open-source",
+      "url": "https://mimo.xiaomi.com/mimocode",
+      "description": "HN front page \u00b7 400 points",
+      "published_at": "2026-06-11T14:27:19+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "When AI Builds Itself: Our progress toward recursive self-improvement",
-      "url": "https://www.anthropic.com/institute/recursive-self-improvement",
-      "description": "HN front page \u00b7 245 points",
-      "published_at": "2026-06-04T16:20:17+00:00",
+      "title": "Solar generates more energy in US than coal for first time",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal",
+      "description": "HN front page \u00b7 387 points",
+      "published_at": "2026-06-11T16:10:05+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Retro-Tech Parenting",
-      "url": "https://havenweb.org/2026/05/28/retro-tech.html",
-      "description": "HN front page \u00b7 218 points",
-      "published_at": "2026-06-04T16:02:35+00:00",
+      "title": "Lines of code got a better publicist",
+      "url": "https://curlewis.co.nz/posts/lines-of-code-got-a-better-publicist/",
+      "description": "HN front page \u00b7 338 points",
+      "published_at": "2026-06-11T12:26:42+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Show HN: Uruky (EU-based Kagi alternative) now has Image Search and URL Rewrites",
-      "url": "https://uruky.com/?il=en",
-      "description": "HN front page \u00b7 200 points",
-      "published_at": "2026-06-04T08:56:10+00:00",
+      "title": "Doing nothing at work",
+      "url": "https://www.seangoedecke.com/doing-nothing-at-work/",
+      "description": "HN front page \u00b7 335 points",
+      "published_at": "2026-06-08T08:57:11+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "U.S. Army Corps of Engineers Bay Model",
-      "url": "https://en.wikipedia.org/wiki/U.S._Army_Corps_of_Engineers_Bay_Model",
-      "description": "HN front page \u00b7 200 points",
-      "published_at": "2026-06-02T17:50:00+00:00",
+      "title": "Petition to Withdraw Canada's Bill C-22",
+      "url": "https://www.ourcommons.ca/petitions/en/Petition/Sign/e-7416",
+      "description": "HN front page \u00b7 306 points",
+      "published_at": "2026-06-11T15:37:23+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Anthropic's open-source framework for AI-powered vulnerability discovery",
-      "url": "https://github.com/anthropics/defending-code-reference-harness",
-      "description": "HN front page \u00b7 179 points",
-      "published_at": "2026-06-04T20:11:20+00:00",
+      "title": "Emacs appearances in pop culture",
+      "url": "https://ianyepan.github.io/posts/emacs-in-pop-culture/",
+      "description": "HN front page \u00b7 220 points",
+      "published_at": "2026-06-10T10:37:45+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Meta's ships facial recognition on smart glasses",
-      "url": "https://www.buchodi.com/meta-glasses-facial-recognition/",
+      "title": "macOS 27 Beta breaks the ability to boot Asahi Linux",
+      "url": "https://www.phoronix.com/news/macOS-27-Beta-Breaks-Asahi",
+      "description": "HN front page \u00b7 202 points",
+      "published_at": "2026-06-09T15:01:43+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "The RCE that AMD wouldn't fix",
+      "url": "https://mrbruh.com/amd2/",
+      "description": "HN front page \u00b7 198 points",
+      "published_at": "2026-06-11T16:03:40+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Developer gets Half-Life running at 30 FPS on a Nokia N95",
+      "url": "https://www.tomshardware.com/video-games/handheld-gaming/developer-gets-half-life-running-at-30-fps-on-a-2007-nokia-n95",
+      "description": "HN front page \u00b7 195 points",
+      "published_at": "2026-06-08T21:02:01+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Open Reproduction of DeepSeek-R1",
+      "url": "https://github.com/huggingface/open-r1",
+      "description": "HN front page \u00b7 183 points",
+      "published_at": "2026-06-11T13:14:31+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Software is made between commits",
+      "url": "https://zed.dev/blog/introducing-deltadb",
+      "description": "HN front page \u00b7 180 points",
+      "published_at": "2026-06-11T16:28:24+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Claude Fable 5: mid-tier results on coding tasks",
+      "url": "https://www.endorlabs.com/learn/claude-fable-5-mythos-grade-hype",
       "description": "HN front page \u00b7 174 points",
-      "published_at": "2026-06-04T19:36:48+00:00",
+      "published_at": "2026-06-11T16:03:21+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Gaussian Point Splatting",
-      "url": "https://momentsingraphics.de/Siggraph2026.html",
-      "description": "HN front page \u00b7 169 points",
-      "published_at": "2026-06-04T10:48:13+00:00",
+      "title": "Shall we play a game? \u2013 LLMs use tactical nukes in 95% of simulations",
+      "url": "https://www.kennethpayne.uk/p/shall-we-play-a-game",
+      "description": "HN front page \u00b7 151 points",
+      "published_at": "2026-06-11T19:54:54+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "KVarN: Native vLLM backend for KV-cache quantization by Huawei",
-      "url": "https://github.com/huawei-csl/KVarN",
-      "description": "HN front page \u00b7 107 points",
-      "published_at": "2026-06-04T15:18:00+00:00",
+      "title": "Why I'm Forced to Say Farewell: Google Management Has Lost Its Moral Compass",
+      "url": "https://www.mayrhofer.eu.org/post/leaving-google/",
+      "description": "HN front page \u00b7 141 points",
+      "published_at": "2026-06-11T21:04:47+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Iran Shock Jolts Asia and Europe to Speed Up Energy Transition",
-      "url": "https://www.bloomberg.com/graphics/2026-energy-transition-iran-war/",
-      "description": "HN front page \u00b7 87 points",
-      "published_at": "2026-06-04T20:19:07+00:00",
+      "title": "Waymo Premier",
+      "url": "https://waymo.com/blog/2026/06/waymo-premier/",
+      "description": "HN front page \u00b7 136 points",
+      "published_at": "2026-06-11T16:10:02+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Samurai City",
-      "url": "https://worksinprogress.co/issue/samurai-city/",
-      "description": "HN front page \u00b7 72 points",
-      "published_at": "2026-06-02T04:32:19+00:00",
+      "title": "Show HN: FablePool \u2013 pool money behind a prompt, and Fable builds it in public",
+      "url": "https://fablepool.com",
+      "description": "HN front page \u00b7 128 points",
+      "published_at": "2026-06-11T21:17:30+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Mornings and nights no longer exist at 47C: A day in the hottest place in India",
-      "url": "https://www.bbc.co.uk/news/articles/crmp0krp98ro",
-      "description": "HN front page \u00b7 71 points",
-      "published_at": "2026-06-02T12:35:20+00:00",
+      "title": "Ear Training Practice",
+      "url": "https://tonedear.com/",
+      "description": "HN front page \u00b7 118 points",
+      "published_at": "2026-06-08T16:38:07+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "3D-printed book turns its own G-code into raised lettering",
-      "url": "https://www.designboom.com/design/3d-printed-book-manual-darius-ou-benson-chong/",
-      "description": "HN front page \u00b7 67 points",
-      "published_at": "2026-06-02T14:15:15+00:00",
+      "title": "Discovery of Cold War-era rare Eastern Bloc computers in a German hangar",
+      "url": "https://computerhistory.org/stories/explorers-of-the-lost-computers/",
+      "description": "HN front page \u00b7 93 points",
+      "published_at": "2026-06-06T21:00:31+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Show HN: FFmpeg WebCLI \u2013 Full FFmpeg in Browser, Offline PWA, No Uploads(WASM)",
-      "url": "https://github.com/tejaswigowda/ffmpeg-webCLI",
-      "description": "HN front page \u00b7 50 points",
-      "published_at": "2026-06-04T20:32:18+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Sum-product, unit distances, and number fields",
-      "url": "https://www.erdosproblems.com/forum/thread/blog:6",
-      "description": "HN front page \u00b7 48 points",
-      "published_at": "2026-06-01T05:54:27+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Making Debian or Fedora persistent live images",
-      "url": "https://sigwait.org/~alex/blog/2026/05/28/smdBC8.html",
-      "description": "HN front page \u00b7 48 points",
-      "published_at": "2026-06-01T18:02:10+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "AI, Ashby Engineering, and the future",
-      "url": "https://www.ashbyhq.com/blog/engineering/ai-ashby-engineering-and-the-future",
-      "description": "HN front page \u00b7 39 points",
-      "published_at": "2026-06-04T14:48:44+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Castor: CERN Advanced STORage Manager",
-      "url": "https://castor.web.cern.ch/content/home.html",
-      "description": "HN front page \u00b7 38 points",
-      "published_at": "2026-06-04T19:52:02+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Branchless Quicksort faster than std:sort and pdqsort with C and C++ API",
-      "url": "https://tiki.li/blog/blqsort",
-      "description": "HN front page \u00b7 36 points",
-      "published_at": "2026-06-02T20:00:54+00:00",
+      "title": "FPS.cob: A first person shooter in COBOL",
+      "url": "https://github.com/icitry/FPS.cob",
+      "description": "HN front page \u00b7 91 points",
+      "published_at": "2026-06-11T15:13:57+00:00",
       "source": "Y Combinator"
     }
   ],
   "mit_review": [
     {
-      "title": "The Download: AI-generated lawsuits and virtual power plants for data centers",
-      "url": "https://www.technologyreview.com/2026/06/04/1138408/the-download-ai-lawsuits-virtual-power-plants-data-centers/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. How courts are coping with a flood of AI-generated lawsuits Most days in her chambers, Judge Maritza Braswell, a federal magistrate judge in Colorado, sifts through stacks of documents written by&#8230;",
-      "published_at": "Thu, 04 Jun 2026 12:10:00 +0000",
+      "title": "The Download: soccer\u2019s data renaissance and China\u2019s big nuclear plans",
+      "url": "https://www.technologyreview.com/2026/06/11/1138809/the-download-soccer-football-data-analytics-china-nuclear-power/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Inside soccer\u2019s data renaissance Imagine tuning in to the opening kickoff of a World Cup match and seeing a player intentionally kick the ball out of bounds. You may question the&#8230;",
+      "published_at": "Thu, 11 Jun 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "How courts are coping with a flood of AI-generated lawsuits",
-      "url": "https://www.technologyreview.com/2026/06/04/1138391/courts-coping-ai-lawsuits/",
-      "description": "Most days in her chambers, Judge Maritza Braswell, a federal magistrate judge in Colorado, sifts through stacks of documents written by people without a lawyer. Many of them can\u2019t afford to hire a lawyer, and others have cases too weak or too small to interest one. She reads each one carefully, mindful of how daunting&#8230;",
-      "published_at": "Thu, 04 Jun 2026 10:50:18 +0000",
+      "title": "Google DeepMind is worried about what happens when millions of agents start to interact",
+      "url": "https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/",
+      "description": "Google DeepMind is funding research into the potential dangers of situations where millions of different AI agents\u00a0interact with each other online. According to Rohin Shah, who directs the company\u2019s AGI safety and alignment research, the mass-market arrival of agents that can carry out tasks without human oversight and follow instructions given to them by other&#8230;",
+      "published_at": "Thu, 11 Jun 2026 11:00:45 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "How virtual power plants could provide energy for data centers",
-      "url": "https://www.technologyreview.com/2026/06/03/1138350/virtual-power-plants-data-centers/",
-      "description": "Would you take a payment to ramp down your electricity use? Would it change anything if you were doing so to help power a local data center? Google just signed a new deal to help pay for a virtual power plant (VPP) in the largest power grid in the US. The agreement is with Voltus,&#8230;",
-      "published_at": "Wed, 03 Jun 2026 16:51:38 +0000",
+      "title": "Job titles of the future: Nature\u2019s drug designer",
+      "url": "https://www.technologyreview.com/2026/06/11/1138502/job-titles-natures-drug-designer-tim-cernak/",
+      "description": "In 2018, after nearly two decades working in Big Pharma, chemist Tim Cernak was ready to put his skills to a new use.&#160; For Merck, he\u2019d developed precision therapies for cancer, HIV, and diabetes that could target disease while minimizing harm to healthy cells. But as a lifelong nature lover, he was increasingly concerned about&#8230;",
+      "published_at": "Thu, 11 Jun 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: Trump\u2019s new AI order, and smart glasses for warfare",
-      "url": "https://www.technologyreview.com/2026/06/03/1138322/the-download-trump-ai-order-smart-glasses-warfare/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. 5 key points in Trump&#8217;s new AI order Less than two weeks after scrapping an executive order on AI, President Donald Trump signed a new one on Tuesday. Promising to promote&#8230;",
-      "published_at": "Wed, 03 Jun 2026 12:10:00 +0000",
+      "title": "Inside soccer\u2019s data renaissance",
+      "url": "https://www.technologyreview.com/2026/06/11/1138506/inside-soccer-data-renaissance-jesse-davis/",
+      "description": "Imagine tuning in to the opening kickoff of a World Cup match and seeing a player intentionally send the ball all the way down the pitch and right out of bounds on the opponent\u2019s end. Casual fans might scratch their heads. Where\u2019s the logic in surrendering possession seconds into a game? If you were Jesse&#8230;",
+      "published_at": "Thu, 11 Jun 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: AI can run your admin department now",
-      "url": "https://www.technologyreview.com/2026/06/02/1138277/the-download-ai-tips-small-businesses-admin/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. How small businesses can leverage AI From accounting to design to market research and product development, there\u2019s a staggering breadth of skills needed to run a business. Large companies can hire&#8230;",
-      "published_at": "Tue, 02 Jun 2026 12:10:00 +0000",
+      "title": "Why China is betting on big nuclear reactors",
+      "url": "https://www.technologyreview.com/2026/06/11/1138789/china-big-nuclear-reactors/",
+      "description": "It\u2019s a tale of two nuclear industries. In China, large reactors are coming together at a stunning pace. The country has nearly doubled its nuclear fleet since 2016, reaching nearly 60 gigawatts of total power capacity. The new facilities are nearly all gigawatt-scale pressurized-water reactors. Meanwhile, the US has built just two reactors in that&#8230;",
+      "published_at": "Thu, 11 Jun 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Rehumanizing global health care with agentic AI",
-      "url": "https://www.technologyreview.com/2026/06/02/1137827/rehumanizing-global-health-care-with-agentic-ai/",
-      "description": "The global health care sector is under increasing strain.&#160; Decades of chronic underinvestment and constraints in recruitment have coincided with a surge in demand for services for aging populations. Gaps in provision are already taking a toll, with fragmented access to care and high rates of stress and burnout among staff. And it\u2019s getting worse.&#8230;",
-      "published_at": "Tue, 02 Jun 2026 11:23:34 +0000",
+      "title": "The Download: the \u201csteroid olympics\u201d and a safer Mythos",
+      "url": "https://www.technologyreview.com/2026/06/10/1138739/the-download-steroid-olympics-enhanced-games-anthropic-mythos/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. The \u201csteroid olympics\u201d were a circus\u2014and a window into our culture \u2014Amit Katwala A couple of weeks ago, at a $50 million arena built in a casino parking lot in Las&#8230;",
+      "published_at": "Wed, 10 Jun 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "How small businesses can leverage AI",
-      "url": "https://www.technologyreview.com/2026/06/02/1138227/how-small-businesses-can-leverage-ai/",
-      "description": "This article is from Making AI Work, MIT Technology Review\u2019s limited-run newsletter examining how to apply LLMs across industries. To receive it in your inbox,sign up here. From accounting to design to market research and product development, there\u2019s a staggering breadth of skills needed to run a business. A large company can hire experts to&#8230;",
-      "published_at": "Tue, 02 Jun 2026 09:00:00 +0000",
+      "title": "The \u201csteroid olympics\u201d were a circus\u2014and a window into our culture",
+      "url": "https://www.technologyreview.com/2026/06/10/1138670/enhanced-games-doping-steroids-hormones-supplements-longevity/",
+      "description": "Testosterone. Methenolone. Nandrolone. Human growth hormone and EPO. Meldonium, modafinil, and mixed amphetamine salts. Clomiphene, anastrozole, levothyroxine, and liothyronine. Patches and capsules, creams and pills. A whole galaxy\u00a0of steroids, metabolic modulators, and synthetic hormones coursing through the blood of a few dozen swimmers, sprinters, and weightlifters. And millions of dollars up for grabs for athletes&#8230;",
+      "published_at": "Wed, 10 Jun 2026 09:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: China\u2019s brain implant ambitions",
-      "url": "https://www.technologyreview.com/2026/06/01/1138207/the-download-china-bci-brain-implant-nvidia-ai-chips-laptops/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. China has approved the world\u2019s first invasive brain-computer chip\u2014here\u2019s what\u2019s next Sitting in the courtyard of his house in China\u2019s Henan province last October, Dong Hui decided to try holding a&#8230;",
-      "published_at": "Mon, 01 Jun 2026 12:10:00 +0000",
+      "title": "The Download: whole-body rejuvenation drugs and five things to know about AI",
+      "url": "https://www.technologyreview.com/2026/06/09/1138604/the-download-anti-aging-drugs-ai-five-things-to-know/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. David Sinclair plans to test whole-body rejuvenation drugs in the XPrize competition The outspoken longevity scientist David Sinclair has predicted that, one day, you\u2019ll go to the doctor and get a&#8230;",
+      "published_at": "Tue, 09 Jun 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "China has approved the world\u2019s first invasive brain-computer chip\u2014here\u2019s what\u2019s next",
-      "url": "https://www.technologyreview.com/2026/06/01/1138133/china-world-first-brain-chip/",
-      "description": "One day last October, sitting in the courtyard of his house in China\u2019s Henan province, Dong Hui decided to see if he could hold a pen to write.&#160; Dong, 39, had sustained spinal cord injuries in a car accident six years earlier that left him paralyzed from the neck down. Slowly but determinedly, he wrote&#8230;",
-      "published_at": "Mon, 01 Jun 2026 09:09:00 +0000",
+      "title": "Learning to lead in a hybrid human-AI enterprise",
+      "url": "https://www.technologyreview.com/2026/06/09/1137830/learning-to-lead-in-a-hybrid-human-ai-enterprise/",
+      "description": "As adoption of AI agents looks set to surge by as much as 300% in the next two years,\u00a0leadership teams are carefully considering the implications of a hybrid human-AI workforce.\u00a0 Unlike existing enterprise-level automation that relies on manual input, AI agents are capable of autonomously coordinating complex tasks, interacting with multiple tools and environments across&#8230;",
+      "published_at": "Tue, 09 Jun 2026 10:20:06 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: unlocking lithium and controlling Ebola",
-      "url": "https://www.technologyreview.com/2026/05/29/1138110/the-download-lithium-extraction-ebola-ai-pope/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. How a new extraction process could unlock the world\u2019s lithium A new method for extracting lithium could cut costs and emissions from one of the world\u2019s most important materials for EVs&#8230;",
-      "published_at": "Fri, 29 May 2026 12:10:00 +0000",
+      "title": "David Sinclair plans to test whole-body rejuvenation drugs in the XPrize competition",
+      "url": "https://www.technologyreview.com/2026/06/09/1138545/david-sinclair-plans-to-test-whole-body-rejuvenation-drugs-in-the-xprize-competition/",
+      "description": "The outspoken longevity scientist David Sinclair has been predicting that one day, you\u2019ll go to the doctor and get a prescription that will make you 10 years younger. Now MIT Technology Review has learned that he has plans to launch human tests of an oral &#8220;reprogramming&#8221; drug as part of a $101 million competition organized&#8230;",
+      "published_at": "Tue, 09 Jun 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     }
   ],
   "producthunt": [],
   "hf_papers": [
     {
-      "title": "Audio Interaction Model",
-      "url": "https://huggingface.co/papers/2606.05121",
+      "title": "Redesign Mixture-of-Experts Routers with Manifold Power Iteration",
+      "url": "https://huggingface.co/papers/2606.12397",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Cosmos 3: Omnimodal World Models for Physical AI",
-      "url": "https://huggingface.co/papers/2606.02800",
+      "title": "Toward Generalist Autonomous Research via Hypothesis-Tree Refinement",
+      "url": "https://huggingface.co/papers/2606.11926",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Where Do Deep-Research Agents Go Wrong? Span-Level Error Localization in Agent Trajectories",
-      "url": "https://huggingface.co/papers/2606.02060",
+      "title": "Agentic Environment Engineering for Large Language Models: A Survey of Environment Modeling, Synthesis, Evaluation, and Application",
+      "url": "https://huggingface.co/papers/2606.12191",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning",
-      "url": "https://huggingface.co/papers/2606.04923",
+      "title": "Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks",
+      "url": "https://huggingface.co/papers/2606.12344",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "OVO-S-Bench: A Hierarchical Benchmark for Streaming Spatial Intelligence in Multimodal LLMs",
-      "url": "https://huggingface.co/papers/2606.03890",
+      "title": "Beyond Scalar Rewards by Internalizing Reasoning into Score Distributions",
+      "url": "https://huggingface.co/papers/2606.09076",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Qwen-Image-Flash: Beyond Objective Design",
-      "url": "https://huggingface.co/papers/2606.03746",
+      "title": "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders",
+      "url": "https://huggingface.co/papers/2606.09323",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "M^3Eval: Multi-Modal Memory Evaluation through Cognitively-Grounded Video Tasks",
-      "url": "https://huggingface.co/papers/2606.05008",
+      "title": "Reason, Then Re-reason: Cross-view Revisiting Improves Spatial Reasoning",
+      "url": "https://huggingface.co/papers/2606.11683",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "ThoughtFold: Folding Reasoning Chains via Introspective Preference Learning",
-      "url": "https://huggingface.co/papers/2606.03503",
+      "title": "DeNovoSWE: Scaling Long-Horizon Environments for Generating Entire Repositories from Scratch",
+      "url": "https://huggingface.co/papers/2606.10728",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Streaming Communication in Multi-Agent Reasoning",
-      "url": "https://huggingface.co/papers/2606.05158",
+      "title": "World Pilot: Steering Vision-Language-Action Models with World-Action Priors",
+      "url": "https://huggingface.co/papers/2606.12403",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Echo-Infinity: Learning Evolving Memory for Real-Time Infinite Video Generation",
-      "url": "https://huggingface.co/papers/2606.04527",
+      "title": "On Subquadratic Architectures: From Applications to Principles",
+      "url": "https://huggingface.co/papers/2606.12364",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Benchmarks are Not Enough: RAMP for Runtime Assessing of Agentic Models in Production Systems",
-      "url": "https://huggingface.co/papers/2605.27492",
+      "title": "ComBench: A Benchmark for Rigorous Proof Reasoning and Constructive Realization in Olympiad-Level Combinatorics",
+      "url": "https://huggingface.co/papers/2606.10479",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Self-Distilled Policy Gradient",
-      "url": "https://huggingface.co/papers/2606.04036",
+      "title": "Grammar-Constrained Decoding Can Jailbreak LLMs into Generating Malicious Code",
+      "url": "https://huggingface.co/papers/2606.11817",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "MemTrain: Self-Supervised Context Memory Training",
-      "url": "https://huggingface.co/papers/2606.03197",
+      "title": "InternVideo3: Agentify Foundation Models with Multimodal Contextual Reasoning",
+      "url": "https://huggingface.co/papers/2606.12195",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Eliciting Complex Spatial Reasoning in MLLMs through Wide-Baseline Matching",
-      "url": "https://huggingface.co/papers/2606.03577",
+      "title": "Breaking Entropy Bounds: Accelerating RL Training via MTP with Rejection Sampling",
+      "url": "https://huggingface.co/papers/2606.12370",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "MMG2Skill: Can Agents Distill In-the-Wild Guides into Self-Evolving Skills?",
-      "url": "https://huggingface.co/papers/2606.01993",
+      "title": "TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning",
+      "url": "https://huggingface.co/papers/2606.11119",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "MapAgent: An Industrial-Grade Agentic Framework for City-scale Lane-level Map Generation",
-      "url": "https://huggingface.co/papers/2606.04513",
+      "title": "Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models",
+      "url": "https://huggingface.co/papers/2606.12412",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation",
-      "url": "https://huggingface.co/papers/2606.03972",
+      "title": "ICA Lens: Interpreting Language Models Without Training Another Dictionary",
+      "url": "https://huggingface.co/papers/2606.11722",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Filter, Then Reweight: Rethinking Optimization Granularity in On-Policy Distillation",
-      "url": "https://huggingface.co/papers/2606.02684",
+      "title": "EvoTrainer: Co-Evolving LLM Policies and Training Harnesses for Autonomous Agentic Reinforcement Learning",
+      "url": "https://huggingface.co/papers/2606.03108",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "ZipSplat: Fewer Gaussians, Better Splats",
-      "url": "https://huggingface.co/papers/2606.05102",
+      "title": "Embodied-R1.5: Evolving Physical Intelligence via Embodied Foundation Models",
+      "url": "https://huggingface.co/papers/2606.11324",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "KletterMix: Climbing Toward High-Quality German Pretraining Data",
-      "url": "https://huggingface.co/papers/2606.03773",
+      "title": "Verifiable Environments Are LEGO Bricks: Recursive Composition for Reasoning Generalization",
+      "url": "https://huggingface.co/papers/2606.12373",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"

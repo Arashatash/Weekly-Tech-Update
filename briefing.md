@@ -1,207 +1,216 @@
-# Weekly AI Strategy Briefing — Week 24, Jun 08 – Jun 14, 2026
+# Weekly AI Strategy Briefing — Week 25, Jun 15 – Jun 21, 2026
 
-> The Age of Agents Meets the Bill: Services-as-software thesis hardens just as token costs, multi-agent safety, and infrastructure economics force a reckoning.
+> AI stops being a category and becomes infrastructure: inference, power, and public-market stock are the new control points.
 
-Two narratives collided this week. On the bull side, Sequoia, NVIDIA, and a16z aligned around a single conviction: agents have crossed from demos to production, services (not software) are the new addressable market, and we are at the start of a multi-trillion-dollar buildout. On the cautionary side, Altman openly admitted enterprise token costs have become a "huge issue," DeepMind put $10M behind multi-agent safety research, and operators are starting to cap tool spend. The opportunity window is now defined less by model access and more by who can operate agents reliably at unit economics that survive contact with a Fortune 500 CFO.
+This week capital and product converged on a single message: AI is no longer a category, it is becoming infrastructure. Baseten's $13B round, AWS's chip play, FERC's grid fast-lane, and Sequoia's services-as-software essay all describe the same shift — margin is migrating from model novelty to inference economics, completed-work SLAs, and megawatt access. SpaceX using post-IPO stock to swallow Cursor for $60B and OpenAI's senior hires ahead of its own IPO show the public-market on-ramp is now the dominant capital-allocation event of 2026.
 
 ---
 
 ## Capital & Theses
 
-### Services Are the New Software
+### Inference is the new AWS — the unglamorous layer where AI margin will live
+**Source:** TechCrunch | **Signal:** high
+
+Baseten is closing a $1.5B round at an $11B/$13B dual-tier valuation just months after its last mega-round, validating that open-source-model inference orchestration is now treated by Altimeter, Conviction, Spark, Sands and Wellington as critical infrastructure rather than a tooling layer. The implication: VCs are pricing inference-stack winners (Baseten, Together, Modal, Fireworks) like cloud category leaders, and any operator without a credible inference-cost story will struggle to defend gross margin in 2026.
+
+[Read more →](https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round/)
+
+---
+
+### Services-as-software: AI is attacking labor budgets, not software budgets
 **Source:** Sequoia Capital | **Signal:** high
 
-Sequoia is now operationalising Julien Bek's viral thesis across its portfolio: the addressable opportunity for AI is no longer SaaS tools that help humans work but agents that deliver the completed work itself. Reinforced this week by Sequoia's $10T AI Revolution video and a fresh investment in Nevis (AI wealth management), Auctor, and Ineffable Intelligence — all priced as services-margin businesses, not software-margin ones. Capital allocation implication: vertical 'autopilot' companies that price on outcomes (per-contract, per-claim, per-filing) are the preferred wrapper; pure copilot SaaS gets re-rated down.
+Sequoia's 'Services: The New Software' and AI Ascent 2026 frame 2026 as the year long-horizon agents move from 'talkers' to 'doers' that complete entire workflows in legal, medical, wealth, and ops. The capital implication: TAM benchmarks shift from $250B SaaS to multi-trillion services pools, and pricing migrates to outcomes/seat-equivalent labor rather than per-seat SaaS — rewarding founders who can underwrite SLAs on completed work.
 
 [Read more →](https://sequoiacap.com/article/services-the-new-software/)
 
 ---
 
-### Age of Agents Needs a New Infra Stack
-**Source:** a16z | **Signal:** high
-
-a16z is pattern-matching across three podcasts this week (Exa on agent-native search, AI Agents and the Fight for Customer Data, Building AI Agents for Enterprise Operations) that the agent era requires its own primitives: search for machines, customer-data plumbing, and orchestration harnesses. NVIDIA's Computex keynote framed the same point — the unit of compute is now 'agent' not 'app.' Investable wedges: agent-native search/retrieval, memory layers, evaluation/observability, and identity/auth for non-human users.
-
-[Read more →](https://a16z.com/podcast/building-search-for-ai-agents-with-exa-ceo-will-bryk/)
-
----
-
-### Token Economics Reckoning
+### Hyperscaler chip independence: AWS, Google and Meta directly contesting Nvidia
 **Source:** TechCrunch | **Signal:** high
 
-Altman's June 2 admission that AI budgeting became a 'huge issue' overnight — combined with Uber capping employees at $1,500/month per agentic coding tool and Anthropic overtaking OpenAI in enterprise spend — has flipped the buyer narrative from access to efficiency. The new investable surface: LLM cost-routing proxies, observability, smaller specialised models, and pay-per-action protocols like Coinbase's x402 for agents. Multiples will re-rate toward companies that can prove tokens-out per dollar-in.
+AWS is in talks to sell Trainium/Inferentia to third-party data centers — Andy Jassy sized it at a $50B opportunity — signalling that hyperscalers will commercialise their custom silicon, not just consume it. Capital allocators should expect a multi-vendor accelerator market by 2027, compressing Nvidia's pricing power on inference workloads and creating openings for software that abstracts chip choice (compilers, schedulers, inference routers).
 
-[Read more →](https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/)
-
----
-
-### Multi-Agent Safety as an Investable Surface
-**Source:** MIT Technology Review | **Signal:** medium
-
-Google DeepMind, Schmidt Sciences, ARIA, and Cooperative AI launched a $10M fund this week explicitly to study multi-agent emergent behaviour, scams, prompt-injection-as-malware, and digital-commons risk. Rohin Shah is openly saying there is no real field of multi-agent safety yet — which is a tell that an enterprise category is forming around agent sandboxing, simulation, and inter-agent identity. Early-stage opportunity for startups doing 'agent firewalls,' attestation, and trusted-execution for AI-to-AI commerce.
-
-[Read more →](https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/)
+[Read more →](https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/)
 
 ---
 
-### Physical AI + Sovereign Compute
-**Source:** a16z | **Signal:** medium
+### Pre-IPO AI scarcity premium: capital crowds the listed-AI on-ramp
+**Source:** TechCrunch | **Signal:** high
 
-a16z's Radiant/Heron power-generation podcast, the Westmag and Endra announcements, plus NVIDIA's pre-VivaTech promise of 20+ European AI factories and a 1GW = $100B AI infra cost figure, all converge on the same trade: AI's binding constraint is now watts and physical-world data, not parameters. Capital is flowing to nuclear/SMR, grid orchestration, robotics foundation models, and world-model labs. Mistral AMI's $1.03B seed (with NVIDIA on the cap table) is the template.
+OpenAI is loading up senior talent (Noam Shazeer from DeepMind, Dean Ball on policy) ahead of an expected listing, while Anthropic has confidentially filed and SpaceX/xAI just used IPO stock to swallow Cursor for $60B. The thesis: public-market AI supply is about to expand abruptly, repricing private secondaries and giving acquirers stock currency that crushes traditional M&A math — operators should harden cap tables for stock-deal optionality now.
 
-[Read more →](https://a16z.com/podcast/how-radiant-and-heron-are-rethinking-power-generation-and-delivery/)
+[Read more →](https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/)
+
+---
+
+### Power is the binding constraint — grid + nuclear are now AI-strategic assets
+**Source:** TechCrunch | **Signal:** high
+
+FERC ordered grid operators to fast-track data-center interconnections the same week the Swiss parliament lifted its nuclear ban and a16z published podcasts on Radiant/Heron rethinking power generation. Capital is converging on the view that megawatts, not GPUs, are the true 2027 bottleneck — making grid-side flexibility, behind-the-meter generation, and SMR developers as investable as model labs.
+
+[Read more →](https://techcrunch.com/2026/06/18/ai-data-centers-just-got-a-government-mandated-fast-lane-to-the-grid/)
 
 ---
 
 ## What's Being Built
 
-### Xiaomi open-sources MiMo Code, beats Claude Code on SWE-Bench Pro
+### Noam Shazeer joins OpenAI ahead of IPO
 **Source:** Y Combinator | **Signal:** high
 
-Xiaomi shipped MiMo Code under MIT licence, scoring 62% on SWE-Bench Pro and 73% on Terminal Bench 2 — about 5 points above Claude Code at the same base model. The real story is the persistent-memory + Compose-mode 'harness' that wraps the model, plus a 99% API price cut. Strategic implication: the commoditisation of agentic-coding harnesses is happening from China, and Western incumbents (Anthropic, Cursor) lose pricing power on developer-tier agents within 6-12 months.
+The Transformer co-inventor leaving Google DeepMind for OpenAI is a concrete pre-IPO talent grab that thins DeepMind's research bench and signals OpenAI is doubling down on next-gen architecture work (rumored GPT-5.6) ahead of public-market scrutiny. Watch for follow-on poaching in attention/architecture research and a corresponding bid-up of senior IC comp.
 
-[Read more →](https://mimo.xiaomi.com/mimocode)
-
----
-
-### Coinbase ships MCP server with x402 for agent payments
-**Source:** TechCrunch | **Signal:** high
-
-Validates Token Economics Reckoning: Coinbase's new MCP server lets agents pay per-call for premium data and APIs via the x402 protocol. This is the first credible primitive for agent-to-agent commerce at micro-pricing — solving the 'how does my agent buy a research report at 3am' problem. Door opens for: paywalled data publishers, API metering, and a new SaaS pricing model where humans never see the invoice.
-
-[Read more →](https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/)
+[Read more →](https://twitter.com/NoamShazeer/status/2067400851438932297)
 
 ---
 
-### Tokenwise — LLM proxy that surfaces overspend
-**Source:** Product Hunt | **Signal:** high
+### Exa: building search infrastructure designed for AI agents
+**Source:** a16z | **Signal:** medium
 
-Validates Token Economics Reckoning: Tokenwise is a smart LLM proxy that shows enterprises exactly where they are overpaying across model providers. This is the operator wedge for Altman's 'huge issue' admission — the picks-and-shovels play for the cost reckoning. Expect a wave of similar FinOps-for-LLM tools and acquisition interest from Datadog/New Relic/Vantage within 12 months.
-
-[Read more →](https://www.producthunt.com/leaderboard/monthly/2026/6)
-
----
-
-### Mistral Vibe — agent for long-running multi-step work and coding
-**Source:** Product Hunt | **Signal:** high
-
-Validates Age of Agents Needs a New Infra Stack: Mistral's Vibe agent is positioned for long-horizon, multi-step coding work — the exact paradigm Sonya Huang at Sequoia called 'background/async agents' that will overtake current interactive ones. A European frontier lab shipping an agent harness (not just a model) is the strongest signal yet that the model-as-product era is ending and the harness-as-product era has begun.
-
-[Read more →](https://www.producthunt.com/leaderboard/monthly/2026/6)
-
----
-
-### Open Reproduction of DeepSeek-R1 hits HN front page
-**Source:** Y Combinator | **Signal:** medium
-
-Hugging Face's open-r1 reproduction continues to gain traction on HN — symbolically important because it lowers the cost for any startup or sovereign-AI program to train a reasoning model from scratch. Combined with MiMo's MIT-licensed release, the open-weights frontier is now ~3-6 months behind closed labs on reasoning. Strategic implication: foundation-model moats are eroding faster than infrastructure moats; investors should price proprietary-model startups accordingly.
-
-[Read more →](https://github.com/huggingface/open-r1)
-
----
-
-## Opportunities Now (0-6 months)
-
-### Build the LLM FinOps layer before hyperscalers wake up
-**Source:** TechCrunch | **Signal:** high | **Horizon:** 0-6 mo
-
-Who captures: a focused 5-10 person team that ships per-team token budgets, per-feature ROI dashboards, smart cross-model routing, and one-click 'cheaper-model' fallbacks. What must be true: enterprise customers are now actively shopping (Uber, Amazon already capping). When: ship in Q3 2026; the window closes once Datadog/AWS/Azure bundle native cost-attribution into their AI observability suites by mid-2027.
-
-[Read more →](https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/)
-
----
-
-### Prospecting by Clarify — outbound agent inside the CRM
-**Source:** Product Hunt | **Signal:** high | **Horizon:** 0-6 mo
-
-Validates Services Are the New Software: Clarify ships sourcing, outbound, and pipeline growth as completed work inside the CRM — not a copilot, but the SDR function delivered. Who captures: lean revops-native teams who can sell on per-meeting-booked pricing. What must be true: enterprises are willing to swap a $120k SDR seat for a $30k/mo agent contract. When: the 12-month window before HubSpot/Salesforce ship native equivalents.
-
-[Read more →](https://www.producthunt.com/leaderboard/monthly/2026/6)
-
----
-
-### Stella — local natural-language search across all your files
-**Source:** Product Hunt | **Signal:** medium | **Horizon:** 0-6 mo
-
-Validates Age of Agents Needs a New Infra Stack: Stella indexes local files for natural-language retrieval — the personal-context layer agents need before they can act on behalf of an individual. Who captures: prosumer/SMB tools that combine local index + cloud agent. What must be true: privacy-conscious users will pay $10-30/mo for searchable personal context. When: 6-month window before Apple ships native equivalents in macOS 27.x.
-
-[Read more →](https://www.producthunt.com/leaderboard/monthly/2026/6)
-
----
-
-### AI-content provenance services for the major DSPs
-**Source:** TechCrunch | **Signal:** medium | **Horizon:** 0-6 mo
-
-Deezer's cross-platform AI-music detection — scanning Spotify and Apple Music playlists — signals that provenance is becoming a contract requirement, not a feature. Who captures: B2B providers offering watermark detection, royalty-fraud auditing, and platform-agnostic provenance APIs. What must be true: rights-holders and regulators force DSPs to certify catalogues. When: 6 months; EU AI Act enforcement and label lawsuits are the forcing function.
-
-[Read more →](https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/)
-
----
-
-## Opportunities Mid-term (6-18 months)
-
-### Vertical AI-native services rollups
-**Source:** Sequoia Capital | **Signal:** high | **Horizon:** 6-18 mo
-
-Who captures: PE-backed operators and founder-led 'AI holdcos' that buy boring service businesses (accounting, legal admin, claims processing, IT support) and re-platform them with agents. What must be true: agent reliability hits ~90%+ on a verticalised workflow and a buyer can pay 4-6x EBITDA going in, 12-15x going out as margins expand 20-40 points. When: 12-18 months for the first credible exits — OpenAI/Anthropic PE channels are already building the financing rails.
-
-[Read more →](https://sequoiacap.com/article/services-the-new-software/)
-
----
-
-### Multi-agent observability and inter-agent identity
-**Source:** MIT Technology Review | **Signal:** medium | **Horizon:** 6-18 mo
-
-DeepMind's funding plus Cooperative AI's involvement signals a budget line for tooling that simulates, audits, and authenticates agent-to-agent interactions. Who captures: cybersecurity-DNA founders who can extend SIEM/EDR mental models to AI agents — think 'CrowdStrike for agent swarms.' What must be true: a major prompt-injection or agent-collusion incident creates buyer urgency. When: 12 months; first enterprise RFPs likely by mid-2027.
-
-[Read more →](https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/)
-
----
-
-### Agent-native search and data marketplaces
-**Source:** a16z | **Signal:** medium | **Horizon:** 6-18 mo
-
-Exa's positioning + Coinbase x402 + Sequoia's 'agents-as-buyers' framing point to an emerging marketplace where machines are the primary buyers of structured data, research, and APIs. Who captures: data publishers who repackage for machine consumption, plus neutral metering/payments infra. What must be true: a critical mass of high-value agents have budget authority. When: 12-18 months as enterprise agents move from pilot to production.
+a16z is publicly positioning Exa as the agent-native search layer — relevance, freshness, and API economics tuned for an LLM consumer rather than a human one. Validates the 'agents are the new browsers' thesis: every classic web primitive (search, payments, identity, ads) gets a parallel rebuild for non-human traffic, and incumbents (Google, Bing) lose the implicit distribution monopoly that came with human eyeballs.
 
 [Read more →](https://a16z.com/podcast/building-search-for-ai-agents-with-exa-ceo-will-bryk/)
 
 ---
 
-### Enterprise AI workforce-leadership consultancy
+### Brand Context API — Brandfetch (Product Hunt)
+**Source:** Product Hunt | **Signal:** medium
+
+Validates Services-as-software: AI is attacking labor budgets, not software budgets: a single API exposes 50M+ brand contexts so agents can ground tone, logos, and on-brand content without human creative ops — exactly the 'sell the completed work' wedge Sequoia describes. Shows the picks-and-shovels pattern for the agent economy: structured context APIs become the new SaaS connector layer.
+
+[Read more →](https://www.producthunt.com/leaderboard/weekly/2026/23)
+
+---
+
+### Community Figma MCP server (Product Hunt)
+**Source:** Product Hunt | **Signal:** medium
+
+Validates Services-as-software: AI is attacking labor budgets, not software budgets: an open MCP server lets agents complete real design work inside Figma instead of merely suggesting it — operationalising the 'doers, not talkers' shift Sequoia argued at AI Ascent 2026. Signals MCP is becoming the default integration protocol that compresses 'AI-for-X' product launches from quarters to days.
+
+[Read more →](https://www.producthunt.com/leaderboard/yearly/2026)
+
+---
+
+### Kairos: a native world-model stack for physical AI
+**Source:** Hugging Face Papers | **Signal:** medium
+
+A purpose-built world-model stack for embodied/robotics workloads — alongside MolmoMotion (3D trajectory forecasting) and Guava (manipulation harness) — shows the research frontier converging on Jensen Huang's 'physical AI' framing. Operators in robotics, AV and industrial automation should expect 12-18 month catch-up by open-source stacks to what proprietary Nvidia Cosmos offers.
+
+[Read more →](https://huggingface.co/papers/2606.16533)
+
+---
+
+## Opportunities Now
+
+### Inference cost-optimization consultancies and routers
+**Source:** TechCrunch | **Signal:** high | **Horizon:** 0-6 mo
+
+With Baseten at $13B and analysts expecting inference to hit ~two-thirds of AI compute spend by year-end, mid-market enterprises lack the in-house ML platform team to choose between dense LLMs, MoE, and reasoning models per workload. Who captures it: lean technical teams offering fixed-fee 'inference audits' + a thin router that swaps between Baseten/Together/Modal/self-hosted. What must be true: customers already spend >$50k/mo on inference. Timing: ship within 90 days while pricing is still chaotic.
+
+[Read more →](https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round/)
+
+---
+
+### Outcome-priced 'AI service firms' targeting one professional vertical
+**Source:** Sequoia Capital | **Signal:** high | **Horizon:** 0-6 mo
+
+Sequoia is now openly funding AI-native service firms (Nevis for wealth, Auctor, Ineffable Intelligence). Who captures it: domain experts (ex-Big 4, ex-BigLaw, ex-MD) pairing with one technical co-founder to deliver a single completed deliverable (audit, will, prior-auth) at 60-80% markdown. What must be true: a narrow, high-frequency workflow with clear quality bar. Timing: Q3 2026 — fund LP appetite is open while the category is undefined.
+
+[Read more →](https://sequoiacap.com/article/services-the-new-software/)
+
+---
+
+### Brandfetch Brand Context API as agent-grounding wedge (Product Hunt)
+**Source:** Product Hunt | **Signal:** medium | **Horizon:** 0-6 mo
+
+Validates Services-as-software: AI is attacking labor budgets, not software budgets: any team shipping an agent that touches marketing, sales or content can plug this in this week to eliminate the #1 enterprise complaint about agent output ('off-brand'). Who captures it: agency, RevOps and marketing-agent startups embedding it as a default tool; first-mover advantage exists for ~6 months before LLM providers bundle equivalents.
+
+[Read more →](https://www.producthunt.com/leaderboard/weekly/2026/23)
+
+---
+
+### Data-center grid-flex services for hyperscale tenants
+**Source:** MIT Technology Review | **Signal:** high | **Horizon:** 0-6 mo
+
+FERC's interconnection fast-lane only solves queue time, not supply; operators who can offer demand-response or co-located storage are getting online 12-24 months faster than peers. Who captures it: energy-savvy founders partnering with one mid-tier utility to package 'flexible MW' contracts for AI tenants. What must be true: one anchor hyperscaler LOI. Timing: window closes once IPP/utility incumbents productise this in 2027.
+
+[Read more →](https://www.technologyreview.com/2026/06/16/1138591/data-center-online-quickly-electric-grid-flex/)
+
+---
+
+## Opportunities Mid-term
+
+### Agent-to-agent commerce & identity rails
+**Source:** a16z | **Signal:** medium | **Horizon:** 6-18 mo
+
+a16z's 'fight for customer data' framing plus Exa's agent-native search point to a 6-18 month window where agents need authenticated identity, payment, and reputation primitives to transact on a human's behalf. Who captures it: teams building OAuth-for-agents, agent KYC, and dispute/refund rails. What must be true: at least one Tier-1 wallet or card network adopts a delegated-auth spec. Timing: 2027 — before Apple/Google ship platform defaults.
+
+[Read more →](https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data/)
+
+---
+
+### AI-native wealth, insurance and tax for the mass-affluent
+**Source:** Sequoia Capital | **Signal:** medium | **Horizon:** 6-18 mo
+
+Nevis (Sequoia) signals investor conviction that licensed-and-AI hybrid models can take share from RIAs by collapsing CAC and service costs. Who captures it: ex-Schwab/Wealthfront operators pairing with compliance counsel to ship an agent-led RIA with $250k-$2M AUM targets. What must be true: a clean regulatory path on advice automation. Timing: 12-18 months to gather $1B AUM, then a Series B repricing event.
+
+[Read more →](https://sequoiacap.com/article/nevis-bringing-ai-to-wealth-management/)
+
+---
+
+### Inference-aware silicon abstraction layer
+**Source:** TechCrunch | **Signal:** medium | **Horizon:** 6-18 mo
+
+As AWS sells Trainium externally and AMD/Cerebras gain inference share, a portable compiler/runtime that hides chip choice from app teams becomes 2027's must-have. Who captures it: ex-Nvidia/AMD compiler engineers building on MLIR + vendor-neutral kernels. What must be true: two non-Nvidia accelerators reach >10% inference share. Timing: 12-18 months — Nvidia's CUDA moat erodes fastest at inference.
+
+[Read more →](https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/)
+
+---
+
+### Sovereign and regional AI stacks (South Korea pattern)
 **Source:** MIT Technology Review | **Signal:** medium | **Horizon:** 6-18 mo
 
-MIT Tech Review's hybrid-workforce piece flags ~300% projected growth in AI agent adoption inside enterprises over two years — but managers don't yet know how to set OKRs, performance review, or escalation paths for non-human teammates. Who captures: a new wedge of operator-led advisory/training firms (think McKinsey-meets-Lattice) plus tooling for 'agent HR.' What must be true: CHROs get budget authority over agent fleets. When: 12-18 months.
+Korea's mass AI adoption — paired with EU/UK/India sovereign-compute pushes — opens a category for regionally fine-tuned models + on-shore inference + local compliance bundles. Who captures it: country-specific labs partnering with a domestic telco/cloud (KT, BT, Reliance, Telefónica). What must be true: government procurement preference for local AI. Timing: 2027 budget cycles.
 
-[Read more →](https://www.technologyreview.com/2026/06/09/1137830/learning-to-lead-in-a-hybrid-human-ai-enterprise/)
-
----
-
-## Opportunities Long-term (18+ months)
-
-### World models and physical-AI foundation platforms
-**Source:** a16z | **Signal:** medium | **Horizon:** 18+ mo
-
-a16z's Endra and Westmag bets + NVIDIA backing Mistral AMI's $1.03B world-model seed + Jim Fan's robotics-endgame talk at Ascent point to a 3-5 year platform shift where the dominant model type is a world simulator, not a chat LLM. Who captures: labs with physical-world data moats (robotics fleets, autonomous vehicles, industrial telemetry). What must be true: world models cross a sim-to-real gap on real robot fleets. When: 24-36 months for first defensible commercial deployments outside automotive.
-
-[Read more →](https://a16z.com/announcement/investing-in-endra/)
+[Read more →](https://www.technologyreview.com/2026/06/15/1138983/why-do-south-koreans-love-ai-so-much/)
 
 ---
 
-### Sovereign and dedicated AI energy
-**Source:** MIT Technology Review | **Signal:** medium | **Horizon:** 18+ mo
+## Opportunities Long-term
 
-China has nearly doubled its nuclear fleet since 2016 to ~60GW while the US has built two reactors; combine with NVIDIA's $100B/GW AI-infra cost claim and a16z's Radiant/Heron bets, and the binding constraint on Western AI by 2028 is power, not chips. Who captures: SMR developers, behind-the-meter co-gen, grid-orchestration AI, and sovereign compute funds. What must be true: NRC/EU permitting accelerates and hyperscalers commit to 10-year PPAs. When: 24-48 months to first revenue.
-
-[Read more →](https://www.technologyreview.com/2026/06/11/1138789/china-big-nuclear-reactors/)
-
----
-
-### Autonomous research agents replacing R&D labs
+### Physical AI: world-model-first robotics platforms
 **Source:** Hugging Face Papers | **Signal:** medium | **Horizon:** 18+ mo
 
-This week's hypothesis-tree refinement paper plus DeNovoSWE (entire-repo generation from scratch) plus Brockman's Ascent claim that OpenAI produced a physics formula physicists thought impossible — all point to autonomous research becoming an investable category by 2028. Who captures: vertically-integrated science startups (drug design, materials, chip design) that own the experiment loop. What must be true: closed-loop experimentation hardware gets cheap. When: 24-36 months.
+Kairos, Guava and MolmoMotion show world-models, manipulation harnesses, and 3D-trajectory grounding converging in open research — paralleling Nvidia Cosmos. Who captures it: full-stack robotics companies that own data flywheels in one vertical (warehousing, food, eldercare). What must be true: world-model sample-efficiency hits a threshold where one deployment funds the next. Timing: 18-36 months to first defensible category leaders.
 
-[Read more →](https://huggingface.co/papers/2606.11926)
+[Read more →](https://huggingface.co/papers/2606.16533)
+
+---
+
+### Energy-AI co-design: SMRs, geothermal, behind-the-meter
+**Source:** a16z | **Signal:** medium | **Horizon:** 18+ mo
+
+a16z is openly building a portfolio (Radiant, Heron) around the assumption that AI compute and dispatchable clean power must be co-developed. Combined with Switzerland reversing its nuclear ban, the directional bet is that 'AI campus + microreactor' becomes a standard 2030 unit of build. Who captures it: developers who can permit + finance + operate both halves. What must be true: NRC/IAEA fast-track licensing of SMR designs.
+
+[Read more →](https://a16z.com/podcast/how-radiant-and-heron-are-rethinking-power-generation-and-delivery/)
+
+---
+
+### AI as default military advisor — dual-use defence stacks
+**Source:** MIT Technology Review | **Signal:** low | **Horizon:** 18+ mo
+
+MITTR's eBook synthesises 12 months of reporting on AI in command decisions — a directional signal that defence primes will rebuild around model-mediated planning. Who captures it: defence-tech startups (Anduril/Palantir-likes plus next wave) that bundle model + eval + classified-deployment. What must be true: at least one NATO member procures an AI advisor at program scale. Timing: 24-48 months; long sales cycles but durable contracts.
+
+[Read more →](https://www.technologyreview.com/2026/06/16/1138905/exclusive-ebook-how-ai-is-becoming-the-next-military-advisor/)
+
+---
+
+### Slowtech / attention-protection as a counter-category
+**Source:** TechCrunch | **Signal:** low | **Horizon:** 18+ mo
+
+A real consumer backlash to AI-mediated feeds is forming (Mivo, slowtech cohort, dating-app fatigue with AI). Who captures it: a focused brand that owns 'AI-free' as a positive identity, monetised via hardware + subscription. What must be true: at least one breakout in 2027 (Light Phone 3-class). Timing: 36+ months; today's bet is a hedge against AI saturation.
+
+[Read more →](https://techcrunch.com/2026/06/18/the-smartphone-era-created-an-attention-crisis-slowtech-is-fixing-it/)
 
 ---
 
@@ -210,101 +219,101 @@ This week's hypothesis-tree refinement paper plus DeNovoSWE (entire-repo generat
 ### Sam Altman — OpenAI
 **Stance:** Bullish
 
-Altman publicly admitted that AI budgeting 'recently became a huge issue' for enterprises, said OpenAI's top user now burns 100 billion tokens per month (a 1,000,000x rise in six years), acknowledged that Anthropic has overtaken OpenAI in corporate AI spend, and warned that 'constant running proactive AI' is the next phase to prepare for.
+Altman told employees OpenAI could go public 'within the next year' but emphasised timing remains subject to change, framing the confidential SEC filing as a way to keep strategic options open rather than commit to a date.
 
-Altman is repositioning the OpenAI narrative from 'access' to 'efficiency.' For operators this means CFOs will now sit in AI procurement; for investors it means LLM-FinOps, cost-routing proxies, and smaller specialised models are now valid standalone categories.
+Treat late-2026/early-2027 as the realistic OpenAI IPO window. Operators dependent on OpenAI APIs should expect pricing/SLA changes as public-market discipline kicks in; investors holding OpenAI secondaries should plan exit windows around this range.
 
-[Source →](https://www.axios.com/2026/06/02/altman-openai-top-token-user)
+[Source →](https://crypto.news/sam-altman-reveals-openai-ipo-could-come-within-a-year/)
 
 ---
 
 ### Jensen Huang — NVIDIA
 **Stance:** Bullish
 
-At GTC Taipei (June 1) Huang declared the 'age of agents' has arrived, said GitHub commits have nearly tripled since 2023 while developer headcount has not, dismissed the AI-kills-jobs narrative as 'complete nonsense,' and framed enterprise architecture around 'tokens per watt' as the new unit of revenue at roughly $100B per gigawatt of AI factory.
+At GTC Taipei 2026 Huang declared 'agentic AI has arrived, useful AI has arrived', pointed to GitHub commits nearly tripling since 2023, and dismissed AI-job-destruction concerns as 'complete nonsense', arguing productivity gains will expand developer hiring.
 
-Huang is selling 'AI factories' as a sovereign capex category — the implication for boards is that under-investing in agent infrastructure is now the riskier position. Expect more nation-state and PE-style AI infra commitments through 2027.
+Nvidia is steering enterprise narrative away from cost containment and toward output expansion. CIOs should expect Nvidia/partners to push 'AI factory' procurement framings tied to revenue, not IT budget — a green light for inference-heavy buildouts.
 
 [Source →](https://siliconangle.com/2026/06/01/five-thoughts-nvidia-ceo-jensen-huangs-gtc-taipei-2026-keynote/)
 
 ---
 
-### Rohin Shah — Google DeepMind
-**Stance:** Neutral
+### Marc Andreessen — Andreessen Horowitz
+**Stance:** Bullish
 
-Shah, who directs DeepMind's AGI safety and alignment research, said the mass-market arrival of agents that follow instructions from other agents creates a whole new class of risk, and noted that 'there just isn't really a field of research for multi-agent safety yet,' as DeepMind committed $10M with Schmidt Sciences, ARIA, and Cooperative AI to study it.
+On a16z's podcast this week, Andreessen argued AI's consumer surplus is being dramatically under-counted in GDP terms and that founder evaluation should now centre on how aggressively the founder uses AI to compound personal output.
 
-When the leading lab funds a category that doesn't exist yet, founders should take note: multi-agent safety, observability, and inter-agent identity are likely the next defensible enterprise-tooling category.
+Expect a16z term sheets to favour AI-native operating habits over team size. Founders should rehearse a credible 'AI leverage' narrative in pitches; investors should reweight diligence toward output-per-FTE.
 
-[Source →](https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/)
+[Source →](https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/)
 
 ---
 
 ### Sonya Huang — Sequoia Capital
 **Stance:** Bullish
 
-Huang declared 2026 'the year of agents,' described the evolution from copilots to 'interns you can trust to push to prod without oversight,' and endorsed the 'services is the new software' framing — arguing that economic activity once captured by professional service firms is now being absorbed into the application layer.
+At AI Ascent 2026 Huang declared 2026 the year of agents, arguing the three ingredients — models, tools, and harnesses — have finally come together to make long-horizon agents production-grade.
 
-Sequoia is publicly anchoring its 2026 deployment thesis around outcome-priced vertical agents. Founders pitching 'AI copilot for X' will be down-rated; founders pitching 'we deliver the completed work for X' will be up-rated.
-
-[Source →](https://sequoiacap.com/article/ai-ascent-2026/)
-
----
-
-### Andrej Karpathy — Independent (ex-Tesla/OpenAI)
-**Stance:** Bullish
-
-At Sequoia AI Ascent, Karpathy described his own shift from writing code to orchestrating parallel coding agents as 'macro actions,' urged founders to ask not 'what can AI speed up?' but 'what information transformation was impossible before?' and reframed software as 'Software 3.0 = LLM as computer.'
-
-Karpathy is normalising the agent-swarm workflow as the developer default. Companies that haven't refactored hiring processes for 'agentic engineers' will fall behind on output per FTE; tools that help managers orchestrate parallel agents become high-value.
-
-[Source →](https://karpathy.bearblog.dev/sequoia-ascent-2026/)
-
----
-
-### Greg Brockman — OpenAI
-**Stance:** Bullish
-
-At Sequoia AI Ascent, Brockman predicted people will become like 'CEO of an organization of 100,000 agents,' said OpenAI has already produced a physics formula physicists considered impossible (a step toward quantum gravity), and forecast a 'real renaissance' in science over the next year.
-
-If even half of Brockman's science timeline is right, science-AI verticals (materials, biotech, drug design) move from 18+ month bets to 12-month bets. Investors should reprice pre-seed science-AI rounds upward.
+Sequoia is signalling it will fund agent companies that own a workflow end-to-end, not point tools. Founders pitching agents need defensible eval/harness data; investors should weight harness/eval ownership in agent diligence.
 
 [Source →](https://sequoiacap.com/article/ai-ascent-2026/)
 
 ---
 
-### Marc Andreessen — a16z
+### Konstantine Buhler — Sequoia Capital
 **Stance:** Bullish
 
-Andreessen's latest podcast reiterated his thesis that AI's largest economic surplus accrues to consumers, not producers — which informs why a16z is funding consumer/prosumer wedges (Town, Lassie) alongside heavy infra bets in Endra, Westmag, Radiant, and Heron rather than chasing the LLM frontier directly.
+Buhler argues the cognitive revolution will follow the same arc as the Industrial Revolution — just bigger and faster — with AI doing to cognitive work what motors did to physical labour, and that more than 99% of physical work is now done by machines.
 
-a16z is openly stepping back from frontier-model bets and concentrating capital in physical AI, energy, and consumer surplus capture. Other funds that haven't diversified will be exposed if model-layer margins compress in 2027.
+Sequoia's framing implies a multi-decade compounding bet on cognitive automation. Long-duration capital (sovereign, family office) should overweight AI-services rollups; short-duration capital should focus on inference and power.
 
-[Source →](https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/)
+[Source →](https://sequoiacap.com/article/ai-ascent-2026/)
 
 ---
 
-### Julien Bek — Sequoia Capital
+### Andy Jassy — Amazon / AWS
 **Stance:** Bullish
 
-Bek's viral 'Services: The New Software' post argues AI-native startups will outpace legacy services firms because reinventing both processes and business models is 'exponentially harder' for incumbents — even though OpenAI and Anthropic are building PE-firm sales channels to enable services rollups.
+Jassy has framed selling AWS's custom AI chips to third-party data centers as a $50 billion opportunity, signalling AWS will commercialise Trainium and Inferentia rather than keep them captive.
 
-Two distinct paths to capture the same TAM: (1) founder-led AI-native services startups; (2) PE-led rollups using OpenAI/Anthropic enterprise channels. Operators should pick a lane; investors should expect a divergence in returns by mid-2027.
+AWS is making a credible run at Nvidia's inference margin pool. Customers should pilot Trainium for inference now; Nvidia investors should watch Q3/Q4 hyperscaler capex mix for the first signs of share shift.
 
-[Source →](https://fortune.com/2026/04/21/services-are-the-new-software-sequoia-venture-capital-julien-bek-ai-native-eye-on-ai/)
+[Source →](https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/)
+
+---
+
+### Tuhin Srivastava — Baseten
+**Stance:** Bullish
+
+Under Srivastava, Baseten has positioned itself as 'AWS for inference', betting that open-source-model inference will become one of the largest spending categories in AI and growing annualised revenue 20x year-over-year to ~$600M.
+
+Baseten's 6x markup in months legitimises the open-source-inference thesis. Enterprises with >$50k/mo inference spend should run a Baseten/Together/Modal bake-off this quarter; competitors will be marked up next.
+
+[Source →](https://techstartups.com/2026/05/26/ai-inference-startup-baseten-in-talks-to-raise-1-billion-at-11-billion-valuation/)
+
+---
+
+### Noam Shazeer — OpenAI (ex-Google DeepMind)
+**Stance:** Bullish
+
+Shazeer publicly announced his move from Google DeepMind to OpenAI ahead of OpenAI's expected IPO — a senior architecture hire that thins DeepMind's research bench.
+
+OpenAI is loading senior IC firepower for the public-company era. Expect DeepMind retention spend to spike and rival labs to chase the next tier of architecture researchers — IC comp at the frontier just stepped up again.
+
+[Source →](https://twitter.com/NoamShazeer/status/2067400851438932297)
 
 ---
 
 ## Commentary Synthesis: Investors vs Operators
 
-AI in June 2026 is in a transitional phase that rewards discipline more than ambition. Three things are simultaneously true: (1) agentic systems are crossing into production at real Fortune 500 customers — token usage is up ~1,000,000x in six years and GitHub commits have nearly tripled without proportional headcount growth, so the productivity story is no longer hypothetical; (2) the unit economics are now under genuine stress — enterprises are publicly capping spend, Anthropic has overtaken OpenAI on corporate share-of-wallet, and CFOs are entering the AI buying committee for the first time; (3) the model layer is commoditising faster than the infrastructure or services layer — open-source harnesses from China are matching the best closed systems, while compute, energy, and trusted multi-agent operation remain genuinely scarce. The next 12 months will not be defined by who has the best model but by who can operate agents reliably at survivable unit economics and who can deliver completed work, not tools. Expect a quiet re-rating: copilot SaaS multiples compress, vertical 'autopilot' services and picks-and-shovels (FinOps, observability, agent identity, power) re-rate up. The hype around AGI timelines is largely orthogonal to where money will actually be made in the near term.
+The week's evidence points to AI consolidating into two durable layers: an inference/compute substrate (Baseten at $13B, AWS selling Trainium, FERC grid fast-lane) and an agent/services application layer that monetises completed work rather than seats (Sequoia's Services thesis, a16z on agent search and data fights, Nevis/Auctor/Town deals). Public-market access is opening — OpenAI is staffing for an IPO, Anthropic has filed, and SpaceX just used freshly-public stock to swallow Cursor for $60B — which will reprice private AI assets up but also pull capital from smaller IPO hopefuls. Power, not silicon, is now the credible 2027 bottleneck; jurisdictions that solve interconnection (US FERC order, Swiss nuclear reversal) will host the next compute build-out. The honest near-term risk is enthusiasm outrunning enterprise diffusion: Pew shows only 16% of Americans believe AI helps society and two-thirds think it's moving too fast, which creates regulatory drag and consumer backlash niches (slowtech, AI-skeptic dating). Net: 2026 is the year AI stops being a category and becomes infrastructure, with margin accruing to whoever owns inference economics, completed-work SLAs, or megawatts.
 
 | Topic | Investor View | Operator View | Practical Implication |
 |---|---|---|---|
-| **How quickly do agents become production-grade?** | Sequoia's Sonya Huang and Pat Grady declared 2026 the year of agents and framed functional AGI as already here — agents that can recover from failure and complete tasks. | Altman acknowledged a 'huge issue' with budgets and conceded Anthropic has overtaken OpenAI in corporate spend; Uber publicly admitted it cannot draw a clear line from token spend to product improvements. | *Both sides agree agents are usable; they disagree on the ROI gradient. Operators should fund agent rollouts but require per-feature ROI dashboards before scaling, and prefer vendors who price on outcomes.* |
-| **Where is the next infrastructure constraint?** | a16z is pouring capital into power generation (Radiant, Heron) and sovereign-compute-adjacent bets (Endra, Westmag), framing watts as the binding constraint. | Huang at Computex put a $100B/GW price tag on AI infrastructure and explicitly framed 'tokens per watt' as revenue — confirming the energy bottleneck operationally. | *Aligned: the next 24-36 months of AI competitiveness depend on PPAs, SMRs, and behind-the-meter generation. Anyone building AI infra without a power strategy is one PPA loss away from being uncompetitive.* |
-| **Is the moat the model or the harness?** | Sequoia and a16z are both backing harness/infra (Exa, agent search, enterprise agent ops) rather than chasing frontier-model investments at $500B valuations. | Xiaomi's MiMo Code beat Claude Code on benchmarks at the same base model — the open-source harness was the differentiator. NVIDIA explicitly defined an agent as a model 'sitting inside a harness.' | *The moat has migrated from model weights to harness, memory, and tool integrations. Startups should stop differentiating on 'we use GPT-5' and start differentiating on workflow ownership and feedback loops.* |
-| **How seriously to take multi-agent safety as a near-term risk?** | Most VCs are still focused on capability/build-out theses, with safety treated as compliance overhead. | DeepMind's Rohin Shah says multi-agent safety isn't even a field yet and is committing $10M with partners to fund it — implying real risk is closer than VC narratives suggest. | *Operators deploying agent fleets in 2026-27 should budget for sandboxing, attestation, and inter-agent identity now; investors should look for early-stage 'CrowdStrike for agents' founders before this becomes consensus.* |
+| **Are agents production-ready in 2026?** | Sequoia's AI Ascent 2026 declared this the year agents move from 'talkers' to 'doers' because models, tools, and harnesses have finally converged. | Jensen Huang at GTC Taipei said 'useful AI has arrived' and pointed to a tripling of GitHub commits as evidence agentic coding is already economic. | *Both sides agree agents are shippable; the differentiator is now eval/reliability tooling, not model choice. Build with measurable completion rates from day one.* |
+| **Where does AI margin accrue — model, infra, or app?** | a16z and Sequoia are funding the application/services layer (Telepatia, Convey, Town, Nevis, Auctor), implying frontier labs commoditise faster than apps do. | Baseten CEO Tuhin Srivastava is raising $1.5B on the bet that open-source-model inference orchestration ('AWS for inference') is where durable margin sits. | *Operators should assume model cost compresses 10x annually but inference orchestration and vertical apps both retain pricing power. Avoid building a thin wrapper that competes only on UX.* |
+| **Is the IPO window real for AI?** | Bankers cited by The Information warn large AI offerings (OpenAI, Anthropic) will draw capital away from smaller IPO candidates, suggesting a narrow window for second-tier names. | Sam Altman has publicly downplayed timing, telling employees OpenAI could list 'within the next year' but emphasising the confidential filing buys flexibility, not a deadline. | *Plan for OpenAI/Anthropic IPOs in late 2026/early 2027 to set the comp set; smaller AI startups should accelerate secondaries now rather than wait for a public re-rating that may compress multiples.* |
+| **Will AI destroy or create jobs?** | Marc Andreessen's recent podcast frames AI's consumer surplus as massive and net-positive, with founders best evaluated on how aggressively they use AI to expand output, not headcount. | Huang explicitly called AI-as-job-destroyer 'complete nonsense', arguing that if a developer produces $9T of work for $3T of salary, firms hire more developers, not fewer. | *Public AI narrative is leaning bullish on employment, but Pew data shows the public doesn't buy it. Operators with workforce-facing AI should over-invest in change-management storytelling.* |
 
 ---
 
@@ -312,40 +321,40 @@ AI in June 2026 is in a transitional phase that rewards discipline more than amb
 
 | Trend Type | Observation | Implication |
 |---|---|---|
-| **Enterprise Spend** | Altman disclosed Anthropic has overtaken OpenAI in corporate AI spending — the first time a rival has led on that metric — while OpenAI's top user burns 100B tokens/month (a 1,000,000x rise in six years). | Enterprise share-of-wallet is now genuinely contestable; Anthropic's lead is driven by Claude Code adoption. Procurement teams will increasingly run multi-vendor agent stacks, creating durable demand for cross-model routing/observability vendors. |
-| **Overheated Signal** | Uber blew through its entire planned 2026 AI budget in four months and capped employees at $1,500/month per agentic coding tool; Uber's COO publicly admitted he 'cannot yet draw a line' from token spend to consumer-facing product improvements. | Classic late-cycle overheating in agentic-coding adoption. Expect a Q3-Q4 2026 pause in enterprise expansion contracts, followed by a flight to vendors who can prove ROI per token. Bearish for usage-based AI vendors without strong ROI dashboards. |
-| **Infra Spend** | NVIDIA pegged AI factory cost at approximately $100B per gigawatt of capacity; promised 20+ AI factories for Europe last year; Mistral AMI raised $1.03B seed (largest in European history) with NVIDIA on the cap table to build world models. | AI infra capex is being committed at nation-state scale. The implication for the West is a 24-month window to lock in power and chips before sovereign-compute commitments price out marginal buyers. Power developers and grid-AI startups become priority bets. |
-| **Capital Flow** | a16z this week announced new investments in Town, Lassie, Westmag, and Endra — concentrated in consumer, physical, and infra wedges rather than frontier-model bets; Sequoia announced Ineffable Intelligence, Auctor, and Nevis investments aligned with services-as-software. | Two tier-one funds are publicly pivoting capital away from LLM-centric bets toward the application/services layer and physical infra. Expect other funds to follow within 1-2 quarters, compressing frontier-model valuations and bidding up vertical-agents/infra rounds. |
-| **Acquisition Or Bet** | Google DeepMind, Schmidt Sciences, ARIA, and Cooperative AI jointly committed $10M to multi-agent safety research — a small dollar amount but a clear category-creation move tied directly to Google I/O's agent push. | Strategic-level signal that DeepMind sees multi-agent risk as material enough to seed an external research field. Likely precursor to acquisitions in agent-observability/safety startups by Google Cloud within 18-24 months. |
-| **Capital Flow** | SpaceX priced its IPO at $135 in the largest IPO ever; Quantum Space is chasing a $1.2B SPAC for military spacecraft. The 'AI-adjacent' space and defence-tech window is wide open. | Public-market appetite for hard-tech and AI-adjacent infra is at peak; dual-use defence/space + AI compute is the cleanest narrative. OpenAI has reportedly filed confidentially for an IPO with markets pricing 76% probability by Dec 2026 — expect AI-infra peers (CoreWeave, Lambda, regional clouds) to follow. |
-| **Enterprise Spend** | MIT Technology Review reports projected ~300% growth in enterprise AI agent adoption over the next two years; AWS-cited data shows 87% of enterprises claim 'at scale' AI deployment but only 10% derive genuine value. | The gap between deployment and value capture is the single largest revenue opportunity in enterprise AI. Implementation partners, evaluation frameworks, and outcome-priced service vendors capture the spread. |
-| **Infra Spend** | China nearly doubled its nuclear fleet to ~60GW since 2016 while the US built two reactors; Microsoft expanded carbon-removal procurement to India (Alt Carbon) signalling a scramble for 24/7 clean firm power. | China's energy advantage compounds its AI-infrastructure position; Western hyperscalers are racing to lock in any firm power source (nuclear, geothermal, carbon-offset PPAs). Energy-AI crossover startups have a multi-year tailwind regardless of model-layer outcomes. |
+| **Capital Flow** | Baseten finalising a $1.5B round at a dual-tiered $11B/$13B valuation — roughly 6x its September 2025 mark — co-led by Altimeter, Conviction, Spark, Sands, and Wellington. | Inference infra is now priced as a category leader, not a tooling startup. Expect Together AI, Modal, Fireworks to mark up within 60 days; LPs should view inference as the AI infra trade of 2026. |
+| **Acquisition Or Bet** | SpaceX exercised its call option to acquire Cursor (Anysphere) for $60B in all-stock — the largest VC-backed acquisition ever — days after its record IPO. | Public AI stock is now an M&A supercurrency. Founders should expect more $20B+ all-stock deals from newly-public AI/tech names and price secondaries accordingly. |
+| **Infra Spend** | FERC ordered grid operators to give AI data-center interconnections a fast lane, while the Swiss parliament lifted its ban on new nuclear plants in the same week. | Policy is finally treating compute build-out as critical infrastructure. Power developers, SMR vendors, and behind-the-meter integrators will see procurement RFPs from hyperscalers within 2 quarters. |
+| **Enterprise Spend** | Amazon CEO Andy Jassy publicly framed third-party AI-chip sales as a $50B opportunity, putting Trainium/Inferentia directly into Nvidia's TAM. | Hyperscaler silicon will fragment inference spend by 2027. Enterprises should defer multi-year Nvidia commitments and ML teams should benchmark on at least two accelerators by Q4. |
+| **Capital Flow** | YC Spring 2026 Demo Day produced 11 standout startups with several commanding $175M+ valuations at seed/A, per VC interviews. | Pre-revenue valuation discipline is gone at the top of the funnel. Late-stage funds should expect to underwrite Series B's where revenue lags valuation by 18 months — a clear overheated signal in segments that aren't agent/services. |
+| **Acquisition Or Bet** | Snap spun off its AI video team into a new company, Dotmo, explicitly citing cost pressure from AI video R&D. | Mid-cap consumer-tech can't fund frontier generative-media work in-house. Expect more carve-outs and look for Sora/Runway/Pika-class targets to absorb this talent — likely on equity-only terms. |
+| **Overheated Signal** | OpenAI confidentially filed for IPO and is hiring senior research/policy talent (Noam Shazeer, Dean Ball) the same week SpaceX-Cursor closes and Anthropic prepares its own listing. | AI IPO supply will compress crossover-fund attention to the top three names. Tier-2 AI listings (2027) risk being valuation-rangebound; raise private capital now while it's available. |
+| **Enterprise Spend** | Pew finds 49% of US adults used chatbots in 2026 (vs 33% in 2024) but only 16% believe AI positively impacts society and two-thirds say AI is advancing too fast. | Consumer AI usage is real but trust is the bottleneck. B2C operators should expect regulatory drag (state AI laws, FTC actions) and budget 10-20% of GTM for trust/safety narrative. |
 
 ---
 
 ## Top Signals
 
-### 1. Enterprise AI budgets are blowing up — token-cost FinOps is now an act-now category
+### 1. Baseten's $1.5B at $13B legitimises inference as a top-3 AI category
 **Urgency:** Act now
 
-Altman's June 2 admission that AI budgeting became a 'huge issue' overnight, combined with Uber capping employees at $1,500/month per agentic coding tool and Anthropic overtaking OpenAI in enterprise spend, means the buying conversation has shifted from access to efficiency. Operators should ship cost-attribution this quarter; investors should look at LLM-proxy startups before incumbents bundle.
+Validates that open-source-model inference orchestration is now priced like cloud infra, not tooling. Any operator without an inference-cost story will lose pricing power within 6 months; any infra investor not in the inference trade is underweight the consensus AI thesis.
 
-### 2. Open-source agentic-coding harness beats Claude Code — model moats keep eroding
+### 2. SpaceX–Cursor $60B all-stock deal sets the new AI M&A playbook
 **Urgency:** Act now
 
-Xiaomi's MiMo Code, MIT-licensed and free, scored 62% on SWE-Bench Pro and 73% on Terminal Bench 2 against Claude Code's 57%/68% on the same base model. The harness, not the model, is now the differentiator — and the harness just got commoditised from China. Pricing power on developer-tier coding agents will compress through H2 2026.
+The largest VC-backed acquisition ever, paid in freshly-public stock, demonstrates that newly-listed AI/tech names will use share currency to consolidate the application layer. Boards of $5-30B AI startups should expect inbound; cap tables should be hardened for stock-deal optionality this quarter.
 
-### 3. DeepMind opens multi-agent safety as a new investable category
+### 3. FERC fast-lane + Swiss nuclear reversal make power the binding AI constraint
+**Urgency:** Act now
+
+Two policy moves in one week confirm that grid capacity and clean power, not GPUs, are the 2027 bottleneck. Operators planning AI campuses should re-prioritise interconnection and behind-the-meter generation now; investors should re-rate SMR and grid-flex names as AI-adjacent.
+
+### 4. OpenAI staffs for IPO as Anthropic files — AI public-market supply expands
 **Urgency:** Watch closely
 
-The $10M DeepMind / Schmidt Sciences / ARIA / Cooperative AI fund is small in absolute terms but signals that the leading lab considers multi-agent risk a real, near-term commercial problem. Shah's blunt 'there isn't really a field yet' is the kind of statement that historically precedes a 24-month enterprise category formation (cf. cloud SIEM, MDR).
+Noam Shazeer + Dean Ball hires alongside the confidential S-1 indicate OpenAI is positioning for a late-2026/early-2027 listing while Anthropic queues behind. Smaller AI IPOs will be crowded out; tier-2 founders should secure private capital and secondaries before the listing window opens.
 
-### 4. Sequoia and NVIDIA have aligned on the same 'services-as-software + age of agents' narrative
-**Urgency:** Act now
-
-Sequoia's Ascent 2026 declared 'this is AGI' from a functional standpoint and framed the $10T opportunity as services absorption; Huang at Computex said agentic AI has arrived and 'compute is now revenue.' When the dominant capital allocator and the dominant compute vendor say the same thing the same week, it pulls forward enterprise procurement cycles. Pitch decks must update.
-
-### 5. Provenance becomes a contract requirement, not a feature
+### 5. Pew: chatbot use up to 49% but only 16% of Americans think AI helps society
 **Urgency:** Stay informed
 
-Deezer's cross-platform AI-music detection tool (scanning Spotify, Apple Music) is the first material example of a platform unilaterally policing AI content across rivals. Combined with EU AI Act enforcement timing, provenance/watermarking shifts from R&D to procurement requirement for any AI-generated media business.
+Adoption is racing ahead of trust, opening regulatory and counter-positioning windows. Consumer-AI operators should budget for trust/safety narrative; investors should monitor state-level AI laws and watch for breakouts in the slowtech/AI-skeptic counter-category.

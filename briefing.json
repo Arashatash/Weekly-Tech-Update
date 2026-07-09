@@ -5,63 +5,63 @@
       "name": "Capital & Theses",
       "items": [
         {
-          "title": "AI Labs Go Vertical: Custom Silicon as Existential Moat",
-          "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
-          "summary": "Anthropic's Samsung talks, coming a week after OpenAI's Broadcom 'Jalapeño' inference chip, confirm that top labs now treat proprietary silicon as a survival requirement, not a nice-to-have. Capital is repricing labs on their ability to control the full stack from wafer to weights; pure-model plays without silicon roadmaps will trade at a discount.",
+          "title": "Services Is The New Software",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/services-the-new-software/",
+          "summary": "Sequoia is hard-selling the thesis that the next trillion-dollar company will sell completed work rather than seat-based tooling. Partner Julien Bek's math — $1 of software spend to $6 of services spend — reframes TAM and reshapes what investors reward: outcome delivery, workflow ownership, and defensible domain data over model-agnostic wrappers. Capital is rotating from Copilot to Autopilot startups where every model improvement makes the vendor cheaper, not obsolete.",
           "signal": "high",
           "tags": [
-            "custom_silicon",
-            "vertical_integration",
-            "inference"
+            "services",
+            "autopilot",
+            "sequoia"
           ]
         },
         {
-          "title": "The Public-Wealth-Fund Bargain: Equity for Regulatory Ease",
+          "title": "Agentic Coding Is The First Real ROI Vertical",
           "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-          "summary": "OpenAI's proposed 5% donation to a US sovereign wealth fund (worth ~$42.6B at $852B valuation) reframes the AI–government relationship from adversarial oversight to co-ownership. Investors should model an emerging 'AI compact' regime where frontier labs trade equity for regulatory latitude, IPO tailwinds, and export access — a structurally new asset class.",
+          "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+          "summary": "GPT-5.6 Sol, Meta's Muse Spark 1.1, and Claude Sonnet 5 have converged on agentic coding as the flagship benchmark and the clearest enterprise ROI story. With OpenAI claiming 54% better token efficiency on agentic coding, capital is aggressively pricing in coding-agent revenue: Mercor jumped to a rumored $20B valuation, Lyzr closed $100M, and Cursor/Claude Code adoption is now table stakes. Investors funding anything below the agentic-coding stack need a specific reason model providers won't eat them.",
+          "signal": "high",
+          "tags": [
+            "coding-agents",
+            "gpt-5.6",
+            "roi"
+          ]
+        },
+        {
+          "title": "Frontier Model Access As Regulated Utility",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+          "summary": "GPT-5.6's staggered, customer-by-customer government approval and Anthropic's Fable 5 / Mythos 5 export-control episode establish a new normal: frontier access is a policy variable, not just a product one. Enterprises now face access risk as a material deployment risk; investors must underwrite regulatory exposure in every frontier-dependent bet, and the door opens for open-weight and inference-optimized alternatives (Kimi K2.7, Nemotron-TwoTower).",
           "signal": "high",
           "tags": [
             "policy",
-            "sovereign_wealth",
+            "frontier-access",
             "regulation"
           ]
         },
         {
-          "title": "Services Are the New Software: AI-Native Rollups",
-          "source": "Sequoia Capital",
-          "url": "https://sequoiacap.com/article/services-the-new-software/",
-          "summary": "Sequoia's thesis reframes AI's TAM from selling software seats to absorbing entire services P&Ls (trades, wealth management, retail). Capital allocators should expect a rush of AI-native rollups — 'buy the book of business, install the agent, expand margin' — that look more like PE than classic SaaS venture.",
-          "signal": "high",
-          "tags": [
-            "services_as_software",
-            "verticals",
-            "rollups"
-          ]
-        },
-        {
-          "title": "Agent Infrastructure as the Next Cloud Layer",
-          "source": "a16z",
-          "url": "https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data",
-          "summary": "a16z is loudly positioning around agent-native infra: search for agents (Exa), agent-safe data access, and the customer-data fight. The thesis: whoever owns identity, tools, and payments for autonomous agents captures the next AWS-scale rent. Expect concentrated bets on MCP, agent auth, and agent-native payments over the next 12 months.",
-          "signal": "high",
-          "tags": [
-            "agents",
-            "infrastructure",
-            "MCP"
-          ]
-        },
-        {
-          "title": "AI Hype Saturation and the Coming Discipline Reset",
+          "title": "Agents Buy And Sell From Other Agents",
           "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
-          "summary": "When a sandwich chain's S-1 mentions AI, the narrative premium is exhausted. Combined with IQM's cautious quantum IPO language and Big Tech's slipping net-zero pledges, sophisticated LPs are quietly rotating from 'AI-labeled anything' to companies with real gross margins, unit economics, and compute discipline.",
+          "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
+          "summary": "Lyzr letting its own agent run a $100M fundraise is more than a stunt — it validates the a16z thesis on agents fighting for customer data and agent-native infrastructure. Capital allocators are now underwriting the machine-to-machine layer: shared agent context, agent identity, agent search (Exa), and agent commerce rails. If most software becomes agent-native, the next winners are infrastructure whose primary user is another agent, not a human.",
+          "signal": "high",
+          "tags": [
+            "agent-infra",
+            "a16z",
+            "m2m"
+          ]
+        },
+        {
+          "title": "Interpretability Becomes An Enterprise Prerequisite",
+          "source": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
+          "summary": "Anthropic's Jacobian lens gives the clearest view yet of Claude's internal representations — findings ranging from mundane to unnerving. Combined with Amodei's push for mandatory frontier testing and the $3T ROI debate, interpretability is moving from research curiosity to procurement checklist: enterprises deploying agents into revenue-critical workflows need to know why the model did what it did. Expect a wave of funding into interpretability tooling, agent audit trails, and 'AgentLens'-style production trajectory review.",
           "signal": "medium",
           "tags": [
-            "overheated",
-            "discipline",
-            "ipo"
+            "interpretability",
+            "safety",
+            "enterprise"
           ]
         }
       ]
@@ -71,79 +71,66 @@
       "name": "What's Being Built",
       "items": [
         {
-          "title": "Anthropic Explores Samsung 2nm Foundry for Custom AI Chip",
+          "title": "OpenAI ships GPT-5.6 family (Sol, Terra, Luna)",
           "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
-          "summary": "Anthropic has hired an ex-OpenAI silicon lead and is scoping Samsung's 2nm process for a proprietary chip while keeping AWS Trainium, Google TPU and Nvidia central. Signal: the second frontier lab is now committed to vertical silicon, which pressures every other lab and neocloud to declare a silicon strategy or accept a permanent cost disadvantage.",
+          "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+          "summary": "OpenAI's three-tier release (Sol flagship, Terra enterprise, Luna cheap/fast) with a claimed 54% token efficiency gain on agentic coding is a direct play for enterprise coding-agent budgets. The tiered pricing structure signals OpenAI accepts a commoditizing middle and is competing on inference economics — bad news for pure model wrappers, good news for vertical services that pass efficiency gains to end customers.",
           "signal": "high",
           "tags": [
-            "custom_silicon",
-            "anthropic",
-            "samsung"
+            "openai",
+            "gpt-5.6",
+            "coding"
           ]
         },
         {
-          "title": "Claude Science: Anthropic's Bid to Own the Research Workflow",
+          "title": "Meta enters coding-agent race with Muse Spark 1.1",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/09/meta-enters-the-crowded-ai-coding-battle-with-muse-spark-1-1/",
+          "summary": "Meta pitching Muse Spark on large agentic workloads, bug fixes, and code migrations puts a fourth well-funded competitor into a market where Anthropic (Claude Code), OpenAI (Codex/GPT-5.6), and Google are already dug in. Enterprises now have real pricing leverage; standalone coding-agent startups without a distribution or data moat should assume their price ceiling just dropped again.",
+          "signal": "high",
+          "tags": [
+            "meta",
+            "coding-agents",
+            "competition"
+          ]
+        },
+        {
+          "title": "Anthropic's Jacobian lens exposes model internals",
           "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/",
-          "summary": "Anthropic launched Claude Science for pharma and biotech, positioning it as the research analog to Claude Code — high-level instructions, autonomous execution. Signal: agents are moving from generic 'copilot' framing to domain-shaped flagship products with defensible workflow lock-in and enterprise-grade pricing power.",
+          "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
+          "summary": "Anthropic built a tool that gives the clearest glimpse yet into what LLMs are actually doing during inference. This lands as regulators demand explainability and as Amodei pushes for mandatory frontier testing. Interpretability just crossed from academic differentiation to sales differentiator — expect Anthropic to use it in enterprise procurement conversations, and expect competitors to scramble to match.",
+          "signal": "medium",
+          "tags": [
+            "anthropic",
+            "interpretability",
+            "safety"
+          ]
+        },
+        {
+          "title": "Framer AI Agents — design and publish sites via agents",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/framer",
+          "aligned_thesis": "Services Is The New Software",
+          "summary": "Validates Services Is The New Software: Framer's agents design, write, analyze, and publish complete sites — with hooks to plug in Claude Code or Codex. Framer is selling the outcome (a shipped site), not tools to make a site. Any prosumer web-design SaaS still selling seats needs an autopilot answer within 12 months.",
           "signal": "high",
           "tags": [
-            "agents",
-            "life_sciences",
-            "anthropic"
+            "autopilot",
+            "design",
+            "producthunt"
           ]
         },
         {
-          "title": "Meta Ships Pocket: Vibe-Coded Gaming for the Masses",
-          "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/",
-          "summary": "Meta quietly launched Pocket, letting users generate and share interactive mini-games from text prompts. Signal: consumer AI is shifting from chat to generative micro-experiences; Meta is testing whether user-generated AI content can defend social graph engagement against TikTok and OpenAI's consumer surface.",
+          "title": "Ogment AI — AI coworker embedded in Slack",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/ogment-ai",
+          "aligned_thesis": "Services Is The New Software",
+          "summary": "Validates Services Is The New Software: Ogment sells 'a coworker' summoned by @-mention in the surface (Slack) where work already happens — outcome delivery, not another dashboard. This mirrors the a16z surface-integration pattern and Sequoia's autopilot framing: agents that do the job, invoked inside existing collaboration rails.",
           "signal": "medium",
           "tags": [
-            "consumer_ai",
-            "generative_games",
-            "meta"
+            "autopilot",
+            "slack",
+            "producthunt"
           ]
-        },
-        {
-          "title": "Sequence — Money Movement for AI Agents",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products",
-          "summary": "Validates Agent Infrastructure as the Next Cloud Layer: Sequence provides payments rails purpose-built for autonomous agents to send, receive, and reconcile money, filling the exact gap a16z flagged around agent identity and transaction infrastructure. Early proof that agent-native fintech is a real category, not a pitch deck.",
-          "signal": "medium",
-          "tags": [
-            "agents",
-            "payments",
-            "infrastructure"
-          ],
-          "aligned_thesis": "Agent Infrastructure as the Next Cloud Layer"
-        },
-        {
-          "title": "Airtop — Browser Automation via Natural Language",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/products",
-          "summary": "Validates Agent Infrastructure as the Next Cloud Layer: Airtop lets users automate work by describing it in words, exposing cloud browsers as a tool surface for agents. It operationalises the a16z view that agent 'hands' (browser + tool control) are as valuable as the model itself, and gives operators a wedge to replace RPA seats now.",
-          "signal": "medium",
-          "tags": [
-            "agents",
-            "browser_automation",
-            "rpa_replacement"
-          ],
-          "aligned_thesis": "Agent Infrastructure as the Next Cloud Layer"
-        },
-        {
-          "title": "Framer AI Agents — Design and Publish Sites via Agents",
-          "source": "Product Hunt",
-          "url": "https://www.producthunt.com/",
-          "summary": "Validates Services Are the New Software: Framer's on-canvas Agents (with hooks into Claude Code / Codex) collapse the web-design services stack into a single AI-native tool, exactly the 'absorb the services P&L' pattern Sequoia is underwriting. Operators building agencies should assume 60–80% margin compression within 18 months.",
-          "signal": "medium",
-          "tags": [
-            "design_agents",
-            "no_code",
-            "services_as_software"
-          ],
-          "aligned_thesis": "Services Are the New Software: AI-Native Rollups"
         }
       ]
     },
@@ -152,43 +139,57 @@
       "name": "Opportunities Now",
       "items": [
         {
-          "title": "Agent-Native Payments & Money-Movement Rails",
-          "source": "a16z",
-          "url": "https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data",
-          "summary": "Who could capture: fintech infra teams with payments licenses (Stripe alumni, Modern Treasury peers) plus MCP-native startups like Sequence. What must be true: agents get real budget authority inside enterprises this quarter. When: 0–6 months — enterprises are already piloting autonomous procurement agents and need spend controls now.",
+          "title": "N71 — shared context layer for AI agents",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/n71",
+          "aligned_thesis": "Agents Buy And Sell From Other Agents",
+          "summary": "Validates Agents Buy And Sell From Other Agents: N71 gives multiple agents one shared context. This is the exact wedge Exa's Will Bryk described on a16z's podcast — the primary customer for context/memory infra is another agent. Operators running >2 coding or ops agents in production should pilot this quarter; investors should map every 'shared-context' or 'agent memory' startup surfacing on PH as candidates for series-seed follow-on.",
+          "horizon": "now",
           "signal": "high",
           "tags": [
-            "payments",
-            "agents",
-            "fintech"
-          ],
-          "horizon": "now"
+            "agent-infra",
+            "context",
+            "producthunt"
+          ]
         },
         {
-          "title": "Vertical AI Rollups: Wealth, Trades, Retail",
-          "source": "Sequoia Capital",
-          "url": "https://sequoiacap.com/article/ai-retail-opportunity/",
-          "summary": "Who could capture: PE-minded operators willing to buy small SMB books (bookkeeping, HVAC, financial advisory) and install agents on day one. What must be true: cost-of-capital stays workable and MCP/agent stacks are production-ready. When: this quarter — Sequoia is actively funding the pattern (Probook for trades, Nevis for wealth).",
-          "signal": "high",
-          "tags": [
-            "rollups",
-            "services_as_software",
-            "verticals"
-          ],
-          "horizon": "now"
-        },
-        {
-          "title": "Enterprise 'Agent Ops' Consulting Wedge",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/",
-          "summary": "Who could capture: boutique consultancies pairing Lean/Six-Sigma operators with LLM engineers to redesign processes around agents. What must be true: mid-market CIOs remain under board pressure to show AI ROI in FY26. When: 0–6 months — Big 4 is slow and expensive, creating a wedge for focused 20-person shops charging $150k engagements.",
+          "title": "Wispr Flow — voice-first surface for every AI tool",
+          "source": "Product Hunt",
+          "url": "https://www.producthunt.com/products/wispr-flow",
+          "aligned_thesis": "Agentic Coding Is The First Real ROI Vertical",
+          "summary": "Validates Agentic Coding Is The First Real ROI Vertical: Flow's core wedge is developers speaking to Cursor, Claude Code, and ChatGPT faster than typing — a productivity multiplier on the exact workflow OpenAI just made 54% cheaper. As agent-driven dev becomes standard, voice input into agents is a plausibly winner-take-most surface. Operators: pilot inside dev teams now; investors: track voice→agent orchestration category, still under-funded.",
+          "horizon": "now",
           "signal": "medium",
           "tags": [
-            "consulting",
-            "enterprise",
-            "operations"
-          ],
-          "horizon": "now"
+            "voice",
+            "coding-agents",
+            "producthunt"
+          ]
+        },
+        {
+          "title": "Sell agentic browsing as a Chrome extension, not a browser",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/",
+          "summary": "OpenAI sunsetting Atlas after <1 year while moving agentic browsing into the desktop app and a Chrome extension is a green light for browser-agent startups: even OpenAI can't beat Chrome's distribution moat. Who could capture it: extension-first agent teams (Perplexity Comet, Arc, indie makers). What has to be true: durable revenue on task completion, not tokens. Timeline: this quarter — before Chrome, Edge, and Arc ship native agent modes.",
+          "horizon": "now",
+          "signal": "high",
+          "tags": [
+            "browser-agents",
+            "distribution"
+          ]
+        },
+        {
+          "title": "Agent-run capital allocation as a fundable wedge",
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
+          "summary": "Lyzr letting an agent run its $100M fundraise is a marketing stunt, but the underlying capability — agents managing high-stakes negotiations, diligence, and comms — is a valid autopilot vertical. Who could capture it: teams shipping domain-specific negotiation, procurement, or M&A agents. What must be true: verifiable audit trails and legal accountability wrappers. Timeline: procurement and vendor management agents can ship within 6 months if grounded in narrow verticals.",
+          "horizon": "now",
+          "signal": "medium",
+          "tags": [
+            "autopilot",
+            "fundraising",
+            "agents"
+          ]
         }
       ]
     },
@@ -197,56 +198,56 @@
       "name": "Opportunities Mid-term",
       "items": [
         {
-          "title": "Neocloud Arbitrage on Custom Silicon Overhang",
-          "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
-          "summary": "Who could capture: neoclouds (CoreWeave-style) that pre-commit to Anthropic/OpenAI custom inference chips and resell capacity. What must be true: labs' silicon programs slip on schedule (highly likely — Anthropic's is years out) so H200/Blackwell capacity remains scarce through 2027. When: 6–18 months positioning window before hyperscaler capacity floods in.",
+          "title": "Vertical AI services in the six-to-one TAM: trades, wealth, retail",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/services-the-new-software/",
+          "summary": "Sequoia is putting money behind services-as-software in the trades (Probook), wealth management (Nevis), and retail ($1T Amazon rethink). Who captures: operator-founders with domain SME + a services P&L, not model API resellers. What has to be true: buyers must accept AI-delivered outcomes rather than SaaS seats — reference sales cycles suggest 12-18 months. Timeline: cohort of $50-500M ARR autopilot companies visible by late 2027.",
+          "horizon": "mid",
           "signal": "high",
           "tags": [
-            "neocloud",
-            "inference",
-            "silicon"
-          ],
-          "horizon": "mid"
+            "vertical-ai",
+            "services",
+            "sequoia"
+          ]
         },
         {
-          "title": "AI-Native Public-Company Governance & Compliance Tooling",
+          "title": "AI-native talent marketplaces at frontier valuations",
           "source": "TechCrunch",
-          "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-          "summary": "Who could capture: legal-tech and regtech founders building on the assumption that frontier labs will operate under quasi-utility rules. What must be true: at least one lab-government equity deal closes. When: 6–18 months — a formal deal would kick off a regulatory build-out phase similar to post-Dodd-Frank compliance boom.",
-          "signal": "medium",
+          "url": "https://techcrunch.com/2026/07/09/mercor-is-in-talks-for-a-20b-valuation/",
+          "summary": "Mercor doubling from $10B to $20B in 9 months signals that the pick-and-shovel play for AI labs — expert human evaluators and RLHF data — is being priced as a durable moat, not a service margin. Who captures the mid-horizon: platforms bridging expert humans + agentic verification (Standard Intelligence's pixel-space training, Scale, Surge). What must be true: labs keep needing high-value human feedback as models generalize. Timeline: consolidation and next unicorn cohort by 2027.",
+          "horizon": "mid",
+          "signal": "high",
           "tags": [
-            "regtech",
-            "policy",
-            "compliance"
-          ],
-          "horizon": "mid"
+            "data-labeling",
+            "mercor",
+            "valuations"
+          ]
         },
         {
-          "title": "Diverse-Reasoning / Anti-Groupthink Model Layer",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/07/01/1140003/llms-are-stuck-in-a-groupthink-rut-this-startup-is-trying-to-get-them-out/",
-          "summary": "Who could capture: teams building diversity-of-thought orchestration on top of frontier models (ensembles, latent-space rerankers). What must be true: enterprises discover that homogeneous LLM outputs cause real analytical failures. When: 6–18 months as CFOs push back on 'seven-heavy' probabilistic reasoning in decisions.",
+          "title": "Physical AI / embodied intelligence stack matures",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2607.07608",
+          "summary": "This week's paper drop — Dual Latent Memory VLAs, MoE video pretraining for embodied intelligence, RoboDojo sim-and-real benchmarks, WildCity city-scale testbed — shows the robotics stack maturing along the same rails LLMs did in 2022-2023 (data, benchmarks, foundation models). Who captures: startups treating robotics like agents (verification-first, memory-first), plus infra (Jetson-class edge, sim platforms). What has to be true: sim-to-real transfer keeps improving. Timeline: first commercial embodied-agent revenue at scale in 12-18 months.",
+          "horizon": "mid",
           "signal": "medium",
           "tags": [
-            "reasoning",
-            "ensembles",
+            "robotics",
+            "embodied",
             "research"
-          ],
-          "horizon": "mid"
+          ]
         },
         {
-          "title": "Industrial AI Operating Layer for Physical Assets",
-          "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/07/02/1138433/teaching-ai-to-run-with-the-turbines/",
-          "summary": "Who could capture: startups embedding AI into utility, energy, and heavy-industry control loops (not dashboards). What must be true: hyperscaler power constraints force utilities to modernise operations quickly. When: 6–18 months — every gigawatt of AI datacenter buildout creates a paying customer for turbine/grid-AI.",
+          "title": "Interpretability and agent-eval tooling as procurement gate",
+          "source": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2607.06624",
+          "summary": "AgentLens (production-assessed trajectory reviews for coding agents) plus Anthropic's Jacobian lens point to a fast-forming category: agent observability + interpretability as the SOC 2 of AI. Who captures: infra teams from the Datadog/Snowflake school of enterprise plumbing, not model researchers. What must be true: enterprise governance teams start requiring per-run auditability before renewal. Timeline: 12-18 months to a canonical stack; today's incumbents (Braintrust, LangSmith, Arize) will be joined or acquired.",
+          "horizon": "mid",
           "signal": "medium",
           "tags": [
-            "industrial_ai",
-            "energy",
-            "infra"
-          ],
-          "horizon": "mid"
+            "observability",
+            "governance",
+            "eval"
+          ]
         }
       ]
     },
@@ -255,277 +256,267 @@
       "name": "Opportunities Long-term",
       "items": [
         {
-          "title": "Pixel-Space General Intelligence Beyond Tokens",
+          "title": "General intelligence trained in pixel space",
           "source": "Sequoia Capital",
           "url": "https://sequoiacap.com/article/standard-intelligence-training-general-intelligence-in-pixel-space/",
-          "summary": "Who could capture: research-heavy labs willing to bet against the tokenizer as the substrate of intelligence. What must be true: pixel/continuous representations scale competitively with LLMs on reasoning benchmarks. When: 18+ months — this is a directional bet on the next architectural paradigm; the payoff, if it lands, is a from-scratch challenger to today's frontier stack.",
+          "summary": "Sequoia's Standard Intelligence bet — training general intelligence directly in pixel space rather than tokenized text — is a directional wager that the current LLM paradigm has a ceiling and multimodal-native foundation models will replace it. Who captures: labs that can secure compute + video-scale data. What must be true: pixel-space models beat token models on general reasoning. Timeline: 3-5 years before commercial disruption of the current stack.",
+          "horizon": "long",
           "signal": "medium",
           "tags": [
-            "foundation_models",
-            "pixel_space",
-            "research_bet"
-          ],
-          "horizon": "long"
+            "foundation-models",
+            "pixel-space",
+            "paradigm-shift"
+          ]
         },
         {
-          "title": "Sovereign AI Compute Blocs and Allied Coalitions",
-          "source": "a16z",
-          "url": "https://a16z.com/podcast/balaji-and-steven-glinert-on-network-states-supply-chains-and-allied-coalition-strategy/",
-          "summary": "Who could capture: infra players positioning as picks-and-shovels for allied blocs (US-Korea-Japan silicon; EU sovereign clouds). What must be true: export controls harden and non-aligned states demand controlled compute. When: 18+ months — the OpenAI/sovereign-fund bargain and $518B Samsung/SK memory buildout foreshadow explicit compute nationalism.",
-          "signal": "medium",
-          "tags": [
-            "geopolitics",
-            "sovereign_compute",
-            "supply_chain"
-          ],
-          "horizon": "long"
-        },
-        {
-          "title": "Robotics Foundation Models: Mobility + Manipulation",
-          "source": "Hugging Face Papers",
-          "url": "https://huggingface.co/papers/2607.00678",
-          "summary": "Who could capture: robotics startups that combine mobility and manipulation into a single world-action model (ABot-M0.5 direction). What must be true: sim-to-real gaps close and industrial customers accept probabilistic behaviour. When: 18+ months — labor economics + custom silicon economics converge to make general-purpose robots deployable at unit-economic parity with humans.",
-          "signal": "medium",
-          "tags": [
-            "robotics",
-            "foundation_models",
-            "embodied"
-          ],
-          "horizon": "long"
-        },
-        {
-          "title": "Longevity + AI: Cellular Reprogramming as Compute Problem",
+          "title": "AI-driven nuclear and compute-power convergence",
           "source": "MIT Technology Review",
-          "url": "https://www.technologyreview.com/2026/06/30/1139958/roundtables-longevitys-next-frontier-reprogramming-your-body/",
-          "summary": "Who could capture: bio-AI hybrids using Claude-Science-class agents to design reprogramming factors. What must be true: LLM-driven hypothesis generation compresses wet-lab cycle times by 5–10x. When: 18+ months — this is the highest-variance category open to serious capital, and Claude Science is the enabling substrate arriving now.",
-          "signal": "low",
+          "url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/",
+          "summary": "Four US nuclear reactors hitting criticality on schedule is the first evidence that the microreactor buildout tied to AI datacenter demand is not vaporware. Amodei's warning about $1T compute spend and Huang's 'AI factory' framing both hinge on power availability, not just chips. Who captures: reactor developers with AI-hyperscaler LOIs, plus edge cases like grid-arbitrage AI operators. What has to be true: regulatory pace holds. Timeline: 3-7 years to material capacity, but capital flows shift now.",
+          "horizon": "long",
+          "signal": "medium",
           "tags": [
-            "longevity",
-            "bio_ai",
-            "science_agents"
-          ],
-          "horizon": "long"
+            "nuclear",
+            "compute",
+            "power"
+          ]
+        },
+        {
+          "title": "Agent-native operating systems replace consumer apps",
+          "source": "a16z",
+          "url": "https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data/",
+          "summary": "a16z's twin threads — agents fighting for customer data, and Karpathy's 'some apps should stop existing as apps' — point to a long-arc restructuring where personal agents, not app stores, mediate consumer transactions. Who captures: platforms owning consumer agent identity + payment rails (Apple, Google, or a new challenger). What has to be true: browser/OS incumbents concede default agent hooks. Timeline: 3-5 years, but positioning starts now — every SaaS company should have a 'no UI' variant ready.",
+          "horizon": "long",
+          "signal": "medium",
+          "tags": [
+            "agent-os",
+            "consumer",
+            "a16z"
+          ]
+        },
+        {
+          "title": "Cognitive labor markets restructure by verifiability",
+          "source": "Sequoia Capital",
+          "url": "https://sequoiacap.com/article/2026-this-is-agi/",
+          "summary": "Sequoia's 'This Is AGI' + Karpathy's verifiability thesis (AI automates what you can verify) predict a bifurcation of white-collar work: highly-verifiable functions (coding, tax, contracts, benchmarks) get autopiloted first; judgement-heavy functions (consulting, strategy, med diagnosis edge cases) remain human-led for longer. Who captures: firms building verification/reward infrastructure for previously unverifiable domains. Timeline: 5-10 years for the full restructuring; the winners establish moats now.",
+          "horizon": "long",
+          "signal": "medium",
+          "tags": [
+            "labor",
+            "verifiability",
+            "agi"
+          ]
         }
       ]
     }
   ],
   "commentary_synthesis": {
-    "grounded_view": "The dominant fact of the week is that top AI labs are now vertically integrating faster than the market expected — Anthropic joining OpenAI in custom silicon while simultaneously negotiating quasi-sovereign relationships with governments. This is not a hype cycle; it is an infrastructure land-grab that will decide which two or three labs still exist in five years. Beneath that, the practical enterprise story is shifting from 'buy a copilot' to 'absorb an entire service P&L with agents,' visible in Sequoia's Probook/Nevis bets and in Product Hunt launches like Sequence and Airtop that operationalise agent payments and browser control. Investors should discount 'AI-tagged' revenue (Jersey Mike's S-1) but pay a premium for teams that control silicon, own a vertical workflow, or provide load-bearing agent infrastructure.",
+    "grounded_view": "The center of gravity in AI has shifted from 'what can the model do?' to 'who gets paid when the work is done?' GPT-5.6, Muse Spark, and Claude Sonnet 5 converging on agentic coding at similar quality points confirms model-layer commoditization is here for the top verticals. That pushes value up (into services/autopilot companies selling outcomes) and down (into agent-native infrastructure: shared context, observability, interpretability). Two forces temper the euphoria: US government approval is now a real access variable — GPT-5.6 shipped after a customer-by-customer approval regime and Anthropic's Fable/Mythos episode showed models can be pulled overnight — and the $1T compute bill Amodei has warned about only makes sense if enterprise revenue scales exponentially. Expect the next 6-12 months to be dominated by (a) autopilot startups replacing SaaS budgets in vertical services, (b) frontier labs consolidating regulatory relationships, and (c) a scramble for interpretability/eval tooling as agents move into revenue-critical workflows. The honest read: hype is high but the underlying revenue signals (Anthropic $1B→$7B in nine months, Mercor 2x in nine months, Legora $100M ARR in 18 months) are the real story, not the model announcements.",
     "comparison_table": [
       {
-        "topic": "Custom silicon strategy",
-        "investor_view": "a16z and peers frame vertical silicon as a moat requirement; capital is flowing to neoclouds and design partners (Broadcom-adjacent, Samsung foundry customers).",
-        "operator_view": "Sam Altman and Dario Amodei-adjacent teams are executing: OpenAI shipped Jalapeño with Broadcom; Anthropic is scoping Samsung 2nm while explicitly keeping Nvidia/TPU/Trainium in the mix.",
-        "practical_implication": "Assume every serious lab has a silicon roadmap within 12 months. Pure model-layer investments without a hardware story now carry a strategic discount.",
-        "investor_source_url": "https://a16z.com/podcast/ai-agents-and-the-fight-for-customer-data",
-        "operator_source_url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/"
-      },
-      {
-        "topic": "AI and government",
-        "investor_view": "VCs are broadly wary of government entanglement, worrying that equity-for-regulation trades create captured incumbents and dampen returns for challengers.",
-        "operator_view": "Altman is actively pitching a 5% equity donation into a US sovereign wealth fund, arguing public co-ownership is the durable answer to political blowback.",
-        "practical_implication": "Model a scenario where frontier labs become quasi-utilities with government cap-table presence. That helps incumbents' IPOs but raises the bar for anyone competing with them.",
-        "investor_source_url": "https://sequoiacap.com/article/listen-to-the-market/",
-        "operator_source_url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/"
-      },
-      {
-        "topic": "Where AI value accrues",
-        "investor_view": "Sequoia argues services are the new software: capture whole service P&Ls, not per-seat SaaS. a16z argues the customer-data and agent-infra layer is the next AWS.",
-        "operator_view": "Operators like Anthropic (Claude Science) and Meta (Pocket) are shipping domain-shaped flagship products and consumer generative experiences rather than horizontal chatbots.",
-        "practical_implication": "Fund and build for verticalized workflows or load-bearing agent infrastructure. Horizontal 'AI assistants' without a workflow or data moat will be commoditized by year-end.",
+        "topic": "Where the trillion-dollar value accrues",
+        "investor_view": "Sequoia says services, not software — the next $1T company sells completed work; every dollar of software spend maps to six of services spend.",
         "investor_source_url": "https://sequoiacap.com/article/services-the-new-software/",
-        "operator_source_url": "https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/"
+        "operator_view": "Sam Altman is pricing GPT-5.6 for enterprise ROI ('every enterprise now is thinking about spend and the value they're getting'), positioning OpenAI as the value-capture layer via efficiency, not just intelligence.",
+        "operator_source_url": "https://www.cnbc.com/2026/07/09/open-ai-sam-altman-chatgpt-5-6-sol.html",
+        "practical_implication": "Founders should pick a lane: sell outcomes on top of frontier models (Sequoia bet) or fight for infra spend below them (OpenAI/Anthropic bet). Middle-tier tool startups get squeezed from both sides."
       },
       {
-        "topic": "AI hype and discipline",
-        "investor_view": "Even a16z and Sequoia are quietly writing about PMF frameworks and 'listening to the market,' signalling a discipline reset within the smartest capital.",
-        "operator_view": "Operators are cutting non-core products (Whip Media killing TV Time to focus on enterprise AI) and IPO decks now casually mention AI regardless of relevance (Jersey Mike's).",
-        "practical_implication": "Expect a bifurcation: real AI economics get bid up; 'AI-flavored' consumer and SMB apps face a sharp valuation compression in H2 2026.",
-        "investor_source_url": "https://sequoiacap.com/article/pmf-framework/",
-        "operator_source_url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/"
+        "topic": "AI and jobs",
+        "investor_view": "Sequoia's 'services is the new software' explicitly frames AI as absorbing services-firm revenue — a polite way of saying professional-services headcount gets restructured.",
+        "investor_source_url": "https://sequoiacap.com/article/services-the-new-software/",
+        "operator_view": "Jensen Huang publicly called AI-attributed layoffs 'lazy' and 'irresponsible,' arguing AI multiplies developer output (GitHub PRs tripled in early 2026) rather than replacing headcount.",
+        "operator_source_url": "https://www.thestateofbrand.com/news/jensen-huang-ai-layoffs",
+        "practical_implication": "The truth is between: task-level automation is real (Amodei says most software engineering could be end-to-end in 6-12 months) but total headcount is a capital-allocation choice. Operators should plan workflows for AI leverage, not headcount cuts."
+      },
+      {
+        "topic": "Regulation & frontier access",
+        "investor_view": "a16z (via Balaji, Andreessen) skews toward permissionless deployment and market-driven safety; supports founders working around regulatory gating.",
+        "investor_source_url": "https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/",
+        "operator_view": "Dario Amodei publicly argues government should have power to block deployment; Altman worked with the White House on GPT-5.6's phased release but told staff it isn't sustainable long-term.",
+        "operator_source_url": "https://www.bloomberg.com/news/articles/2026-06-10/anthropic-ceo-says-government-should-be-able-to-block-new-models",
+        "practical_implication": "Access is now a policy variable. Enterprises need a multi-model, multi-jurisdiction contingency plan. Startups building on a single frontier API have a hidden regulatory single-point-of-failure."
+      },
+      {
+        "topic": "Compute economics",
+        "investor_view": "Sequoia's $10T AI revolution frame assumes compute scaling continues and revenue catches up; a16z is funding both infra (Netris) and application layer.",
+        "investor_source_url": "https://sequoiacap.com/article/10t-ai-revolution/",
+        "operator_view": "Amodei has warned that AI firms may need $800B-$1T in annual revenue to sustain compute commitments and that a one-year slowdown could make trillion-dollar bets unsustainable.",
+        "operator_source_url": "https://bravenewcoin.com/insights/anthropic-ai-ceo-dario-amodei-warns-1-trillion-compute-era-could-push-ai-firms-toward-bankruptcy-risk-by-2027",
+        "practical_implication": "Any company (portfolio or your own) whose 5-year model requires uninterrupted 10x compute growth has hidden fragility. Diversify inference paths (open-weights, inference chips like Etched) and price for a scenario where frontier costs plateau."
       }
     ]
   },
   "follow_the_money": [
     {
-      "trend_type": "infra_spend",
-      "observation": "Samsung Group and SK Group announced a combined $518B decade-long investment in four Korean memory-chip plants to serve AI infrastructure demand.",
-      "implication": "Korea is positioning as the second pole of AI silicon capacity behind Taiwan. Investors should track Samsung foundry yield milestones — every credible 2nm ramp weakens TSMC's monopoly pricing power.",
-      "source_url": "https://finance.yahoo.com/technology/ai/articles/anthropic-explores-samsung-2nm-chip-144844786.html"
+      "trend_type": "capital_flow",
+      "observation": "Mercor in talks for $20B valuation, roughly double its October figure of $10B.",
+      "implication": "Data-labeling / expert-evaluator platforms are being priced like durable infrastructure, not services businesses. Signals investors expect labs to keep buying high-value human feedback for years.",
+      "source_url": "https://techcrunch.com/2026/07/09/mercor-is-in-talks-for-a-20b-valuation/"
     },
     {
       "trend_type": "capital_flow",
-      "observation": "Anthropic closed a $65B round at a reported $965B valuation with Samsung, SK Hynix, and Micron participating as strategic investors.",
-      "implication": "The largest AI round ever explicitly aligns memory/foundry incumbents with a frontier lab. Expect similar strategic-cap-table plays to become the norm; pure financial LPs will get squeezed on allocation.",
-      "source_url": "https://cryptobriefing.com/anthropic-samsung-ai-chip-partnership/"
-    },
-    {
-      "trend_type": "acquisition_or_bet",
-      "observation": "OpenAI proposed donating 5% of its equity (~$42.6B at $852B valuation) to a US sovereign wealth fund, with the framework extending to Anthropic, Google, and Meta.",
-      "implication": "If accepted, this creates a new capital regime — government equity in frontier labs, akin to Norway's Government Pension Fund. IPO windows for OpenAI and Anthropic could open sooner but with permanent regulatory drag on aggressive moves.",
-      "source_url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/"
-    },
-    {
-      "trend_type": "capital_flow",
-      "observation": "Thiel Capital's Jack Selby is raising a $300M Fund II for Copper Sky Capital, with stakes in Etched and other Arizona-adjacent AI hardware companies.",
-      "implication": "Regional AI-hardware VC (Phoenix/TSMC-adjacent) is emerging as a distinct strategy. Expect more geo-focused funds sitting on top of subsidised US fab clusters.",
-      "source_url": "https://techcrunch.com/2026/07/02/thiel-capitals-jack-selby-nabs-stakes-in-hot-startups-like-etched-through-arizona-connections/"
+      "observation": "Lyzr closed $100M raise, notably with its own AI agent orchestrating the round.",
+      "implication": "Enterprise-agent platforms are still commanding growth-round pricing despite intense frontier-lab competition. Also normalizes agents in real economic transactions, which is a category tailwind for agent-infra startups.",
+      "source_url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/"
     },
     {
       "trend_type": "enterprise_spend",
-      "observation": "Whip Media is shutting down consumer TV Time to focus entirely on enterprise AI products; multiple consumer companies pivoting to B2B AI.",
-      "implication": "Enterprise AI budgets are large enough to justify killing profitable consumer brands. Buyers should expect a wave of ex-consumer teams entering enterprise categories with strong data assets.",
-      "source_url": "https://techcrunch.com/2026/07/02/popular-tv-tracking-app-tv-time-is-shutting-down-as-company-focuses-on-ai/"
-    },
-    {
-      "trend_type": "overheated_signal",
-      "observation": "Jersey Mike's IPO documents cite AI as a strategic factor; IQM (first public European quantum co.) admits the tech's future is uncertain even as it lists at $1.9B.",
-      "implication": "Public-market AI language is losing signal value. Discount 'AI mentions' in S-1s; look for verified compute contracts, silicon roadmaps, or agent-driven margin expansion instead.",
-      "source_url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/"
+      "observation": "OpenAI released ChatGPT Work aimed at 'most ambitious' enterprise deployments alongside GPT-5.6 tiers (Sol/Terra/Luna) — Altman told CNBC every enterprise is 'thinking about spend and value.'",
+      "implication": "Enterprise budget conversation has moved from experimentation to unit-economics scrutiny. Vendors selling raw tokens or seats face compression; those selling completed work or measurable ROI keep pricing power.",
+      "source_url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/"
     },
     {
       "trend_type": "infra_spend",
-      "observation": "Google and Amazon are missing net-zero pledges due to AI datacenter power demand.",
-      "implication": "AI's real cost is showing up as carbon and power infrastructure debt. Capital opportunity in nuclear, geothermal, and grid-tie AI startups is expanding; watch for hyperscaler PPAs in coming quarters.",
-      "source_url": "https://techcrunch.com/2026/07/02/a-warning-sign-about-ais-real-cost-courtesy-of-google-and-amazon/"
+      "observation": "Four US nuclear microreactors hit criticality on schedule; Meta reusing old RAM via custom CXL bridge chip; Etched hit $5B valuation with $1B in signed contracts for inference chips.",
+      "implication": "The compute buildout is diversifying beyond GPUs into power generation, inference silicon, and memory hacks. Capital is flowing to any bottleneck relaxer, not just Nvidia beneficiaries.",
+      "source_url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/"
     },
     {
-      "trend_type": "capital_flow",
-      "observation": "Magnify Ventures closed a $46.6M Fund II backed by Melinda French Gates' Pivotal Ventures, focused on early-stage care-economy and AI-adjacent bets.",
-      "implication": "'Care economy + AI' is emerging as a distinct thesis with credible LP backing. Expect similar vertical-plus-AI micro-funds to proliferate as generalist VCs get squeezed.",
-      "source_url": "https://techcrunch.com/2026/07/02/melinda-gates-venture-firm-backs-magnify-ventures-46-6m-fund-ii/"
+      "trend_type": "acquisition_or_bet",
+      "observation": "OpenAI sunsetting Atlas browser while pushing agentic browsing into a Chrome extension and desktop app.",
+      "implication": "Even OpenAI concedes Chrome's distribution moat. Signals continued M&A demand for distribution-adjacent agent products (extensions, keyboards, dictation tools like Wispr Flow).",
+      "source_url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/"
+    },
+    {
+      "trend_type": "overheated_signal",
+      "observation": "TechCrunch's '$3 trillion question' revisits the AI ROI debate at even bigger numbers; Amodei has warned frontier labs may need $800B-$1T annual revenue to sustain compute or face bankruptcy risk.",
+      "implication": "The ROI gap between capex and revenue is widening in absolute terms even as revenue scales. Late-stage frontier-lab valuations are pricing in near-perfect execution; hedge exposure with open-weight and inference-optimized bets.",
+      "source_url": "https://techcrunch.com/2026/07/09/can-ai-answer-the-3-trillion-question/"
+    },
+    {
+      "trend_type": "acquisition_or_bet",
+      "observation": "Musk publicly promised not to 'cut off' Anthropic on xAI infrastructure — with roughly $40B revenue at stake.",
+      "implication": "Compute supply is now a competitive weapon between frontier labs and their infra suppliers. Cross-lab compute relationships are fragile and material to counterparty risk analysis.",
+      "source_url": "https://techcrunch.com/2026/07/09/elon-musk-praises-mythos-fable-promises-not-to-cut-off-anthropic/"
+    },
+    {
+      "trend_type": "enterprise_spend",
+      "observation": "OpenAI reportedly in talks with the US government about a potential ~5% equity stake; Anthropic disclosed a $200M Department of War prototype contract and $1 Claude-for-Government offer.",
+      "implication": "Government is becoming a material customer and shareholder for frontier labs. Companies competing for federal AI budgets should expect procurement rules to shift; startups should preemptively align on FedRAMP/DoD paths.",
+      "source_url": "https://www.technologyreview.com/2026/07/06/1140176/your-familys-300-stake-in-openai/"
     }
   ],
-  "generated_at": "2026-07-02T23:05:00Z",
+  "generated_at": "2026-07-09T23:07:55Z",
   "leader_voices": [
     {
       "name": "Sam Altman",
       "org": "OpenAI",
-      "quote_or_paragraph": "Altman has argued that giving the public a financial interest in the company through a 5% equity donation to a US sovereign wealth fund is the best way to share AI's upside, framing it as making the American public 'partners in this revolution' alongside the Trump administration.",
-      "url": "https://www.cnbc.com/2026/07/02/openai-proposes-us-government-own-5percent-stake-to-address-political-blowback.html",
+      "quote_or_paragraph": "Told CNBC on the GPT-5.6 launch day that Sol delivers 54% better token efficiency on agentic coding and is 'as good or better' than competing models, framing the release around enterprise value-for-spend: 'Every enterprise now is thinking about spend and the value they're getting in exchange for AI, and this is what we really want to do.'",
+      "url": "https://www.cnbc.com/2026/07/09/open-ai-sam-altman-chatgpt-5-6-sol.html",
       "stance": "bullish",
-      "strategic_implication": "Altman is buying regulatory air-cover ahead of an OpenAI IPO. Operators should assume the incumbent labs will be structurally advantaged in Washington; challengers need to plan for a permanent policy tilt."
-    },
-    {
-      "name": "Marc Andreessen",
-      "org": "a16z",
-      "quote_or_paragraph": "Andreessen argued in a recent a16z podcast that founder evaluation now hinges on the ability to capture AI's consumer surplus — that the huge value being created by AI is currently sitting unmonetized with users, and the next generation of great companies will convert that surplus into durable revenue.",
-      "url": "https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/",
-      "stance": "bullish",
-      "strategic_implication": "a16z is signaling it will pay up for founders who understand consumer-side value capture in AI. Expect a wave of a16z bets on prosumer and vertical-consumer AI, not just enterprise infra."
-    },
-    {
-      "name": "Roelof Botha",
-      "org": "Sequoia Capital",
-      "quote_or_paragraph": "Sequoia's AI Ascent 2026 framing argues that 2026 is when AI moves from tool to labor — that services (not software) is the multi-trillion-dollar opportunity, and that AI-native rollups of vertical service businesses will produce the next generation of $100B+ outcomes.",
-      "url": "https://sequoiacap.com/article/ai-ascent-2026/",
-      "stance": "bullish",
-      "strategic_implication": "Sequoia is publicly recalibrating toward services-as-software and vertical rollups. Founders should reframe pitches around P&L absorption, not seat licenses; LPs should expect Sequoia's portfolio to look more PE-adjacent."
+      "strategic_implication": "OpenAI is repositioning from raw capability marketing to unit-economics marketing — an implicit signal to competitors and startups that the coding-agent market will now compete primarily on cost-per-completed-task, not benchmark wins."
     },
     {
       "name": "Dario Amodei",
       "org": "Anthropic",
-      "quote_or_paragraph": "Anthropic told TechCrunch that a diversified hardware stack including AWS Trainium, Google TPUs, and Nvidia GPUs will remain central to how the company scales its compute strategy — even as it explores a custom chip with Samsung.",
-      "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
-      "stance": "bullish",
-      "strategic_implication": "Amodei is signaling multi-vendor pragmatism rather than a Nvidia-exit narrative. Investors should not overweight the 'Nvidia disintermediation' story; the real move is capacity diversification and long-term unit economics."
-    },
-    {
-      "name": "Will Bryk",
-      "org": "Exa",
-      "quote_or_paragraph": "On a16z's podcast, Bryk argued that search built for AI agents needs to look fundamentally different from search built for humans — agents want structured, dense, machine-consumable results, and the winning search layer will be the one that treats agents as first-class customers.",
-      "url": "https://a16z.com/podcast/building-search-for-ai-agents-with-exa-ceo-will-bryk/",
-      "stance": "bullish",
-      "strategic_implication": "The 'search for agents' category is now investable. Google and Bing were built for humans; a new stack (Exa and peers) has an 18-month window before hyperscalers catch up. Enterprises should pilot agent-native retrieval now."
-    },
-    {
-      "name": "Brian Halligan",
-      "org": "HubSpot (former CEO)",
-      "quote_or_paragraph": "In Sequoia's founder-to-scaleup piece, Halligan reflects that scaling from startup to $25B requires letting go of the founder-as-product-lead identity and rebuilding the company around operating cadence, not intuition — a lesson he says is especially acute for AI-era founders whose products change monthly.",
-      "url": "https://sequoiacap.com/article/a-startup-founder-to-scaleup-ceos-journey-from-0-to-25billion-halliganisms/",
+      "quote_or_paragraph": "On stage at a Claude Science event this week, Amodei walked back his 'century in a decade' AI-for-biotech vision, saying we cannot make progress at a rate of ten years per year today for multiple structural reasons. Separately he has continued arguing that governments should be able to block frontier model deployment when third-party testing shows unacceptable risk.",
+      "url": "https://www.statnews.com/2026/07/06/anthropic-ai-biotech-impact/",
       "stance": "neutral",
-      "strategic_implication": "AI-era founders will hit scaling walls faster than SaaS founders did. Boards should be pre-planning COO/CFO hires by Series B, not Series D, as product velocity outpaces org velocity."
+      "strategic_implication": "Anthropic's most bullish public voice publicly moderating timelines is a durable signal for investors: expectations for 'AI-for-science' compounding returns should be marked down, and interpretability + regulation are now core to Anthropic's positioning."
     },
     {
-      "name": "Bernie Sanders",
-      "org": "US Senate",
-      "quote_or_paragraph": "Sanders has proposed the American AI Sovereign Wealth Fund Act, which would apply a one-time 50% tax on the stock of systemically important AI companies and deposit the shares into a public wealth fund — a far more aggressive alternative to OpenAI's voluntary 5% donation.",
-      "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-      "stance": "bearish",
-      "strategic_implication": "Even if Sanders' bill fails, it anchors the negotiating range at 50%. That makes OpenAI's 5% proposal look moderate and pushes other frontier labs into similar 'voluntary' deals, which effectively become the new baseline."
-    },
-    {
-      "name": "Melinda French Gates",
-      "org": "Pivotal Ventures",
-      "quote_or_paragraph": "By anchoring Magnify Ventures' $46.6M Fund II, French Gates is signalling that the care economy — women's health, caregiving, and family infrastructure — is a distinct AI-era investable category, and that mainstream VC has systematically underinvested in it.",
-      "url": "https://techcrunch.com/2026/07/02/melinda-gates-venture-firm-backs-magnify-ventures-46-6m-fund-ii/",
+      "name": "Jensen Huang",
+      "org": "Nvidia",
+      "quote_or_paragraph": "In recent Singapore comments Huang called AI-attributed layoffs 'lazy' and 'irresponsible,' arguing 'AI has just arrived — how is it possible they're already losing jobs?' He continues to frame the AI-factory era as multiplying developer output, citing GitHub PRs nearly tripling into early 2026.",
+      "url": "https://www.thestateofbrand.com/news/jensen-huang-ai-layoffs",
       "stance": "bullish",
-      "strategic_implication": "Expect a rise of thesis-driven micro-funds (~$50M) targeting vertical + AI intersections that generalist funds miss. LPs looking for uncorrelated AI exposure should map these emerging managers now."
+      "strategic_implication": "Nvidia is using its bully pulpit to keep AI framed as productivity-multiplier, not headcount-eliminator — protects the enterprise capex narrative and shields customers from political backlash. Operators using AI-for-layoffs framing should expect PR risk."
+    },
+    {
+      "name": "Elon Musk",
+      "org": "xAI",
+      "quote_or_paragraph": "Publicly praised Anthropic's Mythos/Fable models and promised not to 'cut off' Anthropic from xAI infrastructure, with roughly $40B revenue at stake, per TechCrunch.",
+      "url": "https://techcrunch.com/2026/07/09/elon-musk-praises-mythos-fable-promises-not-to-cut-off-anthropic/",
+      "stance": "neutral",
+      "strategic_implication": "Signal that inter-lab compute dependencies are becoming publicly negotiated. Investors should treat 'who hosts whom' as a first-class risk factor when underwriting frontier-lab-dependent businesses."
+    },
+    {
+      "name": "Andrej Karpathy",
+      "org": "Independent (formerly OpenAI, Tesla)",
+      "quote_or_paragraph": "Reiterating his Sequoia Ascent 2026 framing: software is entering a 3.0 era where the context window is the new programming surface and 'some apps should stop existing as apps' — the agent reads context, calls tools, and adapts, replacing brittle scripted workflows.",
+      "url": "https://karpathy.bearblog.dev/sequoia-ascent-2026/",
+      "stance": "bullish",
+      "strategic_implication": "Confirms the 'agent-native infrastructure' thesis: any UI-heavy SaaS company should have a no-UI variant on the roadmap. For investors, prioritize teams building for agents-as-users, not humans-as-users."
+    },
+    {
+      "name": "Sonya Huang",
+      "org": "Sequoia Capital",
+      "quote_or_paragraph": "At AI Ascent 2026 declared 2026 the year of agents, walking through models, tools, and harnesses as the three ingredients that finally came together, and describing the progression from 'little helpers' to 'interns you can trust to push to prod without oversight.'",
+      "url": "https://sequoiacap.com/article/ai-ascent-2026/",
+      "stance": "bullish",
+      "strategic_implication": "Sequoia's investment thesis is now explicitly agent-first and outcome-priced. Founders pitching without a clear autopilot roadmap should expect harder Sequoia meetings; investors mirroring Sequoia should refresh their pipeline against the services-not-software lens."
+    },
+    {
+      "name": "Marc Andreessen",
+      "org": "a16z",
+      "quote_or_paragraph": "In his latest a16z podcast episode on evaluating founders and AI's consumer surplus, Andreessen argues that AI is producing enormous consumer surplus that is under-monetized today — implying room for both application-layer capture and infra bets.",
+      "url": "https://a16z.com/podcast/marc-andreessen-on-evaluating-founders-and-ais-consumer-surplus-2/",
+      "stance": "bullish",
+      "strategic_implication": "a16z's stance keeps consumer AI in play alongside enterprise — a hedge against the enterprise-heavy Sequoia thesis. Watch for a16z to fund more consumer-facing agent products (Prosper AI, Telepatia, Lassie, Convey) even as the field's attention drifts enterprise."
+    },
+    {
+      "name": "Charles Hudson",
+      "org": "Precursor Ventures",
+      "quote_or_paragraph": "On TechCrunch's Build Mode podcast this week, Hudson (500+ investments) outlined the most common early-stage founder mistakes in the current AI market — the framing implies early-stage capital is tightening for pattern-matching AI plays and rewarding contrarian wedges.",
+      "url": "https://techcrunch.com/2026/07/09/charles-hudson-shares-the-common-mistakes-hes-seen-after-investing-in-500-startups/",
+      "stance": "neutral",
+      "strategic_implication": "Signals that seed capital is becoming more selective as later-stage megarounds concentrate. Founders should expect deeper diligence on distribution, retention, and defensibility — not just AI narrative."
     }
   ],
-  "theme_context": "This week, two moves crystallised the new AI regime: Anthropic joining OpenAI in vertical silicon (via Samsung), and OpenAI proposing to hand 5% of its equity to a US sovereign wealth fund. Together they signal that the top labs are simultaneously becoming vertically integrated hardware companies and quasi-utilities negotiated directly with the state. Everything else — Sequoia's services-as-software push, a16z's agent-infra bets, and a wave of vertical AI rollups — is downstream of that structural shift.",
+  "theme_context": "This week the market completed a quiet handoff: from 'ship the model' to 'ship the outcome.' OpenAI, Meta, and Anthropic all now compete on agentic coding efficiency (GPT-5.6 Sol claims 54% token savings), Sequoia is aggressively promoting services-as-software autopilots, and Product Hunt is filling with agent-native surfaces (Framer AI Agents, Ogment, N71, Wispr Flow). At the same time, the US government's customer-by-customer approval process for GPT-5.6 and Anthropic's Fable/Mythos episode have made frontier access a real policy variable, forcing investors to underwrite regulatory risk in every frontier-dependent bet.",
   "top_signals": [
     {
-      "headline": "Anthropic joins OpenAI in the custom-silicon race; Samsung emerges as the challenger foundry",
-      "why_it_matters": "Both leading frontier labs now have credible vertical-silicon roadmaps within a week of each other. Any AI investment thesis or infra roadmap that doesn't account for lab-owned chips is out of date. Neoclouds, Nvidia customers, and TSMC/Samsung watchers all need to reprice now.",
+      "headline": "GPT-5.6 launches under government-curated access; agentic-coding efficiency jumps 54%",
+      "why_it_matters": "The launch confirms two theses at once: (1) coding is the first agent vertical where ROI is unambiguous, and (2) frontier model access is now a regulated variable. Any startup or enterprise plan that assumes uninterrupted frontier access needs a contingency this quarter.",
       "urgency": "act_now",
-      "url": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
+      "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
       "references": [
         {
-          "label": "The Information exclusive",
-          "url": "https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip"
+          "label": "CNBC on Altman efficiency claim",
+          "url": "https://www.cnbc.com/2026/07/09/open-ai-sam-altman-chatgpt-5-6-sol.html"
         },
         {
-          "label": "Bloomberg confirmation",
-          "url": "https://www.bloomberg.com/news/articles/2026-07-02/anthropic-in-talks-with-samsung-for-custom-ai-chip-information-mr3l34t4"
+          "label": "HN discussion",
+          "url": "https://openai.com/index/gpt-5-6/"
         }
       ]
     },
     {
-      "headline": "OpenAI proposes 5% equity donation (~$42.6B) to a US sovereign wealth fund",
-      "why_it_matters": "This is the clearest signal yet that frontier labs will trade equity for regulatory latitude and IPO tailwinds. If accepted, it forces Anthropic, Google, and Meta into similar arrangements and creates a permanent government cap-table presence — a new asset class for LPs and a new competitive moat against challengers.",
+      "headline": "Sequoia hardens 'Services Is The New Software' as the dominant investor thesis",
+      "why_it_matters": "Sequoia is publicly steering capital toward outcome-priced autopilots over seat-priced tools. Founders pitching model-agnostic SaaS should reposition, and investors should audit portfolio companies for 'sells work vs sells tools' positioning before the next round.",
       "urgency": "act_now",
-      "url": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-      "references": [
-        {
-          "label": "FT-sourced CNBC",
-          "url": "https://www.cnbc.com/2026/07/02/openai-proposes-us-government-own-5percent-stake-to-address-political-blowback.html"
-        },
-        {
-          "label": "Yahoo Finance breakdown",
-          "url": "https://finance.yahoo.com/technology/ai/articles/openai-proposes-5-stake-u-111655608.html"
-        }
-      ]
-    },
-    {
-      "headline": "Anthropic ships Claude Science: domain-shaped flagship agents arrive",
-      "why_it_matters": "Claude Science is Anthropic's Claude Code analog for research — a signal that agents are moving from horizontal copilots to vertical flagship products with enterprise pricing power. Every horizontal AI assistant investment needs a vertical defense story now.",
-      "urgency": "watch_closely",
-      "url": "https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/"
-    },
-    {
-      "headline": "Sequoia formalises 'services are the new software' with retail and trades bets",
-      "why_it_matters": "Sequoia is publicly repositioning its AI portfolio toward vertical service P&L absorption (Probook for trades, Nevis for wealth, $1T retail thesis). Operators building horizontal SaaS should reframe; founders in service-heavy verticals have a 6–12 month funding window that is unusually open.",
-      "urgency": "watch_closely",
       "url": "https://sequoiacap.com/article/services-the-new-software/",
       "references": [
         {
-          "label": "AI retail $1T opportunity",
-          "url": "https://sequoiacap.com/article/ai-retail-opportunity/"
+          "label": "AI Ascent 2026 recap",
+          "url": "https://sequoiacap.com/article/ai-ascent-2026/"
         },
         {
-          "label": "Partnering with Probook",
+          "label": "Probook trades bet",
           "url": "https://sequoiacap.com/article/partnering-with-probook-ai-for-the-trades/"
         }
       ]
     },
     {
-      "headline": "AI hype saturation reaches the S-1: Jersey Mike's cites AI",
-      "why_it_matters": "When a sandwich chain's IPO documents mention AI, the narrative premium is exhausted. Discipline is returning: expect LPs and public markets to punish 'AI-tagged' revenue and reward companies with silicon, workflow, or agent-infra defensibility. Portfolio companies should tighten AI positioning language now.",
+      "headline": "Meta's Muse Spark 1.1 turns coding agents into a four-way price war",
+      "why_it_matters": "With OpenAI, Anthropic, Google, and now Meta all competing for coding-agent workloads, standalone coding-agent startups face rapidly compressing margins. Operators can extract materially better pricing on 2026 renewals; investors should mark down single-vertical coding-copilot bets.",
+      "urgency": "watch_closely",
+      "url": "https://techcrunch.com/2026/07/09/meta-enters-the-crowded-ai-coding-battle-with-muse-spark-1-1/"
+    },
+    {
+      "headline": "Anthropic's Jacobian lens makes interpretability a procurement lever",
+      "why_it_matters": "First public tool that gives clear visibility into an LLM's internal reasoning at scale — a differentiator Anthropic can use in enterprise sales and regulator conversations. Interpretability + agent-eval tooling is now a fundable category with a natural buyer (enterprise governance teams).",
+      "urgency": "watch_closely",
+      "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/"
+    },
+    {
+      "headline": "Mercor's $20B valuation talks + Etched's $5B validate the AI pick-and-shovel layer",
+      "why_it_matters": "Data-labeling platforms and specialized inference chips are being priced like durable infrastructure. The signal: even if frontier model economics compress, the layers directly above and below (evaluators and inference silicon) are where late-stage returns are being reallocated.",
       "urgency": "stay_informed",
-      "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/"
+      "url": "https://techcrunch.com/2026/07/09/mercor-is-in-talks-for-a-20b-valuation/"
     }
   ],
-  "week_of": "2026-06-29",
-  "weekly_theme": "Frontier labs go vertical — in silicon and in Washington — while capital rotates from 'AI-tagged' hype to services-as-software and agent infrastructure."
+  "week_of": "2026-07-06",
+  "weekly_theme": "Services eats software as GPT-5.6, Muse Spark, and a wave of autopilot Product Hunt launches complete the handoff from 'ship the model' to 'ship the outcome.'"
 }

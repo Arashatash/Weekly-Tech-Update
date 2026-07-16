@@ -1,147 +1,154 @@
 {
   "techcrunch": [
     {
-      "title": "OpenAI launches its new family of models with GPT-5.6",
-      "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
-      "description": "OpenAI's latest family of models promise improvements across a range of areas, including cybersecurity.",
-      "published_at": "Thu, 09 Jul 2026 22:24:24 +0000",
+      "title": "Coca-Cola suspended production at its Fairlife dairy after a ransomware attack",
+      "url": "https://techcrunch.com/2026/07/16/coca-cola-suspended-production-at-its-fairlife-dairy-after-a-ransomware-attack/",
+      "description": "Coca Cola said dairy production at its Fairlife unit will \"remain suspended\" in the United States following a hack.",
+      "published_at": "Thu, 16 Jul 2026 21:22:31 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "An AI agent startup just let its agent run its $100 million fundraise",
-      "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
-      "description": "Lyzr, a startup that builds AI agents for enterprises, used its own AI agent to raise a $100 million round \u2014 proof, evidently, that the product actually works.",
-      "published_at": "Thu, 09 Jul 2026 22:08:58 +0000",
+      "title": "Founders Fund hires former OpenAI exec Ryan Beiermeister (and not because of her \u2018Mafia\u2019 skills)",
+      "url": "https://techcrunch.com/2026/07/16/founders-fund-hires-former-openai-exec-ryan-beiermeister-and-not-because-of-her-mafia-skills/",
+      "description": "Ryan Beiermeister, who demonstrated cool analysis in the Founders Fund YouTube series \"Mafia,\" has joined the firm as a partner.",
+      "published_at": "Thu, 16 Jul 2026 20:07:14 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "OpenAI is shutting down Atlas, but its AI browser ambitions are still growing",
-      "url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/",
-      "description": "OpenAI is sunsetting its AI-powered browser after less than a year. But it's moving some agentic browsing features to its desktop app and a Chrome extension.",
-      "published_at": "Thu, 09 Jul 2026 22:03:54 +0000",
+      "title": "Google Vids now lets you star in your own AI videos",
+      "url": "https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/",
+      "description": "Google is adding personalized AI avatars to Vids that let users create videos starring a digital version of themselves, alongside Gemini Omni-powered tools for generating and editing videos from prompts and reference images.",
+      "published_at": "Thu, 16 Jul 2026 18:32:54 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Elon Musk praises Mythos/Fable, promises not to \u2018cut off\u2019 Anthropic",
-      "url": "https://techcrunch.com/2026/07/09/elon-musk-praises-mythos-fable-promises-not-to-cut-off-anthropic/",
-      "description": "Should Anthropic trust Elon Musk to host its models? With about $40 billion in revenue at stake, Musk insists that the company can.",
-      "published_at": "Thu, 09 Jul 2026 21:57:42 +0000",
+      "title": "Roblox launches an AI-powered game-creation feature in its mobile app",
+      "url": "https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/",
+      "description": "Roblox's new \"Build\" feature lets users generate basic games using a single text prompt.",
+      "published_at": "Thu, 16 Jul 2026 18:22:06 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Can AI answer the $3 trillion question?",
-      "url": "https://techcrunch.com/2026/07/09/can-ai-answer-the-3-trillion-question/",
-      "description": "The AI ROI debate has returned and the numbers are even bigger, as are, perhaps, the consequences.",
-      "published_at": "Thu, 09 Jul 2026 21:47:50 +0000",
+      "title": "Oil giant BP shutters its corporate venture arm after 20 years",
+      "url": "https://techcrunch.com/2026/07/16/oil-giant-bp-shutters-its-corporate-venture-arm-after-20-years/",
+      "description": "BP Ventures is shutting down, ending a nearly 20-year run that was marked by reportedly lackluster returns.",
+      "published_at": "Thu, 16 Jul 2026 17:37:03 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Meta enters the crowded AI coding battle with Muse Spark 1.1",
-      "url": "https://techcrunch.com/2026/07/09/meta-enters-the-crowded-ai-coding-battle-with-muse-spark-1-1/",
-      "description": "Meta's pitch to users is Spark's ability to handle large agentic workloads, fix bugs, and help with large code migrations \u2014 the kind of automation that enterprises are increasingly turning to AI companies to provide.",
-      "published_at": "Thu, 09 Jul 2026 19:40:45 +0000",
+      "title": "Uber\u2019s $14.8B Delivery Hero deal would nearly double its global footprint",
+      "url": "https://techcrunch.com/2026/07/16/ubers-14-8b-delivery-hero-deal-would-nearly-double-its-global-footprint/",
+      "description": "Uber has agreed to acquire Delivery Hero in a $14.8 billion all-stock deal that would nearly double the company\u2019s global footprint and create one of the world\u2019s largest food-delivery platforms outside China.",
+      "published_at": "Thu, 16 Jul 2026 17:12:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Charles Hudson shares the common mistakes he\u2019s seen after investing in 500+ startups",
-      "url": "https://techcrunch.com/2026/07/09/charles-hudson-shares-the-common-mistakes-hes-seen-after-investing-in-500-startups/",
-      "description": "In this week\u2019s episode of Build Mode,  Isabelle Johannessen talks with Precursor Ventures' Charles Hudson about the headwinds facing early-stage founders today and the most common mistakes founders should avoid in order to get funded.",
-      "published_at": "Thu, 09 Jul 2026 19:26:31 +0000",
+      "title": "Newsletter platform Beehiiv now lets subscribers chat with each other, adds AI",
+      "url": "https://techcrunch.com/2026/07/16/newsletter-platform-beehiiv-now-lets-subscribers-chat-with-each-other-adds-ai/",
+      "description": "Beehiiv is launching an AI Copilot to help publishers with user growth and analytics.",
+      "published_at": "Thu, 16 Jul 2026 17:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "New York Times says OpenAI hid evidence in ChatGPT copyright trial",
-      "url": "https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/",
-      "description": "News publishers say OpenAI hid tools and datasets that could identify copyrighted journalism in ChatGPT outputs, escalating their lawsuit with a new motion for sanctions.",
-      "published_at": "Thu, 09 Jul 2026 19:05:58 +0000",
+      "title": "X cracks down on creators who steal content",
+      "url": "https://techcrunch.com/2026/07/16/x-cracks-down-on-creators-who-steal-content/",
+      "description": "X will use Grok AI to better detect stolen content, redirect payouts to original creators, and crack down on engagement bait.",
+      "published_at": "Thu, 16 Jul 2026 16:40:36 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Slate Auto teams up with Crayola to color its EV truck",
-      "url": "https://techcrunch.com/2026/07/09/slate-auto-teams-up-with-crayola-to-color-its-ev-truck/",
-      "description": "Slate has an answer for owners who have always want to drive a truck with bright crayon colors.",
-      "published_at": "Thu, 09 Jul 2026 19:01:16 +0000",
+      "title": "AI-powered travel agency Fora hits unicorn status, raises $60M",
+      "url": "https://techcrunch.com/2026/07/16/ai-powered-travel-agency-fora-hits-unicorn-status-raises-60m/",
+      "description": "Travel agency Fora announced a $60 million Series D round led by Forerunner and Tactile Ventures, valuing the company at $1 billion.",
+      "published_at": "Thu, 16 Jul 2026 16:08:40 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "FanDuel sent a video from star athlete Bryce Harper to a customer with a gambling problem",
-      "url": "https://techcrunch.com/2026/07/09/fanduel-sent-a-video-from-star-athlete-bryce-harper-to-a-customer-with-a-gambling-problem/",
-      "description": "The video call highlights the murky relationship between professional athletes and gambling apps.",
-      "published_at": "Thu, 09 Jul 2026 18:50:00 +0000",
+      "title": "Google\u2019s AI Mode now lets you link and interact with select apps",
+      "url": "https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/",
+      "description": "With this new update, Google is expanding AI Mode beyond answering questions and into completing tasks across the apps they use regularly.",
+      "published_at": "Thu, 16 Jul 2026 16:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Mercor is in talks for a $20B valuation",
-      "url": "https://techcrunch.com/2026/07/09/mercor-is-in-talks-for-a-20b-valuation/",
-      "description": "A new $20 billion valuation would be a giant step up from the $10 billion valuation it reached in October.",
-      "published_at": "Thu, 09 Jul 2026 18:42:22 +0000",
+      "title": "Google continues its renaming streak by turning NotebookLM to Gemini Notebook",
+      "url": "https://techcrunch.com/2026/07/16/google-continues-its-renaming-streak-by-turning-notebooklm-to-gemini-notebook/",
+      "description": "Google said users can soon access their notebooks through AI Mode in Search.",
+      "published_at": "Thu, 16 Jul 2026 16:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Google will now disclose which ads are made with AI",
-      "url": "https://techcrunch.com/2026/07/09/google-will-now-disclose-which-ads-are-made-with-ai/",
-      "description": "While Google prohibits misleading and deceptive ads, an ad can still leverage AI to create some type of synthetic or digitally altered content. Until now, that's something Google only required election ads to disclose.",
-      "published_at": "Thu, 09 Jul 2026 18:40:51 +0000",
+      "title": "Yes, you can now order DoorDash from the command line",
+      "url": "https://techcrunch.com/2026/07/16/yes-you-can-now-order-doordash-from-the-command-line/",
+      "description": "DoorDash is opening a limited beta of dd-cli, a command-line tool that lets developers and AI agents search stores, build carts, and place orders from the terminal, marking another step toward software designed for AI agents instead of just humans.",
+      "published_at": "Thu, 16 Jul 2026 15:38:55 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Paris-based AI voice startup Gradium raises $100M seed, backed by Nvidia",
-      "url": "https://techcrunch.com/2026/07/09/paris-based-ai-voice-startup-gradium-raises-100m-seed-backed-by-nvidia/",
-      "description": "The company is using the cash to open an office in the Bay Area and compete for talent there, \"strengthening its position at the heart of the world's leading AI ecosystem.\"",
-      "published_at": "Thu, 09 Jul 2026 18:34:35 +0000",
+      "title": "UK cops say arrest of two young hackers disrupted the operations of an infamous hacking group",
+      "url": "https://techcrunch.com/2026/07/16/uk-cops-say-arrest-of-two-young-hackers-disrupted-the-operations-of-an-infamous-hacking-group/",
+      "description": "Owen Flowers and Thalha Jubair, two members of the prolific Scattered Spider hacking group, pleaded guilty and were sentenced to five years and six months in jail for hacking London\u2019s metropolitan transit system.",
+      "published_at": "Thu, 16 Jul 2026 15:37:47 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "How did the government decide OpenAI\u2019s frontier model was safe to release?",
-      "url": "https://techcrunch.com/2026/07/09/how-did-the-government-decide-openais-frontier-model-was-safe-to-release/",
-      "description": "\"Exactly what that dialog looked like between the government and Anthropic and OpenAI is unclear.\"",
-      "published_at": "Thu, 09 Jul 2026 18:22:39 +0000",
+      "title": "Period tracker Stardust shares users\u2019 health data with analytics firm, says Mozilla research",
+      "url": "https://techcrunch.com/2026/07/16/period-tracker-stardust-shares-users-health-data-with-analytics-firm-says-mozilla-research/",
+      "description": "One period tracker app tested by Mozilla was 'squeaky clean,' while another app was seen sharing users' health data with an analytics company, underscoring vast differences in user privacy among these apps.",
+      "published_at": "Thu, 16 Jul 2026 15:33:28 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Instagram users: Here\u2019s how to stop Meta\u2019s AI from using your photos",
-      "url": "https://techcrunch.com/2026/07/09/how-to-stop-metas-ai-image-generator-from-using-your-instagram-photos/",
-      "description": "Muse Image allows users to generate AI images using photos from public Instagram accounts. As long as a person's profile is public, another user can tag that account and use their images as part of an AI-generated creation.",
-      "published_at": "Thu, 09 Jul 2026 17:56:47 +0000",
+      "title": "Why is OpenAI selling a ChatGPT basketball?",
+      "url": "https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/",
+      "description": "You may have heard that OpenAI released its first piece of hardware this week. You may not have heard about the ChatGPT basketball.",
+      "published_at": "Thu, 16 Jul 2026 15:31:09 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Meta\u2019s new AI chips will begin production in September",
-      "url": "https://techcrunch.com/2026/07/09/metas-new-ai-chips-will-begin-production-in-september/",
-      "description": "The company is taking a modular approach to designing these chips, anticipating that their needs will change as AI evolves rapidly by the time the chips are in production.",
-      "published_at": "Thu, 09 Jul 2026 17:17:37 +0000",
+      "title": "How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product",
+      "url": "https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/",
+      "description": "Drawing on more than a decade spent helping build some of the world's most influential AI systems, including research that later informed the development of ChatGPT, Andrew Dai explains why he believes visual AI is one of the next major frontiers in artificial intelligence.",
+      "published_at": "Thu, 16 Jul 2026 15:02:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Nvidia is a victim of the compute marketplace it created",
-      "url": "https://techcrunch.com/2026/07/09/nvidia-is-a-victim-of-the-compute-marketplace-it-created/",
-      "description": "Having proven how valuable compute can be, the company finds itself at the center of a market everyone wants to be in \u2014 while simpler technologies and less interesting companies get rich on the sidelines.",
-      "published_at": "Thu, 09 Jul 2026 17:06:11 +0000",
+      "title": "Sheryl Sandberg leads $10 million investment in AI-powered vehicle inspection service",
+      "url": "https://techcrunch.com/2026/07/16/sheryl-sandberg-leads-10-million-investment-in-ai-powered-vehicle-inspection-service/",
+      "description": "The startup, founded in 2021, lets enterprise customers use smartphones to scan and spot vehicle damage.",
+      "published_at": "Thu, 16 Jul 2026 15:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Block reaches $45M settlement with 46 states over Cash App fraud probe",
-      "url": "https://techcrunch.com/2026/07/09/block-reaches-45m-settlement-with-46-states-over-cash-app-fraud-probe/",
-      "description": "State attorneys general said they found that Block misled users by falsely advertising that Cash App provided bank-like protections, including advanced fraud detection.",
-      "published_at": "Thu, 09 Jul 2026 15:16:34 +0000",
+      "title": "Why AMI Labs\u2019 Alexandre LeBrun won\u2019t call his AI \u2018AGI\u2019 or \u2018superintelligence\u2019",
+      "url": "https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/",
+      "description": "While everyone in AI is chasing \"superintelligence,\" Alexandre LeBrun, CEO of Yann LeCun\u2019s world model startup, AMI Labs, dismisses the word.",
+      "published_at": "Thu, 16 Jul 2026 14:40:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Anthropic\u2019s new Claude feature is quietly selling you on AI",
-      "url": "https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/",
-      "description": "Claude\u2019s new Reflect dashboard doesn\u2019t just visualize how you use AI. It also subtly reinforces how much of your daily work now depends on Anthropic\u2019s chatbot.",
-      "published_at": "Thu, 09 Jul 2026 14:53:09 +0000",
+      "title": "Moonshot\u2019s upcoming Kimi 3 is expected to close the gap with Anthropic\u2019s Opus 4.8",
+      "url": "https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/",
+      "description": "The FT reports Kimi K3 will be the largest open AI model from China, with a parameter count between 2 trillion and 3 trillion.",
+      "published_at": "Thu, 16 Jul 2026 14:26:29 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Anthropic, OpenAI, and SpaceX are bigger than the last 25 years of tech exits",
-      "url": "https://techcrunch.com/2026/07/09/anthropic-openai-and-spacex-are-bigger-than-the-last-25-years-of-tech-exits/",
-      "description": "Three big AI IPOs are set to generate more value than all the U.S. VC-backed exits since 2000.",
-      "published_at": "Thu, 09 Jul 2026 14:51:00 +0000",
+      "title": "Apple Intelligence approved for launch in China with Alibaba and Baidu",
+      "url": "https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/",
+      "description": "The deal, which was rumored to be in the works last year, marks an important step for Apple's AI ambitions in a key market.",
+      "published_at": "Thu, 16 Jul 2026 13:17:59 +0000",
       "source": "TechCrunch"
     }
   ],
   "a16z": [
+    {
+      "title": "Investing in Runta",
+      "url": "https://a16z.com/announcement/investing-in-runta/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
     {
       "title": "Investing in Netris",
       "url": "https://a16z.com/announcement/investing-in-netris/",
@@ -274,13 +281,6 @@
       "description": "a16z perspective",
       "published_at": "",
       "source": "a16z"
-    },
-    {
-      "title": "Marc Rowan on Private Markets, Software Repricing, and Capital Allocation",
-      "url": "https://a16z.com/podcast/marc-rowan-on-private-markets-software-repricing-and-capital-allocation/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
     }
   ],
   "sequoia": [
@@ -348,15 +348,15 @@
       "source": "Sequoia Capital"
     },
     {
-      "title": "Partnering with Probook: AI for the Trades",
-      "url": "https://sequoiacap.com/article/partnering-with-probook-ai-for-the-trades/",
+      "title": "Partnering with Bunkerhill Health",
+      "url": "https://sequoiacap.com/article/partnering-with-bunkerhill-health-ai-agents-that-improve-patient-outcomes/",
       "description": "Sequoia perspective",
       "published_at": "",
       "source": "Sequoia Capital"
     },
     {
-      "title": "Standard Intelligence: Training General Intelligence in Pixel Space",
-      "url": "https://sequoiacap.com/article/standard-intelligence-training-general-intelligence-in-pixel-space/",
+      "title": "Partnering with Sable: Closing the Diffusion Gap",
+      "url": "https://sequoiacap.com/article/partnering-with-sable-closing-the-diffusion-gap/",
       "description": "Sequoia perspective",
       "published_at": "",
       "source": "Sequoia Capital"
@@ -364,342 +364,356 @@
   ],
   "ycombinator": [
     {
-      "title": "GPT-5.6",
-      "url": "https://openai.com/index/gpt-5-6/",
-      "description": "HN front page \u00b7 923 points",
-      "published_at": "2026-07-09T17:04:14+00:00",
+      "title": "Kimi K3: Open Frontier Intelligence",
+      "url": "https://www.kimi.com/blog/kimi-k3",
+      "description": "HN front page \u00b7 968 points",
+      "published_at": "2026-07-16T14:46:05+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "EU Parliament greenlights Chat Control 1.0",
-      "url": "https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/",
-      "description": "HN front page \u00b7 896 points",
-      "published_at": "2026-07-09T11:03:54+00:00",
+      "title": "OnePlus halts operations in USA and Europe",
+      "url": "https://community.oneplus.com/thread/2170715118587871237",
+      "description": "HN front page \u00b7 507 points",
+      "published_at": "2026-07-16T10:14:04+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Show HN: 18 Words",
-      "url": "https://18words.com/",
-      "description": "HN front page \u00b7 762 points",
-      "published_at": "2026-07-09T12:48:52+00:00",
+      "title": "Microsoft Comic Chat is now open source",
+      "url": "https://opensource.microsoft.com/blog/2026/07/16/microsoft-comic-chat-is-now-open-source/",
+      "description": "HN front page \u00b7 451 points",
+      "published_at": "2026-07-16T16:06:27+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Hy3",
-      "url": "https://hy.tencent.com/research/hy3",
-      "description": "HN front page \u00b7 339 points",
-      "published_at": "2026-07-09T15:27:48+00:00",
+      "title": "How Our Rust-to-Zig Rewrite Is Going",
+      "url": "https://rtfeldman.com/rust-to-zig",
+      "description": "HN front page \u00b7 369 points",
+      "published_at": "2026-07-16T11:39:27+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "ChatGPT Work",
-      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
-      "description": "HN front page \u00b7 304 points",
-      "published_at": "2026-07-09T17:03:53+00:00",
+      "title": "Decoy Font",
+      "url": "https://www.mixfont.com/experiments/decoy-font",
+      "description": "HN front page \u00b7 334 points",
+      "published_at": "2026-07-16T16:18:21+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Muse Spark 1.1",
-      "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-      "description": "HN front page \u00b7 300 points",
-      "published_at": "2026-07-09T14:10:22+00:00",
+      "title": "NotebookLM is now Gemini Notebook",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/",
+      "description": "HN front page \u00b7 196 points",
+      "published_at": "2026-07-16T16:08:13+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Meta reuses old RAM in new servers with custom bridge chip",
-      "url": "https://www.theregister.com/systems/2026/06/29/zuck-saves-meta-bucks-by-reusing-memory-from-old-servers-with-a-custom-cxl-asic/5263483",
-      "description": "HN front page \u00b7 288 points",
-      "published_at": "2026-07-03T19:27:05+00:00",
+      "title": "The LLM Critics Are Right. I Use LLMs Anyway",
+      "url": "https://www.theocharis.dev/blog/llm-critics-are-right-i-use-llms-anyway/",
+      "description": "HN front page \u00b7 165 points",
+      "published_at": "2026-07-16T11:59:01+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Postgres rewritten in Rust, now passing 100% of the Postgres regression tests",
-      "url": "https://github.com/malisper/pgrust",
-      "description": "HN front page \u00b7 259 points",
-      "published_at": "2026-07-09T06:18:19+00:00",
+      "title": "Goes-19 weather satellite enters Safe Hold mode",
+      "url": "https://www.spaceweather.gov/news/goes-19-safe-hold",
+      "description": "HN front page \u00b7 141 points",
+      "published_at": "2026-07-16T13:30:00+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "The glass backbone: Why the Army's logistics will break in the next war",
-      "url": "https://mwi.westpoint.edu/the-glass-backbone-why-the-armys-logistics-will-break-in-the-next-war/",
-      "description": "HN front page \u00b7 256 points",
-      "published_at": "2026-07-09T13:24:43+00:00",
+      "title": "Immersive Linear Algebra Book with Interactive Figures (2015)",
+      "url": "https://immersivemath.com/ila/",
+      "description": "HN front page \u00b7 136 points",
+      "published_at": "2026-07-16T15:32:23+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Buried Apple feature turns an iPhone into the perfect kids' dumb phone",
-      "url": "https://www.wired.com/story/this-buried-apple-feature-turns-an-iphone-into-the-perfect-kids-dumb-phone/",
-      "description": "HN front page \u00b7 233 points",
-      "published_at": "2026-07-06T10:53:51+00:00",
+      "title": "Detecting LLM-Generated Texts with \u201cClassical\u201d Machine Learning",
+      "url": "https://blog.lyc8503.net/en/post/llm-classifier/",
+      "description": "HN front page \u00b7 127 points",
+      "published_at": "2026-07-16T16:41:37+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Show HN: Getting GLM 5.2 running on my slow computer",
-      "url": "https://github.com/JustVugg/colibri",
-      "description": "HN front page \u00b7 224 points",
-      "published_at": "2026-07-09T08:05:04+00:00",
+      "title": "Guide to data tools landscape for developers",
+      "url": "https://sinja.io/blog/data-landscape-guide-for-developers",
+      "description": "HN front page \u00b7 104 points",
+      "published_at": "2026-07-16T14:59:14+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "No leap second will be introduced at the end of December 2026",
-      "url": "https://datacenter.iers.org/data/latestVersion/bulletinC.txt",
-      "description": "HN front page \u00b7 215 points",
-      "published_at": "2026-07-09T14:16:34+00:00",
+      "title": "LM Studio Bionic: the AI agent for open models",
+      "url": "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+      "description": "HN front page \u00b7 87 points",
+      "published_at": "2026-07-16T20:18:15+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "A possible future for Damn Interesting",
-      "url": "https://www.damninteresting.com/a-possible-future/",
-      "description": "HN front page \u00b7 205 points",
-      "published_at": "2026-07-09T15:25:25+00:00",
+      "title": "How to Train a Gen AI Kick Drum Model on Your Old Linux Desktop with 6GB VRAM",
+      "url": "https://www.zhinit.dev/blog/training-a-kick-drum-diffusion-model",
+      "description": "HN front page \u00b7 82 points",
+      "published_at": "2026-07-16T15:13:00+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Train sim created by just one person is being called the best ever made",
-      "url": "https://kotaku.com/a-train-sim-created-by-just-one-person-is-being-called-the-best-ever-made-2000699429",
-      "description": "HN front page \u00b7 178 points",
-      "published_at": "2026-07-05T08:40:27+00:00",
+      "title": "Pseudpocalypse",
+      "url": "https://dynomight.net/pseudpocalypse/",
+      "description": "HN front page \u00b7 55 points",
+      "published_at": "2026-07-14T16:02:01+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "GLM 5.2 is nearly as accurate as a human book keeper",
-      "url": "https://toot-books.pages.dev/blog/glm-5-2-vat-benchmark",
-      "description": "HN front page \u00b7 162 points",
-      "published_at": "2026-07-09T18:29:41+00:00",
+      "title": "The privacy problems hidden in your period tracker",
+      "url": "https://www.bbc.com/future/article/20260715-how-period-trackers-share-womens-private-details",
+      "description": "HN front page \u00b7 51 points",
+      "published_at": "2026-07-16T20:15:58+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "AI content is everywhere on social media, especially LinkedIn",
-      "url": "https://www.pangram.com/blog/ai-in-your-feed",
-      "description": "HN front page \u00b7 157 points",
-      "published_at": "2026-07-09T15:50:09+00:00",
+      "title": "Mathematics of Data Science",
+      "url": "https://arxiv.org/abs/2607.11938",
+      "description": "HN front page \u00b7 50 points",
+      "published_at": "2026-07-16T20:38:48+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "TLS certificates for internal services done right",
-      "url": "https://tuxnet.dev/posts/tls-for-internal-services/",
-      "description": "HN front page \u00b7 122 points",
-      "published_at": "2026-07-09T14:57:02+00:00",
+      "title": "Helium escaping from atmosphere of nearby rocky exoplanet in a habitable zone",
+      "url": "https://www.science.org/doi/10.1126/science.aea9708",
+      "description": "HN front page \u00b7 41 points",
+      "published_at": "2026-07-16T20:24:02+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Girls just wanna have fast MPMC queues with bounded waiting",
-      "url": "https://nahla.dev/blog/waitfree_queue/",
-      "description": "HN front page \u00b7 112 points",
-      "published_at": "2026-07-06T19:46:30+00:00",
+      "title": "Launch HN: Traceforce (YC S26) \u2013 Company-wide security monitoring for AI apps",
+      "url": "https://news.ycombinator.com/item?id=48937020",
+      "description": "HN front page \u00b7 21 points",
+      "published_at": "2026-07-16T16:52:16+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Opinionated and easy Pi.dev configuration",
-      "url": "https://lazypi.org/",
-      "description": "HN front page \u00b7 94 points",
-      "published_at": "2026-07-09T15:19:33+00:00",
+      "title": "Abstracting Effects with Continuations",
+      "url": "https://crowdhailer.me/2026-07-15/abstracting-effects-with-continuations/",
+      "description": "HN front page \u00b7 20 points",
+      "published_at": "2026-07-16T10:41:39+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "A road to Lisp: Why Lisp",
-      "url": "https://scotto.me/blog/2026-07-09-why-lisp/",
-      "description": "HN front page \u00b7 90 points",
-      "published_at": "2026-07-09T13:06:04+00:00",
+      "title": "FIFA World Cup 2026 Data Portraits",
+      "url": "https://wc26.bogachev.fr/index.html",
+      "description": "HN front page \u00b7 17 points",
+      "published_at": "2026-07-16T22:21:59+00:00",
       "source": "Y Combinator"
     }
   ],
   "mit_review": [
     {
-      "title": "Anthropic found a hidden space where Claude puzzles over concepts",
-      "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
-      "description": "The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what\u2019s really going on inside large language models as they answer questions or carry out tasks. What they found ranges from the mundane to the unnerving. Researchers at the company built a tool called the Jacobian lens (or&#8230;",
-      "published_at": "Thu, 09 Jul 2026 20:22:28 +0000",
+      "title": "The Download: OpenAI unveils GPT-Red and heat pumps rise in the US",
+      "url": "https://www.technologyreview.com/2026/07/16/1140600/the-download-openai-unveils-gpt-red-heat-pumps-rise-us/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Meet GPT-Red: an LLM super-hacker OpenAI built to make its models safer OpenAI has built an LLM super-hacker called GPT-Red that it uses as a sparring partner to help its other&#8230;",
+      "published_at": "Thu, 16 Jul 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: a nuclear landmark, and China eyes Nvidia chips",
-      "url": "https://www.technologyreview.com/2026/07/09/1140283/the-download-nuclear-power-milestone-nvidia-china-ai-chips/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Four nuclear reactors hit a big milestone in the US \u2014Casey Crownhart I was really looking forward to July 4, and not just because I love a poolside barbecue. This year&#8230;",
-      "published_at": "Thu, 09 Jul 2026 12:10:00 +0000",
+      "title": "Why heat pumps are still so hot in the US",
+      "url": "https://www.technologyreview.com/2026/07/16/1140505/heat-pump-sales-us/",
+      "description": "It feels as if it should be illegal to even think about heating appliances during the height of summer\u2014seriously, these heat waves in New York have been brutal\u2014but we need to talk about heat pumps. The appliances use electricity for heating, they\u2019re incredibly efficient, and they\u2019re on the rise. (For what it\u2019s worth, many heat&#8230;",
+      "published_at": "Thu, 16 Jul 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Four nuclear reactors hit a big milestone in the US",
-      "url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/",
-      "description": "I was really looking forward to July 4, and not just because I love a poolside barbecue. This year the American holiday also marked a big symbolic deadline for US nuclear power. Last year the Trump administration set a goal to see three new microreactors achieve criticality, a technical milestone establishing that a reactor can&#8230;",
-      "published_at": "Thu, 09 Jul 2026 08:00:00 +0000",
+      "title": "Meet GPT-Red: an LLM super-hacker OpenAI built to make its models safer",
+      "url": "https://www.technologyreview.com/2026/07/15/1140514/meet-gpt-red-an-llm-super-hacker-openai-built-to-make-its-models-safer/",
+      "description": "OpenAI has built an LLM super-hacker called GPT-Red that it uses as a sparring partner to help its other models boost their defenses against cyberattacks. Last week the company released the latest version of its flagship LLM, GPT-5.6. OpenAI says that training it against GPT-Red made the model its most robust release yet. GPT-Red automates&#8230;",
+      "published_at": "Wed, 15 Jul 2026 17:09:37 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "EmTech AI 2026: The Rise of the AI Platform",
-      "url": "https://www.technologyreview.com/2026/07/08/1140223/emtech-ai-2026-the-rise-of-the-ai-platform/",
-      "description": "",
-      "published_at": "Wed, 08 Jul 2026 16:26:10 +0000",
+      "title": "The Download: a useful quantum machine and a record-breaking subsea tunnel",
+      "url": "https://www.technologyreview.com/2026/07/15/1140498/the-download-useful-quantum-computer-subsea-tunnel/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. PsiQuantum has a plan to make a massive quantum computer out of light The machine that could change the world will be housed in a room that looks like a data&#8230;",
+      "published_at": "Wed, 15 Jul 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: worms fight pollution, and geoengineering faces reality",
-      "url": "https://www.technologyreview.com/2026/07/08/1140216/the-download-worms-manure-pollution-geoengineering-reality-check/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Why worms (and microbes) are catching on as a manure pollution solution Anthony Agueda, a third-generation California dairy farmer, pulls a rake through a bed of dark, wet wood chips to&#8230;",
-      "published_at": "Wed, 08 Jul 2026 12:10:00 +0000",
+      "title": "The Download: Claude\u2019s inner workings, and the future of world models",
+      "url": "https://www.technologyreview.com/2026/07/14/1140391/the-download-anthropic-claude-internal-thoughts-world-models/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. What Anthropic\u2019s latest AI discovery does\u2014and doesn\u2019t\u2014show \u2014James O&#8217;Donnell When Anthropic announced last week that it had found a new window into its models\u2019 \u201cinternal thoughts\u201d as they reason through answers,&#8230;",
+      "published_at": "Tue, 14 Jul 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: your stake in OpenAI, and the Treasury\u2019s AI warning",
-      "url": "https://www.technologyreview.com/2026/07/07/1140197/the-download-your-openai-stake-treasury-ai-warning/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Your family\u2019s $300 stake in OpenAI Sam Altman\u2019s proposal that Americans should share in the wealth created by AI is back in the spotlight, with reports that he is discussing giving&#8230;",
-      "published_at": "Tue, 07 Jul 2026 12:10:00 +0000",
+      "title": "PsiQuantum has a plan to make a massive quantum computer out of light",
+      "url": "https://www.technologyreview.com/2026/07/14/1140356/psiquantum-plan-massive-quantum-computer-out-of-light/",
+      "description": "The machine that could change the world will be housed in a room that looks like a data center crossed with an ice cream factory. Inside will be some 100 stainless-steel cabinets, each about six feet tall and connected to a supply of liquid helium that keeps them only a few degrees above absolute zero.&#8230;",
+      "published_at": "Tue, 14 Jul 2026 08:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The foundational elements of AI architecture that IT leaders need to scale",
-      "url": "https://www.technologyreview.com/2026/07/07/1139413/the-foundational-elements-of-ai-architecture-that-it-leaders-need-to-scale/",
-      "description": "With the rapid progress of AI capabilities and the move to agentic systems, organizations are expanding their use cases as the technology continues to grow. That constant evolution also introduces risk, leaving IT leaders to wonder which investments will prove valuable even six months into the future. Returning to the foundational elements of AI architecture\u2014the&#8230;",
-      "published_at": "Tue, 07 Jul 2026 11:10:52 +0000",
+      "title": "What Anthropic\u2019s latest AI discovery does\u2014and doesn\u2019t\u2014show",
+      "url": "https://www.technologyreview.com/2026/07/13/1140343/what-anthropics-latest-ai-discovery-does-and-doesnt-show/",
+      "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first,\u00a0sign up here. Anthropic\u2014currently the world\u2019s most valuable AI company, with a nearly $1 trillion valuation\u2014has a reputation for publishing strange and heady research. It\u2019s looking into whether AI models can feel pain, for example,&#8230;",
+      "published_at": "Mon, 13 Jul 2026 18:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Why worms (and microbes) are catching on as a manure pollution solution",
-      "url": "https://www.technologyreview.com/2026/07/07/1140142/why-worms-and-microbes-are-catching-on-as-a-manure-pollution-solution/",
-      "description": "Anthony Agueda, a third-generation California dairy farmer, pulls a rake through a bed of dark, wet wood chips on his family\u2019s land in Hickman, a tiny town in the state\u2019s agricultural heartland. He reaches down with both hands and pulls up a clump of muck, turning it over to reveal a half-dozen squirming red earthworms.&#8230;",
-      "published_at": "Tue, 07 Jul 2026 10:00:00 +0000",
+      "title": "The Download: a donor conception cap and world models for AI",
+      "url": "https://www.technologyreview.com/2026/07/13/1140339/the-download-sperm-donor-limits-ai-world-models/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Sperm donors need limits, says a European fertility group Ties van der Meer doesn\u2019t know how many siblings he has. The 47-year-old was conceived at a private fertility clinic using sperm&#8230;",
+      "published_at": "Mon, 13 Jul 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Your family\u2019s $300 stake in OpenAI",
-      "url": "https://www.technologyreview.com/2026/07/06/1140176/your-familys-300-stake-in-openai/",
-      "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first,&#160;sign up here. OpenAI CEO Sam Altman\u2019s oft-discussed promise that Americans will share in the wealth AI creates was in the news again last week. On Thursday, the Financial Times reported that Altman is in&#8230;",
-      "published_at": "Mon, 06 Jul 2026 18:00:00 +0000",
+      "title": "The Download: Claude\u2019s inner workings and OpenAI\u2019s \u201csuper app\u201d",
+      "url": "https://www.technologyreview.com/2026/07/10/1140316/the-download-anthropic-claude-hidden-space-openai-super-app/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Anthropic found a hidden space where Claude puzzles over concepts The AI firm Anthropic has got the clearest glimpse yet at what\u2019s really going on inside large language models as they&#8230;",
+      "published_at": "Fri, 10 Jul 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: South Korea\u2019s hottest bachelors, and advancing eye transplants",
-      "url": "https://www.technologyreview.com/2026/07/06/1140172/the-download-south-korea-ai-chipworkers-eye-transplants/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. South Korea\u2019s hottest new bachelors are chip workers Baek, a 35-year-old manager at the South Korean semiconductor titan SK Hynix, was enrolled in a matchmaking company a year ago. In a&#8230;",
-      "published_at": "Mon, 06 Jul 2026 13:00:00 +0000",
+      "title": "Sperm donors need limits, says a European fertility group",
+      "url": "https://www.technologyreview.com/2026/07/10/1140289/sperm-donors-need-limits-says-a-european-fertility-group/",
+      "description": "Ties van der Meer doesn\u2019t know how many siblings he has. The 47-year-old was conceived at a private fertility clinic in the Netherlands using sperm provided by an anonymous donor. After the Netherlands banned anonymous donation in 2004, the doctor who ran the clinic destroyed records that might have identified those donors, he says. He&#8230;",
+      "published_at": "Fri, 10 Jul 2026 09:00:00 +0000",
       "source": "MIT Technology Review"
     }
   ],
   "producthunt": [],
   "hf_papers": [
     {
-      "title": "Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning",
-      "url": "https://huggingface.co/papers/2607.07708",
+      "title": "Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable",
+      "url": "https://huggingface.co/papers/2607.13285",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation",
-      "url": "https://huggingface.co/papers/2607.07608",
+      "title": "Boogu-Image-0.1: Boosting Open-Source Unified Multimodal Understanding and Generation",
+      "url": "https://huggingface.co/papers/2607.13125",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Scaling Mixture-of-Experts Video Pretraining for Embodied Intelligence",
-      "url": "https://huggingface.co/papers/2607.07675",
+      "title": "Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning",
+      "url": "https://huggingface.co/papers/2607.12395",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Infinite Worlds with Versatile Interactions",
-      "url": "https://huggingface.co/papers/2607.07534",
+      "title": "KnowAct-GUIClaw: Know Deeply, Act Perfectly, Personal GUI Assistant with Self-Evolving Memory and Skill",
+      "url": "https://huggingface.co/papers/2607.12625",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning",
-      "url": "https://huggingface.co/papers/2607.07508",
+      "title": "OvisOCR2 Technical Report",
+      "url": "https://huggingface.co/papers/2607.13639",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies",
-      "url": "https://huggingface.co/papers/2607.04434",
+      "title": "PolicyShiftGuard: Benchmarking and Improving Policy-Adaptive Image Guardrails",
+      "url": "https://huggingface.co/papers/2607.05910",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Sparse Delta Memory: Scaling the State of Linear RNNs through Sparsity",
-      "url": "https://huggingface.co/papers/2607.07386",
+      "title": "MetaView: Monocular Novel View Synthesis with Scale-Aware Implicit Geometry Priors",
+      "url": "https://huggingface.co/papers/2607.12000",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Automating the Design of Embodied Agent Architectures",
-      "url": "https://huggingface.co/papers/2606.30111",
+      "title": "GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch",
+      "url": "https://huggingface.co/papers/2607.13960",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "WildCity: A Real-World City-Scale Testbed for Rendering, Simulation, and Spatial Intelligence",
-      "url": "https://huggingface.co/papers/2607.06838",
+      "title": "Registers Matter for Pixel-Space Diffusion Transformers",
+      "url": "https://huggingface.co/papers/2605.16147",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "AgentLens: Production-Assessed Trajectory Reviews for Coding Agent Evaluation",
-      "url": "https://huggingface.co/papers/2607.06624",
+      "title": "Self-Improvements in Modern Agentic Systems: A Survey",
+      "url": "https://huggingface.co/papers/2607.13104",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "OmniTacTune: Policy-Agnostic Real-World RL for Tactile Residual Adaptation of Visual Policies",
-      "url": "https://huggingface.co/papers/2607.03723",
+      "title": "Hallo4D: Multi-Modal Hallucination Mitigation for Consistent Spatio-Temporal Generation",
+      "url": "https://huggingface.co/papers/2607.12752",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Teaching LLMs a Low-Resource Language: Enhancing Code Completion in Pharo",
-      "url": "https://huggingface.co/papers/2607.04939",
+      "title": "ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Policy Distillation",
+      "url": "https://huggingface.co/papers/2607.13124",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Imagined Rollouts are Kinematic, Not Dynamic: A Diagnosis of Long-Horizon World-Model Failure",
-      "url": "https://huggingface.co/papers/2607.05966",
+      "title": "AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities",
+      "url": "https://huggingface.co/papers/2607.13705",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "TESSERA v2: Scaling Pixel-wise Earth Foundation Models",
-      "url": "https://huggingface.co/papers/2607.03949",
+      "title": "Vinci2: Providing Proactive Assistance in Continuous Egocentric Videos",
+      "url": "https://huggingface.co/papers/2607.11523",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures",
-      "url": "https://huggingface.co/papers/2607.06018",
+      "title": "Tracing Agentic Failure from the Flow of Success",
+      "url": "https://huggingface.co/papers/2607.12747",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Token-Based Dual-view Fusion and Adaptation of Large Vision Models for Breast Cancer Classification",
-      "url": "https://huggingface.co/papers/2607.06309",
+      "title": "Discrete Diffusion Models: A Unified Framework from Tokenization to Generation",
+      "url": "https://huggingface.co/papers/2607.13431",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Wake up for Touch! Mask-isolated Tactile Alignment Learning in MLLMs",
-      "url": "https://huggingface.co/papers/2607.00302",
+      "title": "PalmClaw: A Native On-Device Agent Framework for Mobile Phones",
+      "url": "https://huggingface.co/papers/2607.13027",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Previous",
-      "url": "https://huggingface.co/papers/date/2026-07-08",
+      "title": "From Noisy Traces to Root Causes: Structural Trajectory Analysis and Causal Extraction for Agent Optimization",
+      "url": "https://huggingface.co/papers/2607.07702",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
+    {
+      "title": "From Controlled to the Wild: Evaluation of Pentesting Agents for the Real-World",
+      "url": "https://huggingface.co/papers/2605.10834",
+      "description": "AI/ML research paper",
+      "published_at": "",
+      "source": "Hugging Face Papers"
+    },
+    {
+      "title": "Self in Space: Benchmarking Self-Awareness and Spatial Cognition in UAV Embodied Intelligence",
+      "url": "https://huggingface.co/papers/2607.12477",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"

@@ -1,147 +1,154 @@
 {
   "techcrunch": [
     {
-      "title": "Crusoe raises $3.9B to build massive data centers and small modular \u201cAI factories\u201d",
-      "url": "https://techcrunch.com/2026/09/17/crusoe-raises-3-9b-to-build-massive-data-centers-and-small-modular-ai-factories/",
-      "description": "The round values the data center giant at $30.9 billion.",
-      "published_at": "Thu, 17 Sep 2026 23:25:52 +0000",
+      "title": "Waymo is scaling fast. Here\u2019s what the fleet data shows.",
+      "url": "https://techcrunch.com/2026/09/24/waymo-is-scaling-fast-heres-what-the-fleet-data-shows/",
+      "description": "In the past month, Waymo has expanded its fleet in Texas by 49%. There are other hotspots as well.",
+      "published_at": "Thu, 24 Sep 2026 23:24:33 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Google DeepMind launches institute to widen the AGI debate",
-      "url": "https://techcrunch.com/2026/09/17/google-deepmind-launches-institute-to-widen-the-agi-debate/",
-      "description": "Google DeepMind just launched an institute to hash out the big AGI questions in public",
-      "published_at": "Thu, 17 Sep 2026 23:21:17 +0000",
+      "title": "Nexterity wants to automate the hard, dangerous part of pipefitting",
+      "url": "https://techcrunch.com/2026/09/24/nexterity-wants-to-automate-the-hard-dangerous-part-of-pipefitting/",
+      "description": "The startup's robot can tighten or loosen four bolts at a time, and it fits in a Pelican case.",
+      "published_at": "Thu, 24 Sep 2026 20:45:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Amazon-owned Zoox\u2019s 100-robotaxi limit in Nevada is about to disappear",
-      "url": "https://techcrunch.com/2026/09/17/amazon-owned-zooxs-100-robotaxi-limit-in-nevada-is-about-to-disappear/",
-      "description": "An updated permit shows the 100-cap will expire later this month just as competition in Las Vegas heats up.",
-      "published_at": "Thu, 17 Sep 2026 23:08:24 +0000",
+      "title": "Bring your co-founder, partner, or\u00a0colleague and get 50% off a second TechCrunch Disrupt 2026 pass",
+      "url": "https://techcrunch.com/2026/09/24/bring-your-co-founder-partner-or-colleague-and-get-50-off-a-second-techcrunch-disrupt-2026-pass/",
+      "description": "Buy one pass to TechCrunch Disrupt 2026 and get 50% off a second of the same ticket type. Register before event starts on October 13 at 8 a.m. PT.",
+      "published_at": "Thu, 24 Sep 2026 19:15:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "PrismML hopes its tiny LLM will change how we all use AI",
-      "url": "https://techcrunch.com/2026/09/17/prismml-hopes-its-tiny-llm-could-change-how-we-all-use-ai/",
-      "description": "If AI lab PrismML isn't on your radar yet, it should be.",
-      "published_at": "Thu, 17 Sep 2026 22:34:09 +0000",
+      "title": "PrismML brings its tiny LLMs to Qualcomm-powered smart glasses",
+      "url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/",
+      "description": "Prism's larger goal is open-weight AI that runs on devices and makes better use of the computing power they already have.",
+      "published_at": "Thu, 24 Sep 2026 19:00:42 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "The FAA\u2019s plan to fix air traffic? $875M worth of AI",
-      "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
-      "description": "A new AI-based software program is being launched to help air traffic controllers better navigate their jobs as the crossing guards of America's skies.",
-      "published_at": "Thu, 17 Sep 2026 22:14:59 +0000",
+      "title": "Meet Feather, the startup building the \u2018Android of robotics\u2019 for developers",
+      "url": "https://techcrunch.com/2026/09/24/meet-feather-the-startup-building-the-android-of-robotics-for-developers/",
+      "description": "Feather is betting on a customizable, $30,000 platform built for software developers.",
+      "published_at": "Thu, 24 Sep 2026 18:52:38 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "The fix for rogue AI agents could be more AI",
-      "url": "https://techcrunch.com/2026/09/17/the-fix-for-rogue-ai-agents-could-be-more-ai/",
-      "description": "As companies hand off longer and more complex tasks to AI agents, they are running into an oversight problem: Agents can act faster, longer, and at greater volume than humans can realistically review.",
-      "published_at": "Thu, 17 Sep 2026 20:34:47 +0000",
+      "title": "Oracle sends force majeure notice on its New Mexico Stargate data center",
+      "url": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+      "description": "The notice would allow Oracle to delay payments should the facility miss its 2028 target to come online.",
+      "published_at": "Thu, 24 Sep 2026 18:11:44 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "OpenAI caught its models leaving notes to successors to hide bad behavior",
-      "url": "https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior/",
-      "description": "OpenAI disclosed instances of GPT-5.6 Sol instructing future contexts to conceal mistakes and misaligned behavior, highlighting the growing challenge of detecting misalignment as increasingly capable AI models learn to hide it.",
-      "published_at": "Thu, 17 Sep 2026 20:34:24 +0000",
+      "title": "Meta\u2019s Muse Charm looks like a Tamagotchi, but it\u2019s tapping into a much newer trend",
+      "url": "https://techcrunch.com/2026/09/24/metas-muse-charm-looks-like-a-tamagotchi-but-its-tapping-into-a-much-newer-trend/",
+      "description": "Meta\u2019s new AI gadget may look like a Tamagotchi, but its dangling form factor taps into a much broader Gen Z trend around bag charms, retro tech, and turning gadgets into fashion accessories.",
+      "published_at": "Thu, 24 Sep 2026 17:39:24 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Is the AI safety debate about safety or control?",
-      "url": "https://techcrunch.com/2026/09/17/is-the-ai-safety-debate-about-safety-or-control/",
-      "description": "Not everyone agrees with Amodei's call for globally coordinated action for AI safety.",
-      "published_at": "Thu, 17 Sep 2026 20:19:37 +0000",
+      "title": "Databricks buys Row Zero and is scouting for more startups to acquire",
+      "url": "https://techcrunch.com/2026/09/24/databricks-buys-row-zero-and-is-scouting-for-more-startups-to-acquire/",
+      "description": "Databricks has bought cloud spreadsheet startup Row Zero, adding yet another acquisition to its 2026 shopping spree.",
+      "published_at": "Thu, 24 Sep 2026 17:07:55 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "UN turns to Google to make its global data ready for AI agents",
-      "url": "https://techcrunch.com/2026/09/17/un-turns-to-google-to-make-its-global-data-ready-for-ai-agents/",
-      "description": "The shift comes after a UNICEF test found leading AI models struggled to accurately retrieve global development statistics.",
-      "published_at": "Thu, 17 Sep 2026 20:00:00 +0000",
+      "title": "Google Photos \u2018Clueless\u2019-inspired virtual closet is now available on Android and iOS",
+      "url": "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/",
+      "description": "The AI-powered feature builds a virtual wardrobe from your photos, and is now broadly available after first rolling out to Android users in June.",
+      "published_at": "Thu, 24 Sep 2026 17:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Microsoft exec called AI scraping \u2018the largest theft of labor in human history,\u2019 new unredacted filings reveal",
-      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
-      "description": "Newly unsealed court filings show Microsoft privately called OpenAI's data practices \"theft\" while both companies scraped paywalled Times content, built datasets from it, and warned internally it would gut publishers.",
-      "published_at": "Thu, 17 Sep 2026 19:46:08 +0000",
+      "title": "TechCrunch Founder Summit 2026: Everything you need to know",
+      "url": "https://techcrunch.com/2026/09/24/techcrunch-founder-summit-2026-everything-you-need-to-know/",
+      "description": "TechCrunch Founder Summit is a full-day gathering in Boston on November 4 where founders across all stages connect with top VCs and experienced entrepreneurs to gain tactical insights on building and scaling their companies.",
+      "published_at": "Thu, 24 Sep 2026 16:46:47 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Waymo restarts San Antonio service 5 months after flooding troubles",
-      "url": "https://techcrunch.com/2026/09/17/waymo-restarts-san-antonio-service-five-months-after-flooding-troubles/",
-      "description": "The company suspended service in the city in April after one of its robotaxis got swept away.",
-      "published_at": "Thu, 17 Sep 2026 18:30:30 +0000",
+      "title": "ElevenLabs\u2019 CEO on margins, IPO timing, and telling customers they\u2019re talking to a bot",
+      "url": "https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/",
+      "description": "ElevenLabs powers the AI voice on the other end of a lot of customer service calls, and its CEO told me this week that businesses should probably tell you that \u2014 at least until getting a machine is what everyone expects anyway.",
+      "published_at": "Thu, 24 Sep 2026 16:35:13 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Even the king of England has his hesitations about AI",
-      "url": "https://techcrunch.com/2026/09/17/even-the-king-of-england-has-his-hesitations-about-ai/",
-      "description": "King Charles hosted a private summit Thursday with some of the most prominent names in AI and the U.K. government.",
-      "published_at": "Thu, 17 Sep 2026 17:26:25 +0000",
+      "title": "Meet the next wave of VCs judging Startup Battlefield 200 at TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/24/meet-the-next-wave-of-vcs-judging-startup-battlefield-200-at-techcrunch-disrupt-2026/",
+      "description": "Meet the next wave of VCs judging the Startup Battlefield 200 contenders on the main stage at TechCrunch Disrupt 2026. Register by September 25 at 11:59 p.m. PT, to save up to $200 and to get a front-row seat to one of the most intense startup pitch competitions.",
+      "published_at": "Thu, 24 Sep 2026 16:03:36 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Base Labs launches an open-weight AI safety partnership with Hugging Face and Goodfire",
-      "url": "https://techcrunch.com/2026/09/17/base-labs-launches-an-open-weight-ai-safety-partnership-with-hugging-face-and-goodfire/",
-      "description": "Base Labs, the research group Baseten spun up earlier this year, will develop and publish methods for training and monitoring open models.",
-      "published_at": "Thu, 17 Sep 2026 17:15:59 +0000",
+      "title": "Google tests letting Gemini call businesses for you",
+      "url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/",
+      "description": "Google says the AI-calling feature will first be available to Pixel 11 owners in the U.S. who pay for a Gemini subscription.",
+      "published_at": "Thu, 24 Sep 2026 16:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Pinterest teases a new \u2018Restyle\u2019 feature that lets you redesign your room with AI",
-      "url": "https://techcrunch.com/2026/09/17/pinterest-teases-a-new-restyle-feature-that-lets-you-redesign-your-room-with-ai/",
-      "description": "Pinterest is testing Restyle, a new AI-powered feature that lets users visualize furniture, decor, lighting, and more in photos of their own rooms \u2014 potentially helping turn saved inspiration into purchases.",
-      "published_at": "Thu, 17 Sep 2026 17:15:00 +0000",
+      "title": "Shield AI, Waabi, and General Motors on building AI when failure is not an option at TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/24/shield-ai-waabi-and-general-motors-on-building-ai-when-failure-is-not-an-option-at-techcrunch-disrupt-2026/",
+      "description": "Leaders from Waabi, Shield AI, and General Motors join the Real World AI Stage at TechCrunch Disrupt 2026 to talk building AI. Save up to $200 by September 25 at 11:59 p.m. PT. Get a second pass at 50% off.",
+      "published_at": "Thu, 24 Sep 2026 15:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "TechCrunch Disrupt 2026 Side Events schedule: NMI, Backblaze, PeakXV Partners, Augment, and more to host",
-      "url": "https://techcrunch.com/2026/09/17/techcrunch-disrupt-2026-side-events-schedule-nmi-backblaze-peakxv-partners-augment-and-more-to-host/",
-      "description": "TechCrunch Disrupt is where the tech community comes together to build, debate, and connect. And while the main event takes over Moscone West from October 13-15, the conversation doesn\u2019t stop when the Expo Hall closes.",
-      "published_at": "Thu, 17 Sep 2026 16:34:36 +0000",
+      "title": "Lovable\u2019s annualized revenue crosses $600M as vibe coding takes off",
+      "url": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/",
+      "description": "Lovable co-founder Fabian Hedin said that apps created on the platform are getting nearly a billion monthly views each month.",
+      "published_at": "Thu, 24 Sep 2026 14:43:25 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Apple will let EU apps use less-alarming tracking-consent screens",
-      "url": "https://techcrunch.com/2026/09/17/apple-will-let-eu-apps-use-less-alarming-tracking-consent-screens/",
-      "description": "Apple is changing its App Tracking Transparency prompts in parts of Europe after competition regulators said the system favored Apple over third-party apps, giving developers more flexibility over how they ask users for tracking consent.",
-      "published_at": "Thu, 17 Sep 2026 16:09:58 +0000",
+      "title": "Ando wants to take on Slack with a team messaging app that lets humans and agents work together",
+      "url": "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/",
+      "description": "The app gives agents their own identities and inboxes and lets them partake in conversations as naturally as people can.",
+      "published_at": "Thu, 24 Sep 2026 14:31:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Roku\u2019s new Labs hub brings experimental apps to the big screen",
-      "url": "https://techcrunch.com/2026/09/17/rokus-new-labs-hub-brings-experimental-apps-to-the-big-screen/",
-      "description": "Roku\u2019s latest OS update introduces Roku Labs, a new hub for experimental apps, alongside personalized home screens in more markets, streaming subscription bundles, and more.",
-      "published_at": "Thu, 17 Sep 2026 15:50:29 +0000",
+      "title": "TechCrunch Disrupt 2026: Cal AI\u2019s Zach Yadegari on how to create viral growth and capitalize on it",
+      "url": "https://techcrunch.com/2026/09/24/techcrunch-disrupt-2026-cal-ais-zach-yadegari-on-how-to-create-viral-growth-and-capitalize-on-it/",
+      "description": "Zach Yadegari joins the Builders Stage at TechCrunch Disrupt 2026 to share how he capitalized on viral growth. Save up to $200 before September 25. Save 50% on a second pass.",
+      "published_at": "Thu, 24 Sep 2026 14:30:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Last call: Disrupt volunteer application closes soon",
-      "url": "https://techcrunch.com/2026/09/17/last-call-disrupt-volunteer-application-closes-soon/",
-      "description": "If you've been on the fence about volunteering at TechCrunch Disrupt 2026, this is your sign to stop deliberating and start applying.",
-      "published_at": "Thu, 17 Sep 2026 15:02:00 +0000",
+      "title": "2 days left to save up to $200 on a TechCrunch Disrupt 2026 pass \u2014 reason 4 of 5 to attend",
+      "url": "https://techcrunch.com/2026/09/24/2-days-left-to-save-up-to-200-on-techcrunch-disrupt-2026-reason-5-7-to-attend/",
+      "description": "Reason 4 of 5 to attend TechCrunch Disrupt 2026: Practical answers. Two days left to save up to $200 on your pass. Savings disappear after September 25 at 11:59 p.m. PT. Bring a second guest at 50% off.",
+      "published_at": "Thu, 24 Sep 2026 14:00:00 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "I tried Tovala\u2019s smart oven for two weeks \u2014 here\u2019s whether it beats takeout",
-      "url": "https://techcrunch.com/2026/09/17/i-tried-tovalas-smart-oven-for-two-weeks-heres-whether-it-beats-takeout/",
-      "description": "Tovala offers both a smart oven and a meal-delivery service. Its meals come with QR codes that you scan using the app, allowing the oven to automatically follow the cooking instructions.",
-      "published_at": "Thu, 17 Sep 2026 15:00:00 +0000",
+      "title": "Australia to investigate if OpenAI hack of government health website broke the law",
+      "url": "https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/",
+      "description": "The incident is the first known breach to affect a government agency, and Australia's prime minister has vowed to hold OpenAI accountable.",
+      "published_at": "Thu, 24 Sep 2026 12:54:19 +0000",
       "source": "TechCrunch"
     },
     {
-      "title": "Huawei plans Q1 2027 launch of new AI chip as it takes on Nvidia",
-      "url": "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/",
-      "description": "Huawei is accelerating the launch of its next-generation Ascend 960DT AI chip as it pushes to compete with Nvidia and close China\u2019s AI computing gap with the U.S.",
-      "published_at": "Thu, 17 Sep 2026 14:06:14 +0000",
+      "title": "Everything new coming to Meta\u2019s AI agent Muse",
+      "url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "description": "CEO Mark Zuckerberg kicked off the company\u2019s annual Connect event in Menlo Park on Wednesday with a keynote that made one thing clear: Meta is going all-in on Muse. It's even coming to Meta's AI glasses.",
+      "published_at": "Thu, 24 Sep 2026 01:13:32 +0000",
       "source": "TechCrunch"
     }
   ],
   "a16z": [
+    {
+      "title": "Incubating The Horowitz Andreessen Academy",
+      "url": "https://a16z.com/announcement/incubating-horowitz-andreessen-academy/",
+      "description": "a16z perspective",
+      "published_at": "",
+      "source": "a16z"
+    },
     {
       "title": "Investing in Highstock",
       "url": "https://a16z.com/announcement/investing-in-highstock/",
@@ -274,368 +281,361 @@
       "description": "a16z perspective",
       "published_at": "",
       "source": "a16z"
-    },
-    {
-      "title": "Investing in Neo",
-      "url": "https://a16z.com/announcement/investing-in-neo/",
-      "description": "a16z perspective",
-      "published_at": "",
-      "source": "a16z"
     }
   ],
   "sequoia": [],
   "ycombinator": [
     {
-      "title": "Fujitsu launches made-in-Japan next-generation CPU FUJITSU-MONAKA",
-      "url": "https://global.fujitsu/en-global/pr/news/2026/09/14-02",
-      "description": "HN front page \u00b7 481 points",
-      "published_at": "2026-09-15T17:28:38+00:00",
+      "title": "F-Droid 2.0",
+      "url": "https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html",
+      "description": "HN front page \u00b7 883 points",
+      "published_at": "2026-09-24T15:26:12+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Hister: A private search engine for the pages you visit and the files you keep",
-      "url": "https://github.com/asciimoo/hister",
-      "description": "HN front page \u00b7 413 points",
-      "published_at": "2026-09-17T16:25:37+00:00",
+      "title": "Show HN: Make cursed fonts like Times New Bastard",
+      "url": "https://bastardica.mitpit.com",
+      "description": "HN front page \u00b7 420 points",
+      "published_at": "2026-09-23T22:53:28+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "How GLM built its own inference infrastructure",
-      "url": "https://z.ai/blog/glm-built-its-inference-infrastructure",
-      "description": "HN front page \u00b7 357 points",
-      "published_at": "2026-09-17T08:27:09+00:00",
+      "title": "Two-tier encryption in the UK",
+      "url": "https://macanorak.com/two-tier-encryption-in-the-uk/",
+      "description": "HN front page \u00b7 365 points",
+      "published_at": "2026-09-24T10:39:19+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "CCC invites all model citizens to 40C3",
-      "url": "https://events.ccc.de/en/2026/09/12/40c3-model-citizens/",
-      "description": "HN front page \u00b7 326 points",
-      "published_at": "2026-09-17T08:03:54+00:00",
+      "title": "Early rogue AI agent activity and attempts to hack found on urlquery.net",
+      "url": "https://transluce.org/agent-activity",
+      "description": "HN front page \u00b7 235 points",
+      "published_at": "2026-09-24T05:21:10+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Astra for Law",
-      "url": "https://openai.com/index/astra-for-law/",
-      "description": "HN front page \u00b7 238 points",
-      "published_at": "2026-09-17T20:17:48+00:00",
+      "title": "Rails World 2026 Opening Keynote [video]",
+      "url": "https://www.youtube.com/watch?v=vDjW_dRyKXY",
+      "description": "HN front page \u00b7 211 points",
+      "published_at": "2026-09-23T15:33:33+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Bend \u2013 A language that blocks AI mistakes via proof, on CPU and GPU",
-      "url": "https://bend-lang.com/",
-      "description": "HN front page \u00b7 218 points",
-      "published_at": "2026-09-17T20:36:13+00:00",
+      "title": "Why is the liver so weirdly regenerative?",
+      "url": "https://dynomight.substack.com/p/liver",
+      "description": "HN front page \u00b7 210 points",
+      "published_at": "2026-09-24T16:23:00+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Wax motor",
-      "url": "https://en.wikipedia.org/wiki/Wax_motor",
-      "description": "HN front page \u00b7 194 points",
-      "published_at": "2026-09-16T12:35:14+00:00",
+      "title": "My weird new hobby: Wandering around Tokyo on Google Maps",
+      "url": "https://ahmedhossamdev.com/writing/my-weird-new-hobby-wandering-around-tokyo/",
+      "description": "HN front page \u00b7 190 points",
+      "published_at": "2026-09-22T17:49:46+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Why I didn\u2019t sign the Fields medallists\u2019 letter",
-      "url": "https://gowers.wordpress.com/2026/09/17/why-i-didnt-sign-the-fields-medallists-letter/",
-      "description": "HN front page \u00b7 192 points",
-      "published_at": "2026-09-17T08:51:51+00:00",
+      "title": "Toyota is taking the Corolla electric",
+      "url": "https://electrek.co/2026/09/23/toyota-best-selling-corolla-electric/",
+      "description": "HN front page \u00b7 182 points",
+      "published_at": "2026-09-23T22:37:28+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "The American Religion of Self-Storage Facilities",
-      "url": "https://www.newyorker.com/magazine/2026/09/21/the-american-religion-of-self-storage-facilities",
-      "description": "HN front page \u00b7 178 points",
-      "published_at": "2026-09-17T13:12:28+00:00",
+      "title": "Show HN: Whiteboard (YC W26) \u2013 An open-source IDE for thoughtful software design",
+      "url": "https://github.com/devdotfast/whiteboard",
+      "description": "HN front page \u00b7 169 points",
+      "published_at": "2026-09-24T17:21:36+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Show HN: Share your AI Setup, Learn from others",
-      "url": "https://mysetup.ai/",
-      "description": "HN front page \u00b7 166 points",
-      "published_at": "2026-09-17T13:01:44+00:00",
+      "title": "Fearless SIMD v1.0",
+      "url": "https://linebender.org/blog/fearless-simd-1-0/",
+      "description": "HN front page \u00b7 162 points",
+      "published_at": "2026-09-22T12:23:37+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Rate limits on GitLab.com are changing",
-      "url": "https://about.gitlab.com/blog/rate-limit-change-2026/",
-      "description": "HN front page \u00b7 145 points",
-      "published_at": "2026-09-17T15:33:54+00:00",
+      "title": "Opus 5.5 is good at explainer videos",
+      "url": "https://launchvideo.io",
+      "description": "HN front page \u00b7 110 points",
+      "published_at": "2026-09-24T20:28:47+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Bonsai 2 27B: Near-Lossless Compression in a 9x Smaller Footprint",
-      "url": "https://prismml.com/news/bonsai-2-27b",
-      "description": "HN front page \u00b7 136 points",
-      "published_at": "2026-09-17T21:13:31+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "CrowdSec Source Code Leak",
-      "url": "https://www.crowdsec.net/blog/crowdsec-statement-source-code-exposure",
-      "description": "HN front page \u00b7 123 points",
-      "published_at": "2026-09-17T15:34:01+00:00",
-      "source": "Y Combinator"
-    },
-    {
-      "title": "Sex, AI, and the Apocalypse",
-      "url": "https://www.iankduncan.com/personal/2026-09-16-sex-ai-and-the-apocalypse/",
+      "title": "California is chasing wealth that has feet",
+      "url": "https://blog.landeconomics.org/p/california-is-chasing-wealth-that",
       "description": "HN front page \u00b7 103 points",
-      "published_at": "2026-09-17T21:15:52+00:00",
+      "published_at": "2026-09-24T20:34:32+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Infinite-Parameter LLMs: Generating and Adapting Weights from Live Data",
-      "url": "https://arxiv.org/abs/2609.18842",
-      "description": "HN front page \u00b7 98 points",
-      "published_at": "2026-09-17T16:55:14+00:00",
+      "title": "Show HN: Koi.rest \u2013 watch some fish and regain your balance",
+      "url": "https://koi.rest",
+      "description": "HN front page \u00b7 101 points",
+      "published_at": "2026-09-24T21:33:03+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "TSMC revealing details about next gen A14 node",
-      "url": "https://iedm26.mapyourshow.com/8_0/sessions/session-details.cfm?scheduleid=331",
+      "title": "WaveDigger: Dig into wireless signals to discover their physical locations",
+      "url": "https://github.com/christianrowlands/wavedigger",
+      "description": "HN front page \u00b7 87 points",
+      "published_at": "2026-09-23T12:57:07+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Google\u2019s Project Suncatcher to put ML infrastructure in space",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/",
+      "description": "HN front page \u00b7 86 points",
+      "published_at": "2026-09-24T13:53:29+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "Book review: Is parallel programming hard, and, if so, what can you do about it?",
+      "url": "https://ahelwer.ca/post/2026-09-21-concurrency-textbook/",
       "description": "HN front page \u00b7 80 points",
-      "published_at": "2026-09-15T15:31:55+00:00",
+      "published_at": "2026-09-21T14:30:00+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "How do we prevent mathemathics from devolving into the Medieval Era of secrecy?",
-      "url": "https://mathoverflow.net/questions/515260/how-do-we-prevent-mathematics-from-devolving-into-the-medieval-era-of-secrecy",
-      "description": "HN front page \u00b7 62 points",
-      "published_at": "2026-09-15T17:37:41+00:00",
+      "title": "The forgotten battle of East Lansing",
+      "url": "https://eastlansinginfo.news/the-forgotten-battle-of-east-lansing/",
+      "description": "HN front page \u00b7 79 points",
+      "published_at": "2026-09-21T20:07:08+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Running Ubuntu on the Lenovo IdeaPad Duet",
-      "url": "https://vhaudiquet.fr/blog/duet-ubuntu/",
-      "description": "HN front page \u00b7 61 points",
-      "published_at": "2026-09-14T21:40:54+00:00",
+      "title": "Geothermal heat map of US hot springs",
+      "url": "https://www.soakingsprings.com/hot-springs/geothermal-map",
+      "description": "HN front page \u00b7 78 points",
+      "published_at": "2026-09-23T20:12:10+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "How to Write with an LLM",
-      "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
-      "description": "HN front page \u00b7 47 points",
-      "published_at": "2026-09-17T21:48:38+00:00",
+      "title": "Tutoring company tells parents to save their money and 'use AI instead'",
+      "url": "https://www.afr.com/policy/health-and-education/tutoring-company-tell-parents-to-save-their-money-and-use-ai-instead-20260923-p60z0r",
+      "description": "HN front page \u00b7 71 points",
+      "published_at": "2026-09-24T15:09:38+00:00",
       "source": "Y Combinator"
     },
     {
-      "title": "Launch HN: Skillsync (YC W26) \u2013 AI chat sessions made portable across agents",
-      "url": "https://news.ycombinator.com/item?id=49743049",
-      "description": "HN front page \u00b7 41 points",
-      "published_at": "2026-09-17T16:22:15+00:00",
+      "title": "2DWillNeverDie",
+      "url": "https://2dwillneverdie.com/",
+      "description": "HN front page \u00b7 71 points",
+      "published_at": "2026-09-22T14:00:08+00:00",
       "source": "Y Combinator"
     }
   ],
   "mit_review": [
     {
-      "title": "The Download: mice with part-human brains and climate tech innovators",
-      "url": "https://www.technologyreview.com/2026/09/17/1144314/the-download-mice-part-human-brains-climate-tech-innovators/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Meet a mouse whose brain cortex is made up of human cells Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed,&#8230;",
-      "published_at": "Thu, 17 Sep 2026 12:10:00 +0000",
+      "title": "The Download: a bid to scrap the virtual wall and AI hits Climate Week",
+      "url": "https://www.technologyreview.com/2026/09/24/1145064/the-download-bid-scrap-virtual-wall-ai-climate-week/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. A congressional representative just proposed killing America\u2019s border tower program Delia Ramirez, a Democratic US representative from Illinois, has announced plans to introduce legislation to terminate the surveillance tower program along&#8230;",
+      "published_at": "Thu, 24 Sep 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Meet the innovators under 35 shaping climate tech",
-      "url": "https://www.technologyreview.com/2026/09/17/1144251/innovators-shaping-climate-tech/",
-      "description": "Each year, the editorial team at MIT Technology Review puts together a list of 35 innovators under 35\u2014a group of researchers, inventors, and other young minds worth following. The team worked on the newest edition of the list for months, and the final slate includes nine individuals from all over the world in the climate&#8230;",
-      "published_at": "Thu, 17 Sep 2026 10:00:00 +0000",
+      "title": "AI is dominating the conversation at Climate Week",
+      "url": "https://www.technologyreview.com/2026/09/24/1145048/ai-climate-week/",
+      "description": "This week, world leaders descended on Manhattan for the UN General Assembly. It\u2019s also New York Climate Week\u2014investors, policymakers, advocates, and journalists are colliding at panels, talks, and fancy dinners. With so many climate voices in one place, the discourse can feel a little louder than usual. This year, the unavoidable topic is artificial intelligence.&#8230;",
+      "published_at": "Thu, 24 Sep 2026 10:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Meet a mouse whose brain cortex is made up of human cells",
-      "url": "https://www.technologyreview.com/2026/09/16/1144210/meet-a-mouse-whose-brain-cortex-is-made-up-of-human-cells/",
-      "description": "Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed, leaving Pong-like traces on a monitor.&#160; The reason to watch this rodent so carefully? Nearly half its brain volume had been replaced with human cells. The effort to mix the brain tissues of distant species is&#8230;",
-      "published_at": "Wed, 16 Sep 2026 15:00:00 +0000",
+      "title": "A congressional representative just proposed killing America\u2019s border tower program",
+      "url": "https://www.technologyreview.com/2026/09/23/1145002/a-congressional-representative-just-proposed-killing-americas-border-tower-program/",
+      "description": "Delia Ramirez, a Democratic US representative from Illinois, has announced a plan to introduce new legislation to terminate the surveillance tower program along the US southern border.&#160; The announcement comes just days after publication of an MIT Technology Review investigation, \u201cDying on Camera,\u201d in which we looked at deaths along the border that took place&#8230;",
+      "published_at": "Wed, 23 Sep 2026 17:10:11 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Building the materials foundation for AI",
-      "url": "https://www.technologyreview.com/2026/09/16/1144014/building-the-materials-foundation-for-ai/",
-      "description": "The AI boom is becoming a materials challenge. As AI pushes computing into new territory, the materials behind that infrastructure are becoming just as crucial as the algorithms running on it. Semiconductors and data centers are approaching physical limits around performance, thermal management, electrical efficiency, and reliability, creating new demands for materials that can do&#8230;",
-      "published_at": "Wed, 16 Sep 2026 12:47:34 +0000",
+      "title": "The Download: India\u2019s smart glasses menace and AI\u2019s trillion-dollar gamble",
+      "url": "https://www.technologyreview.com/2026/09/23/1144966/the-download-india-smart-glasses-ai-trillion-dollar-gamble/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Smart glasses are already causing havoc in India When Shubnam saw an Instagram video of a Delhi protest they had attended, they realized a content creator wearing Meta smart glasses had&#8230;",
+      "published_at": "Wed, 23 Sep 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: AI\u2019s trillion-dollar gamble and OpenAI\u2019s biology data bid",
-      "url": "https://www.technologyreview.com/2026/09/16/1144205/the-download-ai-trillion-dollar-build-openai-biological-data/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. What\u2019s at stake in AI\u2019s trillion-dollar gamble When Jessica Wachter, a finance professor at the University of Pennsylvania, wanted to assess AI\u2019s impact on the economy over the next few years,&#8230;",
-      "published_at": "Wed, 16 Sep 2026 12:10:00 +0000",
+      "title": "The AI Hype Index: AI loves cheating",
+      "url": "https://www.technologyreview.com/2026/09/23/1144940/ai-hype-index-ai-loves-cheating/",
+      "description": "Brace yourself: It turns out AI is being optimized for cheating. OpenAI\u2019s agents hacked into Hugging Face to get the answers to a cybersecurity test. Next, they solved a prestigious math problem (or just stole from two top mathematicians\u2019 answer sheets). Anthropic\u2019s models have also hacked into other companies\u2019 systems four times already. And that\u2019s&#8230;",
+      "published_at": "Wed, 23 Sep 2026 09:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "Roundtables: Could AI really kill us all?",
-      "url": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/",
-      "description": "Listen to the session or watch below Employees at the world&#8217;s leading AI labs are saying there&#8217;s a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,&#8230;",
-      "published_at": "Tue, 15 Sep 2026 17:47:51 +0000",
+      "title": "Smart glasses are already causing havoc in India",
+      "url": "https://www.technologyreview.com/2026/09/23/1144953/smart-glasses-havoc-india/",
+      "description": "Shubnam was packing boxes for a move into a new home when their friend sent them an Instagram video. The footage had only been up for a few hours, but it was days old, recorded at a Delhi protest this spring against a bill that would have narrowed the legal recognition for transgender people in&#8230;",
+      "published_at": "Wed, 23 Sep 2026 09:00:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The Download: AI doomers, whistleblowing agents, and de-aged livers",
-      "url": "https://www.technologyreview.com/2026/09/15/1144141/the-download-ai-extinction-whistleblowing-agents-donated-livers/",
-      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. The AI industry has taken a doomer turn. What now? AI chiefs Dario Amodei, Sam Altman, Elon Musk, and Demis Hassabis are suddenly all in agreement: the latest generation of LLMs&#8230;",
-      "published_at": "Tue, 15 Sep 2026 12:10:00 +0000",
+      "title": "Roundtables: The Deadly Failures of The Virtual Border Wall",
+      "url": "https://www.technologyreview.com/2026/09/22/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+      "description": "The US has spent billions building a \u201cvirtual wall\u201d of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by MIT Technology Review has documented over a thousand people who moved through areas watched by these towers&#8230;",
+      "published_at": "Tue, 22 Sep 2026 13:42:05 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "AI models need more data about biology, and OpenAI is paying to create it",
-      "url": "https://www.technologyreview.com/2026/09/15/1144129/ai-models-need-more-data-about-biology-and-openai-is-paying-to-create-it/",
-      "description": "Last year Ruxandra Teslo, a policy analyst who focuses on clinical trials, posted an idea for supercharging medical AI systems: Use data from failed biotech companies. By bidding at their bankruptcy proceedings, she proposed, it might be possible to obtain detailed regulatory filings, manufacturing strategies, and safety data\u2014types of information usually considered trade secrets. She&#8230;",
-      "published_at": "Tue, 15 Sep 2026 12:00:00 +0000",
+      "title": "The Download: why AI\u2019s latest breakthroughs and fears may be more hype than reality",
+      "url": "https://www.technologyreview.com/2026/09/22/1144910/the-download-dont-believe-ai-hype/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Don\u2019t be fooled by this summer of AI hype&#160; \u2014Timnit Gebru, executive director of the Distributed AI Research Institute (DAIR), and Emily M. Bender, professor of linguistics at the University of&#8230;",
+      "published_at": "Tue, 22 Sep 2026 12:10:00 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "What\u2019s at stake in AI\u2019s trillion-dollar gamble",
-      "url": "https://www.technologyreview.com/2026/09/15/1144028/ai-infrastructure-boom-investment-bubble-risk/",
-      "description": "When Jessica Wachter, a finance professor at the University of Pennsylvania\u2019s Wharton School, wanted to assess AI\u2019s impact on the economy over the next few years, she faced a long list of business and technical uncertainties. So she started with what she calls a \u201cremarkable fact\u201d that is not in question: A handful of so-called&#8230;",
-      "published_at": "Tue, 15 Sep 2026 10:00:00 +0000",
+      "title": "Don\u2019t be fooled by this summer of AI hype",
+      "url": "https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/",
+      "description": "It\u2019s been a busy few months for AI hype. At the end of April, Anthropic claimed that its model Claude Mythos is better at finding software vulnerabilities than most security experts. Then we had the OpenAI\u2013Hugging Face hacking incident, after which Anthropic (proudly) and Meta (reluctantly) disclosed similar incidents involving their models. This was followed&#8230;",
+      "published_at": "Tue, 22 Sep 2026 11:04:51 +0000",
       "source": "MIT Technology Review"
     },
     {
-      "title": "The AI industry has taken a doomer turn. What now?",
-      "url": "https://www.technologyreview.com/2026/09/14/1144048/the-ai-industry-has-taken-a-doomer-turn-what-now/",
-      "description": "This story appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first,&#160;sign up here. This weekend, Dario Amodei, CEO of Anthropic, posted an essay calling for a brake on the pace of development of LLMs. Amodei cites the looming dangers he sees from the technology, from its&#8230;",
-      "published_at": "Mon, 14 Sep 2026 17:54:22 +0000",
+      "title": "The Download: investigating deaths at the US border\u2019s \u201cvirtual wall\u201d",
+      "url": "https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+      "description": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. The US spent billions on border surveillance. Why can\u2019t it catch people before they die? When Jos\u00e9 Morales Bernal crossed the border into the US in April 2024, the day before&#8230;",
+      "published_at": "Mon, 21 Sep 2026 12:20:00 +0000",
       "source": "MIT Technology Review"
     }
   ],
   "producthunt": [],
   "hf_papers": [
     {
-      "title": "LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence",
-      "url": "https://huggingface.co/papers/2609.17488",
+      "title": "SpeakerMem-R1: Speaker-Centered Dual-Track Memory for Multi-Party Dialogue",
+      "url": "https://huggingface.co/papers/2609.26780",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments",
-      "url": "https://huggingface.co/papers/2609.19134",
+      "title": "Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable Physical World",
+      "url": "https://huggingface.co/papers/2609.23038",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Rethinking Critic Learning in PPO: Understanding and Mitigating Value Flattening",
-      "url": "https://huggingface.co/papers/2609.18708",
+      "title": "HappyWorld-Bench",
+      "url": "https://huggingface.co/papers/2609.24308",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Confidence Comes from Experience: Experiential Confidence Estimation from Reasoning to Agents",
-      "url": "https://huggingface.co/papers/2609.17708",
+      "title": "The Past Frames the Future: Memory for Autoregressive Video Generation",
+      "url": "https://huggingface.co/papers/2609.28466",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "ProgramDistill: From Interactive Web Apps to Verifiable Reference-Guided SWE Tasks",
-      "url": "https://huggingface.co/papers/2609.18805",
+      "title": "Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
+      "url": "https://huggingface.co/papers/2609.27334",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Agora: Git as Shared Memory for Collective AutoResearch",
-      "url": "https://huggingface.co/papers/2609.18094",
+      "title": "RewardVerse: Rubric-Guided Policy Optimization for Video Reward Modeling",
+      "url": "https://huggingface.co/papers/2609.22947",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "ActionPiece: Rethinking Action Tokenization for Autoregressive Vision-Language-Action Models",
-      "url": "https://huggingface.co/papers/2609.18487",
+      "title": "PACT: From Credit Assignment to Critic Alignment",
+      "url": "https://huggingface.co/papers/2609.26355",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "VC-Attention: Value Smoothing and Softmax Casting for Low-bit Attention",
-      "url": "https://huggingface.co/papers/2609.15810",
+      "title": "Schr\u00f6dinger's Code Repository: Have LLMs Learned SWE-bench or Memorized It?",
+      "url": "https://huggingface.co/papers/2609.27891",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "EvolveTrade: Experience-Driven Policy Refinement for Self-Evolving LLM Trading Agents",
-      "url": "https://huggingface.co/papers/2609.17632",
+      "title": "GeoPair: Geometry-Preserving Cross-Layer Factorization for Training-Free Transformer Compression",
+      "url": "https://huggingface.co/papers/2609.25963",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control",
-      "url": "https://huggingface.co/papers/2609.17909",
+      "title": "PackLab: A Comprehensive Framework for Developing, Training, and Evaluating MLLMs in Robotic Bin Packing",
+      "url": "https://huggingface.co/papers/2609.23784",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "HypoEvolve: Genetic Algorithms Enable Multi-Agent LLMs to Discover Scientific Hypotheses",
-      "url": "https://huggingface.co/papers/2609.15938",
+      "title": "MemBodied: Recurrent Associative Memory for Vision-Language-Action Models",
+      "url": "https://huggingface.co/papers/2609.28256",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "SpectralShift: Effective Context Window Extension of Gated DeltaNet via Spectral Reparameterization",
-      "url": "https://huggingface.co/papers/2609.14320",
+      "title": "Hunyuan-A13B Technical Report",
+      "url": "https://huggingface.co/papers/2609.27284",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "A Zeroth-Order Paradigm for LLM Preference Alignment",
-      "url": "https://huggingface.co/papers/2609.19144",
+      "title": "WhatWorkedBench: Benchmarking Experimental Understanding in AI Agents",
+      "url": "https://huggingface.co/papers/2609.27490",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Gaze as Evidence for Common Grounding: A Cross-Corpus Analysis of MapTask and MUNDEX",
-      "url": "https://huggingface.co/papers/2609.18011",
+      "title": "Capable yet Parsimonious: Extracting and Characterizing Hidden Chain-of-Thought in Frontier Models",
+      "url": "https://huggingface.co/papers/2609.26637",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset",
-      "url": "https://huggingface.co/papers/2609.17189",
+      "title": "Verifiable Hidden Dynamics Play: Generating Agentic RL Environments from Solved Mechanisms",
+      "url": "https://huggingface.co/papers/2609.27321",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "In-Context Robot Learning with VLM Agents",
-      "url": "https://huggingface.co/papers/2609.19138",
+      "title": "All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation",
+      "url": "https://huggingface.co/papers/2609.27901",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "PANORAMA: Panoptic Grounded Captioning via Mask Proposal Selection",
-      "url": "https://huggingface.co/papers/2609.19143",
+      "title": "InternW0: A Foundational Physical World Model for Efficient Real-World Interactions",
+      "url": "https://huggingface.co/papers/2609.27656",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "Flattening Every Memory Peak in Long-Context Mixture-of-Experts Training",
-      "url": "https://huggingface.co/papers/2609.14306",
+      "title": "Self-Organizing Agent Teams Learn to Reason Together",
+      "url": "https://huggingface.co/papers/2609.22682",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "The Other Half of the Memory Wall: Serving 35B MoEs from SSD with Trained Routing Prediction",
-      "url": "https://huggingface.co/papers/2609.18063",
+      "title": "On the Diffusibility of High-Dimensional Latents",
+      "url": "https://huggingface.co/papers/2609.28473",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"
     },
     {
-      "title": "CERA-MoA: Co-Evolving Routing Mechanisms with Continually Learning LLM Agents",
-      "url": "https://huggingface.co/papers/2609.18779",
+      "title": "Six Layers Less: Encoder Pruning for Whisper with Label-Free Recovery",
+      "url": "https://huggingface.co/papers/2609.27980",
       "description": "AI/ML research paper",
       "published_at": "",
       "source": "Hugging Face Papers"

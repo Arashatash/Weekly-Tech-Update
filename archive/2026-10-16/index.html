@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly AI Strategy Briefing — Week 42</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F7F2;
+      --card-bg: #FFFFFF;
+      --card-border: #E8E6DF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B6860;
+      --max-width: 960px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F0F0F;
+        --card-bg: #1A1A1A;
+        --card-border: #2A2A2A;
+        --text-primary: #F0EEE8;
+        --text-secondary: #888680;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .layout-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @media (min-width: 1024px) {
+      .layout-wrapper { flex-direction: row; }
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      background: var(--card-bg);
+      border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.5rem;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        border-bottom: none;
+        flex-shrink: 0;
+      }
+    }
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .sidebar-section + .sidebar-section { margin-top: 1.5rem; }
+    .sidebar-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      padding: 0.55rem 0.6rem;
+      border: 1px dashed var(--card-border);
+      border-radius: 6px;
+      line-height: 1.4;
+    }
+    .current-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .sidebar-cadence {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--card-border);
+      line-height: 1.4;
+    }
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .history-item a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .history-item a:hover {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+    .history-item a.active {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-weight: 600;
+      border-left: 3px solid #185FA5;
+    }
+    .history-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+      opacity: 0.85;
+    }
+    .history-theme { line-height: 1.3; }
+
+    /* --- Main Content --- */
+    .content {
+      flex: 1;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .container { max-width: var(--max-width); margin: 0 auto; }
+
+    header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .week-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) { header h1 { font-size: 2.25rem; } }
+    .context { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* --- TL;DR / How it works --- */
+    .tldr {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tldr-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .tldr-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #0F6E5622;
+      color: #0F6E56;
+    }
+    .tldr-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .tldr-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .tldr-text strong { color: var(--text-primary); }
+    .tldr-subhead {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 1.25rem 0 0.55rem;
+    }
+
+    /* Sources grid (resources we read each week) */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) {
+      .sources-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .sources-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .source-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      padding: 0.55rem 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .source-row:hover {
+      border-color: var(--src-colour, #185FA5);
+      transform: translateY(-1px);
+    }
+    .source-row-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      border-left: 3px solid var(--src-colour, #185FA5);
+      padding-left: 0.5rem;
+      font-size: 0.82rem;
+    }
+    .source-row-role { line-height: 1.35; }
+
+    /* Synthesis flow */
+    .synthesis-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .synthesis-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .synthesis-step-icon {
+      font-weight: 700;
+      color: #0F6E56;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 0.1rem 0.45rem;
+      background: #0F6E5615;
+      border-radius: 4px;
+      align-self: start;
+    }
+    .synthesis-step strong { color: var(--text-primary); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .pipeline {
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: stretch;
+      }
+    }
+    .pipeline-step {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .pipeline-step[data-step="1"] { border-left: 3px solid #185FA5; }
+    .pipeline-step[data-step="2"] { border-left: 3px solid #0F6E56; }
+    .pipeline-step[data-step="3"] { border-left: 3px solid #993C1D; }
+    .pipeline-step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .pipeline-step-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+    .pipeline-step-detail {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .pipeline-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    @media (min-width: 768px) { .pipeline-arrow { display: flex; } }
+
+    .tldr-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .tldr-footer-chip {
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+    }
+    .tldr-goal {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-left: 3px solid #534AB7;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .tldr-goal strong { color: #534AB7; }
+
+    /* --- Pre-launch hero (no briefing yet) --- */
+    .prelaunch {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid #185FA5;
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .prelaunch-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-bottom: 0.6rem;
+    }
+    .prelaunch-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .prelaunch-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 768px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .metric-value { font-size: 1.75rem; font-weight: 700; }
+    .metric-label { font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+    .category { margin-bottom: 2.5rem; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .category-stripe {
+      width: 3px;
+      height: 1.5rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .category-header h2 { font-size: 1.25rem; font-weight: 600; flex: 1; }
+    .item-count { font-size: 0.875rem; color: var(--text-secondary); }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      border-left: 3px solid var(--cat-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      flex: 1;
+    }
+    .item-title:hover { text-decoration: underline; }
+    .signal-dots { display: flex; gap: 3px; flex-shrink: 0; }
+    .signal-dots .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--card-border);
+    }
+    .signal-dots .dot.filled { background: #E24B4A; }
+    .item-card[data-signal="medium"] .signal-dots .dot.filled { background: #EF9F27; }
+    .item-card[data-signal="low"] .signal-dots .dot.filled { background: #888680; }
+    .item-summary {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .item-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .source-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
+    .horizon-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
+    .item-source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .item-source-link:hover { color: var(--cat-colour, #185FA5); }
+    .item-source-arrow { font-weight: 700; }
+
+    .top-signals { margin-bottom: 2.5rem; }
+    .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .signals-list { display: flex; flex-direction: column; gap: 1rem; }
+    .signal-row {
+      display: flex;
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .signal-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .signal-body { flex: 1; min-width: 0; }
+    .signal-headline { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1.1rem; }
+    .signal-detail { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .signal-refs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .signal-refs .ref-link {
+      padding: 0.18rem 0.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+    }
+
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed transparent;
+    }
+    .ref-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+    .ref-link-arrow { font-weight: 700; }
+    .table-ref-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: 0.4rem;
+      border-bottom: 1px dashed transparent;
+    }
+    .table-ref-link:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+
+    /* --- Tables (Commentary & Money) --- */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      background: var(--card-bg);
+      font-weight: 600;
+      color: var(--text-primary);
+      position: sticky;
+      top: 0;
+    }
+    td {
+      background: var(--card-bg);
+      vertical-align: top;
+      color: var(--text-secondary);
+    }
+    .topic-cell { font-weight: 600; color: var(--text-primary); }
+    .implication-cell { font-style: italic; }
+    .grounded-view {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-left: 4px solid var(--text-primary);
+      border-radius: 4px;
+    }
+
+    .urgency-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .leader-voices { margin-bottom: 2.5rem; }
+    .leader-voices h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
+    .leader-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .leader-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .leader-name { font-weight: 600; font-size: 1rem; }
+    .leader-org { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .stance-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .leader-quote {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .leader-implication {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .leader-link {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .leader-link:hover { text-decoration: underline; color: var(--text-primary); }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    footer div { margin-bottom: 0.35rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    footer a:hover { color: var(--text-primary); }
+
+    /* --- Strategic visuals --- */
+    .viz { margin-bottom: 2.5rem; }
+    .viz h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .viz-caption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .horizon-matrix {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .horizon-matrix { grid-template-columns: repeat(3, 1fr); } }
+    .horizon-column {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      border-top: 4px solid var(--col-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .horizon-range {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .horizon-action {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--col-colour, #5F5E5A);
+    }
+    .horizon-count {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .horizon-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-cell {
+      font-size: 0.82rem;
+      line-height: 1.35;
+      padding: 0.5rem 0.6rem;
+      border-left: 3px solid var(--col-colour, #5F5E5A);
+      background: var(--bg);
+      border-radius: 4px;
+    }
+    .horizon-cell-title { font-weight: 600; color: var(--text-primary); }
+    .horizon-cell-meta {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+    .horizon-cell[data-signal="high"] { box-shadow: inset 0 0 0 1px rgba(226, 75, 74, 0.25); }
+    .horizon-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .thesis-map {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .thesis-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    .thesis-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    @media (min-width: 768px) {
+      .thesis-row {
+        grid-template-columns: minmax(180px, 1fr) auto minmax(0, 1.5fr);
+        align-items: center;
+      }
+    }
+    .thesis-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      color: var(--text-primary);
+      padding-left: 0.6rem;
+      border-left: 3px solid #0F6E56;
+    }
+    .thesis-arrow {
+      display: none;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      justify-self: center;
+    }
+    @media (min-width: 768px) { .thesis-arrow { display: inline; } }
+    .thesis-aligned {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .thesis-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .thesis-chip:hover { border-color: var(--chip-colour, #5F5E5A); }
+    .thesis-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--chip-colour, #5F5E5A);
+      flex-shrink: 0;
+    }
+    .thesis-chip[data-ph="true"] {
+      background: #FFF6E6;
+      border-color: #F0C36D;
+    }
+    @media (prefers-color-scheme: dark) {
+      .thesis-chip[data-ph="true"] {
+        background: rgba(240, 195, 109, 0.12);
+        border-color: rgba(240, 195, 109, 0.45);
+      }
+    }
+    .thesis-chip-label { color: var(--text-primary); }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .sidebar { display: none; }
+      .metrics { break-inside: avoid; }
+      .item-card { break-inside: avoid; }
+      .horizon-matrix, .thesis-map { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-title">Weekly AI Strategy</div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">This week</div>
+        
+        <ul class="history-list">
+          <li class="history-item">
+            <a href="../../index.html" class="">
+              <div class="history-date">
+                2026-10-16<span class="current-pill">Live</span>
+              </div>
+              <div class="history-theme">Capital bets $1T on the AI buildout while safety becomes a procurement spec — and the model layer splits in two.</div>
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Archive</div>
+        
+        <ul class="history-list">
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-23/index.html" class="">
+              <div class="history-date">2026-10-23</div>
+              <div class="history-theme">AI&#39;s cost of capital gets real — even as the operator layer quietly ships the agent, healthcare, and robotics primitives that define the next cycle.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-09/index.html" class="">
+              <div class="history-date">2026-10-09</div>
+              <div class="history-theme">The agent-as-worker era arrives — but the money is in measuring, routing, and aligning them.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-02/index.html" class="">
+              <div class="history-date">2026-10-02</div>
+              <div class="history-theme">The agent control plane commoditizes while value migrates to security, identity, and vertical frontier deals.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-25/index.html" class="">
+              <div class="history-date">2026-09-25</div>
+              <div class="history-theme">Agents are compounding faster than the grid, the permits, and the safety pacts that support them.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-17/index.html" class="">
+              <div class="history-date">2026-09-17</div>
+              <div class="history-theme">Frontier CEOs preach the brakes while capital slams the accelerator.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-10/index.html" class="">
+              <div class="history-date">2026-09-10</div>
+              <div class="history-theme">Compute, power and trust are the three binding constraints now shaping every AI bet.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-03/index.html" class="">
+              <div class="history-date">2026-09-03</div>
+              <div class="history-theme">Astra ships, capital compresses: agentic frontier capability meets a bifurcated AI market where power, evals, and trust are the new moats.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-28/index.html" class="">
+              <div class="history-date">2026-08-28</div>
+              <div class="history-theme">The AI market pivots from acceleration to positioning — Nvidia buys the open-source distribution layer while operators concede timelines were too ambitious.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-20/index.html" class="">
+              <div class="history-date">2026-08-20</div>
+              <div class="history-theme">The AI stack grows up: capital and product both move from raw capability to trust, evals, and workflow embedding.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-13/index.html" class="">
+              <div class="history-date">2026-08-13</div>
+              <div class="history-theme">Token economics eat the AI thesis: capital rotates from &#39;buy the smartest model&#39; to &#39;own the inference, the harness, and the channel.&#39;</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-07/index.html" class="">
+              <div class="history-date">2026-08-07</div>
+              <div class="history-theme">Inference economics, agent safety, and open-weights parity converge to reset AI moats.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-30/index.html" class="">
+              <div class="history-date">2026-07-30</div>
+              <div class="history-theme">Capex accelerates, capability outruns containment, and functional AGI reprices services-as-software.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-23/index.html" class="">
+              <div class="history-date">2026-07-23</div>
+              <div class="history-theme">The AI compute-and-agent stack decouples: hyperscalers diversify silicon, agents move deeper into workflows, and off-balance-sheet debt reveals the true cost of the buildout.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-16/index.html" class="">
+              <div class="history-date">2026-07-16</div>
+              <div class="history-theme">Capital and code converge on the same conclusion: AI&#39;s next trillion is agents that ship revenue, not models that ship demos.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-09/index.html" class="">
+              <div class="history-date">2026-07-09</div>
+              <div class="history-theme">Services eats software as GPT-5.6, Muse Spark, and a wave of autopilot Product Hunt launches complete the handoff from &#39;ship the model&#39; to &#39;ship the outcome.&#39;</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-02/index.html" class="">
+              <div class="history-date">2026-07-02</div>
+              <div class="history-theme">Frontier labs go vertical — in silicon and in Washington — while capital rotates from &#39;AI-tagged&#39; hype to services-as-software and agent infrastructure.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-18/index.html" class="">
+              <div class="history-date">2026-06-18</div>
+              <div class="history-theme">AI stops being a category and becomes infrastructure: inference, power, and public-market stock are the new control points.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-11/index.html" class="">
+              <div class="history-date">2026-06-11</div>
+              <div class="history-theme">The Age of Agents Meets the Bill: Services-as-software thesis hardens just as token costs, multi-agent safety, and infrastructure economics force a reckoning.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-04/index.html" class="">
+              <div class="history-date">2026-06-04</div>
+              <div class="history-theme">The AI race repriced itself around capital, electricity, and outcomes — not models.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-05-27/index.html" class="">
+              <div class="history-date">2026-05-27</div>
+              <div class="history-theme">The model became a commodity; the orchestration, services, and operating models built on top became the prize.</div>
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+
+      <div class="sidebar-cadence">
+        New briefing every Thursday 22:00 UTC (Friday 8am AEST). The current week's edition rotates to Archive when the next one publishes.
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="container">
+        <header>
+          
+          <div class="week-label">WEEK 42 · Oct 12 – Oct 18, 2026</div>
+          <h1>Capital bets $1T on the AI buildout while safety becomes a procurement spec — and the model layer splits in two.</h1>
+          <p class="context">Three threads converged this week. First, capital is pricing the AI buildout as an earnings-cycle megatrend: a16z&#39;s State of Markets puts hyperscaler capex at ~$780B in 2026 and over $1T from 2027, with supply still constrained through 2028. Second, the model layer is fragmenting into (a) frontier open weights at scale (Meta&#39;s 816B Muse Spark Open running on Mac Studio) and (b) typed, deterministic &#39;decision models&#39; (TypeSafe/Jev, $870M Series A at $7.5B). Third, safety went from a talking point to a procurement feature — Anthropic embedded independent evaluators with no publication veto, while Nvidia and OpenAI publicly disagreed on how much risk is tolerable. The combination forces operators and investors to pick lanes: pay up for scale, bet on new primitives, or sell the picks and shovels.</p>
+          <div class="meta-row">
+            <span>21 items</span>
+            <span>10 high signal</span>
+            <span>Generated Oct 16, 2026 00:15 UTC</span>
+          </div>
+          
+        </header>
+
+        <section class="tldr" aria-label="How this briefing is built">
+          <div class="tldr-head">
+            <span class="tldr-pill">TL;DR</span>
+            <span class="tldr-title">What this is &amp; how it's built</span>
+          </div>
+          <p class="tldr-text">
+            A weekly <strong>AI strategy briefing</strong> — not a news digest — for operators and investors.
+            Every Thursday it pulls from <strong>7 frontier sources</strong>, hands the raw stories to
+            <strong>Claude Opus + web search</strong>, and ships a structured report covering
+            <strong>capital theses, what's being built, and opportunities now / mid / long</strong>.
+          </p>
+
+          <div class="tldr-subhead">Resources we read each week</div>
+          <div class="sources-grid">
+            <a class="source-row" href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">TechCrunch</span>
+              <span class="source-row-role">AI deals, launches, regulatory news</span>
+            </a>
+            <a class="source-row" href="https://a16z.com/news-content/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">a16z</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://sequoiacap.com/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">Sequoia</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://news.ycombinator.com/front" target="_blank" rel="noopener" style="--src-colour: #993C1D">
+              <span class="source-row-name">Y Combinator</span>
+              <span class="source-row-role">Founder &amp; HN front-page pulse</span>
+            </a>
+            <a class="source-row" href="https://www.technologyreview.com/" target="_blank" rel="noopener" style="--src-colour: #534AB7">
+              <span class="source-row-name">MIT Tech Review</span>
+              <span class="source-row-role">Research-to-product context</span>
+            </a>
+            <a class="source-row" href="https://www.producthunt.com/" target="_blank" rel="noopener" style="--src-colour: #854F0B">
+              <span class="source-row-name">Product Hunt</span>
+              <span class="source-row-role">What's shipping right now</span>
+            </a>
+            <a class="source-row" href="https://huggingface.co/papers" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">HF Papers</span>
+              <span class="source-row-role">Frontier ML research</span>
+            </a>
+          </div>
+
+          <div class="tldr-subhead">How we synthesise them</div>
+          <div class="synthesis-flow">
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">A · INPUT</span>
+              <span>Each Thursday, scrape <strong>up to ~140 articles</strong> from the 7 sources (last 7 days) into one corpus of raw titles, summaries, and URLs.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">B · ANALYSE</span>
+              <span><strong>Claude Opus + web search</strong> filters out non-AI noise, validates URLs, and writes the briefing: capital theses first, then aligns Product Hunt launches to those theses, pulls leader voices via web search, and groups opportunities by horizon.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">C · AUDIT</span>
+              <span>An automated audit checks <strong>https URLs, AI-relevance, schema, horizons, source whitelist, PH thesis alignment</strong>. If anything critical fails, the briefing is re-generated with the audit feedback before it ever publishes.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">D · OUTPUT</span>
+              <span>Render to <strong>HTML + Markdown + JSON</strong>, archive the JSON, and deploy to GitHub Pages.</span>
+            </div>
+          </div>
+
+          <div class="tldr-subhead">The 3-step pipeline</div>
+          <div class="pipeline">
+            <div class="pipeline-step" data-step="1">
+              <span class="pipeline-step-num">Step 1 · Scan</span>
+              <span class="pipeline-step-label">7 sources, AI-only</span>
+              <span class="pipeline-step-detail">TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="2">
+              <span class="pipeline-step-num">Step 2 · Analyse</span>
+              <span class="pipeline-step-label">Claude Opus + web search</span>
+              <span class="pipeline-step-detail">Filter noise · validate URLs · align PH to theses · pull leader voices.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="3">
+              <span class="pipeline-step-num">Step 3 · Brief</span>
+              <span class="pipeline-step-label">5 lenses + signals</span>
+              <span class="pipeline-step-detail">Capital theses · what's being built · opp now / mid / long · top signals · leader voices · follow the money.</span>
+            </div>
+          </div>
+
+          <div class="tldr-footer">
+            <span class="tldr-footer-chip">Cadence: weekly · Thu 22:00 UTC</span>
+            <span class="tldr-footer-chip">Audit-gated output</span>
+            <span class="tldr-footer-chip">~15–25 items / week</span>
+            <span class="tldr-footer-chip">Every claim has a clickable source</span>
+            <span class="tldr-footer-chip"><a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Open source ↗</a></span>
+          </div>
+
+          <div class="tldr-goal">
+            <strong>Goal:</strong> a 5-minute read that tells an AI operator or investor where capital is moving, what's shipping, and which doors are opening — clearly, simply, and with sources you can click on every line.
+          </div>
+        </section>
+
+        
+
+        
+        <div class="metrics">
+          <div class="metric-card">
+            <div class="metric-value">21</div>
+            <div class="metric-label">Items scanned</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">10</div>
+            <div class="metric-label">High signal items</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">7</div>
+            <div class="metric-label">Sources monitored</div>
+          </div>
+        </div>
+
+        
+        
+        <section class="category" data-category="capital_theses">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#0F6E56"></div>
+            <h2>Capital &amp; Theses</h2>
+            <span class="item-count">5 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-typesafe-ai/" class="item-title" target="_blank" rel="noopener">Typed, Machine-Native Models as a New AI Primitive</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z led an $870M Series A into TypeSafe AI at a $7.5B valuation three weeks after its Jev model left stealth, arguing that typed, calibrated, deterministic AI outputs are a distinct infrastructure layer from probabilistic LLMs. Capital implication: the next moat is not a bigger chat model but models that software can consume directly, re-opening the application layer for engineers who were waiting for structured, injection-safe outputs.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">infra</span>
+                
+                <span class="tag">a16z</span>
+                
+                <span class="tag">series-a</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-typesafe-ai/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" class="item-title" target="_blank" rel="noopener">The $1 Trillion AI Buildout Is Still Supply-Constrained</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z&#39;s State of Markets puts the five largest hyperscalers at ~$780B of capex in 2026, heading past $1T in 2027, with demand still outstripping supply through 2028 and tech contributing roughly 76% of S&amp;P 500 earnings growth. Capital implication: this is an earnings-driven cycle, not a multiple cycle; smart money is piling into picks-and-shovels (chips, power, cooling, construction) rather than paying up for application multiples.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">capex</span>
+                
+                <span class="tag">hyperscalers</span>
+                
+                <span class="tag">macro</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/why-ai-agents-can-beat-the-incumbents/" class="item-title" target="_blank" rel="noopener">Agents Beat Incumbents at the Workflow Layer</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z is publicly arguing that AI-agent companies can leapfrog SaaS incumbents because they attack the whole workflow instead of a UI, while David George &amp; Jack Altman frame autonomy as the next $25T opportunity. Capital implication: investors are willing to underwrite agent-native startups at SaaS-busting valuations if they can show measurable workflow completion; incumbent SaaS now has to prove its revenue growth, not just margin.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">saas-disruption</span>
+                
+                <span class="tag">workflow</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/why-ai-agents-can-beat-the-incumbents/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-title" target="_blank" rel="noopener">Ambient AI Devices Replace the App Layer</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Amazon&#39;s Panos Panay used TechCrunch Disrupt to pitch an ambient, sensor-driven computing future where AI anticipates needs rather than waiting for app taps, launching Bee wearables (Frontier bracelet and Eclipse) as the opening wedge. Capital implication: capital is moving into AI-native hardware form factors (wearables, in-car agents, smart home) that bypass the iOS/Android app economy entirely — a direct threat to app-store rents and ad-funded consumer software.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">ambient-ai</span>
+                
+                <span class="tag">hardware</span>
+                
+                <span class="tag">consumer</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-title" target="_blank" rel="noopener">Independent Oversight as a Frontier-Lab Moat</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Anthropic embedded six METR researchers with employee-level access and gave up the right to block their publications, following a run of AI-agent incidents disclosed weekly since late August. Capital implication: &#39;auditable safety&#39; is becoming a procurement differentiator for enterprise AI; capital is quietly flowing to evals, red-teaming, and oversight infrastructure as the next regulated layer of the stack.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">safety</span>
+                
+                <span class="tag">governance</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+        <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
+          <h2>Thesis Map — where capital connects to what's shipping</h2>
+          <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
+          <div class="thesis-map">
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Typed, Machine-Native Models as a New AI Primitive</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://alphasignal.ai/news/krea-launches-krea-3-to-edit-images-in-8-seconds-for-0-06" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Replace GPT Image 2 / Nano Banana in production creative pipelines with Krea 3</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">The $1 Trillion AI Buildout Is Still Supply-Constrained</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Local-first agentic coding for Apple-silicon shops</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Agents Beat Incumbents at the Workflow Layer</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://www.krea.ai/krea-3" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Krea 3 — frontier image editing in &lt;8s at 2K for $0.06</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Bluesky&#39;s Attie — social vibe-coding to build apps, games and sites</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Ambient AI Devices Replace the App Layer</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Ambient AI wearables ecosystem (apps, privacy, enterprise)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">The physical AI stack: power, cooling, memory as the new venture asset class</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Independent Oversight as a Frontier-Lab Moat</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Anthropic embeds six METR evaluators with employee-level access and no publication veto</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Enterprise eval &amp; attestation tooling for frontier models</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Independent eval nonprofits as de facto AI regulators</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        
+        
+        
+        <section class="category" data-category="building">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#185FA5"></div>
+            <h2>What&#39;s Being Built</h2>
+            <span class="item-count">5 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/" class="item-title" target="_blank" rel="noopener">Meta ships Muse Spark Open, an 816B-parameter open-weight model that runs on two Mac Studios</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Meta released Muse Spark Open (816B total / 42B active, 1M-token context, natively multimodal) and partnered with Apple to make it run locally across two M5 Ultra Mac Studios via MLX. Strategic implication: Meta reclaims the US open-weight crown from Qwen/Kimi/GLM while Apple finally gets a frontier-scale proof point for its silicon, re-pricing on-device inference as a credible deployment target for coding and agentic workloads.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">open-weight</span>
+                
+                <span class="tag">apple-silicon</span>
+                
+                <span class="tag">frontier-model</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-title" target="_blank" rel="noopener">Anthropic embeds six METR evaluators with employee-level access and no publication veto</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Anthropic gave METR hardware, office space, and internal tools roughly on par with its own risk teams, and gave up the right to block METR&#39;s published assessments — part of a new three-tier evaluator framework that also includes SecureBio and Accenture&#39;s Faculty unit. Strategic implication: the industry is operationalising the White House Accord commitments; expect procurement RFPs from regulated buyers to start requiring third-party eval attestations within two quarters.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">safety</span>
+                
+                <span class="tag">evals</span>
+                
+                <span class="tag">anthropic</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/volvo-makes-a-bigger-bet-on-nvidia/" class="item-title" target="_blank" rel="noopener">Volvo doubles down on Nvidia for hands-free automated driving across its full lineup</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Volvo is extending its decade-long Nvidia partnership beyond battery EVs to power hands-free automated driving across more of its fleet. Strategic implication: Nvidia Drive is becoming the default reference stack for legacy OEMs that don&#39;t want to build Tesla-style vertical autonomy — a quiet lock-in that reinforces Nvidia&#39;s trillion-dollar AI-infra thesis beyond the data center.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">autonomy</span>
+                
+                <span class="tag">nvidia</span>
+                
+                <span class="tag">automotive</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/volvo-makes-a-bigger-bet-on-nvidia/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.krea.ai/krea-3" class="item-title" target="_blank" rel="noopener">Krea 3 — frontier image editing in &lt;8s at 2K for $0.06</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Agents Beat Incumbents at the Workflow Layer: Krea 3 ships a trainable image-editing foundation model that is roughly 11x faster and 3.7x cheaper than GPT Image 2, scoring 4.81/5 on Alibaba&#39;s CPI-Bench and adding LoRA fine-tuning for brand-consistent output. It operationalises the thesis for creative workflows (e-commerce restaging, ad pipelines, film) that previously used GPT/Nano Banana as a slow, costly dependency — a classic workflow-native wedge against incumbents.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">image-model</span>
+                
+                <span class="tag">creative</span>
+                
+                <span class="tag">api</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Agents Beat Incumbents at the Workflow Layer</span>
+                
+              </div>
+              
+              <a href="https://www.krea.ai/krea-3" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/" class="item-title" target="_blank" rel="noopener">Bluesky&#39;s Attie — social vibe-coding to build apps, games and sites</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Agents Beat Incumbents at the Workflow Layer: Bluesky expanded its AI-powered Attie platform so anyone on the network can generate interactive sites, quizzes and games that plug straight into Bluesky&#39;s social graph. It demonstrates how an agent-native builder can leapfrog traditional CMS/no-code incumbents by collapsing distribution and creation into one surface — the exact pattern a16z is underwriting.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">vibe-coding</span>
+                
+                <span class="tag">social</span>
+                
+                <span class="tag">no-code</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Agents Beat Incumbents at the Workflow Layer</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
+          <h2>Opportunity Horizon Matrix</h2>
+          <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
+          <div class="horizon-matrix">
+            
+            <div class="horizon-column" style="--col-colour: #993C1D">
+              <div class="horizon-head">
+                <span class="horizon-range">0–6 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Act now</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Enterprise eval &amp; attestation tooling for frontier models</div>
+                  
+                  <div class="horizon-cell-meta">evals · safety</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Replace GPT Image 2 / Nano Banana in production creative pipelines with Krea 3</div>
+                  
+                  <div class="horizon-cell-meta">creative-ops · cost-arbitrage</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Buy dormant AI-training data from winding-down startups</div>
+                  
+                  <div class="horizon-cell-meta">data-market · wind-down</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Local-first agentic coding for Apple-silicon shops</div>
+                  
+                  <div class="horizon-cell-meta">on-device · coding-agents</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="horizon-column" style="--col-colour: #854F0B">
+              <div class="horizon-head">
+                <span class="horizon-range">6–18 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Position</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Ambient AI wearables ecosystem (apps, privacy, enterprise)</div>
+                  
+                  <div class="horizon-cell-meta">wearables · ambient-ai</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Multi-agent in-car runtime for OEMs</div>
+                  
+                  <div class="horizon-cell-meta">automotive · multi-agent</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Decision-model category expands beyond TypeSafe/Jev</div>
+                  
+                  <div class="horizon-cell-meta">decision-models · category-creation</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Independent eval nonprofits as de facto AI regulators</div>
+                  
+                  <div class="horizon-cell-meta">governance · insurance</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="horizon-column" style="--col-colour: #534AB7">
+              <div class="horizon-head">
+                <span class="horizon-range">18+ mo</span>
+                <span class="horizon-count">3 items</span>
+              </div>
+              <div class="horizon-action">Place bets</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Post-app operating systems built around ambient agents</div>
+                  
+                  <div class="horizon-cell-meta">os · ambient</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">The physical AI stack: power, cooling, memory as the new venture asset class</div>
+                  
+                  <div class="horizon-cell-meta">energy · hardware</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Open-weight frontier models reshape sovereign AI stacks</div>
+                  
+                  <div class="horizon-cell-meta">open-weight · sovereign-ai</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+          </div>
+        </section>
+        
+        
+        
+        <section class="category" data-category="opp_now">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#993C1D"></div>
+            <h2>Opportunities Now</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-title" target="_blank" rel="noopener">Enterprise eval &amp; attestation tooling for frontier models</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">With Anthropic formalising a three-tier evaluator stack (METR/SecureBio/Faculty) and AI-agent incidents being disclosed weekly, there is a 0-6 month window for startups selling continuous evals, red-team-as-a-service, and audit workflows into Fortune 500 procurement teams. Who could capture: Patronus, Haize, Robust Intelligence, and new entrants with ex-METR/Anthropic founders. What has to be true: at least one more public agent-incident this quarter plus one regulated-industry RFP that cites third-party eval requirements. When: contracting cycle Q4-Q1.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">evals</span>
+                
+                <span class="tag">safety</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://alphasignal.ai/news/krea-launches-krea-3-to-edit-images-in-8-seconds-for-0-06" class="item-title" target="_blank" rel="noopener">Replace GPT Image 2 / Nano Banana in production creative pipelines with Krea 3</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Typed, Machine-Native Models as a New AI Primitive: Krea 3 ships region-aware, bounding-box edits at 2K in under 8 seconds for $0.06, with LoRA fine-tuning for brand consistency — a drop-in replacement for e-commerce, ad-tech and marketplace stacks still paying ~$0.22 per edit to GPT Image 2. Who could capture: Shopify/Amazon seller tool vendors, programmatic ad platforms, in-house creative ops. What has to be true: Krea API uptime holds through Q4 holiday load. When: can switch this quarter.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">creative-ops</span>
+                
+                <span class="tag">cost-arbitrage</span>
+                
+                <span class="tag">api</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Typed, Machine-Native Models as a New AI Primitive</span>
+                
+              </div>
+              
+              <a href="https://alphasignal.ai/news/krea-launches-krea-3-to-edit-images-in-8-seconds-for-0-06" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models/" class="item-title" target="_blank" rel="noopener">Buy dormant AI-training data from winding-down startups</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">A spot market has opened for digital archives (code bases, user interactions) from dead startups — one founder netted ~$25K on an abandoned crypto startup&#39;s data. Who could capture: brokers/marketplaces that aggregate assignment-grade datasets for frontier labs, plus wind-down specialists who can structure clean IP transfers. What has to be true: labs continue to pay for scarce proprietary data as public web gets saturated. When: 0-6 months before legal/consent risk tightens.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">data-market</span>
+                
+                <span class="tag">wind-down</span>
+                
+                <span class="tag">training</span>
+                
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://research.meta.ai/blog/muse-spark-open" class="item-title" target="_blank" rel="noopener">Local-first agentic coding for Apple-silicon shops</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates The $1 Trillion AI Buildout Is Still Supply-Constrained: Muse Spark Open now runs on two M5 Ultra Mac Studios via MLX, so dev-tool startups can offer regulated enterprises (law, defense, health) a true air-gapped coding agent instead of waiting in the hyperscaler GPU queue. Who could capture: Cursor/Zed/Continue-style IDE forks, boutique MLX-ops consultancies. What has to be true: Mac Studio supply holds and MLX perf matches claimed benchmarks. When: pilots this quarter.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Y Combinator</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">on-device</span>
+                
+                <span class="tag">coding-agents</span>
+                
+                <span class="tag">mlx</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The $1 Trillion AI Buildout Is Still Supply-Constrained</span>
+                
+              </div>
+              
+              <a href="https://research.meta.ai/blog/muse-spark-open" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Y Combinator <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+        
+        <section class="category" data-category="opp_mid">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#854F0B"></div>
+            <h2>Opportunities Mid-term</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-title" target="_blank" rel="noopener">Ambient AI wearables ecosystem (apps, privacy, enterprise)</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Amazon&#39;s Bee launch at $75 marks a credible attempt to make always-listening wearables mainstream after Humane/Rabbit failed; the next 6-18 months open a window for enterprise-grade transcription/consent SaaS, HR-safe meeting policies, and lightweight ambient-agent SDKs. Who could capture: Granola/Otter-style note vendors, consent-management startups, and voice-first B2B agents. What has to be true: Bee hits even modest consumer adoption and no breakout privacy scandal. When: 6-12 months.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">wearables</span>
+                
+                <span class="tag">ambient-ai</span>
+                
+                <span class="tag">privacy</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/" class="item-title" target="_blank" rel="noopener">Multi-agent in-car runtime for OEMs</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Rivian plans to let third-party agents (Anthropic/OpenAI/Meta) run in-cabin while keeping safety-critical control local, and Volvo is deepening its Nvidia tie-up. The 6-18 month wedge is a neutral runtime/SDK that lets OEMs host multiple AI agents safely without giving any single lab the dashboard. Who could capture: automotive middleware startups, Nvidia Drive partners, QNX/Android Automotive extenders. What has to be true: at least one more non-Tesla OEM commits publicly. When: by Rivian&#39;s December AI &amp; Autonomy Day and through 2027 model-year RFQs.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">automotive</span>
+                
+                <span class="tag">multi-agent</span>
+                
+                <span class="tag">runtime</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-typesafe-ai/" class="item-title" target="_blank" rel="noopener">Decision-model category expands beyond TypeSafe/Jev</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">If a16z is right that typed, machine-native decision models are a new primitive, 6-18 months out we should see competing System-1-style models (open and closed), vertical decision models for underwriting/fraud/clinical triage, and tooling (schema registries, calibration monitoring). Who could capture: founders with ML+compiler backgrounds, open-source teams forking the pattern. What has to be true: Jev&#39;s early adoption claims hold under independent benchmarks. When: 9-15 months.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">a16z</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">decision-models</span>
+                
+                <span class="tag">category-creation</span>
+                
+                <span class="tag">infra</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-typesafe-ai/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-title" target="_blank" rel="noopener">Independent eval nonprofits as de facto AI regulators</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Embedded evaluators with no publication veto look a lot like soft regulators. Over 6-18 months, expect METR/SecureBio-style arrangements to spread to OpenAI, Google and Meta, and for insurers/large buyers to start indexing coverage and pricing to their public reports. Who could capture: eval nonprofits scaling to for-profit arms, big-four audit practices, and cyber-insurance underwriters bundling AI coverage. What has to be true: at least one more lab signs a similar deal and one insurer publicly references eval reports. When: 2027.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">governance</span>
+                
+                <span class="tag">insurance</span>
+                
+                <span class="tag">evals</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+        
+        <section class="category" data-category="opp_long">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#534AB7"></div>
+            <h2>Opportunities Long-term</h2>
+            <span class="item-count">3 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-title" target="_blank" rel="noopener">Post-app operating systems built around ambient agents</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">If Panay&#39;s ambient-first thesis plays out and app-store rents compress, 18+ months out there&#39;s room for a genuinely new OS layer where intents (not apps) are the atomic unit — potentially spun out of Amazon/Alexa, Meta, or a well-funded startup with hardware ambitions. Who could capture: ex-Humane/Rabbit survivors with better form factors, Meta&#39;s wearables org, or a new Jony Ive/OpenAI collaboration. What has to be true: one ambient device crosses 10M units with meaningful retention.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">TechCrunch</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">os</span>
+                
+                <span class="tag">ambient</span>
+                
+                <span class="tag">post-app</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" class="item-title" target="_blank" rel="noopener">The physical AI stack: power, cooling, memory as the new venture asset class</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z&#39;s data shows the AI buildout has passed railroads as a share of GDP and that hyperscaler free cash flow has effectively become semiconductor free cash flow. 18+ months out, the biggest venture outcomes may be in power transmission, advanced cooling, HBM alternatives, and nuclear-adjacent infrastructure — asset-heavy categories venture historically avoided. Who could capture: hard-tech funds (a16z American Dynamism, Lowercarbon), hyperscaler-aligned project finance. What has to be true: capex forecasts hold through 2028.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">energy</span>
+                
+                <span class="tag">hardware</span>
+                
+                <span class="tag">infra</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks/" class="item-title" target="_blank" rel="noopener">Open-weight frontier models reshape sovereign AI stacks</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">With Meta&#39;s Muse Spark Open, Z.ai&#39;s GLM-5.3, Kimi K3 and Qwen all pushing frontier capability into open weights — and Anthropic flagging GLM-5.3 as a cyberattack risk — governments will have to pick between banning, licensing, or embracing them. 18+ months out this reshapes national AI strategies, export controls, and defense procurement. Who could capture: sovereign cloud operators, defense primes with hosted-open-weight offerings, and compliance tooling for export-controlled models.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">open-weight</span>
+                
+                <span class="tag">sovereign-ai</span>
+                
+                <span class="tag">policy</span>
+                
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+
+        
+        <section class="commentary-synthesis">
+          <h2>Commentary Synthesis: Investors vs Operators</h2>
+          <p class="grounded-view">This week crystallised an AI market that is simultaneously the most capital-intensive buildout in US history and the most contested on safety. On the money side, a16z&#39;s State of Markets puts hyperscaler capex at roughly $780B in 2026 and over $1T from 2027, with tech contributing about 76% of S&amp;P 500 earnings growth — supporting their claim this is an earnings cycle, not a multiple cycle, and that supply will stay tight through 2028. On the model side, Meta&#39;s 816B-parameter Muse Spark Open re-opens the US open-weight race and now runs on two Apple M5 Ultra Mac Studios, while Anthropic voluntarily handed METR employee-level access with no publication veto. Underneath, a16z&#39;s $870M Series A into TypeSafe at a $7.5B valuation signals a quiet pivot from &#39;bigger chat models&#39; toward typed, machine-native primitives that software can consume directly. The honest read: capability is still outrunning deployment (a16z&#39;s own data shows 69% of S&amp;P 500 companies have live AI pilots but only 2% track a success metric), safety incidents are now weekly, and the near-term alpha is in operators who ship narrow workflow wins (Krea 3, Bee, in-car agents) rather than those who speculate on AGI timelines.</p>
+          <div class="table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Investor View</th>
+                  <th>Operator View</th>
+                  <th>Practical Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="topic-cell">AI safety and incidents</td>
+                  <td>
+                    a16z frames safety as a procurement feature and backs oversight-friendly labs; the firm&#39;s partners emphasise AI&#39;s revenue upside as &#39;unbounded&#39; and treat current risk as manageable.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Jensen Huang says he would halt chip supply to unsafe AI developers (after a conversation) and that society should accept zero cybersecurity incidents, while Sam Altman says the world &#39;should accept some bad things happening&#39; for AI&#39;s benefits — a visible split between the compute provider and the model provider.
+                    
+                    <a class="table-ref-link" href="https://fortune.com/2026/10/14/nvidia-ceo-huang-says-society-shouldnt-tolerate-ai-cyber-incidents-says-ai-doomers-ought-to-stop-working-on-the-technology/" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">Buyers should expect procurement to bifurcate: regulated enterprises will favour labs with embedded evaluators (Anthropic model), while consumer and dev-tool buyers will keep moving to whoever ships fastest. Pricing in independent eval attestations into vendor contracts is a near-term operator action.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Where the next moat is</td>
+                  <td>
+                    a16z&#39;s TypeSafe bet argues the next primitive is typed, deterministic model output, not a bigger LLM — essentially a new infrastructure layer for software-consumed AI.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/announcement/investing-in-typesafe-ai/" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Meta&#39;s Alexandr Wang is doubling down on scale (816B parameters, 1M context, runs on Mac Studio), framing frontier-scale open weights as the moat.
+                    
+                    <a class="table-ref-link" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">Operators should hedge: use open frontier weights for creative/agent tasks where scale wins, but adopt typed decision models for high-volume classification/routing where latency, cost, and reliability dominate. Both patterns will coexist for 18+ months.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">The post-smartphone interface</td>
+                  <td>
+                    a16z and other growth investors are underwriting consumer agents, robotics and autonomy as the &#39;next $25 trillion&#39; — i.e., value accrues to new form factors and agent-first UX, not to app stores.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/podcast/david-george-jack-altman-on-ai-autonomy-and-the-next-25-trillion/" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Amazon&#39;s Panos Panay pitches ambient AI devices that bypass apps entirely, launching Bee wearables as the first wedge; Rivian wants third-party agents in-cabin while keeping safety-critical control local.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">Software operators dependent on app-store distribution should start building agent-callable interfaces (MCP-style) now, before ambient OSes and in-car runtimes become real distribution channels. Hardware startups should expect capital to favour form factors that can host multiple third-party agents.</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+
+        
+        <section class="follow-the-money">
+          <h2>Follow the Money</h2>
+          <div class="table-wrapper">
+            <table class="money-table">
+              <thead>
+                <tr>
+                  <th>Trend Type</th>
+                  <th>Observation</th>
+                  <th>Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    a16z led an $870M Series A into TypeSafe AI at a $7.5B post-money valuation just 24 days after its $40M seed, with Sequoia and DCVC co-investing and Martin Casado joining the board.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/announcement/investing-in-typesafe-ai/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Growth capital is now willing to underwrite an entirely new &#39;decision-model&#39; category at frontier-lab prices before independent benchmarks exist. Expect at least two copycat rounds in the next 6-9 months and renewed appetite for narrowly-scoped model primitives.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    a16z&#39;s State of Markets puts the five largest hyperscalers at ~$780B of capex in 2026, heading past $1T annually from 2027, with demand still outstripping supply through 2028.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/podcast/the-1-trillion-ai-buildout-state-of-markets/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>This is now the dominant pro-cyclical impulse in the US economy. Beneficiaries extend well past Nvidia into memory makers, power, cooling and construction — asset-heavy categories venture used to avoid are now in-bounds for growth funds.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
+                  <td>
+                    Nvidia pledged $250M over five years to UK AI safety research (Oxford, UCL) while Jensen Huang said Nvidia could hypothetically cut off chips to unsafe AI developers.
+                    
+                    <a class="table-ref-link" href="https://coincentral.com/nvidia-nvda-stock-drops-after-jensen-huang-says-he-would-stop-chips-for-unsafe-ai/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Nvidia is pre-positioning itself as the safety-aligned arms dealer, inoculating against regulatory risk while chip stocks led US market declines on the comments. Watch for similar sovereign/academic safety grants from AMD and the hyperscalers.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
+                  <td>
+                    a16z data shows 69% of S&amp;P 500 companies have live AI deployments but only 2% track a success metric over time, while top AI users spend 8x-20x median users.
+                    
+                    <a class="table-ref-link" href="https://finance.biggo.com/news/ab3a795af8647562" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Enterprise AI spend is extremely concentrated and poorly measured. The near-term enterprise opportunity is less &#39;build another copilot&#39; and more &#39;instrument AI ROI&#39; — the vendor that ships default success-metric dashboards into procurement will become the system of record.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    AI labs are now paying real money (one founder netted ~$25K) for the digital archives of dead startups, creating a nascent spot market in training data.
+                    
+                    <a class="table-ref-link" href="https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Expect specialised brokers and wind-down advisors to emerge inside the next two quarters, plus pushback from users whose data is being resold without clear consent — a regulatory flashpoint worth tracking.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
+                  <td>
+                    Amazon leaned on its 2025 Bee acquisition to launch Frontier (bracelet) and Eclipse (phone-attached) AI wearables at $75, alongside the US rollout of Alexa+.
+                    
+                    <a class="table-ref-link" href="https://www.investing.com/news/stock-market-news/amazon-launches-two-new-portable-ai-listening-devices-4952429" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Amazon is spending its devices budget on ambient-AI form factors rather than a phone — a direct bet that the next consumer AI platform is sensor-first. Validates earlier M&amp;A appetite for always-listening startups and signals more roll-ups in the wearables / AI-pin space.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Overheated Signal</span></td>
+                  <td>
+                    TypeSafe went from $40M seed at ~$200M post-money to $870M Series A at $7.5B in 24 days — roughly a 37x step-up, with adoption claims (a trillion tokens in three days; a third of the Fortune 500) that are self-reported.
+                    
+                    <a class="table-ref-link" href="https://pomegra.io/startups/typesafe-ai-raises-870m-series-a-at-7-5b-valuation-2026-10-13" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Classic late-cycle narrative-driven pricing. Even if the thesis is right, LPs and co-investors should expect a wave of pattern-matched rounds whose fundamentals won&#39;t hold; founders in adjacent spaces have a brief window to raise at inflated marks.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    SK Hynix&#39;s Solidigm is seeking US approval to export more chipmaking equipment to its China facility in exchange for building a new NAND factory in America.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/10/15/sk-hynix-bargains-for-chip-equipment-exports-to-its-china-facility-in-return-for-building-a-factory-in-us/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Memory is now the swing variable in the AI buildout and governments are willing to trade export controls for onshoring. HBM and NAND capacity decisions over the next 6 months will shape 2027-2028 training-cluster economics.</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+
+        <section class="leader-voices">
+          <h2>Leader Voices</h2>
+          <div class="leaders-grid">
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Jensen Huang</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Nvidia</div>
+              <p class="leader-quote">"In an October 14 Bloomberg interview in London, Huang said he would hypothetically halt chip supply to a developer of unsafe AI — &#39;but before you do so, you would have a conversation&#39; — while also rejecting bubble fears and insisting AI infrastructure demand will outrun component supply for years. Nvidia simultaneously pledged $250M over five years to UK AI safety research at Oxford and UCL."</p>
+              <p class="leader-implication">Nvidia is positioning itself as the safety-conscious supplier of record, which both inoculates against regulation and tightens its grip on frontier-lab customers. Operators should expect contractual safety clauses to show up in GPU supply deals within 12 months.</p>
+              
+              <a href="https://www.business-standard.com/technology/tech-news/would-halt-chip-supply-to-buyers-who-develop-unsafe-ai-says-nvidia-ceo-126101500180_1.html" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Sam Altman</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">OpenAI</div>
+              <p class="leader-quote">"In an early-October Politico Decoded podcast, Altman said &#39;the world should accept some bad things happening for the benefits of this technology,&#39; arguing against overly restrictive AI access even as OpenAI&#39;s lobbyists back new federal safety requirements. He also said in Fortune that an OpenAI IPO in 2026 would be &#39;an ill-advised moment&#39; given safety concerns."</p>
+              <p class="leader-implication">Altman is publicly re-anchoring OpenAI as a &#39;democratise access&#39; lab in explicit contrast to Anthropic&#39;s slowdown stance, which widens the strategic daylight between the two labs and gives enterprise buyers a cleaner choice on safety posture.</p>
+              
+              <a href="https://fortune.com/2026/10/05/sam-altman-ai-risks-bad-things-benefits-trump-voluntary-safety-pact-openai-regulation/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Panos Panay</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Amazon</div>
+              <p class="leader-quote">"On the TechCrunch Disrupt stage October 15, Panay said &#39;I&#39;m not a proponent that says one form factor is going to replace another … I think there&#39;s an intelligence layer that connects it all,&#39; launching Bee&#39;s Frontier and Eclipse wearables at $75 as Amazon&#39;s first bet that ambient AI, not apps, is the future of personal computing."</p>
+              <p class="leader-implication">Amazon is signalling that it will spend its device budget on ambient form factors rather than compete with iPhone/Android head-on. Software companies dependent on app-store distribution should start building for intent-level agent APIs now.</p>
+              
+              <a href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Alexandr Wang</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Meta</div>
+              <p class="leader-quote">"Announcing Muse Spark Open on X, Wang called it &#39;the most capable US open-weight model to date&#39; with &#39;816B total params, 42B active, 1M-token context, natively multimodal … built for coding and agentic work.&#39; On the Apple partnership he told Axios, &#39;We&#39;re excited for mommy and daddy to be playing nice again.&#39;"</p>
+              <p class="leader-implication">Meta is re-asserting US leadership in open weights against GLM/Kimi/Qwen and simultaneously giving Apple a frontier-scale proof point for its silicon. Expect a wave of MLX-native tooling and renewed enterprise interest in Apple-silicon inference clusters.</p>
+              
+              <a href="https://x.com/alexandr_wang/status/2110778736434184611" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">David George</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">a16z</div>
+              <p class="leader-quote">"In the September-30 State of Markets briefing (promoted this week), George&#39;s team argued that tech buildout has &#39;passed railroads as a percentage of GDP&#39; and that hyperscaler capex is heading past $1T annually from 2027, framing AI as an earnings story rather than a multiple-expansion story and predicting the physical AI stack could be &#39;20x higher&#39; over the next decade."</p>
+              <p class="leader-implication">a16z&#39;s growth team is signalling to LPs that the next decade of returns is in the physical AI stack (chips, power, construction, cooling), not pure software. Expect fund formation and secondary flows to tilt further toward asset-heavy categories.</p>
+              
+              <a href="https://finance.biggo.com/news/ab3a795af8647562" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">RJ Scaringe</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Rivian</div>
+              <p class="leader-quote">"At TechCrunch Disrupt, Scaringe said future Rivians could run third-party AI agents from labs like Anthropic — &#39;that&#39;s where it becomes magical&#39; — but drew a hard line: &#39;You don&#39;t want agents determining, hey, it&#39;s time to stop the vehicle, or it&#39;s time to steer the vehicle.&#39; More details are promised at Rivian&#39;s December AI &amp; Autonomy Day."</p>
+              <p class="leader-implication">Rivian is pitching an open, multi-agent in-car runtime in contrast to Tesla&#39;s Grok-only approach. This creates a new middleware opportunity for safe agent sandboxing in vehicles and may become a reference architecture for other OEMs stuck between Apple CarPlay and Android Automotive.</p>
+              
+              <a href="https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Anthropic (official)</div>
+                </div>
+                <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
+              </div>
+              <div class="leader-org">Anthropic</div>
+              <p class="leader-quote">"In its October 15 blog post embedding six METR evaluators with employee-level access, Anthropic wrote: &#39;We want to be publicly accountable for the decisions we&#39;re making. We aim to close the gap between what evaluators understand about a frontier AI company&#39;s systems and what the company itself understands.&#39; METR can publish without Anthropic&#39;s approval, subject only to narrow redactions."</p>
+              <p class="leader-implication">Anthropic is operationalising the White House Accord commitments and setting a template that peers will be pressured to match. Procurement teams at regulated buyers should start asking vendors for evidence of comparable third-party eval arrangements.</p>
+              
+              <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        <section class="top-signals">
+          <h2>Top Signals This Week</h2>
+          <div class="signals-list">
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">1</div>
+              <div class="signal-body">
+                <div class="signal-headline">Anthropic hands METR employee-level access with no publication veto — safety becomes a procurement spec</div>
+                <div class="signal-detail">This is the first time a frontier lab has voluntarily surrendered the right to block an outside evaluator&#39;s publications. It sets a template that enterprise buyers in regulated industries will start demanding from every lab — turning third-party evals into a de facto compliance requirement within 2-4 quarters.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://lufkindailynews.com/news_reuters/business/anthropic-grants-ai-evaluator-metr-employee-level-access-to-its-models/article_11be4097-b39c-56b7-8742-2b47ab3a3c4f.html" target="_blank" rel="noopener">Anthropic three-tier evaluator framework (Reuters) <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://cellcog.ai/blog/anthropic-metr-embedded-evaluators/" target="_blank" rel="noopener">Analysis of the arrangement <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">2</div>
+              <div class="signal-body">
+                <div class="signal-headline">Meta&#39;s 816B-parameter Muse Spark Open runs on two Mac Studios — US reclaims the open-weight frontier</div>
+                <div class="signal-detail">Meta is now the credible US answer to Qwen/Kimi/GLM in open weights, and the Apple partnership makes on-device frontier inference a real deployment target. Dev-tool and regulated-enterprise buyers can start planning air-gapped agentic coding workloads this quarter.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/" target="_blank" rel="noopener">TechCrunch coverage <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://x.com/alexandr_wang/status/2110778736434184611" target="_blank" rel="noopener">Alexandr Wang on X <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#5F5E5A">3</div>
+              <div class="signal-body">
+                <div class="signal-headline">a16z puts $870M into TypeSafe at $7.5B — typed decision models as a new primitive</div>
+                <div class="signal-detail">The round is 37x the seed valuation three weeks earlier and marks a16z&#39;s biggest category-creation bet of 2026. If the thesis is right, every software company should be evaluating decision-model replacements for classification/routing workloads; if it&#39;s wrong, this is a canonical late-cycle narrative mispricing to watch.</div>
+                <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://a16z.com/announcement/investing-in-typesafe-ai/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://www.wsgr.com/en/insights/firm-advises-typesafe-ai-on-870m-series-a-led-by-a16z-at-7-5b-valuation.html" target="_blank" rel="noopener">Wilson Sonsini deal confirmation <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://pomegra.io/startups/typesafe-ai-raises-870m-series-a-at-7-5b-valuation-2026-10-13" target="_blank" rel="noopener">Valuation step-up analysis <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#EF9F27">4</div>
+              <div class="signal-body">
+                <div class="signal-headline">Amazon launches $75 Bee wearables as the opening salvo in the post-app ambient-computing era</div>
+                <div class="signal-detail">Panay&#39;s framing — plus Rivian putting third-party agents in-cabin — points to a 2027-2028 world where distribution happens through intents and sensors, not app icons. Software vendors tied to app-store distribution should start exposing MCP-style agent interfaces now.</div>
+                <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://www.investing.com/news/stock-market-news/amazon-launches-two-new-portable-ai-listening-devices-4952429" target="_blank" rel="noopener">Reuters/Investing.com on Bee devices <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/" target="_blank" rel="noopener">Rivian third-party agents <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#5F5E5A">5</div>
+              <div class="signal-body">
+                <div class="signal-headline">Jensen Huang says he&#39;d cut off chips to unsafe AI developers; Nvidia stock drops 3%</div>
+                <div class="signal-detail">The comment, paired with a $250M UK safety pledge, is both a market-moving event and a shift in Nvidia&#39;s public posture. For buyers, expect contractual safety clauses in GPU supply deals; for investors, expect more labs to pre-emptively align with Nvidia&#39;s safety posture to protect compute access.</div>
+                <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://fortune.com/2026/10/14/nvidia-ceo-huang-says-society-shouldnt-tolerate-ai-cyber-incidents-says-ai-doomers-ought-to-stop-working-on-the-technology/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://www.business-standard.com/technology/tech-news/would-halt-chip-supply-to-buyers-who-develop-unsafe-ai-says-nvidia-ceo-126101500180_1.html" target="_blank" rel="noopener">Business Standard interview coverage <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        <footer>
+          <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
+          <div>Generated by <a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener">Weekly Tech Update</a> · Oct 16, 2026 00:15 UTC</div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

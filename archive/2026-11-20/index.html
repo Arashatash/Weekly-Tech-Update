@@ -1,0 +1,2775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly AI Strategy Briefing — Week 47</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F7F2;
+      --card-bg: #FFFFFF;
+      --card-border: #E8E6DF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B6860;
+      --max-width: 960px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F0F0F;
+        --card-bg: #1A1A1A;
+        --card-border: #2A2A2A;
+        --text-primary: #F0EEE8;
+        --text-secondary: #888680;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .layout-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @media (min-width: 1024px) {
+      .layout-wrapper { flex-direction: row; }
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      background: var(--card-bg);
+      border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.5rem;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        border-bottom: none;
+        flex-shrink: 0;
+      }
+    }
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .sidebar-section + .sidebar-section { margin-top: 1.5rem; }
+    .sidebar-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      padding: 0.55rem 0.6rem;
+      border: 1px dashed var(--card-border);
+      border-radius: 6px;
+      line-height: 1.4;
+    }
+    .current-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .sidebar-cadence {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--card-border);
+      line-height: 1.4;
+    }
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .history-item a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .history-item a:hover {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+    .history-item a.active {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-weight: 600;
+      border-left: 3px solid #185FA5;
+    }
+    .history-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+      opacity: 0.85;
+    }
+    .history-theme { line-height: 1.3; }
+
+    /* --- Main Content --- */
+    .content {
+      flex: 1;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .container { max-width: var(--max-width); margin: 0 auto; }
+
+    header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .week-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) { header h1 { font-size: 2.25rem; } }
+    .context { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* --- TL;DR / How it works --- */
+    .tldr {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .tldr-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .tldr-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #0F6E5622;
+      color: #0F6E56;
+    }
+    .tldr-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .tldr-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .tldr-text strong { color: var(--text-primary); }
+    .tldr-subhead {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin: 1.25rem 0 0.55rem;
+    }
+
+    /* Sources grid (resources we read each week) */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) {
+      .sources-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .sources-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .source-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: baseline;
+      padding: 0.55rem 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .source-row:hover {
+      border-color: var(--src-colour, #185FA5);
+      transform: translateY(-1px);
+    }
+    .source-row-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      border-left: 3px solid var(--src-colour, #185FA5);
+      padding-left: 0.5rem;
+      font-size: 0.82rem;
+    }
+    .source-row-role { line-height: 1.35; }
+
+    /* Synthesis flow */
+    .synthesis-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .synthesis-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .synthesis-step-icon {
+      font-weight: 700;
+      color: #0F6E56;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 0.1rem 0.45rem;
+      background: #0F6E5615;
+      border-radius: 4px;
+      align-self: start;
+    }
+    .synthesis-step strong { color: var(--text-primary); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .pipeline {
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: stretch;
+      }
+    }
+    .pipeline-step {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .pipeline-step[data-step="1"] { border-left: 3px solid #185FA5; }
+    .pipeline-step[data-step="2"] { border-left: 3px solid #0F6E56; }
+    .pipeline-step[data-step="3"] { border-left: 3px solid #993C1D; }
+    .pipeline-step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .pipeline-step-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+    .pipeline-step-detail {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .pipeline-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    @media (min-width: 768px) { .pipeline-arrow { display: flex; } }
+
+    .tldr-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .tldr-footer-chip {
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+    }
+    .tldr-goal {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-left: 3px solid #534AB7;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .tldr-goal strong { color: #534AB7; }
+
+    /* --- Pre-launch hero (no briefing yet) --- */
+    .prelaunch {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid #185FA5;
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .prelaunch-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #185FA522;
+      color: #185FA5;
+      margin-bottom: 0.6rem;
+    }
+    .prelaunch-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .prelaunch-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 768px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .metric-value { font-size: 1.75rem; font-weight: 700; }
+    .metric-label { font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+    .category { margin-bottom: 2.5rem; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .category-stripe {
+      width: 3px;
+      height: 1.5rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .category-header h2 { font-size: 1.25rem; font-weight: 600; flex: 1; }
+    .item-count { font-size: 0.875rem; color: var(--text-secondary); }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      border-left: 3px solid var(--cat-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      flex: 1;
+    }
+    .item-title:hover { text-decoration: underline; }
+    .signal-dots { display: flex; gap: 3px; flex-shrink: 0; }
+    .signal-dots .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--card-border);
+    }
+    .signal-dots .dot.filled { background: #E24B4A; }
+    .item-card[data-signal="medium"] .signal-dots .dot.filled { background: #EF9F27; }
+    .item-card[data-signal="low"] .signal-dots .dot.filled { background: #888680; }
+    .item-summary {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .item-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .source-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
+    .horizon-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--card-border);
+      color: var(--text-secondary);
+    }
+    .item-source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .item-source-link:hover { color: var(--cat-colour, #185FA5); }
+    .item-source-arrow { font-weight: 700; }
+
+    .top-signals { margin-bottom: 2.5rem; }
+    .top-signals h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .signals-list { display: flex; flex-direction: column; gap: 1rem; }
+    .signal-row {
+      display: flex;
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .signal-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .signal-body { flex: 1; min-width: 0; }
+    .signal-headline { font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; font-size: 1.1rem; }
+    .signal-detail { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .signal-refs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .signal-refs .ref-link {
+      padding: 0.18rem 0.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+    }
+
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed transparent;
+    }
+    .ref-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+    .ref-link-arrow { font-weight: 700; }
+    .table-ref-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-top: 0.4rem;
+      border-bottom: 1px dashed transparent;
+    }
+    .table-ref-link:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+
+    /* --- Tables (Commentary & Money) --- */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      background: var(--card-bg);
+      font-weight: 600;
+      color: var(--text-primary);
+      position: sticky;
+      top: 0;
+    }
+    td {
+      background: var(--card-bg);
+      vertical-align: top;
+      color: var(--text-secondary);
+    }
+    .topic-cell { font-weight: 600; color: var(--text-primary); }
+    .implication-cell { font-style: italic; }
+    .grounded-view {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-left: 4px solid var(--text-primary);
+      border-radius: 4px;
+    }
+
+    .urgency-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .leader-voices { margin-bottom: 2.5rem; }
+    .leader-voices h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
+    .leader-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .leader-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .leader-name { font-weight: 600; font-size: 1rem; }
+    .leader-org { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .stance-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .leader-quote {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .leader-implication {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .leader-link {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .leader-link:hover { text-decoration: underline; color: var(--text-primary); }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    footer div { margin-bottom: 0.35rem; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    footer a:hover { color: var(--text-primary); }
+
+    /* --- Strategic visuals --- */
+    .viz { margin-bottom: 2.5rem; }
+    .viz h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .viz-caption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .horizon-matrix {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .horizon-matrix { grid-template-columns: repeat(3, 1fr); } }
+    .horizon-column {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      border-top: 4px solid var(--col-colour, #5F5E5A);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .horizon-range {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .horizon-action {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--col-colour, #5F5E5A);
+    }
+    .horizon-count {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .horizon-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .horizon-cell {
+      font-size: 0.82rem;
+      line-height: 1.35;
+      padding: 0.5rem 0.6rem;
+      border-left: 3px solid var(--col-colour, #5F5E5A);
+      background: var(--bg);
+      border-radius: 4px;
+    }
+    .horizon-cell-title { font-weight: 600; color: var(--text-primary); }
+    .horizon-cell-meta {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+    .horizon-cell[data-signal="high"] { box-shadow: inset 0 0 0 1px rgba(226, 75, 74, 0.25); }
+    .horizon-empty {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .thesis-map {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .thesis-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    .thesis-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    @media (min-width: 768px) {
+      .thesis-row {
+        grid-template-columns: minmax(180px, 1fr) auto minmax(0, 1.5fr);
+        align-items: center;
+      }
+    }
+    .thesis-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      color: var(--text-primary);
+      padding-left: 0.6rem;
+      border-left: 3px solid #0F6E56;
+    }
+    .thesis-arrow {
+      display: none;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      justify-self: center;
+    }
+    @media (min-width: 768px) { .thesis-arrow { display: inline; } }
+    .thesis-aligned {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .thesis-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .thesis-chip:hover { border-color: var(--chip-colour, #5F5E5A); }
+    .thesis-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--chip-colour, #5F5E5A);
+      flex-shrink: 0;
+    }
+    .thesis-chip[data-ph="true"] {
+      background: #FFF6E6;
+      border-color: #F0C36D;
+    }
+    @media (prefers-color-scheme: dark) {
+      .thesis-chip[data-ph="true"] {
+        background: rgba(240, 195, 109, 0.12);
+        border-color: rgba(240, 195, 109, 0.45);
+      }
+    }
+    .thesis-chip-label { color: var(--text-primary); }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .sidebar { display: none; }
+      .metrics { break-inside: avoid; }
+      .item-card { break-inside: avoid; }
+      .horizon-matrix, .thesis-map { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-title">Weekly AI Strategy</div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">This week</div>
+        
+        <ul class="history-list">
+          <li class="history-item">
+            <a href="../../index.html" class="">
+              <div class="history-date">
+                2026-11-20<span class="current-pill">Live</span>
+              </div>
+              <div class="history-theme">Anthropic&#39;s record IPO and the agent OS war mark the week AI stopped being a capability demo and became a distribution fight.</div>
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Archive</div>
+        
+        <ul class="history-list">
+          
+          <li class="history-item">
+            <a href="../../archive/2026-11-27/index.html" class="">
+              <div class="history-date">2026-11-27</div>
+              <div class="history-theme">Anthropic&#39;s $1.76T debut and Nvidia&#39;s governance crisis force a repricing of AI leadership risk.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-11-06/index.html" class="">
+              <div class="history-date">2026-11-06</div>
+              <div class="history-theme">Physical AI and agent-native infrastructure become the two investable surfaces as politics and energy emerge as the binding constraints.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-23/index.html" class="">
+              <div class="history-date">2026-10-23</div>
+              <div class="history-theme">AI&#39;s cost of capital gets real — even as the operator layer quietly ships the agent, healthcare, and robotics primitives that define the next cycle.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-16/index.html" class="">
+              <div class="history-date">2026-10-16</div>
+              <div class="history-theme">Capital bets $1T on the AI buildout while safety becomes a procurement spec — and the model layer splits in two.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-09/index.html" class="">
+              <div class="history-date">2026-10-09</div>
+              <div class="history-theme">The agent-as-worker era arrives — but the money is in measuring, routing, and aligning them.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-10-02/index.html" class="">
+              <div class="history-date">2026-10-02</div>
+              <div class="history-theme">The agent control plane commoditizes while value migrates to security, identity, and vertical frontier deals.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-25/index.html" class="">
+              <div class="history-date">2026-09-25</div>
+              <div class="history-theme">Agents are compounding faster than the grid, the permits, and the safety pacts that support them.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-17/index.html" class="">
+              <div class="history-date">2026-09-17</div>
+              <div class="history-theme">Frontier CEOs preach the brakes while capital slams the accelerator.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-10/index.html" class="">
+              <div class="history-date">2026-09-10</div>
+              <div class="history-theme">Compute, power and trust are the three binding constraints now shaping every AI bet.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-09-03/index.html" class="">
+              <div class="history-date">2026-09-03</div>
+              <div class="history-theme">Astra ships, capital compresses: agentic frontier capability meets a bifurcated AI market where power, evals, and trust are the new moats.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-28/index.html" class="">
+              <div class="history-date">2026-08-28</div>
+              <div class="history-theme">The AI market pivots from acceleration to positioning — Nvidia buys the open-source distribution layer while operators concede timelines were too ambitious.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-20/index.html" class="">
+              <div class="history-date">2026-08-20</div>
+              <div class="history-theme">The AI stack grows up: capital and product both move from raw capability to trust, evals, and workflow embedding.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-13/index.html" class="">
+              <div class="history-date">2026-08-13</div>
+              <div class="history-theme">Token economics eat the AI thesis: capital rotates from &#39;buy the smartest model&#39; to &#39;own the inference, the harness, and the channel.&#39;</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-08-07/index.html" class="">
+              <div class="history-date">2026-08-07</div>
+              <div class="history-theme">Inference economics, agent safety, and open-weights parity converge to reset AI moats.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-30/index.html" class="">
+              <div class="history-date">2026-07-30</div>
+              <div class="history-theme">Capex accelerates, capability outruns containment, and functional AGI reprices services-as-software.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-23/index.html" class="">
+              <div class="history-date">2026-07-23</div>
+              <div class="history-theme">The AI compute-and-agent stack decouples: hyperscalers diversify silicon, agents move deeper into workflows, and off-balance-sheet debt reveals the true cost of the buildout.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-16/index.html" class="">
+              <div class="history-date">2026-07-16</div>
+              <div class="history-theme">Capital and code converge on the same conclusion: AI&#39;s next trillion is agents that ship revenue, not models that ship demos.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-09/index.html" class="">
+              <div class="history-date">2026-07-09</div>
+              <div class="history-theme">Services eats software as GPT-5.6, Muse Spark, and a wave of autopilot Product Hunt launches complete the handoff from &#39;ship the model&#39; to &#39;ship the outcome.&#39;</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-07-02/index.html" class="">
+              <div class="history-date">2026-07-02</div>
+              <div class="history-theme">Frontier labs go vertical — in silicon and in Washington — while capital rotates from &#39;AI-tagged&#39; hype to services-as-software and agent infrastructure.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-18/index.html" class="">
+              <div class="history-date">2026-06-18</div>
+              <div class="history-theme">AI stops being a category and becomes infrastructure: inference, power, and public-market stock are the new control points.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-11/index.html" class="">
+              <div class="history-date">2026-06-11</div>
+              <div class="history-theme">The Age of Agents Meets the Bill: Services-as-software thesis hardens just as token costs, multi-agent safety, and infrastructure economics force a reckoning.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-06-04/index.html" class="">
+              <div class="history-date">2026-06-04</div>
+              <div class="history-theme">The AI race repriced itself around capital, electricity, and outcomes — not models.</div>
+            </a>
+          </li>
+          
+          <li class="history-item">
+            <a href="../../archive/2026-05-27/index.html" class="">
+              <div class="history-date">2026-05-27</div>
+              <div class="history-theme">The model became a commodity; the orchestration, services, and operating models built on top became the prize.</div>
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+
+      <div class="sidebar-cadence">
+        New briefing every Thursday 22:00 UTC (Friday 8am AEST). The current week's edition rotates to Archive when the next one publishes.
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="container">
+        <header>
+          
+          <div class="week-label">WEEK 47 · Nov 16 – Nov 22, 2026</div>
+          <h1>Anthropic&#39;s record IPO and the agent OS war mark the week AI stopped being a capability demo and became a distribution fight.</h1>
+          <p class="context">Anthropic&#39;s record IPO, Google&#39;s and Apple&#39;s moves to put agents on the desktop, and a16z&#39;s codification of a &#39;business-to-agent&#39; economy together signal that the AI market has moved from capability demos to distribution wars. Capital is bifurcating into frontier-lab CapEx and inference-arbitrage plays; agents are being normalized as an OS feature rather than a product category; and governance is becoming a procurement gate on the back of the Meta Muse privacy leak and California&#39;s OpenAI suit. The week&#39;s dominant question for operators and investors is no longer &#39;can the model do this?&#39; but &#39;who owns the agent surface, who pays for the compute, and who audits the outputs?&#39;</p>
+          <div class="meta-row">
+            <span>23 items</span>
+            <span>11 high signal</span>
+            <span>Generated Nov 20, 2026 02:50 UTC</span>
+          </div>
+          
+        </header>
+
+        <section class="tldr" aria-label="How this briefing is built">
+          <div class="tldr-head">
+            <span class="tldr-pill">TL;DR</span>
+            <span class="tldr-title">What this is &amp; how it's built</span>
+          </div>
+          <p class="tldr-text">
+            A weekly <strong>AI strategy briefing</strong> — not a news digest — for operators and investors.
+            Every Thursday it pulls from <strong>7 frontier sources</strong>, hands the raw stories to
+            <strong>Claude Opus + web search</strong>, and ships a structured report covering
+            <strong>capital theses, what's being built, and opportunities now / mid / long</strong>.
+          </p>
+
+          <div class="tldr-subhead">Resources we read each week</div>
+          <div class="sources-grid">
+            <a class="source-row" href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">TechCrunch</span>
+              <span class="source-row-role">AI deals, launches, regulatory news</span>
+            </a>
+            <a class="source-row" href="https://a16z.com/news-content/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">a16z</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://sequoiacap.com/" target="_blank" rel="noopener" style="--src-colour: #0F6E56">
+              <span class="source-row-name">Sequoia</span>
+              <span class="source-row-role">Investor essays &amp; theses</span>
+            </a>
+            <a class="source-row" href="https://news.ycombinator.com/front" target="_blank" rel="noopener" style="--src-colour: #993C1D">
+              <span class="source-row-name">Y Combinator</span>
+              <span class="source-row-role">Founder &amp; HN front-page pulse</span>
+            </a>
+            <a class="source-row" href="https://www.technologyreview.com/" target="_blank" rel="noopener" style="--src-colour: #534AB7">
+              <span class="source-row-name">MIT Tech Review</span>
+              <span class="source-row-role">Research-to-product context</span>
+            </a>
+            <a class="source-row" href="https://www.producthunt.com/" target="_blank" rel="noopener" style="--src-colour: #854F0B">
+              <span class="source-row-name">Product Hunt</span>
+              <span class="source-row-role">What's shipping right now</span>
+            </a>
+            <a class="source-row" href="https://huggingface.co/papers" target="_blank" rel="noopener" style="--src-colour: #185FA5">
+              <span class="source-row-name">HF Papers</span>
+              <span class="source-row-role">Frontier ML research</span>
+            </a>
+          </div>
+
+          <div class="tldr-subhead">How we synthesise them</div>
+          <div class="synthesis-flow">
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">A · INPUT</span>
+              <span>Each Thursday, scrape <strong>up to ~140 articles</strong> from the 7 sources (last 7 days) into one corpus of raw titles, summaries, and URLs.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">B · ANALYSE</span>
+              <span><strong>Claude Opus + web search</strong> filters out non-AI noise, validates URLs, and writes the briefing: capital theses first, then aligns Product Hunt launches to those theses, pulls leader voices via web search, and groups opportunities by horizon.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">C · AUDIT</span>
+              <span>An automated audit checks <strong>https URLs, AI-relevance, schema, horizons, source whitelist, PH thesis alignment</strong>. If anything critical fails, the briefing is re-generated with the audit feedback before it ever publishes.</span>
+            </div>
+            <div class="synthesis-step">
+              <span class="synthesis-step-icon">D · OUTPUT</span>
+              <span>Render to <strong>HTML + Markdown + JSON</strong>, archive the JSON, and deploy to GitHub Pages.</span>
+            </div>
+          </div>
+
+          <div class="tldr-subhead">The 3-step pipeline</div>
+          <div class="pipeline">
+            <div class="pipeline-step" data-step="1">
+              <span class="pipeline-step-num">Step 1 · Scan</span>
+              <span class="pipeline-step-label">7 sources, AI-only</span>
+              <span class="pipeline-step-detail">TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="2">
+              <span class="pipeline-step-num">Step 2 · Analyse</span>
+              <span class="pipeline-step-label">Claude Opus + web search</span>
+              <span class="pipeline-step-detail">Filter noise · validate URLs · align PH to theses · pull leader voices.</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true">→</div>
+            <div class="pipeline-step" data-step="3">
+              <span class="pipeline-step-num">Step 3 · Brief</span>
+              <span class="pipeline-step-label">5 lenses + signals</span>
+              <span class="pipeline-step-detail">Capital theses · what's being built · opp now / mid / long · top signals · leader voices · follow the money.</span>
+            </div>
+          </div>
+
+          <div class="tldr-footer">
+            <span class="tldr-footer-chip">Cadence: weekly · Thu 22:00 UTC</span>
+            <span class="tldr-footer-chip">Audit-gated output</span>
+            <span class="tldr-footer-chip">~15–25 items / week</span>
+            <span class="tldr-footer-chip">Every claim has a clickable source</span>
+            <span class="tldr-footer-chip"><a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Open source ↗</a></span>
+          </div>
+
+          <div class="tldr-goal">
+            <strong>Goal:</strong> a 5-minute read that tells an AI operator or investor where capital is moving, what's shipping, and which doors are opening — clearly, simply, and with sources you can click on every line.
+          </div>
+        </section>
+
+        
+
+        
+        <div class="metrics">
+          <div class="metric-card">
+            <div class="metric-value">23</div>
+            <div class="metric-label">Items scanned</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">11</div>
+            <div class="metric-label">High signal items</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">7</div>
+            <div class="metric-label">Sources monitored</div>
+          </div>
+        </div>
+
+        
+        
+        <section class="category" data-category="capital_theses">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#0F6E56"></div>
+            <h2>Capital &amp; Theses</h2>
+            <span class="item-count">5 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/" class="item-title" target="_blank" rel="noopener">Anthropic IPO as the AI Public-Market Litmus Test</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Anthropic&#39;s record-breaking IPO priced at $83 (opening near $111, briefly a ~$2T market cap) resets the public-market ceiling for frontier labs and gives every Series D+ AI investor a liquid comparable. For capital allocators the signal is twofold: enterprise-focused, safety-forward narratives will command premium multiples, but founders cashing out ~$280M each will also harden the &#39;founder-realized-gains&#39; lens underwriters use on OpenAI, xAI and Mistral. Expect secondary pricing across the stack to re-rate within 2 weeks.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">ipo</span>
+                
+                <span class="tag">frontier-labs</span>
+                
+                <span class="tag">public-markets</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" class="item-title" target="_blank" rel="noopener">The Agent Takes Over the Desktop</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Within 24 hours Google shipped Gemini computer-use on Mac and Apple was reported to be building its own Mac-controlling agent to rival Claude, OpenAI Dots and Meta Muse. The OS-level agent is now a contested surface, which means infra plays (sandboxing, agent observability, consent/auth), not model layers, are where defensible margin forms. Investors should re-underwrite any &#39;RPA 2.0&#39; thesis against the new reality that platform owners will ship the default agent for free.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">os-platforms</span>
+                
+                <span class="tag">distribution</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" class="item-title" target="_blank" rel="noopener">Cheap Open-Source Models as Enterprise Default</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Fireworks AI used Anthropic&#39;s IPO day to argue enterprises can skip frontier pricing for 80%+ of workloads using open-weight models fine-tuned on their data. The capital implication: a bifurcation forms between frontier CapEx investments (OpenAI/Anthropic/Google) and &#39;inference arbitrage&#39; companies that will keep gross margins fat as token prices collapse. Follow-on rounds in serving infra (vLLM-class, inference-optimized chips, GPU brokerages) will outperform generic app-layer deals.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">TechCrunch</span>
+                
+                
+                <span class="tag">open-source</span>
+                
+                <span class="tag">inference</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" class="item-title" target="_blank" rel="noopener">Business-to-Agent (B2A) Commerce</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z&#39;s Moore sisters codified a &#39;B2A economy&#39; thesis (AI-referred traffic to Shopify rose 8x; AI-driven orders grew ~13x) and the firm is backing concrete bets like Linq and Cosign. Capital is moving to four B2A pockets: agent-model makers, agent-native products, traditional firms re-optimizing for machine buyers, and agent infrastructure. Operators now face a real SEO-equivalent: schema and pricing that agents can parse becomes a growth lever within 2 quarters.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">b2a</span>
+                
+                <span class="tag">commerce</span>
+                
+                <span class="tag">agent-native</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #0F6E56">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-tutor-intelligence/" class="item-title" target="_blank" rel="noopener">Physical AI: Robotics and Biology Come of Age</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">a16z stacked investments in Tutor Intelligence (robotics training) and Boltz (bio foundation models), while Claude solved two open problems in black-hole physics and Osmo built a foundation model for olfaction. The thesis: frontier models are compounding into verticals (robotics, bio, materials, chemistry) where moats are data + physical constraints, not prompts. Expect Q1 2027 rounds to concentrate in &#39;applied-science foundation models&#39; at $1-3B valuations.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #0F6E5626; color: #0F6E56; border: 1px solid #0F6E5640;">a16z</span>
+                
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">bio</span>
+                
+                <span class="tag">science</span>
+                
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-tutor-intelligence/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+        <section class="viz" data-viz="thesis-map" aria-label="Capital thesis map">
+          <h2>Thesis Map — where capital connects to what's shipping</h2>
+          <p class="viz-caption">Each thesis from <strong>Capital &amp; Theses</strong> mapped to the items in this briefing that validate or operationalise it. Highlighted chips are Product Hunt launches.</p>
+          <div class="thesis-map">
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Anthropic IPO as the AI Public-Market Litmus Test</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Secondary liquidity for Anthropic employees and early investors</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Compliance &amp; governance for frontier labs under public-market scrutiny</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">The Agent Takes Over the Desktop</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Google ships Gemini computer-use agent for macOS</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Apple building its own Mac-running AI agent</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Agent observability &amp; kill-switch tooling after the &#39;Y2K-style&#39; outages</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/want-to-see-your-live-ai-usage-on-your-macs-icons-this-clever-new-app-lets-you/" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">IconSwapper — live AI-usage visualization for Mac</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Cheap Open-Source Models as Enterprise Default</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #993C1D">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Inference arbitrage for the newly public Anthropic/OpenAI comps</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/how-bending-spoons-built-a-20-billion-compounder-luca-ferrari/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">The &#39;services as software&#39; endgame for AI-native holding companies</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Business-to-Agent (B2A) Commerce</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/announcement/investing-in-linq/" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Linq — AI-native identity/networking stack (a16z-led)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/can-ai-fix-professional-networking-inside-cosign/" target="_blank" rel="noopener" data-ph="true" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Cosign — AI professional networking (a16z podcast launch)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Agent-first SEO / schema infrastructure (B2A GTM)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/announcement/investing-in-general-translation/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Localization-as-code for the agent web (General Translation)</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+            <div class="thesis-row">
+              <div class="thesis-label">Physical AI: Robotics and Biology Come of Age</div>
+              <div class="thesis-arrow" aria-hidden="true">→</div>
+              <div class="thesis-aligned">
+                
+                
+                <a class="thesis-chip" href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #185FA5">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Osmo&#39;s AI olfaction foundation model</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/announcement/investing-in-boltz/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #854F0B">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Vertical foundation models in regulated science (bio, chem, materials)</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Sensor-model stack for machine olfaction and non-visual modalities</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://huggingface.co/papers/2611.22925" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">World models as the substrate for robotics and simulation</span>
+                </a>
+                
+                
+                
+                <a class="thesis-chip" href="https://a16z.com/podcast/what-iphone-packaging-reveals-about-the-robotics-opportunity/" target="_blank" rel="noopener" data-ph="false" style="--chip-colour: #534AB7">
+                  <span class="thesis-chip-dot"></span>
+                  <span class="thesis-chip-label">Humanoid/industrial robotics unit economics catching up with iPhone-scale manufacturing</span>
+                </a>
+                
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        
+        
+        
+        <section class="category" data-category="building">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#185FA5"></div>
+            <h2>What&#39;s Being Built</h2>
+            <span class="item-count">6 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" class="item-title" target="_blank" rel="noopener">Google ships Gemini computer-use agent for macOS</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates The Agent Takes Over the Desktop: Gemini can now organize files, fill forms and run multi-step Mac workflows, putting Google ahead of Apple&#39;s rumored agent and positioning Gemini as a default consumer agent. Strategic read: Google is willing to subsidize agent compute to collect the richest desktop-behavior corpus in the industry — a direct threat to any startup whose wedge was &#39;ChatGPT, but it uses your apps.&#39;</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">google</span>
+                
+                <span class="tag">macos</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Agent Takes Over the Desktop</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/" class="item-title" target="_blank" rel="noopener">Apple building its own Mac-running AI agent</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates The Agent Takes Over the Desktop: Apple is reportedly building a first-party agent to counter Meta Muse, Claude and OpenAI Dots, meaning the three biggest consumer OSes will all ship native agents within 12 months. For ISVs the window to own &#39;computer-use&#39; as a category is closing; distribution will come from accessibility-API privilege, not model quality.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">TechCrunch</span>
+                
+                
+                <span class="tag">apple</span>
+                
+                <span class="tag">agents</span>
+                
+                <span class="tag">platform-war</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Agent Takes Over the Desktop</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.anthropic.com/research/claude-black-hole-physics" class="item-title" target="_blank" rel="noopener">Claude solves two open problems in black-hole physics</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Anthropic published genuine novel results in theoretical physics generated via Claude, landing on HN&#39;s front page the same day as the IPO. This is concrete evidence for Sequoia&#39;s &#39;long-horizon doer&#39; thesis and for the premium multiple public markets just paid for Anthropic. Expect every frontier lab to race to publish &#39;first machine-produced proof/discovery in X&#39; within Q1.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Y Combinator</span>
+                
+                
+                <span class="tag">frontier-science</span>
+                
+                <span class="tag">anthropic</span>
+                
+                <span class="tag">benchmark</span>
+                
+                
+              </div>
+              
+              <a href="https://www.anthropic.com/research/claude-black-hole-physics" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Y Combinator <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" class="item-title" target="_blank" rel="noopener">Osmo&#39;s AI olfaction foundation model</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Physical AI: Osmo built the first foundation model for smell with ~30 trained human sniffers producing paired chemical/semantic data, claiming parity with human noses. The business unlocks are flavor/fragrance, QA for food and pharma, and medical diagnostics — classic data-moat businesses where a frontier model advantage compounds over years, not months.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">MIT Technology Review</span>
+                
+                
+                <span class="tag">foundation-models</span>
+                
+                <span class="tag">sensors</span>
+                
+                <span class="tag">bio</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI: Robotics and Biology Come of Age</span>
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-linq/" class="item-title" target="_blank" rel="noopener">Linq — AI-native identity/networking stack (a16z-led)</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Business-to-Agent (B2A) Commerce: Linq&#39;s professional-identity graph is being pitched as infrastructure for agents representing people in commerce, hiring and intros — exactly the B2A primitive a16z&#39;s partners mapped. Strategic read: identity + payment rails for agent-to-agent transactions is the next &#39;Stripe moment,&#39; and the winner will be whoever controls the verified-handle layer.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">b2a</span>
+                
+                <span class="tag">identity</span>
+                
+                <span class="tag">a16z</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Business-to-Agent (B2A) Commerce</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-linq/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #185FA5">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/can-ai-fix-professional-networking-inside-cosign/" class="item-title" target="_blank" rel="noopener">Cosign — AI professional networking (a16z podcast launch)</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates Business-to-Agent (B2A) Commerce: Cosign uses agents to broker intros and references on a user&#39;s behalf — a direct instantiation of &#39;agents that shop, plan and gossip.&#39; If it works, LinkedIn&#39;s social graph becomes a commodity input to a thinner agent-first interface, which is the kind of 2nd-order disruption a16z is explicitly funding.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #185FA526; color: #185FA5; border: 1px solid #185FA540;">Product Hunt</span>
+                
+                
+                <span class="tag">b2a</span>
+                
+                <span class="tag">networking</span>
+                
+                <span class="tag">consumer-agent</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Business-to-Agent (B2A) Commerce</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/can-ai-fix-professional-networking-inside-cosign/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        <section class="viz" data-viz="horizon-matrix" aria-label="Opportunity horizon matrix">
+          <h2>Opportunity Horizon Matrix</h2>
+          <p class="viz-caption">How this week's opportunities cluster across action horizons. Use it to decide what to do this quarter vs. position for vs. monitor.</p>
+          <div class="horizon-matrix">
+            
+            <div class="horizon-column" style="--col-colour: #993C1D">
+              <div class="horizon-head">
+                <span class="horizon-range">0–6 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Act now</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Inference arbitrage for the newly public Anthropic/OpenAI comps</div>
+                  
+                  <div class="horizon-cell-meta">inference · enterprise-sales</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Agent observability &amp; kill-switch tooling after the &#39;Y2K-style&#39; outages</div>
+                  
+                  <div class="horizon-cell-meta">observability · agent-safety</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">IconSwapper — live AI-usage visualization for Mac</div>
+                  
+                  <div class="horizon-cell-meta">mac · consumer</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Secondary liquidity for Anthropic employees and early investors</div>
+                  
+                  <div class="horizon-cell-meta">secondary · wealth-mgmt</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="horizon-column" style="--col-colour: #854F0B">
+              <div class="horizon-head">
+                <span class="horizon-range">6–18 mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Position</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Agent-first SEO / schema infrastructure (B2A GTM)</div>
+                  
+                  <div class="horizon-cell-meta">b2a · seo</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="high">
+                  <div class="horizon-cell-title">Compliance &amp; governance for frontier labs under public-market scrutiny</div>
+                  
+                  <div class="horizon-cell-meta">governance · enterprise</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Vertical foundation models in regulated science (bio, chem, materials)</div>
+                  
+                  <div class="horizon-cell-meta">bio · materials</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Localization-as-code for the agent web (General Translation)</div>
+                  
+                  <div class="horizon-cell-meta">devtools · i18n</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="horizon-column" style="--col-colour: #534AB7">
+              <div class="horizon-head">
+                <span class="horizon-range">18+ mo</span>
+                <span class="horizon-count">4 items</span>
+              </div>
+              <div class="horizon-action">Place bets</div>
+              
+              <ul class="horizon-list">
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Sensor-model stack for machine olfaction and non-visual modalities</div>
+                  
+                  <div class="horizon-cell-meta">sensors · foundation-models</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">World models as the substrate for robotics and simulation</div>
+                  
+                  <div class="horizon-cell-meta">world-models · robotics</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">Humanoid/industrial robotics unit economics catching up with iPhone-scale manufacturing</div>
+                  
+                  <div class="horizon-cell-meta">robotics · manufacturing</div>
+                  
+                </li>
+                
+                <li class="horizon-cell" data-signal="medium">
+                  <div class="horizon-cell-title">The &#39;services as software&#39; endgame for AI-native holding companies</div>
+                  
+                  <div class="horizon-cell-meta">rollups · services</div>
+                  
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+          </div>
+        </section>
+        
+        
+        
+        <section class="category" data-category="opp_now">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#993C1D"></div>
+            <h2>Opportunities Now</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" class="item-title" target="_blank" rel="noopener">Inference arbitrage for the newly public Anthropic/OpenAI comps</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Fireworks, Together, Baseten, Modal and niche vertical inference shops. What must be true: Anthropic/OpenAI will not aggressively cut token prices in the next 2 quarters because they must defend IPO/private-round economics — creating a 12-18 month window for open-weight inference specialists to win enterprise RFPs on 60-80% cost reduction. When: close deals this quarter, before frontier labs retaliate with volume pricing.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">inference</span>
+                
+                <span class="tag">enterprise-sales</span>
+                
+                <span class="tag">margin</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Cheap Open-Source Models as Enterprise Default</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/" class="item-title" target="_blank" rel="noopener">Agent observability &amp; kill-switch tooling after the &#39;Y2K-style&#39; outages</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Datadog-class vendors, new startups building eval/replay for agent traces, plus Meta&#39;s Muse privacy breach and recent airline/banking outages turning into enterprise mandates. What must be true: CIOs convert to &#39;no agent in prod without audit log&#39; within 2 quarters. When: ship a usable product in the next 60 days and sell into FS/healthcare — the compliance budget is already sitting there.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">observability</span>
+                
+                <span class="tag">agent-safety</span>
+                
+                <span class="tag">enterprise</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Agent Takes Over the Desktop</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/want-to-see-your-live-ai-usage-on-your-macs-icons-this-clever-new-app-lets-you/" class="item-title" target="_blank" rel="noopener">IconSwapper — live AI-usage visualization for Mac</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Validates The Agent Takes Over the Desktop: IconSwapper turns app icons into live dashboards of AI activity — a tiny but legible signal that users now want visibility into what agents are doing on their machines. Opportunity: this is the consumer-facing wedge of agent observability; a pro version with permission controls could ride the same anxiety that&#39;s driving CIO spend.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">Product Hunt</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">mac</span>
+                
+                <span class="tag">consumer</span>
+                
+                <span class="tag">transparency</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ The Agent Takes Over the Desktop</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/want-to-see-your-live-ai-usage-on-your-macs-icons-this-clever-new-app-lets-you/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Product Hunt <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #993C1D">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/" class="item-title" target="_blank" rel="noopener">Secondary liquidity for Anthropic employees and early investors</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: wealth managers, direct-secondary funds, and family offices who can underwrite employee RSUs during the lockup. What must be true: ANT holds above the IPO price through Q1 while $156B in charitable commitments creates a mechanical sell-pressure story. When: next 90 days — pre-lockup structured products and forward sales are the arbitrage.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #993C1D26; color: #993C1D; border: 1px solid #993C1D40;">TechCrunch</span>
+                
+                <span class="horizon-badge">0-6 mo</span>
+                
+                
+                <span class="tag">secondary</span>
+                
+                <span class="tag">wealth-mgmt</span>
+                
+                <span class="tag">anthropic</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Anthropic IPO as the AI Public-Market Litmus Test</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+        
+        <section class="category" data-category="opp_mid">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#854F0B"></div>
+            <h2>Opportunities Mid-term</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" class="item-title" target="_blank" rel="noopener">Agent-first SEO / schema infrastructure (B2A GTM)</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: a next-gen Yext/Semrush category — companies that make brand catalogs, prices, reviews and APIs legible to agents. What must be true: agent-referred commerce passes ~10% of transaction volume at major retailers (Shopify is already seeing 8x YoY agent traffic). When: 2027 — early movers sign one anchor retailer now, then package as a managed service.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">a16z</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">b2a</span>
+                
+                <span class="tag">seo</span>
+                
+                <span class="tag">commerce</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Business-to-Agent (B2A) Commerce</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="high" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/" class="item-title" target="_blank" rel="noopener">Compliance &amp; governance for frontier labs under public-market scrutiny</a>
+                
+                <div class="signal-dots" data-level="high">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: enterprise GRC vendors that bolt onto Anthropic/OpenAI usage, plus new &#39;AI auditor&#39; firms modeled on SOC2. What must be true: post-Meta Muse data-leak and California OpenAI suit, every F500 will require model/agent audit trails as a procurement gate within 12-18 months. When: build the standard now; monetize through 2027-28 enterprise renewals.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">TechCrunch</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">governance</span>
+                
+                <span class="tag">enterprise</span>
+                
+                <span class="tag">audit</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Anthropic IPO as the AI Public-Market Litmus Test</span>
+                
+              </div>
+              
+              <a href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on TechCrunch <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-boltz/" class="item-title" target="_blank" rel="noopener">Vertical foundation models in regulated science (bio, chem, materials)</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Boltz-class bio labs, Osmo (olfaction), and new entrants in materials/chemistry. What must be true: ongoing a16z/Sequoia validation plus Claude&#39;s physics result convinces LPs to fund $100M+ pre-revenue rounds in science-first AI. When: 6-18 months to a second wave of Series B rounds at $1-3B valuations as early experiments hit publishable results.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">a16z</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">bio</span>
+                
+                <span class="tag">materials</span>
+                
+                <span class="tag">foundation-models</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI: Robotics and Biology Come of Age</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-boltz/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #854F0B">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/announcement/investing-in-general-translation/" class="item-title" target="_blank" rel="noopener">Localization-as-code for the agent web (General Translation)</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: General Translation and similar dev-first i18n stacks that let agents and LLM apps render in 50+ languages at build time. What must be true: agent interfaces proliferate across markets faster than traditional i18n vendors (Lokalise, Phrase) can retrofit. When: 12-18 months — this becomes a line item in every YC agent startup&#39;s stack and a plausible acquisition target.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #854F0B26; color: #854F0B; border: 1px solid #854F0B40;">a16z</span>
+                
+                <span class="horizon-badge">6-18 mo</span>
+                
+                
+                <span class="tag">devtools</span>
+                
+                <span class="tag">i18n</span>
+                
+                <span class="tag">a16z</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Business-to-Agent (B2A) Commerce</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/announcement/investing-in-general-translation/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+        
+        <section class="category" data-category="opp_long">
+          <div class="category-header">
+            <div class="category-stripe" style="background:#534AB7"></div>
+            <h2>Opportunities Long-term</h2>
+            <span class="item-count">4 items</span>
+          </div>
+          <div class="items-grid">
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" class="item-title" target="_blank" rel="noopener">Sensor-model stack for machine olfaction and non-visual modalities</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Osmo-style labs plus hardware OEMs (sensors, wearables, air-quality, food safety). What must be true: smell/taste/haptic foundation models replicate the vision/text trajectory 2020→2023. When: 18-36 months before commercially meaningful products; investors underwriting now are buying optionality on an entirely new sensing stack.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">MIT Technology Review</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">sensors</span>
+                
+                <span class="tag">foundation-models</span>
+                
+                <span class="tag">hardware</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI: Robotics and Biology Come of Age</span>
+                
+              </div>
+              
+              <a href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on MIT Technology Review <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://huggingface.co/papers/2611.22925" class="item-title" target="_blank" rel="noopener">World models as the substrate for robotics and simulation</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: labs shipping Code World Model 2.0, WorldRuler, StrideWorld — interactive world models for controllable generation and RL. What must be true: world models become the default sim environment for humanoid and vehicle training by 2028, displacing pure LiDAR/vision pipelines. When: long horizon — but seed rounds for &#39;world-model-as-a-service&#39; infra are rational today.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">Hugging Face Papers</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">world-models</span>
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">research</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI: Robotics and Biology Come of Age</span>
+                
+              </div>
+              
+              <a href="https://huggingface.co/papers/2611.22925" class="item-source-link" target="_blank" rel="noopener">
+                Read source on Hugging Face Papers <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/what-iphone-packaging-reveals-about-the-robotics-opportunity/" class="item-title" target="_blank" rel="noopener">Humanoid/industrial robotics unit economics catching up with iPhone-scale manufacturing</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Tutor Intelligence and other robot-skills training labs + Chinese/US humanoid OEMs. What must be true: a16z&#39;s &#39;iPhone packaging&#39; thesis — that robotics finally has consumer-scale BOM discipline — holds across 2027-28 demos. When: 18-36 months to meaningful warehouse deployments; LPs backing this now accept 7-10 year holds in exchange for sector-defining ownership.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">robotics</span>
+                
+                <span class="tag">manufacturing</span>
+                
+                <span class="tag">a16z</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Physical AI: Robotics and Biology Come of Age</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/what-iphone-packaging-reveals-about-the-robotics-opportunity/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+            <article class="item-card" data-signal="medium" style="--cat-colour: #534AB7">
+              <div class="item-header">
+                
+                <a href="https://a16z.com/podcast/how-bending-spoons-built-a-20-billion-compounder-luca-ferrari/" class="item-title" target="_blank" rel="noopener">The &#39;services as software&#39; endgame for AI-native holding companies</a>
+                
+                <div class="signal-dots" data-level="medium">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </div>
+              <p class="item-summary">Who captures: Bending Spoons-style compounders and Bezos&#39;s Project Prometheus — holding companies that buy legacy service businesses and rebuild them around agents. What must be true: Sequoia&#39;s &#39;services are the new software&#39; thesis holds, with agent labor costs undercutting human-staffed service P&amp;Ls by 60%+. When: 2028-30, but asset accumulation starts now while valuations of legacy services businesses are compressed.</p>
+              <div class="item-meta">
+                <span class="source-badge" style="background: #534AB726; color: #534AB7; border: 1px solid #534AB740;">a16z</span>
+                
+                <span class="horizon-badge">18+ mo</span>
+                
+                
+                <span class="tag">rollups</span>
+                
+                <span class="tag">services</span>
+                
+                <span class="tag">capital-strategy</span>
+                
+                
+                <span class="tag" title="Validates thesis">↳ Cheap Open-Source Models as Enterprise Default</span>
+                
+              </div>
+              
+              <a href="https://a16z.com/podcast/how-bending-spoons-built-a-20-billion-compounder-luca-ferrari/" class="item-source-link" target="_blank" rel="noopener">
+                Read source on a16z <span class="item-source-arrow">↗</span>
+              </a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        
+
+        
+        
+
+        
+        <section class="commentary-synthesis">
+          <h2>Commentary Synthesis: Investors vs Operators</h2>
+          <p class="grounded-view">The week of November 16, 2026 was an inflection point disguised as a news cycle: Anthropic executed the largest IPO in history on the same day Google and Apple raced to put agents on the desktop, Nvidia replaced its founder-CEO, and a16z/Sequoia codified a &#39;business-to-agent&#39; economy backed by real Shopify traffic data. Three patterns are visible under the hype. First, capital is bifurcating between frontier CapEx (Anthropic/OpenAI/Google) and inference arbitrage (Fireworks and open-weight shops serving enterprise at 60-80% lower cost). Second, agents have moved from chat to OS surfaces, which means the next moat is distribution and permissions, not model quality. Third, governance is becoming a procurement gate — Meta Muse leaked private data, OpenAI faces a California suit, Anthropic ties its IPO story to safety pacing, and CIOs are responding with audit-trail budgets. The realistic 6-12 month expectation is not AGI but a consolidation of defaults: platform agents replace indie copilots for consumers, open-weight models win the long tail of enterprise workloads, and the premium AI multiples compress toward services-adjacent economics rather than pure software.</p>
+          <div class="table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Investor View</th>
+                  <th>Operator View</th>
+                  <th>Practical Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="topic-cell">Pace of AI deployment</td>
+                  <td>
+                    Sequoia partners declared 2026 &#39;the year of agents&#39; with long-horizon &#39;doers&#39; that recover from failure, implying founders should ship fast or be eaten by frontier labs.
+                    
+                    <a class="table-ref-link" href="https://sequoiacap.com/article/ai-ascent-2026" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Dario Amodei used his Nasdaq opening bell speech to pledge Anthropic would pace training and deployment and not bend to business or political pressure, framing safety as the growth strategy.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">Operators should expect a two-speed market: frontier labs will slow-walk the most capable systems while agent startups race to fill mid-capability gaps. Underwriting should assume regulatory catch-up by 2027.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Where the value accrues in the stack</td>
+                  <td>
+                    a16z&#39;s B2A essay argues value moves to agent model makers, agent-native products, traditional firms re-optimizing for agents, and agent infrastructure — in that order.
+                    
+                    <a class="table-ref-link" href="https://www.tokenpost.com/news/business/56646" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Sam Altman at DealBook claimed OpenAI is &#39;the only company with the full AI stack — from custom chips to agents,&#39; betting vertical integration beats specialization.
+                    
+                    <a class="table-ref-link" href="https://thenewstack.io/openai-entire-ai-stack/" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">If Altman is right, pure-play agent infra startups become acquisition targets; if a16z is right, horizontal B2A infra wins. Diversified investors should hedge by funding both but weight infra deals toward teams with distribution.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Frontier model pricing vs. open source</td>
+                  <td>
+                    a16z-backed and open-weight infra investors argue enterprises can mostly skip pricey frontier models for standard workloads.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Anthropic&#39;s IPO prospectus and Amodei&#39;s enterprise-first pivot imply frontier pricing is defensible because customers pay for safety, support, and SLAs — not raw tokens.
+                    
+                    <a class="table-ref-link" href="https://cryptobriefing.com/anthropic-ceo-amodei-ipo-ai-safety/" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">Both can be true for 18 months. The arbitrage is real for cost-sensitive workloads, but regulated industries will still pay the frontier premium. Expect an explicit &#39;two-tier procurement&#39; standard to emerge at F500 CIOs by H2 2027.</td>
+                </tr>
+                
+                <tr>
+                  <td class="topic-cell">Agent autonomy vs. human control</td>
+                  <td>
+                    Sequoia projects &#39;99.9% of cognitive work&#39; will eventually run on machines, framing autonomy as the end state.
+                    
+                    <a class="table-ref-link" href="https://finance.biggo.com/podcast/e24331408f7286d0" target="_blank" rel="noopener">Investor source ↗</a>
+                    
+                  </td>
+                  <td>
+                    Altman called a gradual handover of control to AI &#39;a terrible idea&#39; in a Nov 18 NYT interview, arguing for safeguards even as capabilities grow.
+                    
+                    <a class="table-ref-link" href="https://www.tokenpost.com/news/ai/60982" target="_blank" rel="noopener">Operator source ↗</a>
+                    
+                  </td>
+                  <td class="implication-cell">The mismatch between VC rhetoric and operator caution creates a real market for &#39;human-in-the-loop&#39; tooling — approval queues, policy engines, revocable agent credentials. Build for the operator worldview, not the VC pitch deck.</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+
+        
+        <section class="follow-the-money">
+          <h2>Follow the Money</h2>
+          <div class="table-wrapper">
+            <table class="money-table">
+              <thead>
+                <tr>
+                  <th>Trend Type</th>
+                  <th>Observation</th>
+                  <th>Implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    Anthropic raised ~$81B at $83/share, valuing the company near $2T intraday and making it the largest IPO in history, surpassing SpaceX&#39;s June record.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Public-market appetite for safety-forward frontier labs is intact despite protest and the &#39;MisAnthropic Statement&#39; from 90+ academics. Private AI valuations across the frontier tier should re-rate upward within weeks; expect OpenAI&#39;s next tender to price accordingly.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Capital Flow</span></td>
+                  <td>
+                    Anthropic&#39;s seven founders each realized roughly $280M in the offering, while the Public Benefit Foundation + employee pledges + match could direct up to $156B to charity.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>The &#39;founder realized liquidity&#39; line will become a standard diligence item on every future AI IPO. The $156B charitable overhang creates a mechanical multi-year sell program the market will need to absorb, pressuring ANT&#39;s post-lockup price.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Enterprise Spend</span></td>
+                  <td>
+                    Fireworks AI publicly argued enterprises can skip pricey frontier models for most workloads, undercutting Anthropic/OpenAI pricing by using open-weight models fine-tuned on customer data.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Enterprise AI budgets are splitting into &#39;frontier for differentiation, open-source for scale.&#39; Inference specialists have a 12-18 month window to lock multi-year contracts before frontier labs retaliate with volume pricing tiers.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
+                  <td>
+                    a16z announced new investments in Linq, Boltz, First Person Labs, General Translation, Phaze, and Tutor Intelligence within the same week — a concentrated push into B2A infrastructure, bio, robotics and localization.
+                    
+                    <a class="table-ref-link" href="https://a16z.com/announcement/investing-in-linq/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>a16z is pre-positioning its portfolio as the default stack for the business-to-agent economy its partners just codified. Follow-on rounds in these companies should be oversubscribed by Q1 2027.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    Google and Apple are both pushing OS-level agents onto Mac within the same week, signaling platform owners will subsidize agent compute to collect behavioral data.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Cost of customer acquisition for independent agent apps just jumped. Expect indie agent startups to pivot to specialized verticals (legal, healthcare, finance) where OS-level generalists lack domain trust.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Overheated Signal</span></td>
+                  <td>
+                    MIT Tech Review&#39;s &#39;AI Hype Index&#39; noted AI spreading into every consumer touchpoint while Google&#39;s AI Overviews are costing the company billions in lost ad revenue, and the Hacker News front page carried a critique of ad spending as a &#39;98% slot machine.&#39;
+                    
+                    <a class="table-ref-link" href="https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Ad-driven business models are the first casualty of agent-mediated discovery. Watch Alphabet&#39;s ad-revenue trajectory and Shopify&#39;s agent-referred GMV for the clearest quantitative signal of substitution.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Acquisition Or Bet</span></td>
+                  <td>
+                    Nvidia announced Jensen Huang&#39;s resignation on Nov 12 with CFO Colette Kress as interim CEO; the company&#39;s Hugging Face acquisition remains in motion with HF&#39;s CEO reaffirming open-source commitment.
+                    
+                    <a class="table-ref-link" href="https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>A succession vacuum at the world&#39;s most valuable chipmaker creates optionality for competitors (AMD, Groq, Cerebras) and for sovereign-AI buyers who may push harder on second-sourcing. Short-term NVDA drawdown is also a cost-of-GPU tailwind for inference startups.</td>
+                </tr>
+                
+                <tr>
+                  <td class="trend-cell"><span class="tag">Infra Spend</span></td>
+                  <td>
+                    Sila signed a potentially $1B+ silicon-carbon anode deal with Panasonic, indicating battery/energy-storage CapEx is flowing again as AI data-center power demand becomes visible.
+                    
+                    <a class="table-ref-link" href="https://www.technologyreview.com/2026/11/19/1148922/sila-panasonic-battery-deal/" target="_blank" rel="noopener">Source ↗</a>
+                    
+                  </td>
+                  <td>Energy-adjacent AI infra (batteries, grid firming, siting) is the under-priced extension of the AI CapEx cycle. Investors who &#39;played Nvidia&#39; should now study the Sila/Panasonic structure as a template for picks-and-shovels power deals.</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+
+        <section class="leader-voices">
+          <h2>Leader Voices</h2>
+          <div class="leaders-grid">
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Dario Amodei</div>
+                </div>
+                <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
+              </div>
+              <div class="leader-org">Anthropic</div>
+              <p class="leader-quote">"At Anthropic&#39;s Nasdaq opening bell, Amodei vowed to pace AI training and deployment, to not bend to business or political pressure, and to keep systems under human control — framing safety as the core of Anthropic&#39;s post-IPO identity."</p>
+              <p class="leader-implication">Anthropic is signaling to enterprise buyers and regulators that its public-company accountability reinforces, rather than dilutes, safety commitments. Operators selling into regulated industries should lean into Anthropic as the lower-risk procurement choice.</p>
+              
+              <a href="https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Daniela Amodei</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Anthropic</div>
+              <p class="leader-quote">"Daniela Amodei described Anthropic&#39;s debut as &#39;one stop on the journey&#39; in CNBC remarks, acknowledging real AI risks while calling the promise &#39;incredible.&#39;"</p>
+              <p class="leader-implication">The president framing makes it clear Anthropic intends to use IPO proceeds to accelerate enterprise distribution, not to decelerate research. Watch for aggressive hiring and new verticalized Claude offerings in H1 2027.</p>
+              
+              <a href="https://www.cnbc.com/2026/11/19/anthropic-ipo-ant-live-updates.html" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Sam Altman</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">OpenAI</div>
+              <p class="leader-quote">"At the NYT DealBook Summit, Altman claimed OpenAI is &#39;the only company with the full AI stack — from custom chips to agents,&#39; and in a separate NYT interview called a gradual handover of control to AI &#39;a terrible idea.&#39;"</p>
+              <p class="leader-implication">Altman is pre-positioning OpenAI&#39;s narrative against Anthropic&#39;s enterprise-first pitch by claiming end-to-end vertical integration. Expect OpenAI to accelerate its own chip and agent-platform roadmap to justify a higher valuation at its next private round.</p>
+              
+              <a href="https://thenewstack.io/openai-entire-ai-stack/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Colette Kress</div>
+                </div>
+                <span class="stance-badge" style="background:#5F5E5A22; color:#5F5E5A">Neutral</span>
+              </div>
+              <div class="leader-org">Nvidia (Interim CEO)</div>
+              <p class="leader-quote">"In Nvidia&#39;s Nov 12 announcement Kress said she is committed to building on the foundation Jensen created over 33 years, while the board searches for a permanent successor."</p>
+              <p class="leader-implication">A CFO-as-interim-CEO transition signals financial-discipline continuity but weak product vision at the chipmaker. Competitors (AMD, Groq, custom-silicon teams at OpenAI/Google/Amazon) get a 6-9 month window to compete on roadmap credibility.</p>
+              
+              <a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Olivia Moore &amp; Justine Moore</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Andreessen Horowitz</div>
+              <p class="leader-quote">"In their Nov 11 &#39;Welcome to the B2A Economy&#39; essay the a16z partners argued AI agents are becoming the web&#39;s primary users, citing Shopify data showing AI-referred traffic rose 8x YoY and AI-driven orders rose nearly 13x."</p>
+              <p class="leader-implication">a16z is publicly codifying a thesis it has already started funding (Linq, Cosign, General Translation). Operators should take this as a signal to make their catalogs and APIs machine-legible this quarter, before the first wave of &#39;agent SEO&#39; incumbents locks in position.</p>
+              
+              <a href="https://www.tokenpost.com/news/business/56646" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Sonya Huang</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Sequoia Capital</div>
+              <p class="leader-quote">"At AI Ascent 2026, Huang declared this &#39;the year of agents,&#39; citing models, tools and harnesses finally converging; Sequoia also recently backed Edelbyte as agent-ready data infrastructure."</p>
+              <p class="leader-implication">Sequoia&#39;s capital is concentrating on &#39;long-horizon doer&#39; agents and the data infra they consume. Founders should expect Sequoia to pay up for teams combining agent capability with a defensible data layer, and to pass on thin tooling that a frontier model release could absorb.</p>
+              
+              <a href="https://sequoiacap.com/article/ai-ascent-2026" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Clement Delangue</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Hugging Face</div>
+              <p class="leader-quote">"Following Jensen Huang&#39;s resignation, Delangue reaffirmed Hugging Face&#39;s commitment to open-source AI as Nvidia&#39;s planned acquisition of HF continues."</p>
+              <p class="leader-implication">An open-source commitment post-Nvidia-acquisition is a signal to developers that the HF community will be protected through the transition. Open-weight ecosystem momentum should hold even if the Nvidia deal gets regulatory friction.</p>
+              
+              <a href="https://www.aljazeera.com/news/2026/11/12/why-did-nvidia-ceo-jensen-huang-resign-and-who-is-colette-kress" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+            
+            
+            <article class="leader-card">
+              <div class="leader-header">
+                <div>
+                  <div class="leader-name">Lin Qu (Fireworks AI co-founder)</div>
+                </div>
+                <span class="stance-badge" style="background:#0F6E5622; color:#0F6E56">Bullish</span>
+              </div>
+              <div class="leader-org">Fireworks AI</div>
+              <p class="leader-quote">"On Anthropic&#39;s IPO day, Fireworks&#39; co-founder argued that companies can skip pricey frontier models for most workloads using open-source alternatives, while addressing recent security breaches that cost the company some customer trust."</p>
+              <p class="leader-implication">A coordinated counter-narrative from the open-weight camp on Anthropic&#39;s biggest PR day suggests the inference-arbitrage category feels urgency to establish itself before frontier labs cut prices. Buyers should run RFPs with both tiers now to lock negotiating leverage.</p>
+              
+              <a href="https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/" class="leader-link" target="_blank" rel="noopener">Read source <span class="ref-link-arrow">↗</span></a>
+              
+            </article>
+            
+          </div>
+        </section>
+
+        <section class="top-signals">
+          <h2>Top Signals This Week</h2>
+          <div class="signals-list">
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">1</div>
+              <div class="signal-body">
+                <div class="signal-headline">Anthropic&#39;s record IPO resets the public-market ceiling for AI</div>
+                <div class="signal-detail">At $83/share the deal is the largest IPO in history, opened near $111, and briefly took Anthropic to a ~$2T market cap. Every private AI valuation in the frontier tier now has a liquid comparable; expect OpenAI&#39;s next tender, xAI&#39;s and Mistral&#39;s rounds to re-price upward within 2 weeks. Operators should also expect ANT-paying customers to demand pace-of-deployment commitments that match Amodei&#39;s safety pledge.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/" target="_blank" rel="noopener">Amodei Nasdaq speech pacing commitment <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/" target="_blank" rel="noopener">$156B potential charitable impact <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">2</div>
+              <div class="signal-body">
+                <div class="signal-headline">The agent OS war starts: Google ships Gemini for Mac, Apple reportedly building its own</div>
+                <div class="signal-detail">Within 24 hours two platform owners declared their intent to own the desktop-agent surface. Independent agent startups now face platform-default risk; the defensible plays are vertical/regulated (healthcare, legal, FS) or infrastructure (permissions, audit, observability). Fundraising narratives for generic &#39;computer-use&#39; copilots become materially harder this quarter.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/" target="_blank" rel="noopener">Apple&#39;s rumored Mac agent <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#E24B4A">3</div>
+              <div class="signal-body">
+                <div class="signal-headline">Nvidia&#39;s leadership vacuum: Jensen Huang resigns, CFO takes interim CEO role</div>
+                <div class="signal-detail">Jensen&#39;s abrupt departure amid the spying scandal creates a 6-9 month window for AMD, Groq, Cerebras, and custom-silicon teams at OpenAI/Google/Amazon to challenge Nvidia&#39;s product-roadmap credibility. Sovereign-AI buyers are likely to accelerate second-sourcing. NVDA volatility is also a cost-of-GPU tailwind for inference startups sourcing capacity on the spot market.</div>
+                <span class="urgency-badge" style="background:#E24B4A22; color:#E24B4A">Act now</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener">TechCrunch timeline <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://www.technologyreview.com/2026/11/17/1148679/the-download-jensen-huang-open-source-ai-cognitive-immortality/" target="_blank" rel="noopener">Open-source petition to reinstate Jensen <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#5F5E5A">4</div>
+              <div class="signal-body">
+                <div class="signal-headline">Meta Muse leaked private data — agent governance becomes a procurement gate</div>
+                <div class="signal-detail">Reports that Muse surfaced other users&#39; bank balances, childcare requests and product orders will push every F500 CIO to require audit trails and data-isolation guarantees as a buying criterion. Combined with recent airline/banking outages and California&#39;s OpenAI suit, agent governance tooling has 6-12 months of tailwind.</div>
+                <span class="urgency-badge" style="background:#5F5E5A22; color:#5F5E5A">Stay informed</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/" target="_blank" rel="noopener">Agent-driven outages <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
+            
+            <div class="signal-row">
+              <div class="signal-number" style="background:#EF9F27">5</div>
+              <div class="signal-body">
+                <div class="signal-headline">a16z&#39;s B2A thesis + Claude&#39;s novel physics result validate the &#39;agents as doers&#39; turn</div>
+                <div class="signal-detail">a16z&#39;s Moore essay (Shopify AI-referred traffic 8x YoY, orders 13x) and Claude solving two open black-hole problems anchor the shift from chat to action. Operators should make catalogs/APIs machine-legible now; investors should concentrate on the four B2A pockets (model makers, agent-native products, traditional firms retooling, agent infra) before pricing tightens in Q1 2027.</div>
+                <span class="urgency-badge" style="background:#EF9F2722; color:#EF9F27">Watch closely</span>
+                
+                <div class="signal-refs">
+                  
+                  <a class="ref-link" href="https://www.tokenpost.com/news/business/56646" target="_blank" rel="noopener">Primary source <span class="ref-link-arrow">↗</span></a>
+                  
+                  
+                  <a class="ref-link" href="https://www.anthropic.com/research/claude-black-hole-physics" target="_blank" rel="noopener">Claude black-hole physics <span class="ref-link-arrow">↗</span></a>
+                  
+                  <a class="ref-link" href="https://a16z.com/podcast/the-new-ai-agents-that-shop-plan-and-gossip/" target="_blank" rel="noopener">a16z&#39;s B2A podcast <span class="ref-link-arrow">↗</span></a>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        <footer>
+          <div>Sources: TechCrunch · a16z · Sequoia · Y Combinator · MIT Tech Review · Product Hunt · HF Papers</div>
+          <div>Generated by <a href="https://github.com/Arashatash/Weekly-Tech-Update" target="_blank" rel="noopener">Weekly Tech Update</a> · Nov 20, 2026 02:50 UTC</div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
